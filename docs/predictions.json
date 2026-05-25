@@ -1,0 +1,273 @@
+[
+  {
+    "id": "5pnhA0q8pp",
+    "question": "Will Apple announce Vision Pro 2 (or any new Vision Pro hardware) at WWDC 2026 (June 8-12)?",
+    "marketUrl": "https://manifold.markets/CalibratedGhosts/will-apple-announce-vision-pro-2-or",
+    "pageUrl": "markets/5pnhA0q8pp/",
+    "yesProbability": 0.05,
+    "noProbability": 0.95,
+    "confidence": "high",
+    "reason": "Apple has not announced any new Vision Pro hardware for WWDC 2026, and previous reports indicate a delay until 2027.",
+    "evidence": [
+      "Apple has not announced any new Vision Pro hardware for WWDC 2026.",
+      "Reports indicate that Apple shelved the 2025 refresh, with a high-end successor now eyed for 2027 amid sluggish original Vision Pro sales and excess inventory.",
+      "Bloomberg's Mark Gurman reported that Apple does not plan to launch a second-generation Vision Pro until the end of 2026."
+    ],
+    "sources": [
+      "https://www.macrumors.com/2024/04/29/no-apple-vision-pro-2-before-end-of-2026/",
+      "https://www.macrumors.com/2025/04/08/vision-pro-2-now-in-production/",
+      "https://www.macrumors.com/2026/03/27/the-macrumors-show-wwdc-2026-announced/",
+      "https://www.macrumors.com/roundup/wwdc/",
+      "https://www.macrumors.com/467/",
+      "https://www.apple.com/newsroom/2024/01/apple-vision-pro-available-in-the-us-on-february-2/",
+      "https://www.apple.com/newsroom/topics/apple-vision-pro/",
+      "https://www.apple.com/gr/newsroom/2026/03/apples-worldwide-developers-conference-returns-the-week-of-june-8/"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "yLhI8ZlIZy",
+    "question": "Will the Narrows be hikeable on 2026/05/29?",
+    "marketUrl": "https://manifold.markets/arctangent/will-the-narrows-be-hikeable-on-202",
+    "pageUrl": "markets/yLhI8ZlIZy/",
+    "yesProbability": 0.85,
+    "noProbability": 0.15,
+    "confidence": "high",
+    "reason": "The Narrows is typically accessible in late May, with water levels usually below 150 cfs, and favorable weather conditions expected.",
+    "evidence": [
+      "In May, the Virgin River's flow rate often drops from spring runoff, making The Narrows accessible. ([fsguides.com](https://www.fsguides.com/visiting-zion-in-may?utm_source=openai))",
+      "The National Park Service advises checking current conditions before hiking, as high water and forecasted rainfall can affect trail accessibility. ([nps.gov](https://www.nps.gov/zion/planyourvisit/thenarrows.htm?utm_source=openai))",
+      "The weather forecast for May 29, 2026, in Springdale, UT, predicts sunny conditions with temperatures ranging from 51°F to 77°F, indicating minimal chance of rainfall."
+    ],
+    "sources": [
+      "https://www.nps.gov/zion/planyourvisit/thenarrows.htm",
+      "https://www.nps.gov/zion/learn/news/2026-05-21-memorial-day-weekend.htm",
+      "https://www.fsguides.com/visiting-zion-in-may",
+      "https://www.nps.gov/zion/planyourvisit/virgin-river-narrows-information.htm",
+      "https://home.nps.gov/zion/planyourvisit/narrowsregulations.htm",
+      "https://www.nps.gov/zion/planyourvisit/narrowspermits.htm",
+      "https://www.nps.gov/zion/planyourvisit/rivertrips.htm",
+      "https://home.nps.gov/thingstodo/hike-the-narrows.htm"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "pO05OquEIc",
+    "question": "Will canadian dollars drop below $0.70 usd before June 2026",
+    "marketUrl": "https://manifold.markets/ScottO/will-canadian-dollars-drop-below-07",
+    "pageUrl": "markets/pO05OquEIc/",
+    "yesProbability": 0.05,
+    "noProbability": 0.95,
+    "confidence": "high",
+    "reason": "The Canadian dollar has remained above $0.70 USD, with the lowest recorded rate in 2026 being $0.7170 USD on April 3, 2026.",
+    "evidence": [
+      "The lowest CAD/USD exchange rate in 2026 was $0.7170 USD on April 3, 2026. ([poundsterlinglive.com](https://www.poundsterlinglive.com/history/CAD-USD-2026?utm_source=openai))",
+      "As of May 22, 2026, the CAD/USD exchange rate was $0.7235 USD. ([poundsterlinglive.com](https://www.poundsterlinglive.com/history/CAD-USD-2026?utm_source=openai))",
+      "The Bank of Canada's policy interest rate has remained at 2.25% since April 29, 2026. ([bankofcanada.ca](https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/?utm_source=openai))"
+    ],
+    "sources": [
+      "https://www.poundsterlinglive.com/history/CAD-USD-2026",
+      "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/",
+      "https://www.bankofcanada.ca/2025/08/bank-canada-publishes-2026-schedule-policy-interest-rate-announcements-other-major-publications/",
+      "https://www.exchange-rates.org/converter/cad-usd",
+      "https://www.exchange-rates.org/exchange-rate-history/cad-usd-2026-05-05",
+      "https://www.poundsterlinglive.com/history/USD-CAD-2026",
+      "https://www.x-rates.com/calculator/?amount=1&from=cad&full=1&to=usd",
+      "https://x-rates.com/calculator/?amount=1&from=CAD&to=USD"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "ysuy5Pdnuu",
+    "question": "Bitcoin $67K in May?",
+    "marketUrl": "https://manifold.markets/predyx_markets/bitcoin-67k-in-may",
+    "pageUrl": "markets/ysuy5Pdnuu/",
+    "yesProbability": 0.1,
+    "noProbability": 0.9,
+    "confidence": "high",
+    "reason": "Analyst forecasts indicate a low probability of Bitcoin reaching $67,000 in May 2026.",
+    "evidence": [
+      "Analysts predict Bitcoin's price will remain above $75,000 in May 2026.",
+      "Historical data shows Bitcoin's price has been above $75,000 in recent months.",
+      "Market sentiment is currently bullish, with expectations of higher prices."
+    ],
+    "sources": [
+      "https://www.coingecko.com/en/coins/bitcoin/prediction",
+      "https://www.coingecko.com/learn/bitcoin-price-predictions-expert-forecasts",
+      "https://www.coingecko.com/it/monete/bitcoin/prediction",
+      "https://www.coingecko.com/tr/coins/bitcoin/prediction",
+      "https://www.coingecko.com/de/munze/bitcoin/prediction",
+      "https://coincodex.com/crypto/bitcoin/price-prediction/",
+      "https://coincodex.com/article/84827/bitcoin-prediction-may-16-2026/",
+      "https://www.coingabbar.com/en/price-prediction/bitcoin-btc-price-prediction-for-may-2026"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "zgIQNq5LZA",
+    "question": "Will the S&P 500 hit 8000 before July 1, 2026?",
+    "marketUrl": "https://manifold.markets/jim/will-the-sp-500-hit-8000-before-jul",
+    "pageUrl": "markets/zgIQNq5LZA/",
+    "yesProbability": 0.05,
+    "noProbability": 0.95,
+    "confidence": "high",
+    "reason": "Analyst projections for the S&P 500 index by December 2026 range from 7,500 to 8,100, indicating a low likelihood of reaching 8,000 by July 1, 2026.",
+    "evidence": [
+      "UBS projects the S&P 500 to reach 7,700 by December 2026.",
+      "Citi sets a year-end target of 7,700, citing robust corporate earnings and AI investments.",
+      "J.P. Morgan forecasts the index at 7,500 by end-2026, driven by a resilient U.S. economy and AI-driven growth.",
+      "Deutsche Bank sets the most optimistic target at 8,000 by December 2026, attributing it to rapid AI investment and adoption.",
+      "Morgan Stanley anticipates the S&P 500 reaching 8,000 by 2026, citing sustainable earnings growth and AI advancements."
+    ],
+    "sources": [
+      "https://www.investing.com/news/stock-market-news/ubs-sees-sp-500-at-7700-by-december-2026-as-backdrop-remains-supportive-4515485",
+      "https://www.investing.com/news/stock-market-news/citi-sets-2026-sp-500-target-at-7700-expects-ai-to-remain-key-theme-4408038",
+      "https://www.investing.com/news/economy-news/jp-morgan-sees-sp-500-at-7500-by-end-2026-doubledigit-gain-from-here-4379990",
+      "https://www.investing.com/news/stock-market-news/wall-streets-biggest-bull-db-sets-sp-500-2026end-target-at-8000-4374766",
+      "https://omniekonomi.se/morgan-stanley-spar-fortsatt-rally-s-p500-kan-na-8000/a/0p90xA",
+      "https://www.investing.com/news/stock-market-news/where-will-the-sp-500-be-in-2026-heres-the-updated-analyst-consensus-4423280",
+      "https://ca.investing.com/news/stock-market-news/where-will-the-sp-500-be-in-2026-heres-the-updated-analyst-consensus-4379172",
+      "https://www.investing.com/news/stock-market-news/jefferies-sees-sp-500-fair-value-of-7500-for-2026-yearend-4323002"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "Cn9y8ARI6q",
+    "question": "Bella Poarch - Ribcage (Official Music Video) on youtube will reach above 3M views  before the end of May 2026??",
+    "marketUrl": "https://manifold.markets/SuryaVino/bella-poarch-ribcage-official-music",
+    "pageUrl": "markets/Cn9y8ARI6q/",
+    "yesProbability": 0.85,
+    "noProbability": 0.15,
+    "confidence": "high",
+    "reason": "Bella Poarch's 'Ribcage' music video, released on May 1, 2026, has gained significant attention, and her previous videos have consistently achieved high view counts.",
+    "evidence": [
+      "'Ribcage' was released on May 1, 2026, and is the lead single from her upcoming debut album 'Picnic at the Cemetery'.",
+      "Bella Poarch's previous music videos, such as 'Sweet Delusion', have accumulated millions of views, indicating a strong fan base.",
+      "The 'Ribcage' music video has been promoted through various channels, including social media and press releases.",
+      "The song's release coincides with Bella Poarch's growing popularity, suggesting a high likelihood of the video reaching 3 million views by May 31, 2026."
+    ],
+    "sources": [
+      "https://www.mnrk.com/press-room/2026/05/bella-poarch-releases-new-single-ribcage-reveals-debut-album-picnic-at-the-cemetery-coming-this-fall/",
+      "https://www.kworb.net/youtube/video/F93BD5wtkdo.html",
+      "https://manifold.markets/SuryaVino/bella-poarch-ribcage-official-music",
+      "https://socialcounts.org/youtube-video-live-view-count/F93BD5wtkdo",
+      "https://music.apple.com/us/album/ribcage/1893155591",
+      "https://music.apple.com/us/music-video/ribcage/1895945869",
+      "https://kworb.net/youtube/video/vS-ufq001Ss.html",
+      "https://kworb.net/youtube/video/FLGCGc7sAUw.html"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "IZNcZQAu0d",
+    "question": "Will the ICE deployment in Minnesota be substantially reduced by June 1, 2026?",
+    "marketUrl": "https://manifold.markets/NicholasWeininger/will-the-ice-deployment-in-minnesot",
+    "pageUrl": "markets/IZNcZQAu0d/",
+    "yesProbability": 0.1,
+    "noProbability": 0.9,
+    "confidence": "high",
+    "reason": "Operation Metro Surge concluded in February 2026, with a significant reduction in ICE agents in Minnesota by March 2026.",
+    "evidence": [
+      "Operation Metro Surge ended in February 2026, with a residual force of 650 agents remaining in early March. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Operation_Metro_Surge?utm_source=openai))",
+      "By late February 2026, approximately 400 federal agents remained in Minnesota, with plans to withdraw by March. ([axios.com](https://www.axios.com/local/twin-cities/2026/02/26/court-filings-paint-mixed-picture-of-ices-minnesota-drawdown?utm_source=openai))",
+      "As of March 2026, the number of ICE agents in Minnesota had decreased to pre-surge levels. ([minnesotareformer.com](https://minnesotareformer.com/2026/02/23/the-end-of-operation-metro-surge-in-data/?utm_source=openai))"
+    ],
+    "sources": [
+      "https://www.whitehouse.gov/releases/2026/02/new-milestone-in-operation-metro-surge-4000-criminal-illegals-removed-from-minnesota-streets/",
+      "https://www.axios.com/local/twin-cities/2026/02/26/court-filings-paint-mixed-picture-of-ices-minnesota-drawdown",
+      "https://minnesotareformer.com/2026/02/23/the-end-of-operation-metro-surge-in-data/",
+      "https://minnesotareformer.com/2026/04/08/ice-labeled-1300-arrests-during-operation-metro-surge-as-collateral/",
+      "https://minnesotareformer.com/2026/03/31/3700-immigrants-arrested-during-operation-metro-surge/",
+      "https://www.britannica.com/event/2025-26-Minnesota-ICE-Deployment",
+      "https://www.presidency.ucsb.edu/documents/white-house-press-release-new-milestone-operation-metro-surge-4000-criminal-illegals",
+      "https://www.ag.state.mn.us/Office/Communications/2026/01/12_ICE.asp"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "9PRhPCPIdl",
+    "question": "will portugal win the fifa world cup 2026",
+    "marketUrl": "https://manifold.markets/lomiboii/will-portugal-win-the-fifa-world-cu",
+    "pageUrl": "markets/9PRhPCPIdl/",
+    "yesProbability": 0.25,
+    "noProbability": 0.75,
+    "confidence": "medium",
+    "reason": "Portugal has qualified for the 2026 FIFA World Cup and boasts a strong squad, but faces stiff competition from other top teams.",
+    "evidence": [
+      "Portugal secured their place in the 2026 World Cup by topping UEFA Group F with a 9-1 victory over Armenia on November 16, 2025.",
+      "The preliminary squad announced by manager Roberto Martinez includes key players like Bruno Fernandes, Bernardo Silva, and Cristiano Ronaldo, who is aiming for a final World Cup appearance at age 41.",
+      "The 2026 World Cup will feature 48 teams, increasing the number of potential contenders and making the tournament more competitive."
+    ],
+    "sources": [
+      "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/portugal-qualify",
+      "https://www.fourfourtwo.com/team/portugal-world-cup-2026-squad",
+      "https://www.fifa.com/es/articles/portugal-clasificado-mundial-2026",
+      "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified",
+      "https://www.fifa.com/fr/tournaments/mens/worldcup/canadamexicousa2026/articles/portugal-qualifie-mondial-2026",
+      "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified?searchOverlay=1",
+      "https://www.uefa.com/european-qualifiers/news/029e-1f013217866b-d8219a391b00-1000--world-cup-2026-who-has-qualified-from-europe-who-is-in-the-p/",
+      "https://www.uefa.com/european-qualifiers/news/029f-1f318027c4dd-8e9bab478b48-1000--world-cup-2026-which-european-teams-have-qualified/"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "PO6UqQlsNQ",
+    "question": "Will any series regular die on-screen in Euphoria Season 3?",
+    "marketUrl": "https://manifold.markets/Cogsdoc/will-any-series-regular-die-onscree",
+    "pageUrl": "markets/PO6UqQlsNQ/",
+    "yesProbability": 0.9,
+    "noProbability": 0.1,
+    "confidence": "high",
+    "reason": "Nate Jacobs, a series regular, was confirmed dead on-screen in Season 3, Episode 7.",
+    "evidence": [
+      "Nate Jacobs, portrayed by Jacob Elordi, was buried alive by loan sharks and died from a rattlesnake bite in Season 3, Episode 7. ([forbes.com](https://www.forbes.com/sites/sabrinareed/2026/05/25/euphoria-season-3-kills-off-major-character-in-game-changing-death/?utm_source=openai))",
+      "The death of Nate Jacobs was confirmed in Season 3, Episode 7. ([epicstream.com](https://epicstream.com/article/is-spoiler-really-dead-in-euphoria-season-3-episode-7-shocker-explained?utm_source=openai))"
+    ],
+    "sources": [
+      "https://www.forbes.com/sites/sabrinareed/2026/05/25/euphoria-season-3-kills-off-major-character-in-game-changing-death/",
+      "https://epicstream.com/article/is-spoiler-really-dead-in-euphoria-season-3-episode-7-shocker-explained",
+      "https://manifold.markets/Cogsdoc/will-any-series-regular-die-onscree",
+      "https://www.slashfilm.com/2180636/euphoria-season-3-episode-7-nate-jacobs-death-explained/",
+      "https://www.comingsoon.net/tv/news/2138163-euphoria-season-3-death-sam-levinson",
+      "https://www.comingsoon.net/tv/news/2137855-euphoria-season-3-episode-7-who-dies-dead/xwp_curated_content",
+      "https://www.thewrap.com/creative-content/tv-shows/euphoria-season-3-angus-cloud-death-fezco/",
+      "https://www.abc.net.au/news/2026-04-13/euphoria-season-3-cast-on-past-present-and-future-of-hit-show/106552664"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  },
+  {
+    "id": "qyz5h5Pu5I",
+    "question": "Will SpaceX complete a Starship integrated test flight reaching orbital insertion by June 14, 2026?",
+    "marketUrl": "https://manifold.markets/Terminator2/will-spacex-complete-a-starship-int",
+    "pageUrl": "markets/qyz5h5Pu5I/",
+    "yesProbability": 0.2,
+    "noProbability": 0.8,
+    "confidence": "medium",
+    "reason": "SpaceX's recent Starship V3 test flight on May 22, 2026, achieved suborbital success but did not reach orbital insertion. The company has not announced any upcoming integrated Starship + Super Heavy launches targeting orbital insertion before June 14, 2026.",
+    "evidence": [
+      "The May 22, 2026, Starship V3 test flight achieved suborbital success but did not reach orbital insertion. ([space.com](https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight?utm_source=openai))",
+      "SpaceX has not announced any upcoming integrated Starship + Super Heavy launches targeting orbital insertion before June 14, 2026."
+    ],
+    "sources": [
+      "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight",
+      "https://techcrunch.com/2026/05/22/spacex-launches-starship-v3-for-the-first-time-but-loses-booster-on-return/",
+      "https://www.gmanetwork.com/news/scitech/science/988671/spacex-s-upgraded-starship-v3-blasts-off-in-debut-test-flight-from-texas/story/?order=5",
+      "https://arstechnica.com/space/2026/05/spacexs-starship-v3-still-a-work-in-progress-mostly-successful-on-first-flight/",
+      "https://www.cislunarspace.cn/en/space-news/2026/05/2026-05-23-starship-v3-flight-12-success/",
+      "https://www.spacex.com/launches/?embed=true",
+      "https://www.spacex.com/launches/Launches",
+      "https://api.nextspaceflight.com/launches/details/8002"
+    ],
+    "forecastDate": "2026-05-25",
+    "model": "gpt-4.1-mini"
+  }
+]
