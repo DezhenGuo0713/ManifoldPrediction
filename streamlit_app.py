@@ -140,8 +140,8 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .forecast-poster {{
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  min-height: 540px;
+  height: 320px;
+  min-height: 0;
   overflow: hidden;
   background: #090407;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -159,10 +159,10 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .poster-watermark {{
   position: absolute;
   left: 50%;
-  top: 49%;
+  top: 48%;
   transform: translate(-50%, -50%) rotate(10deg);
   color: rgba(255, 255, 255, 0.13);
-  font-size: min(31vw, 430px);
+  font-size: clamp(150px, 28vw, 250px);
   font-weight: 900;
   line-height: 1;
   z-index: -1;
@@ -170,18 +170,18 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 }}
 .poster-header {{
   position: absolute;
-  left: 4.5%;
-  top: 3.5%;
-  width: min(78%, 1080px);
+  left: 4%;
+  top: 12px;
+  width: min(82%, 760px);
 }}
 .poster-header h1 {{
   display: -webkit-box;
   margin: 0;
   overflow: hidden;
   color: var(--ink);
-  font-size: min(3vw, 38px);
+  font-size: clamp(17px, 2.8vw, 25px);
   font-weight: 800;
-  line-height: 1.22;
+  line-height: 1.18;
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.65);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -189,39 +189,39 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .poster-meta {{
   display: flex;
   flex-wrap: wrap;
-  gap: 34px;
-  margin-top: 22px;
+  gap: 16px;
+  margin-top: 10px;
   color: var(--muted);
-  font-size: min(2.2vw, 36px);
+  font-size: clamp(13px, 2vw, 20px);
   line-height: 1.15;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8);
 }}
 .poster-odds {{
   position: absolute;
-  left: 21%;
-  right: 21%;
-  top: 40%;
+  left: 14%;
+  right: 14%;
+  top: 37%;
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
+  grid-template-columns: minmax(96px, 1fr) 1px minmax(96px, 1fr);
   align-items: center;
-  gap: 6%;
+  gap: 5%;
 }}
 .split-line {{
   width: 1px;
-  height: 190px;
+  height: 104px;
   background: rgba(255, 255, 255, 0.28);
 }}
-.odds-side {{ display: grid; gap: 34px; }}
+.odds-side {{ display: grid; gap: 12px; }}
 .no-side {{ text-align: right; }}
 .outcome-label {{
   color: var(--ink);
-  font-size: min(3.1vw, 58px);
+  font-size: clamp(19px, 3vw, 34px);
   font-weight: 700;
   line-height: 1;
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.8);
 }}
 .odds-side strong {{
-  font-size: min(7.2vw, 130px);
+  font-size: clamp(46px, 7vw, 82px);
   font-weight: 900;
   line-height: 0.95;
   text-shadow: 0 6px 0 rgba(0, 0, 0, 0.78);
@@ -230,49 +230,49 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .odds-side strong.lower-score {{ color: var(--no); }}
 .poster-footer {{
   position: absolute;
-  left: 4.5%;
-  right: 4.5%;
-  bottom: 4.4%;
+  left: 4%;
+  right: 4%;
+  bottom: 14px;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 30px;
+  gap: 18px;
   align-items: end;
 }}
 .poster-date {{
   display: block;
   color: var(--ink);
-  font-size: min(2.4vw, 44px);
+  font-size: clamp(16px, 2.4vw, 24px);
   line-height: 1;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
 }}
 .poster-reason {{
   display: -webkit-box;
-  max-width: 930px;
-  margin: 16px 0 12px;
+  max-width: 720px;
+  margin: 8px 0 8px;
   overflow: hidden;
   color: var(--ink);
-  font-size: min(1.75vw, 25px);
-  line-height: 1.28;
+  font-size: clamp(12px, 1.6vw, 15px);
+  line-height: 1.2;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.82);
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }}
 .poster-reason span, .source-caption {{ color: var(--muted); }}
-.poster-sources {{ display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }}
-.source-caption {{ font-size: 13px; line-height: 1; }}
+.poster-sources {{ display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }}
+.source-caption {{ font-size: 11px; line-height: 1; }}
 .source-pill {{
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  max-width: 300px;
-  padding: 5px 10px;
+  min-height: 22px;
+  max-width: 210px;
+  padding: 4px 8px;
   overflow: hidden;
   border: 1px solid rgba(0, 240, 79, 0.42);
   border-radius: 6px;
   background: rgba(0, 240, 79, 0.08);
   color: var(--ink);
   cursor: pointer;
-  font-size: 13px;
+  font-size: 11px;
   line-height: 1;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -288,12 +288,12 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .lock-button {{
   position: relative;
   display: grid;
-  width: min(11.5vw, 134px);
-  min-width: 78px;
+  width: clamp(54px, 9vw, 74px);
+  min-width: 54px;
   aspect-ratio: 1 / 0.76;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.23);
-  border-radius: 20px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.045);
 }}
 .lock-icon {{
@@ -316,15 +316,16 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   border-radius: 18px 18px 0 0;
   transform: translateX(-50%);
 }}
-@media (max-width: 900px) {{
-  .forecast-poster {{ min-height: 430px; }}
-  .poster-header h1 {{ font-size: 30px; }}
-  .poster-meta {{ gap: 18px; font-size: 22px; }}
-  .poster-odds {{ top: 38%; left: 15%; right: 15%; }}
-  .outcome-label {{ font-size: 34px; }}
-  .odds-side strong {{ font-size: 70px; }}
-  .poster-date {{ font-size: 28px; }}
-  .poster-reason {{ font-size: 16px; }}
+@media (max-width: 520px) {{
+  .poster-header {{ width: 92%; }}
+  .poster-header h1 {{ font-size: 15px; -webkit-line-clamp: 2; }}
+  .poster-meta {{ gap: 10px; font-size: 11px; }}
+  .poster-odds {{ left: 8%; right: 8%; top: 36%; }}
+  .outcome-label {{ font-size: 17px; }}
+  .odds-side strong {{ font-size: 42px; }}
+  .poster-reason {{ font-size: 11px; -webkit-line-clamp: 2; }}
+  .source-pill:nth-of-type(n+3) {{ display: none; }}
+  .lock-button {{ display: none; }}
 }}
 </style>
 </head>
@@ -440,7 +441,7 @@ def render_directory(rows: list[dict[str, str]]) -> None:
     links = []
     for row in rows:
         market_id = row.get("id", "")
-        href = f"?market={quote(market_id)}&embed=true"
+        href = f"/?market={quote(market_id)}&embed=true"
         links.append(
             f'<a class="market-link" href="{h(href)}">'
             f"<strong>{h(market_id)}</strong>"
@@ -493,7 +494,7 @@ def main() -> None:
         st.error("No matching market prediction found.")
         return
 
-    components.html(card_html(row), height=720, scrolling=False)
+    components.html(card_html(row), height=320, scrolling=False)
 
     if st.query_params.get("list") == "1":
         st.write("Available market ids:")
