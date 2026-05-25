@@ -440,7 +440,7 @@ def render_directory(rows: list[dict[str, str]]) -> None:
     links = []
     for row in rows:
         market_id = row.get("id", "")
-        href = f"?market={quote(market_id)}"
+        href = f"?market={quote(market_id)}&embed=true"
         links.append(
             f'<a class="market-link" href="{h(href)}">'
             f"<strong>{h(market_id)}</strong>"
