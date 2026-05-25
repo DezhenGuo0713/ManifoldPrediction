@@ -4,8 +4,10 @@ import csv
 import html
 import os
 import re
+from datetime import datetime
 from urllib.parse import quote
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
 
 import streamlit as st
 import streamlit.components.v1 as components
@@ -16,6 +18,7 @@ PREFERRED_INPUTS = [
     os.path.join("Markets", "MarketNewsPredictions.10_sample.csv"),
     os.path.join("Markets", "MarketNewsPredictions.sample.csv"),
 ]
+DISPLAY_TIMEZONE = ZoneInfo("America/New_York")
 
 
 def h(value: object) -> str:
@@ -31,6 +34,19 @@ def parse_float(value: object, default: float = 0.0) -> float:
 
 def pct(value: object) -> str:
     return f"{round(parse_float(value) * 100)}%"
+
+
+def format_edt_timestamp(value: str, fallback: str = "") -> str:
+    text = (value or "").strip()
+    if not text:
+        return fallback
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return text
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=DISPLAY_TIMEZONE)
+    return parsed.astimezone(DISPLAY_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S %Z")
 
 
 def split_pipe(value: str) -> list[str]:
@@ -106,7 +122,10 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
     confidence = (row.get("newsConfidence", "").strip() or "unknown").upper()
     source_count = len(split_pipe(row.get("newsSourceUrls", "")))
     model = row.get("forecastModel", "").strip()
-    forecast_date = row.get("forecastCurrentDate", "").strip()
+    forecast_date = format_edt_timestamp(
+        row.get("forecastTimestamp", ""),
+        row.get("forecastCurrentDate", "").strip(),
+    )
     reason = row.get("newsShortReason", "").strip()
     market_url = row.get("url", "").strip()
     symbol = market_symbol(question)

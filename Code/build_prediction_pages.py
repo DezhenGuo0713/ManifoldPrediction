@@ -22,11 +22,13 @@ import shutil
 from datetime import datetime
 from typing import Any
 from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
 
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MARKETS_DIR = os.path.join(PROJECT_DIR, "Markets")
 DOCS_DIR = os.path.join(PROJECT_DIR, "docs")
+DISPLAY_TIMEZONE = ZoneInfo("America/New_York")
 
 PREFERRED_INPUTS = [
     os.path.join(MARKETS_DIR, "MarketNewsPredictions.csv"),
@@ -48,6 +50,19 @@ def parse_float(value: Any, default: float = 0.0) -> float:
 
 def pct(value: Any) -> str:
     return f"{round(parse_float(value) * 100)}%"
+
+
+def format_edt_timestamp(value: str, fallback: str = "") -> str:
+    text = (value or "").strip()
+    if not text:
+        return fallback
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return text
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=DISPLAY_TIMEZONE)
+    return parsed.astimezone(DISPLAY_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S %Z")
 
 
 def split_pipe(value: str) -> list[str]:
@@ -174,7 +189,10 @@ def market_card(row: dict[str, str], site_root: str) -> str:
     reason = row.get("newsShortReason", "").strip()
     question = row.get("question", "").strip()
     market_url = row.get("url", "").strip()
-    forecast_date = row.get("forecastCurrentDate", "").strip()
+    forecast_date = format_edt_timestamp(
+        row.get("forecastTimestamp", ""),
+        row.get("forecastCurrentDate", "").strip(),
+    )
     model = row.get("forecastModel", "").strip()
     confidence = row.get("newsConfidence", "").strip() or "unknown"
     source_count = len(split_pipe(row.get("newsSourceUrls", "")))
@@ -291,7 +309,7 @@ def build_index(rows: list[dict[str, str]], page_urls: dict[str, str], output_di
         </a>"""
         )
 
-    generated = datetime.now().strftime("%Y-%m-%d %H:%M")
+    generated = datetime.now(DISPLAY_TIMEZONE).strftime("%Y-%m-%d %H:%M:%S %Z")
     body = f"""
   <main class="site-shell">
     <header class="site-header">
@@ -332,6 +350,10 @@ def build_json(rows: list[dict[str, str]], page_urls: dict[str, str], output_dir
                 "evidence": split_pipe(row.get("newsKeyEvidence", "")),
                 "sources": split_pipe(row.get("newsSourceUrls", "")),
                 "forecastDate": row.get("forecastCurrentDate", ""),
+                "forecastTimestamp": format_edt_timestamp(
+                    row.get("forecastTimestamp", ""),
+                    row.get("forecastCurrentDate", ""),
+                ),
                 "model": row.get("forecastModel", ""),
             }
         )

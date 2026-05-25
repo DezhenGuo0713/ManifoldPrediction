@@ -24,6 +24,7 @@
       "https://www.apple.com/gr/newsroom/2026/03/apples-worldwide-developers-conference-returns-the-week-of-june-8/"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:33:59 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -51,6 +52,7 @@
       "https://home.nps.gov/thingstodo/hike-the-narrows.htm"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:06 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -78,6 +80,7 @@
       "https://x-rates.com/calculator/?amount=1&from=CAD&to=USD"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:11 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -105,6 +108,7 @@
       "https://www.coingabbar.com/en/price-prediction/bitcoin-btc-price-prediction-for-may-2026"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:15 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -134,6 +138,7 @@
       "https://www.investing.com/news/stock-market-news/jefferies-sees-sp-500-fair-value-of-7500-for-2026-yearend-4323002"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:25 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -162,6 +167,7 @@
       "https://kworb.net/youtube/video/FLGCGc7sAUw.html"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:31 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -189,6 +195,7 @@
       "https://www.ag.state.mn.us/Office/Communications/2026/01/12_ICE.asp"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:37 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -216,6 +223,7 @@
       "https://www.uefa.com/european-qualifiers/news/029f-1f318027c4dd-8e9bab478b48-1000--world-cup-2026-which-european-teams-have-qualified/"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:42 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -242,6 +250,7 @@
       "https://www.abc.net.au/news/2026-04-13/euphoria-season-3-cast-on-past-present-and-future-of-hit-show/106552664"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:47 EDT",
     "model": "gpt-4.1-mini"
   },
   {
@@ -268,6 +277,7 @@
       "https://api.nextspaceflight.com/launches/details/8002"
     ],
     "forecastDate": "2026-05-25",
+    "forecastTimestamp": "2026-05-25 16:34:51 EDT",
     "model": "gpt-4.1-mini"
   }
 ]

@@ -531,7 +531,9 @@ def predict_row(
     )
 
     output = dict(row)
-    output["forecastTimestamp"] = datetime.now(ZoneInfo(TIMEZONE)).isoformat()
+    output["forecastTimestamp"] = (
+        datetime.now(ZoneInfo(TIMEZONE)).replace(microsecond=0).isoformat()
+    )
     output["forecastCurrentDate"] = current_date
     output["forecastModel"] = model
     output["forecastInputPolicy"] = "question+description+current_date only"
