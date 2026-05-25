@@ -4,6 +4,7 @@ import csv
 import html
 import os
 import re
+from urllib.parse import quote
 from urllib.parse import urlsplit
 
 import streamlit as st
@@ -365,15 +366,96 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 </html>"""
 
 
-def selected_market(rows: list[dict[str, str]]) -> dict[str, str] | None:
-    params = st.query_params
-    market_id = params.get("market") or params.get("id")
-    if market_id:
-        for row in rows:
-            if row.get("id") == market_id:
-                return row
-        return None
-    return rows[0] if rows else None
+def selected_market_id() -> str:
+    return st.query_params.get("market") or st.query_params.get("id") or ""
+
+
+def selected_market(rows: list[dict[str, str]], market_id: str) -> dict[str, str] | None:
+    for row in rows:
+        if row.get("id") == market_id:
+            return row
+    return None
+
+
+def render_directory(rows: list[dict[str, str]]) -> None:
+    st.markdown(
+        """
+        <style>
+        .directory {
+          min-height: 100vh;
+          padding: 28px;
+          background: #050406;
+          color: #f7f7f2;
+          font-family: "Courier New", Courier, ui-monospace, monospace;
+        }
+        .directory h1 {
+          margin: 0 0 10px;
+          font-size: 28px;
+          line-height: 1.1;
+        }
+        .directory p {
+          margin: 0 0 22px;
+          color: #b8adae;
+          font-size: 15px;
+        }
+        .market-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 12px;
+        }
+        .market-link {
+          display: block;
+          min-height: 136px;
+          padding: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.045);
+          color: #f7f7f2;
+          text-decoration: none;
+        }
+        .market-link:hover, .market-link:focus-visible {
+          border-color: rgba(0, 240, 79, 0.82);
+          outline: none;
+        }
+        .market-link strong {
+          display: block;
+          margin-bottom: 8px;
+          color: #00f04f;
+          font-size: 13px;
+        }
+        .market-link span {
+          display: -webkit-box;
+          overflow: hidden;
+          color: #f7f7f2;
+          font-size: 15px;
+          line-height: 1.3;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    links = []
+    for row in rows:
+        market_id = row.get("id", "")
+        href = f"?market={quote(market_id)}"
+        links.append(
+            f'<a class="market-link" href="{h(href)}">'
+            f"<strong>{h(market_id)}</strong>"
+            f"<span>{h(row.get('question', ''))}</span>"
+            "</a>"
+        )
+
+    st.markdown(
+        '<main class="directory">'
+        "<h1>Manifold Prediction Cards</h1>"
+        "<p>Open a market card, then use that full streamlit.app URL in Manifold.</p>"
+        f'<div class="market-list">{"".join(links)}</div>'
+        "</main>",
+        unsafe_allow_html=True,
+    )
 
 
 def main() -> None:
@@ -401,7 +483,12 @@ def main() -> None:
     )
 
     rows = load_rows()
-    row = selected_market(rows)
+    market_id = selected_market_id()
+    if not market_id:
+        render_directory(rows)
+        return
+
+    row = selected_market(rows, market_id)
     if row is None:
         st.error("No matching market prediction found.")
         return
