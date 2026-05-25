@@ -96,7 +96,7 @@ def compact_source_html(row: dict[str, str]) -> str:
     return "\n".join(links)
 
 
-def card_html(row: dict[str, str]) -> str:
+def card_html(row: dict[str, str], embed: bool = False) -> str:
     yes = parse_float(row.get("newsPredictedYesProbability"))
     no = parse_float(row.get("newsPredictedNoProbability"), 1 - yes)
     yes_score_class = "higher-score" if yes >= no else "lower-score"
@@ -110,6 +110,7 @@ def card_html(row: dict[str, str]) -> str:
     reason = row.get("newsShortReason", "").strip()
     market_url = row.get("url", "").strip()
     symbol = market_symbol(question)
+    mode_class = "embed-view" if embed else "full-view"
 
     market_button = (
         f'<a class="lock-button" href="{h(market_url)}" target="_blank" '
@@ -296,6 +297,66 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.045);
 }}
+body.full-view .forecast-poster {{
+  height: auto;
+  min-height: 540px;
+  aspect-ratio: 16 / 9;
+}}
+body.full-view .poster-watermark {{
+  top: 49%;
+  font-size: min(31vw, 430px);
+}}
+body.full-view .poster-header {{
+  left: 4.5%;
+  top: 3.5%;
+  width: min(78%, 1080px);
+}}
+body.full-view .poster-header h1 {{
+  font-size: min(3vw, 38px);
+  line-height: 1.22;
+}}
+body.full-view .poster-meta {{
+  gap: 34px;
+  margin-top: 22px;
+  font-size: min(2.2vw, 36px);
+}}
+body.full-view .poster-odds {{
+  left: 21%;
+  right: 21%;
+  top: 40%;
+  grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
+  gap: 6%;
+}}
+body.full-view .split-line {{ height: 190px; }}
+body.full-view .odds-side {{ gap: 34px; }}
+body.full-view .outcome-label {{ font-size: min(3.1vw, 58px); }}
+body.full-view .odds-side strong {{ font-size: min(7.2vw, 130px); }}
+body.full-view .poster-footer {{
+  left: 4.5%;
+  right: 4.5%;
+  bottom: 4.4%;
+  gap: 30px;
+}}
+body.full-view .poster-date {{ font-size: min(2.4vw, 44px); }}
+body.full-view .poster-reason {{
+  max-width: 930px;
+  margin: 16px 0 12px;
+  font-size: min(1.75vw, 25px);
+  line-height: 1.28;
+}}
+body.full-view .poster-sources {{ gap: 8px; }}
+body.full-view .source-caption {{ font-size: 13px; }}
+body.full-view .source-pill {{
+  min-height: 28px;
+  max-width: 300px;
+  padding: 5px 10px;
+  font-size: 13px;
+}}
+body.full-view .lock-button {{
+  width: min(11.5vw, 134px);
+  min-width: 78px;
+  border-radius: 20px;
+}}
 .lock-icon {{
   position: relative;
   display: block;
@@ -317,19 +378,29 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   transform: translateX(-50%);
 }}
 @media (max-width: 520px) {{
-  .poster-header {{ width: 92%; }}
-  .poster-header h1 {{ font-size: 15px; -webkit-line-clamp: 2; }}
-  .poster-meta {{ gap: 10px; font-size: 11px; }}
-  .poster-odds {{ left: 8%; right: 8%; top: 36%; }}
-  .outcome-label {{ font-size: 17px; }}
-  .odds-side strong {{ font-size: 42px; }}
-  .poster-reason {{ font-size: 11px; -webkit-line-clamp: 2; }}
-  .source-pill:nth-of-type(n+3) {{ display: none; }}
-  .lock-button {{ display: none; }}
+  body.embed-view .poster-header {{ width: 92%; }}
+  body.embed-view .poster-header h1 {{ font-size: 15px; -webkit-line-clamp: 2; }}
+  body.embed-view .poster-meta {{ gap: 10px; font-size: 11px; }}
+  body.embed-view .poster-odds {{ left: 8%; right: 8%; top: 36%; }}
+  body.embed-view .outcome-label {{ font-size: 17px; }}
+  body.embed-view .odds-side strong {{ font-size: 42px; }}
+  body.embed-view .poster-reason {{ font-size: 11px; -webkit-line-clamp: 2; }}
+  body.embed-view .source-pill:nth-of-type(n+3) {{ display: none; }}
+  body.embed-view .lock-button {{ display: none; }}
+}}
+@media (max-width: 900px) {{
+  body.full-view .forecast-poster {{ min-height: 430px; }}
+  body.full-view .poster-header h1 {{ font-size: 30px; }}
+  body.full-view .poster-meta {{ gap: 18px; font-size: 22px; }}
+  body.full-view .poster-odds {{ top: 38%; left: 15%; right: 15%; }}
+  body.full-view .outcome-label {{ font-size: 34px; }}
+  body.full-view .odds-side strong {{ font-size: 70px; }}
+  body.full-view .poster-date {{ font-size: 28px; }}
+  body.full-view .poster-reason {{ font-size: 16px; }}
 }}
 </style>
 </head>
-<body>
+<body class="{mode_class}">
 <article class="forecast-poster {band}">
   <div class="poster-watermark" aria-hidden="true">{h(symbol)}</div>
   <header class="poster-header">
@@ -441,7 +512,7 @@ def render_directory(rows: list[dict[str, str]]) -> None:
     links = []
     for row in rows:
         market_id = row.get("id", "")
-        href = f"/?market={quote(market_id)}&embed=true"
+        href = f"/?market={quote(market_id)}"
         links.append(
             f'<a class="market-link" href="{h(href)}">'
             f"<strong>{h(market_id)}</strong>"
@@ -494,7 +565,13 @@ def main() -> None:
         st.error("No matching market prediction found.")
         return
 
-    components.html(card_html(row), height=320, scrolling=False)
+    is_embed = st.query_params.get("embed") == "true"
+    component_height = 320 if is_embed else 720
+    components.html(
+        card_html(row, embed=is_embed),
+        height=component_height,
+        scrolling=False,
+    )
 
     if st.query_params.get("list") == "1":
         st.write("Available market ids:")
