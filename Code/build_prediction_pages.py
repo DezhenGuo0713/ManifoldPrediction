@@ -171,7 +171,7 @@ def compact_source_html(row: dict[str, str]) -> str:
     if not urls:
         return '<span class="source-pill">No sources</span>'
     links = []
-    for index, url in enumerate(urls[:3], start=1):
+    for index, url in enumerate(urls[:2], start=1):
         links.append(
             f'<a class="source-pill" href="{h(url)}" target="_blank" '
             f'rel="noopener noreferrer" title="{h(url)}">'
@@ -195,7 +195,7 @@ def market_card(row: dict[str, str], site_root: str) -> str:
     )
     model = row.get("forecastModel", "").strip()
     confidence = row.get("newsConfidence", "").strip() or "unknown"
-    source_count = len(split_pipe(row.get("newsSourceUrls", "")))
+    source_count = min(2, len(split_pipe(row.get("newsSourceUrls", ""))))
     symbol = market_symbol(question)
     manifold_link = (
         f'<a class="lock-button" href="{h(market_url)}" target="_blank" '

@@ -103,7 +103,7 @@ def compact_source_html(row: dict[str, str]) -> str:
         return '<span class="source-pill">No sources</span>'
 
     links = []
-    for index, url in enumerate(urls[:3], start=1):
+    for index, url in enumerate(urls[:2], start=1):
         links.append(
             f'<a class="source-pill" href="{h(url)}" target="_blank" '
             f'rel="noopener noreferrer" title="{h(url)}">'
@@ -120,7 +120,7 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
     band = probability_band(yes)
     question = row.get("question", "").strip()
     confidence = (row.get("newsConfidence", "").strip() or "unknown").upper()
-    source_count = len(split_pipe(row.get("newsSourceUrls", "")))
+    source_count = min(2, len(split_pipe(row.get("newsSourceUrls", ""))))
     model = row.get("forecastModel", "").strip()
     forecast_date = format_edt_timestamp(
         row.get("forecastTimestamp", ""),
@@ -220,7 +220,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   position: absolute;
   left: 14%;
   right: 14%;
-  top: 37%;
+  top: 34%;
   display: grid;
   grid-template-columns: minmax(96px, 1fr) 1px minmax(96px, 1fr);
   align-items: center;
@@ -228,10 +228,10 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 }}
 .split-line {{
   width: 1px;
-  height: 104px;
+  height: 88px;
   background: rgba(255, 255, 255, 0.28);
 }}
-.odds-side {{ display: grid; gap: 12px; }}
+.odds-side {{ display: grid; gap: 8px; }}
 .no-side {{ text-align: right; }}
 .outcome-label {{
   color: var(--ink);
@@ -241,7 +241,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.8);
 }}
 .odds-side strong {{
-  font-size: clamp(46px, 7vw, 82px);
+  font-size: clamp(40px, 6.5vw, 70px);
   font-weight: 900;
   line-height: 0.95;
   text-shadow: 0 6px 0 rgba(0, 0, 0, 0.78);
@@ -261,7 +261,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .poster-date {{
   display: block;
   color: var(--ink);
-  font-size: clamp(16px, 2.4vw, 24px);
+  font-size: clamp(14px, 2.15vw, 20px);
   line-height: 1;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
 }}
@@ -271,7 +271,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   margin: 8px 0 8px;
   overflow: hidden;
   color: var(--ink);
-  font-size: clamp(12px, 1.6vw, 15px);
+  font-size: clamp(11px, 1.45vw, 14px);
   line-height: 1.2;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.82);
   -webkit-box-orient: vertical;
@@ -284,7 +284,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   display: inline-flex;
   align-items: center;
   min-height: 22px;
-  max-width: 210px;
+  max-width: 174px;
   padding: 4px 8px;
   overflow: hidden;
   border: 1px solid rgba(0, 240, 79, 0.42);
@@ -400,9 +400,9 @@ body.full-view .lock-button {{
   body.embed-view .poster-header {{ width: 92%; }}
   body.embed-view .poster-header h1 {{ font-size: 15px; -webkit-line-clamp: 2; }}
   body.embed-view .poster-meta {{ gap: 10px; font-size: 11px; }}
-  body.embed-view .poster-odds {{ left: 8%; right: 8%; top: 36%; }}
+  body.embed-view .poster-odds {{ left: 8%; right: 8%; top: 34%; }}
   body.embed-view .outcome-label {{ font-size: 17px; }}
-  body.embed-view .odds-side strong {{ font-size: 42px; }}
+  body.embed-view .odds-side strong {{ font-size: 36px; }}
   body.embed-view .poster-reason {{ font-size: 11px; -webkit-line-clamp: 2; }}
   body.embed-view .source-pill:nth-of-type(n+3) {{ display: none; }}
   body.embed-view .lock-button {{ display: none; }}
