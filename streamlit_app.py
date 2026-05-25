@@ -449,6 +449,15 @@ def selected_market(rows: list[dict[str, str]], market_id: str) -> dict[str, str
     return None
 
 
+def is_embed_request() -> bool:
+    return (
+        st.query_params.get("mode") == "embed"
+        or st.query_params.get("compact") == "1"
+        or st.query_params.get("embed") == "true"
+        or st.query_params.get("embedded") == "true"
+    )
+
+
 def render_directory(rows: list[dict[str, str]]) -> None:
     st.markdown(
         """
@@ -523,7 +532,8 @@ def render_directory(rows: list[dict[str, str]]) -> None:
     st.markdown(
         '<main class="directory">'
         "<h1>Manifold Prediction Cards</h1>"
-        "<p>Open a market card, then use that full streamlit.app URL in Manifold.</p>"
+        "<p>Open a market card for preview. For Manifold embeds, add "
+        "<code>&mode=embed&embedded=true</code> to the market URL.</p>"
         f'<div class="market-list">{"".join(links)}</div>'
         "</main>",
         unsafe_allow_html=True,
@@ -565,7 +575,7 @@ def main() -> None:
         st.error("No matching market prediction found.")
         return
 
-    is_embed = st.query_params.get("embed") == "true"
+    is_embed = is_embed_request()
     component_height = 320 if is_embed else 720
     components.html(
         card_html(row, embed=is_embed),
