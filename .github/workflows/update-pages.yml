@@ -75,3 +75,50 @@ jobs:
           git commit -m "Update prediction pages"
           git pull --rebase
           git push
+
+      - name: Update Manifold comments
+        env:
+          MANIFOLD_API_KEY: ${{ secrets.MANIFOLD_API_KEY }}
+          MARKET_UPDATE_ID: ${{ github.event.inputs.market_id }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${MANIFOLD_API_KEY:-}" ]; then
+            echo "MANIFOLD_API_KEY is not configured; skipping Manifold comment updates."
+            exit 0
+          fi
+
+          args=(--input Markets/MarketNewsPredictions.csv)
+
+          if [ -n "${MARKET_UPDATE_ID:-}" ]; then
+            args+=(--market-id "$MARKET_UPDATE_ID")
+          fi
+
+          python Code/update_manifold_comments.py "${args[@]}"
+
+      - name: Commit Manifold comment mapping
+        env:
+          MANIFOLD_API_KEY: ${{ secrets.MANIFOLD_API_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${MANIFOLD_API_KEY:-}" ]; then
+            echo "MANIFOLD_API_KEY is not configured; skipping comment mapping commit."
+            exit 0
+          fi
+
+          if [ ! -f Markets/ManifoldPredictionComments.json ]; then
+            echo "No comment mapping file created."
+            exit 0
+          fi
+
+          git add Markets/ManifoldPredictionComments.json
+
+          if git diff --cached --quiet; then
+            echo "No comment mapping changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update Manifold comment mapping"
+          git pull --rebase
+          git push
