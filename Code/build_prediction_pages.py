@@ -29,6 +29,18 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MARKETS_DIR = os.path.join(PROJECT_DIR, "Markets")
 DOCS_DIR = os.path.join(PROJECT_DIR, "docs")
 DISPLAY_TIMEZONE = ZoneInfo("America/New_York")
+PUBLIC_SITE_BASE_URL = os.environ.get(
+    "PREDICTION_SITE_BASE_URL",
+    "https://dezhenguo0713.github.io/ManifoldPrediction",
+).rstrip("/")
+PUBLIC_CARD_IMAGE_BASE_URL = os.environ.get(
+    "PREDICTION_CARD_IMAGE_BASE_URL",
+    "https://raw.githubusercontent.com/DezhenGuo0713/ManifoldPrediction/main/docs/cards",
+).rstrip("/")
+PUBLIC_LINK_CARD_IMAGE_BASE_URL = os.environ.get(
+    "PREDICTION_LINK_CARD_IMAGE_BASE_URL",
+    "https://raw.githubusercontent.com/DezhenGuo0713/ManifoldPrediction/main/docs/link-cards",
+).rstrip("/")
 
 PREFERRED_INPUTS = [
     os.path.join(MARKETS_DIR, "MarketNewsPredictions.csv"),
@@ -50,6 +62,13 @@ def parse_float(value: Any, default: float = 0.0) -> float:
 
 def pct(value: Any) -> str:
     return f"{round(parse_float(value) * 100)}%"
+
+
+def truncate_text(value: str, max_chars: int) -> str:
+    text = re.sub(r"\s+", " ", value or "").strip()
+    if len(text) <= max_chars:
+        return text
+    return text[: max_chars - 3].rstrip() + "..."
 
 
 def format_edt_timestamp(value: str, fallback: str = "") -> str:
@@ -252,7 +271,11 @@ def page_template(
     body: str,
     site_root: str,
     extra_head: str = "",
+    og_title: str | None = None,
+    og_description: str | None = None,
 ) -> str:
+    preview_title = og_title or title
+    preview_description = og_description or description
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -260,8 +283,8 @@ def page_template(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{h(title)}</title>
   <meta name="description" content="{h(description)}">
-  <meta property="og:title" content="{h(title)}">
-  <meta property="og:description" content="{h(description)}">
+  <meta property="og:title" content="{h(preview_title)}">
+  <meta property="og:description" content="{h(preview_description)}">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="{site_root}assets/styles.css">
   {extra_head}
@@ -281,6 +304,30 @@ def build_market_page(row: dict[str, str], output_dir: str) -> str:
     no = pct(row.get("newsPredictedNoProbability"))
     title = f"{yes} YES / {no} NO - {row.get('question', '')}"
     description = row.get("newsShortReason", "")
+    absolute_page_url = f"{PUBLIC_SITE_BASE_URL}/{relative_url}"
+    absolute_image_url = f"{PUBLIC_LINK_CARD_IMAGE_BASE_URL}/{market_id}.png"
+    forecast_date = format_edt_timestamp(
+        row.get("forecastTimestamp", ""),
+        row.get("forecastCurrentDate", "").strip(),
+    )
+    preview_title = f"AIBot forecast: {yes} YES / {no} NO"
+    preview_description = truncate_text(
+        f"{row.get('question', '')} Updated {forecast_date}. {description}",
+        240,
+    )
+    extra_head = f"""
+  <link rel="canonical" href="{h(absolute_page_url)}">
+  <meta property="og:url" content="{h(absolute_page_url)}">
+  <meta property="og:image" content="{h(absolute_image_url)}">
+  <meta property="og:image:secure_url" content="{h(absolute_image_url)}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{h(preview_title)}">
+  <meta name="twitter:description" content="{h(preview_description)}">
+  <meta name="twitter:image" content="{h(absolute_image_url)}">
+"""
     body = f"""
   <main class="embed-shell">
 {market_card(row, "../../")}
@@ -288,9 +335,35 @@ def build_market_page(row: dict[str, str], output_dir: str) -> str:
 """
     write_text(
         os.path.join(page_dir, "index.html"),
-        page_template(title, description, body, "../../"),
+        page_template(
+            title,
+            description,
+            body,
+            "../../",
+            extra_head=extra_head,
+            og_title=preview_title,
+            og_description=preview_description,
+        ),
     )
     return relative_url
+
+
+def build_link_preview_page(row: dict[str, str], output_dir: str) -> None:
+    market_id = slugify(row["id"])
+    page_dir = os.path.join(output_dir, "link-previews", market_id)
+    yes = pct(row.get("newsPredictedYesProbability"))
+    no = pct(row.get("newsPredictedNoProbability"))
+    title = f"Link preview image - {yes} YES / {no} NO"
+    description = row.get("newsShortReason", "")
+    body = f"""
+  <main class="embed-shell preview-shell">
+{market_card(row, "../../")}
+  </main>
+"""
+    write_text(
+        os.path.join(page_dir, "index.html"),
+        page_template(title, description, body, "../../"),
+    )
 
 
 def build_index(rows: list[dict[str, str]], page_urls: dict[str, str], output_dir: str) -> None:
@@ -344,6 +417,21 @@ def build_json(rows: list[dict[str, str]], page_urls: dict[str, str], output_dir
                 "marketUrl": row.get("url", ""),
                 "pageUrl": page_urls.get(row.get("id", ""), ""),
                 "cardImageUrl": f"cards/{slugify(row.get('id', ''))}.png",
+                "linkPreviewImageUrl": (
+                    f"link-cards/{slugify(row.get('id', ''))}.png"
+                ),
+                "absolutePageUrl": (
+                    f"{PUBLIC_SITE_BASE_URL}/"
+                    f"{page_urls.get(row.get('id', ''), '')}"
+                ),
+                "absoluteCardImageUrl": (
+                    f"{PUBLIC_CARD_IMAGE_BASE_URL}/"
+                    f"{slugify(row.get('id', ''))}.png"
+                ),
+                "absoluteLinkPreviewImageUrl": (
+                    f"{PUBLIC_LINK_CARD_IMAGE_BASE_URL}/"
+                    f"{slugify(row.get('id', ''))}.png"
+                ),
                 "yesProbability": parse_float(row.get("newsPredictedYesProbability")),
                 "noProbability": parse_float(row.get("newsPredictedNoProbability")),
                 "confidence": row.get("newsConfidence", ""),
@@ -847,6 +935,85 @@ a {
     border-radius: 14px;
   }
 }
+
+.preview-shell .forecast-poster {
+  aspect-ratio: 2 / 1;
+  min-height: 600px;
+}
+
+.preview-shell .poster-watermark {
+  top: 48%;
+  font-size: 330px;
+}
+
+.preview-shell .poster-header {
+  left: 4%;
+  top: 4%;
+  width: 82%;
+}
+
+.preview-shell .poster-header h1 {
+  font-size: 35px;
+  line-height: 1.16;
+  -webkit-line-clamp: 2;
+}
+
+.preview-shell .poster-meta {
+  gap: 28px;
+  margin-top: 16px;
+  font-size: 26px;
+}
+
+.preview-shell .poster-odds {
+  left: 18%;
+  right: 18%;
+  top: 37%;
+  gap: 5%;
+}
+
+.preview-shell .split-line {
+  height: 145px;
+}
+
+.preview-shell .odds-side {
+  gap: 22px;
+}
+
+.preview-shell .outcome-label {
+  font-size: 40px;
+}
+
+.preview-shell .odds-side strong {
+  font-size: 86px;
+}
+
+.preview-shell .poster-footer {
+  left: 4%;
+  right: 4%;
+  bottom: 4.2%;
+}
+
+.preview-shell .poster-date {
+  font-size: 30px;
+}
+
+.preview-shell .poster-reason {
+  max-width: 890px;
+  margin: 12px 0 10px;
+  font-size: 20px;
+  line-height: 1.22;
+}
+
+.preview-shell .source-pill {
+  max-width: 250px;
+  min-height: 24px;
+  font-size: 12px;
+}
+
+.preview-shell .lock-button {
+  width: 112px;
+  min-width: 112px;
+}
 """
     write_text(os.path.join(output_dir, "assets", "styles.css"), css)
 
@@ -858,7 +1025,10 @@ def build_site(input_csv: str, output_dir: str, clean: bool) -> dict[str, Any]:
     os.makedirs(output_dir, exist_ok=True)
 
     build_css(output_dir)
-    page_urls = {row["id"]: build_market_page(row, output_dir) for row in rows}
+    page_urls = {}
+    for row in rows:
+        page_urls[row["id"]] = build_market_page(row, output_dir)
+        build_link_preview_page(row, output_dir)
     build_index(rows, page_urls, output_dir)
     build_json(rows, page_urls, output_dir)
     write_text(os.path.join(output_dir, ".nojekyll"), "")

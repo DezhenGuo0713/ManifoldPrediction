@@ -22,6 +22,8 @@ from build_prediction_pages import DOCS_DIR, PREFERRED_INPUTS, load_rows, resolv
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 DEFAULT_WIDTH = 1200
 DEFAULT_HEIGHT = 675
+DEFAULT_LINK_PREVIEW_WIDTH = 1200
+DEFAULT_LINK_PREVIEW_HEIGHT = 600
 
 
 CHROME_CANDIDATES = [
@@ -76,7 +78,14 @@ def render_card(
     subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
-def render_images(input_csv: str, output_dir: str, width: int, height: int) -> int:
+def render_images(
+    input_csv: str,
+    output_dir: str,
+    width: int,
+    height: int,
+    link_preview_width: int,
+    link_preview_height: int,
+) -> int:
     rows = load_rows(input_csv)
     browser = find_browser()
     count = 0
@@ -87,6 +96,22 @@ def render_images(input_csv: str, output_dir: str, width: int, height: int) -> i
             raise FileNotFoundError(f"Missing generated card page: {page_path}")
         output_path = Path(output_dir) / "cards" / f"{market_id}.png"
         render_card(browser, page_path, output_path, width, height)
+
+        preview_page_path = (
+            Path(output_dir) / "link-previews" / market_id / "index.html"
+        )
+        if not preview_page_path.exists():
+            raise FileNotFoundError(
+                f"Missing generated link preview page: {preview_page_path}"
+            )
+        preview_output_path = Path(output_dir) / "link-cards" / f"{market_id}.png"
+        render_card(
+            browser,
+            preview_page_path,
+            preview_output_path,
+            link_preview_width,
+            link_preview_height,
+        )
         count += 1
     return count
 
@@ -107,13 +132,30 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--width", type=int, default=DEFAULT_WIDTH)
     parser.add_argument("--height", type=int, default=DEFAULT_HEIGHT)
+    parser.add_argument(
+        "--link-preview-width",
+        type=int,
+        default=DEFAULT_LINK_PREVIEW_WIDTH,
+    )
+    parser.add_argument(
+        "--link-preview-height",
+        type=int,
+        default=DEFAULT_LINK_PREVIEW_HEIGHT,
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
     input_csv = resolve_input(args.input)
-    count = render_images(input_csv, args.output_dir, args.width, args.height)
+    count = render_images(
+        input_csv,
+        args.output_dir,
+        args.width,
+        args.height,
+        args.link_preview_width,
+        args.link_preview_height,
+    )
     print(f"Rendered {count} card images.")
     return 0
 

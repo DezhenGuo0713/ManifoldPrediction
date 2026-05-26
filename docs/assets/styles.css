@@ -480,3 +480,82 @@ a {
     border-radius: 14px;
   }
 }
+
+.preview-shell .forecast-poster {
+  aspect-ratio: 2 / 1;
+  min-height: 600px;
+}
+
+.preview-shell .poster-watermark {
+  top: 48%;
+  font-size: 330px;
+}
+
+.preview-shell .poster-header {
+  left: 4%;
+  top: 4%;
+  width: 82%;
+}
+
+.preview-shell .poster-header h1 {
+  font-size: 35px;
+  line-height: 1.16;
+  -webkit-line-clamp: 2;
+}
+
+.preview-shell .poster-meta {
+  gap: 28px;
+  margin-top: 16px;
+  font-size: 26px;
+}
+
+.preview-shell .poster-odds {
+  left: 18%;
+  right: 18%;
+  top: 37%;
+  gap: 5%;
+}
+
+.preview-shell .split-line {
+  height: 145px;
+}
+
+.preview-shell .odds-side {
+  gap: 22px;
+}
+
+.preview-shell .outcome-label {
+  font-size: 40px;
+}
+
+.preview-shell .odds-side strong {
+  font-size: 86px;
+}
+
+.preview-shell .poster-footer {
+  left: 4%;
+  right: 4%;
+  bottom: 4.2%;
+}
+
+.preview-shell .poster-date {
+  font-size: 30px;
+}
+
+.preview-shell .poster-reason {
+  max-width: 890px;
+  margin: 12px 0 10px;
+  font-size: 20px;
+  line-height: 1.22;
+}
+
+.preview-shell .source-pill {
+  max-width: 250px;
+  min-height: 24px;
+  font-size: 12px;
+}
+
+.preview-shell .lock-button {
+  width: 112px;
+  min-width: 112px;
+}
