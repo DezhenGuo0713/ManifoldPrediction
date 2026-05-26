@@ -258,6 +258,10 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   gap: 18px;
   align-items: end;
 }}
+.footer-copy {{
+  min-width: 0;
+  overflow: hidden;
+}}
 .poster-date {{
   display: block;
   color: var(--ink);
@@ -397,14 +401,57 @@ body.full-view .lock-button {{
   transform: translateX(-50%);
 }}
 @media (max-width: 520px) {{
+  body.embed-view .forecast-poster {{
+    width: 100vw;
+    max-width: 100%;
+  }}
+  body.embed-view .poster-watermark {{
+    top: 48%;
+    font-size: 138px;
+  }}
   body.embed-view .poster-header {{ width: 92%; }}
-  body.embed-view .poster-header h1 {{ font-size: 15px; -webkit-line-clamp: 2; }}
-  body.embed-view .poster-meta {{ gap: 10px; font-size: 11px; }}
-  body.embed-view .poster-odds {{ left: 8%; right: 8%; top: 34%; }}
-  body.embed-view .outcome-label {{ font-size: 17px; }}
-  body.embed-view .odds-side strong {{ font-size: 36px; }}
-  body.embed-view .poster-reason {{ font-size: 11px; -webkit-line-clamp: 2; }}
-  body.embed-view .source-pill:nth-of-type(n+3) {{ display: none; }}
+  body.embed-view .poster-header h1 {{
+    font-size: 13px;
+    line-height: 1.22;
+    -webkit-line-clamp: 2;
+  }}
+  body.embed-view .poster-meta {{
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 10px;
+  }}
+  body.embed-view .poster-odds {{
+    left: 20px;
+    right: 20px;
+    top: 108px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+  }}
+  body.embed-view .split-line {{ display: none; }}
+  body.embed-view .odds-side {{ gap: 6px; }}
+  body.embed-view .outcome-label {{ font-size: 15px; }}
+  body.embed-view .odds-side strong {{ font-size: 31px; }}
+  body.embed-view .poster-footer {{
+    left: 20px;
+    right: 20px;
+    bottom: 12px;
+    display: block;
+  }}
+  body.embed-view .poster-date {{ font-size: 12px; }}
+  body.embed-view .poster-reason {{
+    margin: 7px 0;
+    font-size: 10px;
+    line-height: 1.18;
+    -webkit-line-clamp: 2;
+  }}
+  body.embed-view .poster-sources {{ gap: 5px; }}
+  body.embed-view .source-caption {{ display: none; }}
+  body.embed-view .source-pill {{
+    max-width: calc((100vw - 45px) / 2);
+    min-height: 20px;
+    padding: 3px 6px;
+    font-size: 10px;
+  }}
   body.embed-view .lock-button {{ display: none; }}
 }}
 @media (max-width: 900px) {{
