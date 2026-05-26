@@ -272,6 +272,8 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 }}
 .odds-side strong.higher-score {{ color: var(--yes); }}
 .odds-side strong.lower-score {{ color: var(--no); }}
+.outcome-label.higher-score {{ color: var(--yes); }}
+.outcome-label.lower-score {{ color: var(--no); }}
 .poster-footer {{
   position: absolute;
   left: 4%;
@@ -458,8 +460,8 @@ body.embed-view .poster-odds {{
   top: auto;
   width: min(330px, calc(100vw - 32px));
   margin: 0;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 10px;
   align-self: center;
 }}
 body.embed-view .yes-side {{
@@ -467,20 +469,32 @@ body.embed-view .yes-side {{
   grid-row: 1;
 }}
 body.embed-view .split-line {{
-  display: none;
+  display: grid;
+  width: auto;
+  height: auto;
+  place-items: center;
+  background: transparent;
+  color: var(--muted);
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.78);
+}}
+body.embed-view .split-line::before {{
+  content: "|";
 }}
 body.embed-view .no-side {{
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 1;
 }}
 body.embed-view .odds-side {{
   gap: 6px;
 }}
 body.embed-view .outcome-label {{
-  font-size: clamp(15px, 2.4vw, 22px);
+  font-size: clamp(20px, 4.8vw, 30px);
 }}
 body.embed-view .odds-side strong {{
-  font-size: clamp(38px, 8vw, 62px);
+  font-size: clamp(32px, 7vw, 52px);
 }}
 body.embed-view .poster-footer {{
   position: relative;
@@ -542,20 +556,21 @@ body.embed-view .lock-button {{
   }}
   body.embed-view .poster-odds {{
     width: min(330px, calc(100vw - 24px));
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 22px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 9px;
   }}
   body.embed-view .yes-side {{
     grid-column: 1;
     grid-row: 1;
   }}
   body.embed-view .no-side {{
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
   }}
   body.embed-view .odds-side {{ gap: 5px; }}
-  body.embed-view .outcome-label {{ font-size: 14px; }}
-  body.embed-view .odds-side strong {{ font-size: 34px; }}
+  body.embed-view .split-line {{ font-size: 24px; }}
+  body.embed-view .outcome-label {{ font-size: 18px; }}
+  body.embed-view .odds-side strong {{ font-size: 30px; }}
   body.embed-view .poster-date {{ font-size: 10px; }}
   body.embed-view .poster-reason {{
     margin: 0 0 7px;
@@ -597,12 +612,12 @@ body.embed-view .lock-button {{
   </header>
   <section class="poster-odds" aria-label="Forecast probabilities">
     <div class="odds-side yes-side">
-      <span class="outcome-label">YES</span>
+      <span class="outcome-label {yes_score_class}">YES</span>
       <strong class="{yes_score_class}">{h(pct(yes))}</strong>
     </div>
     <div class="split-line" aria-hidden="true"></div>
     <div class="odds-side no-side">
-      <span class="outcome-label">NO</span>
+      <span class="outcome-label {no_score_class}">NO</span>
       <strong class="{no_score_class}">{h(pct(no))}</strong>
     </div>
   </section>
