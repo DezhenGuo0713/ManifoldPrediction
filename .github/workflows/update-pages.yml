@@ -56,6 +56,7 @@ jobs:
 
           python Code/predict_market_news.py "${args[@]}"
           python Code/build_prediction_pages.py
+          python Code/render_card_images.py
 
       - name: Commit updated pages
         run: |

@@ -343,6 +343,7 @@ def build_json(rows: list[dict[str, str]], page_urls: dict[str, str], output_dir
                 "question": row.get("question", ""),
                 "marketUrl": row.get("url", ""),
                 "pageUrl": page_urls.get(row.get("id", ""), ""),
+                "cardImageUrl": f"cards/{slugify(row.get('id', ''))}.png",
                 "yesProbability": parse_float(row.get("newsPredictedYesProbability")),
                 "noProbability": parse_float(row.get("newsPredictedNoProbability")),
                 "confidence": row.get("newsConfidence", ""),
