@@ -7,12 +7,19 @@ import re
 from datetime import datetime
 from urllib.parse import quote
 from urllib.parse import urlsplit
+from urllib.request import urlopen
 from zoneinfo import ZoneInfo
 
 import streamlit as st
-import streamlit.components.v1 as components
 
 
+REMOTE_INPUTS = [
+    os.environ.get("PREDICTION_CSV_URL", ""),
+    (
+        "https://raw.githubusercontent.com/"
+        "DezhenGuo0713/ManifoldPrediction/main/Markets/MarketNewsPredictions.csv"
+    ),
+]
 PREFERRED_INPUTS = [
     os.path.join("Markets", "MarketNewsPredictions.csv"),
     os.path.join("Markets", "MarketNewsPredictions.10_sample.csv"),
@@ -85,6 +92,23 @@ def probability_band(yes_probability: float) -> str:
 
 @st.cache_data(ttl=300)
 def load_rows() -> list[dict[str, str]]:
+    for url in REMOTE_INPUTS:
+        if not url:
+            continue
+        try:
+            with urlopen(url, timeout=15) as response:
+                text = response.read().decode("utf-8")
+            reader = csv.DictReader(text.splitlines())
+            rows = [
+                row
+                for row in reader
+                if row.get("id") and row.get("newsPredictedYesProbability")
+            ]
+            if rows:
+                return rows
+        except Exception:
+            pass
+
     for path in PREFERRED_INPUTS:
         if os.path.exists(path):
             with open(path, newline="", encoding="utf-8") as input_file:
@@ -504,6 +528,37 @@ body.full-view .lock-button {{
 </html>"""
 
 
+def card_fragment(row: dict[str, str], embed: bool = False) -> str:
+    document = card_html(row, embed=embed)
+    style_match = re.search(r"<style>(.*?)</style>", document, flags=re.DOTALL)
+    body_match = re.search(r"<body class=\"([^\"]+)\">(.*?)</body>", document, flags=re.DOTALL)
+    if not style_match or not body_match:
+        return document
+
+    css = style_match.group(1)
+    mode_class = body_match.group(1)
+    body = body_match.group(2)
+    css = css.replace(
+        "html, body { margin: 0; background: var(--bg); color: var(--ink); }",
+        ".forecast-card-root { margin: 0; background: var(--bg); color: var(--ink); }",
+    )
+    css = css.replace("body.full-view", ".forecast-card-root.full-view")
+    css = css.replace("body.embed-view", ".forecast-card-root.embed-view")
+    return f"""
+<style>
+{css}
+.forecast-card-root {{
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}}
+</style>
+<div class="forecast-card-root {h(mode_class)}">
+{body}
+</div>
+"""
+
+
 def selected_market_id() -> str:
     return st.query_params.get("market") or st.query_params.get("id") or ""
 
@@ -615,6 +670,10 @@ def main() -> None:
     st.markdown(
         """
         <style>
+        html, body, .stApp {
+          margin: 0 !important;
+          background: #050406 !important;
+        }
         header, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {
           display: none !important;
         }
@@ -622,8 +681,12 @@ def main() -> None:
           padding: 0 !important;
           max-width: none !important;
         }
-        iframe {
-          display: block;
+        [data-testid="stVerticalBlock"],
+        [data-testid="stElementContainer"],
+        [data-testid="stMarkdownContainer"] {
+          gap: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
         }
         </style>
         """,
@@ -642,12 +705,7 @@ def main() -> None:
         return
 
     is_embed = is_embed_request()
-    component_height = 320 if is_embed else 720
-    components.html(
-        card_html(row, embed=is_embed),
-        height=component_height,
-        scrolling=False,
-    )
+    st.markdown(card_fragment(row, embed=is_embed), unsafe_allow_html=True)
 
     if st.query_params.get("list") == "1":
         st.write("Available market ids:")
