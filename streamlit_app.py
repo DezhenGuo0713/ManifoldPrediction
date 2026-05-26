@@ -424,59 +424,153 @@ body.full-view .lock-button {{
   border-radius: 18px 18px 0 0;
   transform: translateX(-50%);
 }}
+body.embed-view .forecast-poster {{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 8px;
+  width: 100vw;
+  max-width: 100vw;
+  height: 320px;
+  padding: 14px 16px 12px;
+}}
+body.embed-view .poster-watermark {{
+  display: none;
+}}
+body.embed-view .poster-header {{
+  position: relative;
+  left: auto;
+  top: auto;
+  width: min(360px, calc(100vw - 32px));
+  max-width: min(360px, calc(100vw - 32px));
+}}
+body.embed-view .poster-header h1 {{
+  font-size: clamp(15px, 2.5vw, 22px);
+  line-height: 1.18;
+  -webkit-line-clamp: 2;
+}}
+body.embed-view .poster-meta {{
+  display: none;
+}}
+body.embed-view .poster-odds {{
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  width: min(330px, calc(100vw - 32px));
+  margin: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  align-self: center;
+}}
+body.embed-view .yes-side {{
+  grid-column: 1;
+  grid-row: 1;
+}}
+body.embed-view .split-line {{
+  display: none;
+}}
+body.embed-view .no-side {{
+  grid-column: 2;
+  grid-row: 1;
+}}
+body.embed-view .odds-side {{
+  gap: 6px;
+}}
+body.embed-view .outcome-label {{
+  font-size: clamp(15px, 2.4vw, 22px);
+}}
+body.embed-view .odds-side strong {{
+  font-size: clamp(38px, 8vw, 62px);
+}}
+body.embed-view .poster-footer {{
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  display: block;
+  width: min(360px, calc(100vw - 32px));
+  max-width: min(360px, calc(100vw - 32px));
+}}
+body.embed-view .poster-date {{
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}}
+body.embed-view .poster-reason {{
+  max-width: none;
+  margin: 0 0 8px;
+  font-size: clamp(10px, 1.75vw, 12px);
+  line-height: 1.22;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  -webkit-line-clamp: 3;
+}}
+body.embed-view .poster-sources {{
+  flex-wrap: nowrap;
+  overflow: hidden;
+}}
+body.embed-view .source-caption {{
+  flex: 0 0 auto;
+  font-size: 10px;
+}}
+body.embed-view .source-pill {{
+  min-width: 0;
+  max-width: calc((100% - 58px) / 2);
+  min-height: 21px;
+  padding: 3px 7px;
+  font-size: 10px;
+}}
+body.embed-view .lock-button {{
+  display: none;
+}}
 @media (max-width: 520px) {{
   body.embed-view .forecast-poster {{
     width: 100vw;
-    max-width: 100%;
+    max-width: 100vw;
+    padding: 10px 12px;
+    gap: 6px;
   }}
-  body.embed-view .poster-watermark {{
-    top: 48%;
-    font-size: 138px;
+  body.embed-view .poster-header,
+  body.embed-view .poster-footer {{
+    width: min(360px, calc(100vw - 24px));
+    max-width: min(360px, calc(100vw - 24px));
   }}
-  body.embed-view .poster-header {{ width: 92%; }}
   body.embed-view .poster-header h1 {{
     font-size: 13px;
-    line-height: 1.22;
+    line-height: 1.16;
     -webkit-line-clamp: 2;
-  }}
-  body.embed-view .poster-meta {{
-    gap: 8px;
-    margin-top: 8px;
-    font-size: 10px;
   }}
   body.embed-view .poster-odds {{
-    left: 20px;
-    right: 20px;
-    top: 108px;
+    width: min(330px, calc(100vw - 24px));
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 28px;
+    gap: 22px;
   }}
-  body.embed-view .split-line {{ display: none; }}
-  body.embed-view .odds-side {{ gap: 6px; }}
-  body.embed-view .outcome-label {{ font-size: 15px; }}
-  body.embed-view .odds-side strong {{ font-size: 31px; }}
-  body.embed-view .poster-footer {{
-    left: 20px;
-    right: 20px;
-    bottom: 12px;
-    display: block;
+  body.embed-view .yes-side {{
+    grid-column: 1;
+    grid-row: 1;
   }}
-  body.embed-view .poster-date {{ font-size: 12px; }}
+  body.embed-view .no-side {{
+    grid-column: 2;
+    grid-row: 1;
+  }}
+  body.embed-view .odds-side {{ gap: 5px; }}
+  body.embed-view .outcome-label {{ font-size: 14px; }}
+  body.embed-view .odds-side strong {{ font-size: 34px; }}
+  body.embed-view .poster-date {{ font-size: 10px; }}
   body.embed-view .poster-reason {{
-    margin: 7px 0;
+    margin: 0 0 7px;
     font-size: 10px;
-    line-height: 1.18;
-    -webkit-line-clamp: 2;
+    line-height: 1.16;
+    -webkit-line-clamp: 3;
   }}
   body.embed-view .poster-sources {{ gap: 5px; }}
   body.embed-view .source-caption {{ display: none; }}
   body.embed-view .source-pill {{
-    max-width: calc((100vw - 45px) / 2);
+    max-width: calc((100% - 5px) / 2);
     min-height: 20px;
     padding: 3px 6px;
-    font-size: 10px;
+    font-size: 9px;
   }}
-  body.embed-view .lock-button {{ display: none; }}
 }}
 @media (max-width: 900px) {{
   body.full-view .forecast-poster {{ min-height: 430px; }}
@@ -674,7 +768,10 @@ def main() -> None:
           margin: 0 !important;
           background: #050406 !important;
         }
-        header, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {
+        [data-testid="stHeader"],
+        [data-testid="stToolbar"],
+        [data-testid="stDecoration"],
+        [data-testid="stStatusWidget"] {
           display: none !important;
         }
         .block-container {
@@ -705,7 +802,11 @@ def main() -> None:
         return
 
     is_embed = is_embed_request()
-    st.markdown(card_fragment(row, embed=is_embed), unsafe_allow_html=True)
+    fragment = card_fragment(row, embed=is_embed)
+    if hasattr(st, "html"):
+        st.html(fragment)
+    else:
+        st.markdown(fragment, unsafe_allow_html=True)
 
     if st.query_params.get("list") == "1":
         st.write("Available market ids:")
