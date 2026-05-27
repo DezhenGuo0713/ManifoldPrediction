@@ -199,12 +199,14 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
     model = row.get("forecastModel", "").strip()
     if is_closed:
         forecast_date = f"Closed: {market_close_label(row)}"
+        time_label = forecast_date
         reason = "Market closed. No prediction generated."
     else:
         forecast_date = format_edt_timestamp(
             row.get("forecastTimestamp", ""),
             row.get("forecastCurrentDate", "").strip(),
         )
+        time_label = f"updated: {forecast_date}"
         reason = direct_reason(row.get("newsShortReason", "").strip())
     market_url = row.get("url", "").strip()
     mode_class = "embed-view" if embed else "full-view"
@@ -508,6 +510,7 @@ body.embed-view .forecast-card {{
     <h1>{h(question)}</h1>
     <div class="meta-row">
       <span>model: {h(model or "unknown")}</span>
+      <span class="updated-line">{h(time_label)}</span>
       {market_link}
     </div>
   </header>
@@ -517,7 +520,6 @@ body.embed-view .forecast-card {{
     <p>{h(reason)}</p>
   </section>
   <footer class="card-footer">
-    <span class="updated-line">{h(forecast_date)}</span>
 {sources_html}
   </footer>
 </article>
