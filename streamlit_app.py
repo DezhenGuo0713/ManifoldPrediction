@@ -192,7 +192,6 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
     no_score_class = "higher-score" if no > yes else "lower-score"
     band = "closed" if is_closed else probability_band(yes)
     question = row.get("question", "").strip()
-    confidence = (row.get("newsConfidence", "").strip() or "unknown").lower()
     model = row.get("forecastModel", "").strip()
     if is_closed:
         forecast_date = f"Closed: {market_close_label(row)}"
@@ -266,11 +265,11 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
 .forecast-card {{
   width: 100%;
   max-width: 100vw;
-  min-height: 320px;
-  padding: 18px;
+  min-height: 290px;
+  padding: 16px;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  gap: 13px;
+  gap: 10px;
   overflow: hidden;
   background: linear-gradient(180deg, #fffefa 0%, #f9faf8 100%);
   border: 1px solid var(--line);
@@ -448,7 +447,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   outline: none;
 }}
 body.full-view .forecast-card {{
-  min-height: 540px;
+  min-height: 500px;
   padding: 34px;
   gap: 24px;
 }}
@@ -466,14 +465,14 @@ body.full-view .source-pill {{ min-height: 30px; max-width: 280px; font-size: 13
 body.embed-view .forecast-card {{
   width: min(100%, 390px);
   max-width: 100%;
-  min-height: 320px;
-  padding: 13px;
-  gap: 10px;
+  min-height: 280px;
+  padding: 11px;
+  gap: 8px;
   border-radius: 0;
   box-shadow: none;
 }}
 @media (max-width: 520px) {{
-  body.embed-view .forecast-card {{ padding: 11px 12px; gap: 8px; }}
+  body.embed-view .forecast-card {{ min-height: 278px; padding: 9px 10px; gap: 7px; }}
   body.embed-view .card-header h1 {{
     font-size: 13px;
     line-height: 1.18;
@@ -487,7 +486,7 @@ body.embed-view .forecast-card {{
   body.embed-view .probability-divider {{ font-size: 24px; }}
   body.embed-view .reason-block {{ padding: 8px 10px; }}
   body.embed-view .reason-label {{ font-size: 9px; }}
-  body.embed-view .reason-block p {{ font-size: 10px; line-height: 1.22; }}
+  body.embed-view .reason-block p {{ font-size: 10px; line-height: 1.2; -webkit-line-clamp: 2; }}
   body.embed-view .updated-line {{ font-size: 9px; }}
   body.embed-view .source-pill {{ min-height: 20px; padding: 3px 6px; font-size: 9px; }}
 }}
@@ -505,7 +504,6 @@ body.embed-view .forecast-card {{
     <h1>{h(question)}</h1>
     <div class="meta-row">
       <span>model: {h(model or "unknown")}</span>
-      <span>confidence: {h(confidence)}</span>
       {market_link}
     </div>
   </header>
@@ -672,8 +670,17 @@ def main() -> None:
         [data-testid="stHeader"],
         [data-testid="stToolbar"],
         [data-testid="stDecoration"],
-        [data-testid="stStatusWidget"] {
+        [data-testid="stStatusWidget"],
+        [data-testid="stDeployButton"],
+        [data-testid="stAppDeployButton"],
+        .stDeployButton,
+        .viewerBadge_container__1QSob,
+        .viewerBadge_link__1S137,
+        a[href*="streamlit.io/cloud"],
+        a[href*="streamlit.io"] {
           display: none !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
         }
         .block-container {
           padding: 0 !important;

@@ -274,7 +274,6 @@ def market_card(row: dict[str, str], site_root: str) -> str:
         )
     )
     model = row.get("forecastModel", "").strip()
-    confidence = "closed" if is_closed else row.get("newsConfidence", "").strip() or "unknown"
     odds_html = (
         """
       <section class="market-status closed-status" aria-label="Market status">
@@ -316,7 +315,6 @@ def market_card(row: dict[str, str], site_root: str) -> str:
         <h1>{h(question)}</h1>
         <div class="meta-row">
           <span>model: {h(model or "unknown")}</span>
-          <span>confidence: {h(confidence)}</span>
           {market_link}
         </div>
       </header>
@@ -1233,7 +1231,7 @@ a {
 .forecast-card {
   width: 100%;
   max-width: 100vw;
-  min-height: 540px;
+  min-height: 500px;
   padding: 34px;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
@@ -1463,7 +1461,7 @@ a {
 
 @media (max-width: 900px) {
   .forecast-card {
-    min-height: 430px;
+    min-height: 400px;
     padding: 24px;
   }
 
@@ -1482,9 +1480,9 @@ a {
 
 @media (max-width: 560px) {
   .forecast-card {
-    min-height: 390px;
-    padding: 16px;
-    gap: 12px;
+    min-height: 340px;
+    padding: 14px;
+    gap: 10px;
   }
 
   .card-header h1 {
