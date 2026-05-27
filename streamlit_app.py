@@ -573,83 +573,320 @@ def is_embed_request() -> bool:
 
 
 def render_directory(rows: list[dict[str, str]]) -> None:
+    total = len(rows)
+    closed_count = sum(1 for row in rows if is_market_closed(row))
+    active_count = total - closed_count
+    latest_timestamp = max(
+        (row.get("forecastTimestamp", "") for row in rows if row.get("forecastTimestamp")),
+        default="",
+    )
+    latest_update = format_edt_timestamp(latest_timestamp, "No predictions loaded")
     st.markdown(
         """
         <style>
-        .directory {
+        html, body, .stApp {
+          background: #f3f1eb !important;
+        }
+        .directory-dashboard {
           min-height: 100vh;
-          padding: 28px;
-          background: #050406;
-          color: #f7f7f2;
-          font-family: "Courier New", Courier, ui-monospace, monospace;
+          padding: 26px;
+          background: #f3f1eb;
+          color: #16181d;
+          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
-        .directory h1 {
-          margin: 0 0 10px;
-          font-size: 28px;
-          line-height: 1.1;
+        .dashboard-shell {
+          width: min(1160px, 100%);
+          margin: 0 auto;
         }
-        .directory p {
-          margin: 0 0 22px;
-          color: #b8adae;
-          font-size: 15px;
-        }
-        .market-list {
+        .dashboard-header {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 20px;
+          align-items: end;
+          margin-bottom: 18px;
+        }
+        .dashboard-kicker {
+          margin: 0 0 6px;
+          color: #656b75;
+          font-size: 12px;
+          font-weight: 760;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+        .dashboard-header h1 {
+          margin: 0;
+          color: #16181d;
+          font-size: clamp(28px, 4vw, 44px);
+          line-height: 1.05;
+          letter-spacing: 0;
+        }
+        .dashboard-subtitle {
+          margin: 10px 0 0;
+          max-width: 720px;
+          color: #656b75;
+          font-size: 15px;
+          line-height: 1.45;
+        }
+        .summary-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(88px, 1fr));
+          gap: 8px;
+          min-width: 320px;
+        }
+        .summary-card {
+          padding: 10px 12px;
+          border: 1px solid #d9dde3;
+          border-radius: 8px;
+          background: #fffefa;
+          box-shadow: 0 8px 20px rgba(18, 24, 34, 0.06);
+        }
+        .summary-card span {
+          display: block;
+          margin-bottom: 4px;
+          color: #656b75;
+          font-size: 10px;
+          font-weight: 760;
+          text-transform: uppercase;
+        }
+        .summary-card strong {
+          display: block;
+          color: #16181d;
+          font-size: 20px;
+          line-height: 1;
+        }
+        .run-meta {
+          margin: 0 0 16px;
+          color: #656b75;
+          font-size: 12px;
+        }
+        .dashboard-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           gap: 12px;
         }
-        .market-link {
-          display: block;
-          min-height: 136px;
+        .dashboard-card {
+          display: grid;
+          gap: 12px;
+          min-height: 238px;
           padding: 14px;
-          border: 1px solid rgba(255, 255, 255, 0.16);
+          border: 1px solid #d9dde3;
+          border-top: 4px solid #24324a;
           border-radius: 8px;
-          background: rgba(255, 255, 255, 0.045);
-          color: #f7f7f2;
+          background: #fffefa;
+          box-shadow: 0 10px 24px rgba(18, 24, 34, 0.07);
+        }
+        .dashboard-card.closed {
+          border-top-color: #b42318;
+        }
+        .card-title {
+          display: -webkit-box;
+          min-height: 40px;
+          margin: 0;
+          overflow: hidden;
+          color: #16181d;
+          font-size: 16px;
+          font-weight: 720;
+          line-height: 1.25;
+          overflow-wrap: anywhere;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+        .card-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          color: #656b75;
+          font-size: 10px;
+        }
+        .card-meta span {
+          padding: 3px 7px;
+          border: 1px solid #d9dde3;
+          border-radius: 999px;
+          background: #ffffff;
+        }
+        .mini-probs {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+          gap: 10px;
+          align-items: center;
+          padding: 10px 12px;
+          border: 1px solid #d9dde3;
+          border-radius: 8px;
+          background: #f8faf9;
+        }
+        .mini-prob {
+          display: grid;
+          gap: 3px;
+        }
+        .mini-prob.no {
+          text-align: right;
+        }
+        .mini-prob span {
+          color: #4f5865;
+          font-size: 11px;
+          font-weight: 780;
+          text-transform: uppercase;
+        }
+        .mini-prob strong {
+          color: #4f5865;
+          font-size: 28px;
+          line-height: 1;
+        }
+        .mini-prob.high span,
+        .mini-prob.high strong {
+          color: #0aa34f;
+        }
+        .mini-divider {
+          color: #a0a7b2;
+          font-size: 22px;
+        }
+        .closed-note {
+          padding: 14px 12px;
+          border: 1px solid #f1b4ae;
+          border-radius: 8px;
+          background: #fff7f5;
+          color: #b42318;
+          font-size: 14px;
+          font-weight: 780;
+          text-transform: uppercase;
+          text-align: center;
+        }
+        .card-reason {
+          display: -webkit-box;
+          min-height: 44px;
+          margin: 0;
+          overflow: hidden;
+          color: #16181d;
+          font-size: 12px;
+          line-height: 1.3;
+          overflow-wrap: anywhere;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+        }
+        .card-actions {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          margin-top: auto;
+        }
+        .card-actions a {
+          display: inline-flex;
+          align-items: center;
+          min-height: 28px;
+          padding: 5px 10px;
+          border: 1px solid #c8d1db;
+          border-radius: 6px;
+          background: #ffffff;
+          color: #24324a;
+          font-size: 12px;
+          font-weight: 680;
           text-decoration: none;
         }
-        .market-link:hover, .market-link:focus-visible {
-          border-color: rgba(0, 240, 79, 0.82);
+        .card-actions a:hover, .card-actions a:focus-visible {
+          border-color: #24324a;
+          background: #f2f5f8;
           outline: none;
         }
-        .market-link strong {
-          display: block;
-          margin-bottom: 8px;
-          color: #00f04f;
-          font-size: 13px;
+        .empty-state {
+          padding: 18px;
+          border: 1px solid #d9dde3;
+          border-radius: 8px;
+          background: #fffefa;
+          color: #656b75;
         }
-        .market-link span {
-          display: -webkit-box;
-          overflow: hidden;
-          color: #f7f7f2;
-          font-size: 15px;
-          line-height: 1.3;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 4;
+        @media (max-width: 720px) {
+          .directory-dashboard {
+            padding: 18px 12px;
+          }
+          .dashboard-header {
+            grid-template-columns: 1fr;
+          }
+          .summary-grid {
+            min-width: 0;
+          }
+          .dashboard-list {
+            grid-template-columns: 1fr;
+          }
         }
         </style>
         """,
         unsafe_allow_html=True,
     )
 
-    links = []
+    cards = []
     for row in rows:
         market_id = row.get("id", "")
-        href = f"/?market={quote(market_id)}"
-        links.append(
-            f'<a class="market-link" href="{h(href)}">'
-            f"<strong>{h(market_id)}</strong>"
-            f"<span>{h(row.get('question', ''))}</span>"
-            "</a>"
+        normal_href = f"/?market={quote(market_id)}"
+        embed_href = f"/?market={quote(market_id)}&mode=embed&embedded=true"
+        model = row.get("forecastModel", "").strip() or "unknown"
+        updated = format_edt_timestamp(
+            row.get("forecastTimestamp", ""),
+            row.get("forecastCurrentDate", ""),
+        )
+        reason = direct_reason(row.get("newsShortReason", ""))
+        if is_market_closed(row):
+            status_class = "closed"
+            prob_html = '<div class="closed-note">Market closed</div>'
+            reason = "Market closed. No prediction generated."
+        else:
+            status_class = ""
+            yes = parse_float(row.get("newsPredictedYesProbability"))
+            no = parse_float(row.get("newsPredictedNoProbability"), 1 - yes)
+            yes_high = " high" if yes >= no else ""
+            no_high = " high" if no > yes else ""
+            prob_html = (
+                '<div class="mini-probs">'
+                f'<div class="mini-prob yes{yes_high}"><span>Yes</span><strong>{h(pct(yes))}</strong></div>'
+                '<div class="mini-divider">|</div>'
+                f'<div class="mini-prob no{no_high}"><span>No</span><strong>{h(pct(no))}</strong></div>'
+                "</div>"
+            )
+        cards.append(
+            f"""
+          <article class="dashboard-card {status_class}">
+            <h2 class="card-title">{h(row.get("question", ""))}</h2>
+            <div class="card-meta">
+              <span>model: {h(model)}</span>
+              <span>{h(updated)}</span>
+            </div>
+            {prob_html}
+            <p class="card-reason">{h(reason)}</p>
+            <div class="card-actions">
+              <a href="{h(normal_href)}">Open card</a>
+              <a href="{h(embed_href)}">Embed view</a>
+            </div>
+          </article>"""
         )
 
+    cards_html = (
+        "".join(cards)
+        if cards
+        else '<div class="empty-state">No predictions are currently available.</div>'
+    )
+
     st.markdown(
-        '<main class="directory">'
-        "<h1>Manifold Prediction Cards</h1>"
-        "<p>Open a market card for preview. For Manifold embeds, add "
-        "<code>&mode=embed&embedded=true</code> to the market URL.</p>"
-        f'<div class="market-list">{"".join(links)}</div>'
-        "</main>",
+        f"""
+        <main class="directory-dashboard">
+          <div class="dashboard-shell">
+            <header class="dashboard-header">
+              <div>
+                <p class="dashboard-kicker">News-search forecasts</p>
+                <h1>Manifold Prediction Dashboard</h1>
+                <p class="dashboard-subtitle">Current generated forecasts with compact embed pages for Manifold comments.</p>
+              </div>
+              <section class="summary-grid" aria-label="Prediction summary">
+                <div class="summary-card"><span>Total</span><strong>{total}</strong></div>
+                <div class="summary-card"><span>Active</span><strong>{active_count}</strong></div>
+                <div class="summary-card"><span>Closed</span><strong>{closed_count}</strong></div>
+              </section>
+            </header>
+            <p class="run-meta">Latest update: {h(latest_update)}</p>
+            <section class="dashboard-list" aria-label="Markets">
+              {cards_html}
+            </section>
+          </div>
+        </main>
+        """,
         unsafe_allow_html=True,
     )
 

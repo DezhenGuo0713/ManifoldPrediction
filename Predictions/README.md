@@ -1,8 +1,13 @@
 # Prediction History
 
-Each scheduled prediction run writes one JSON file per market into:
+Each scheduled prediction run writes CSV snapshots under this folder:
 
-`Predictions/<market-id>/<timestamp>.json`
+- `Predictions/latest.csv`: newest full prediction run
+- `Predictions/runs/<timestamp>.csv`: full prediction run archive
+- `Predictions/<market-id>/latest.csv`: newest prediction for one market
+- `Predictions/<market-id>/<timestamp>.csv`: one archived prediction for one market
+- `Predictions/<market-id>/history.csv`: append-style market history
 
-The same folder also contains `latest.json` for the newest prediction for that
-market. Closed markets are stored with `status: "closed"` and no probability.
+The same per-market folders also keep `latest.json` and timestamped JSON files
+for structured consumers. Closed markets are stored with `forecastStatus:
+"closed"` and no probability.

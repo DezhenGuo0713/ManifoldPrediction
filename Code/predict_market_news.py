@@ -300,13 +300,76 @@ def prediction_history_payload(row: dict[str, str]) -> dict[str, Any]:
     }
 
 
+def prediction_csv_fieldnames(rows: list[dict[str, str]]) -> list[str]:
+    fieldnames: list[str] = []
+    for row in rows:
+        for key in row:
+            if key not in fieldnames:
+                fieldnames.append(key)
+    return fieldnames
+
+
+def write_csv_file(
+    path: str,
+    rows: list[dict[str, str]],
+    fieldnames: list[str],
+) -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as output_file:
+        writer = csv.DictWriter(output_file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def append_history_csv(
+    path: str,
+    row: dict[str, str],
+    fieldnames: list[str],
+) -> None:
+    rows: list[dict[str, str]] = []
+    merged_fieldnames = list(fieldnames)
+    if os.path.exists(path):
+        with open(path, newline="", encoding="utf-8") as input_file:
+            reader = csv.DictReader(input_file)
+            if reader.fieldnames:
+                for key in reader.fieldnames:
+                    if key not in merged_fieldnames:
+                        merged_fieldnames.append(key)
+            rows = list(reader)
+    for key in row:
+        if key not in merged_fieldnames:
+            merged_fieldnames.append(key)
+    rows.append(row)
+    write_csv_file(path, rows, merged_fieldnames)
+
+
 def write_prediction_history(history_dir: str, rows: list[dict[str, str]]) -> None:
     os.makedirs(history_dir, exist_ok=True)
+    csv_fieldnames = prediction_csv_fieldnames(rows)
+    run_timestamp = safe_timestamp(rows[0].get("forecastTimestamp", "")) if rows else ""
+    if rows and csv_fieldnames:
+        write_csv_file(os.path.join(history_dir, "latest.csv"), rows, csv_fieldnames)
+        write_csv_file(
+            os.path.join(history_dir, "runs", f"{run_timestamp}.csv"),
+            rows,
+            csv_fieldnames,
+        )
     for row in rows:
         market_id = safe_path_part(row.get("id", ""))
         timestamp = safe_timestamp(row.get("forecastTimestamp", ""))
         market_dir = os.path.join(history_dir, market_id)
         os.makedirs(market_dir, exist_ok=True)
+        write_csv_file(
+            os.path.join(market_dir, f"{timestamp}.csv"),
+            [row],
+            csv_fieldnames,
+        )
+        write_csv_file(os.path.join(market_dir, "latest.csv"), [row], csv_fieldnames)
+        append_history_csv(
+            os.path.join(market_dir, "history.csv"),
+            row,
+            csv_fieldnames,
+        )
         payload = prediction_history_payload(row)
         for filename in (f"{timestamp}.json", "latest.json"):
             path = os.path.join(market_dir, filename)
@@ -697,12 +760,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--history-dir",
         default=DEFAULT_HISTORY_DIR,
-        help=f"Directory for per-market prediction JSON history. Default: {DEFAULT_HISTORY_DIR}",
+        help=f"Directory for prediction CSV/JSON history. Default: {DEFAULT_HISTORY_DIR}",
     )
     parser.add_argument(
         "--no-history",
         action="store_true",
-        help="Do not write per-market prediction history JSON files.",
+        help="Do not write prediction history CSV/JSON files.",
     )
     parser.add_argument(
         "--current-date",
