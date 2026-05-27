@@ -680,13 +680,13 @@ def render_directory(rows: list[dict[str, str]]) -> None:
         }
         .card-title {
           display: -webkit-box;
-          min-height: 40px;
+          min-height: 34px;
           margin: 0;
           overflow: hidden;
           color: #16181d;
-          font-size: 16px;
+          font-size: 13px;
           font-weight: 720;
-          line-height: 1.25;
+          line-height: 1.22;
           overflow-wrap: anywhere;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;

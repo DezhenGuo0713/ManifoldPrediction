@@ -350,6 +350,11 @@ def write_prediction_history(history_dir: str, rows: list[dict[str, str]]) -> No
     if rows and csv_fieldnames:
         write_csv_file(os.path.join(history_dir, "latest.csv"), rows, csv_fieldnames)
         write_csv_file(
+            os.path.join(history_dir, f"{run_timestamp}.csv"),
+            rows,
+            csv_fieldnames,
+        )
+        write_csv_file(
             os.path.join(history_dir, "runs", f"{run_timestamp}.csv"),
             rows,
             csv_fieldnames,

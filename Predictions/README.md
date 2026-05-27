@@ -3,6 +3,7 @@
 Each scheduled prediction run writes CSV snapshots under this folder:
 
 - `Predictions/latest.csv`: newest full prediction run
+- `Predictions/<timestamp>.csv`: all markets from one prediction run
 - `Predictions/runs/<timestamp>.csv`: full prediction run archive
 - `Predictions/<market-id>/latest.csv`: newest prediction for one market
 - `Predictions/<market-id>/<timestamp>.csv`: one archived prediction for one market
