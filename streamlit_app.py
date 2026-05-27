@@ -26,6 +26,10 @@ PREFERRED_INPUTS = [
     os.path.join("Markets", "MarketNewsPredictions.sample.csv"),
 ]
 DISPLAY_TIMEZONE = ZoneInfo("America/New_York")
+STREAMLIT_DIRECT_PATH = os.environ.get(
+    "STREAMLIT_DIRECT_PATH",
+    "/~/+/" if os.name != "nt" else "/",
+)
 
 
 def h(value: object) -> str:
@@ -813,8 +817,11 @@ def render_directory(rows: list[dict[str, str]]) -> None:
     cards = []
     for row in rows:
         market_id = row.get("id", "")
-        normal_href = f"/?market={quote(market_id)}"
-        embed_href = f"/?market={quote(market_id)}&mode=embed&embedded=true"
+        normal_href = f"{STREAMLIT_DIRECT_PATH}?market={quote(market_id)}"
+        embed_href = (
+            f"{STREAMLIT_DIRECT_PATH}?market={quote(market_id)}"
+            "&mode=embed&embedded=true"
+        )
         model = row.get("forecastModel", "").strip() or "unknown"
         updated = format_edt_timestamp(
             row.get("forecastTimestamp", ""),
@@ -901,10 +908,13 @@ def main() -> None:
           margin: 0 !important;
           background: #050406 !important;
         }
+        #MainMenu,
+        footer,
         [data-testid="stHeader"],
         [data-testid="stToolbar"],
         [data-testid="stDecoration"],
         [data-testid="stStatusWidget"],
+        [data-testid="stMainMenu"],
         [data-testid="stDeployButton"],
         [data-testid="stAppDeployButton"],
         .stDeployButton,
@@ -912,6 +922,11 @@ def main() -> None:
         .viewerBadge_link__1S137,
         a[href*="streamlit.io/cloud"],
         a[href*="streamlit.io"] {
+          display: none !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
+        }
+        div[data-testid="stAppViewBlockContainer"] + div {
           display: none !important;
           visibility: hidden !important;
           pointer-events: none !important;
