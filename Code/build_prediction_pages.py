@@ -275,6 +275,7 @@ def market_card(row: dict[str, str], site_root: str) -> str:
         if is_closed
         else f"""
       <section class="poster-odds" aria-label="Forecast probabilities">
+        <div class="odds-model">model: {h(model or "unknown")}</div>
         <div class="odds-side yes-side">
           <span class="outcome-label {yes_score_class}">YES</span>
           <strong class="{yes_score_class}">{h(pct(yes))}</strong>
@@ -765,7 +766,22 @@ a {
   display: grid;
   grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
   align-items: center;
-  gap: 6%;
+  column-gap: 6%;
+  row-gap: 24px;
+}
+
+.odds-model {
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: min(1.9vw, 28px);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.78);
+  white-space: nowrap;
 }
 
 .poster-closed {
@@ -976,6 +992,10 @@ a {
     right: 15%;
   }
 
+  .odds-model {
+    font-size: 16px;
+  }
+
   .poster-closed {
     top: 39%;
   }
@@ -1038,8 +1058,13 @@ a {
     left: 8%;
     right: 8%;
     top: 42%;
-    gap: 4%;
+    column-gap: 4%;
+    row-gap: 10px;
     grid-template-columns: minmax(106px, 1fr) 1px minmax(106px, 1fr);
+  }
+
+  .odds-model {
+    font-size: 12px;
   }
 
   .poster-closed {
@@ -1131,7 +1156,12 @@ a {
   left: 18%;
   right: 18%;
   top: 37%;
-  gap: 5%;
+  column-gap: 5%;
+  row-gap: 18px;
+}
+
+.preview-shell .odds-model {
+  font-size: 22px;
 }
 
 .preview-shell .poster-closed {

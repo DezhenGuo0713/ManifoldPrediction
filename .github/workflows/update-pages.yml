@@ -13,9 +13,14 @@ on:
         description: "Optional single Manifold market id to update"
         required: false
         type: string
+      model:
+        description: "Optional OpenAI model name for this run"
+        required: false
+        type: string
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  MARKET_NEWS_MODEL: ${{ github.event.inputs.model || vars.MARKET_NEWS_MODEL || 'gpt-4.1-mini' }}
 
 concurrency:
   group: update-prediction-pages

@@ -205,6 +205,7 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
         if is_closed
         else f"""
   <section class="poster-odds" aria-label="Forecast probabilities">
+    <div class="odds-model">model: {h(model or "unknown")}</div>
     <div class="odds-side yes-side">
       <span class="outcome-label {yes_score_class}">YES</span>
       <strong class="{yes_score_class}">{h(pct(yes))}</strong>
@@ -323,7 +324,21 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   display: grid;
   grid-template-columns: minmax(96px, 1fr) 1px minmax(96px, 1fr);
   align-items: center;
-  gap: 5%;
+  column-gap: 5%;
+  row-gap: 9px;
+}}
+.odds-model {{
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: clamp(11px, 1.55vw, 16px);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.78);
+  white-space: nowrap;
 }}
 .poster-closed {{
   position: absolute;
@@ -471,7 +486,11 @@ body.full-view .poster-odds {{
   right: 21%;
   top: 40%;
   grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
-  gap: 6%;
+  column-gap: 6%;
+  row-gap: 24px;
+}}
+body.full-view .odds-model {{
+  font-size: min(1.9vw, 28px);
 }}
 body.full-view .poster-closed {{
   left: 16%;
@@ -570,8 +589,13 @@ body.embed-view .poster-odds {{
   width: min(330px, calc(100vw - 32px));
   margin: 0;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: 10px;
+  column-gap: 10px;
+  row-gap: 7px;
   align-self: center;
+}}
+body.embed-view .odds-model {{
+  font-size: 10px;
+  grid-row: 1;
 }}
 body.embed-view .poster-closed {{
   position: relative;
@@ -590,9 +614,10 @@ body.embed-view .poster-closed strong {{
 }}
 body.embed-view .yes-side {{
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }}
 body.embed-view .split-line {{
+  grid-row: 2;
   display: grid;
   width: auto;
   height: auto;
@@ -609,7 +634,7 @@ body.embed-view .split-line::before {{
 }}
 body.embed-view .no-side {{
   grid-column: 3;
-  grid-row: 1;
+  grid-row: 2;
 }}
 body.embed-view .odds-side {{
   gap: 6px;
@@ -681,7 +706,11 @@ body.embed-view .lock-button {{
   body.embed-view .poster-odds {{
     width: min(330px, calc(100vw - 24px));
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 9px;
+    column-gap: 9px;
+    row-gap: 5px;
+  }}
+  body.embed-view .odds-model {{
+    font-size: 9px;
   }}
   body.embed-view .poster-closed {{
     width: min(330px, calc(100vw - 24px));
@@ -695,11 +724,11 @@ body.embed-view .lock-button {{
   }}
   body.embed-view .yes-side {{
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
   }}
   body.embed-view .no-side {{
     grid-column: 3;
-    grid-row: 1;
+    grid-row: 2;
   }}
   body.embed-view .odds-side {{ gap: 5px; }}
   body.embed-view .split-line {{ font-size: 24px; }}
