@@ -678,14 +678,14 @@ def render_directory(rows: list[dict[str, str]]) -> None:
         .dashboard-card.closed {
           border-top-color: #b42318;
         }
-        .card-title {
+        .dashboard-card .card-title {
           display: block;
           margin: 0;
           overflow: visible;
           color: #16181d;
-          font-size: 11px;
-          font-weight: 720;
-          line-height: 1.28;
+          font-size: 12.5px !important;
+          font-weight: 680;
+          line-height: 1.34 !important;
           overflow-wrap: anywhere;
         }
         .card-meta {
@@ -841,7 +841,7 @@ def render_directory(rows: list[dict[str, str]]) -> None:
         cards.append(
             f"""
           <article class="dashboard-card {status_class}">
-            <h2 class="card-title">{h(row.get("question", ""))}</h2>
+            <div class="card-title">{h(row.get("question", ""))}</div>
             <div class="card-meta">
               <span>model: {h(model)}</span>
               <span>{h(updated)}</span>
