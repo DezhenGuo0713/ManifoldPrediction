@@ -1,0 +1,36 @@
+{
+  "id": "yAtyP9quqQ",
+  "question": "Will \"Scary Movie 6\" earn more than $25M in domestic gross earnings (in US dollars) during their opening weekend?",
+  "marketUrl": "https://manifold.markets/AritificialJudgement/will-scary-movie-6-earn-more-than-2",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T12:13:55-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-13T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.6,
+  "noProbability": 0.4,
+  "confidence": "medium",
+  "reason": "Upcoming 'Scary Movie 6' release faces competition from established franchises.",
+  "evidence": [
+    "'Scary Movie 6' scheduled for June 5, 2026 release.",
+    "'Scream 6' achieved $44.5 million opening weekend.",
+    "'Obsession' horror film earned $17 million in its opening weekend.",
+    "'The Mandalorian and Grogu' topped box office with $82 million opening.",
+    "'Scary Movie 6' faces competition from 'Masters of the Universe' release."
+  ],
+  "sources": [
+    "https://www.cinemablend.com/movies/scary-movie-6-announced-popcorn-bucket-has-to-be-a-joke-right",
+    "https://www.cinemablend.com/movies/obsession-makes-an-unprecedented-box-office-move-that-practically-overshadows-the-mandalorian-and-grogus-debut",
+    "https://scarymovie.fandom.com/wiki/Scary_Movie_6",
+    "https://m.imdb.com/title/tt32093575/",
+    "https://www.screengeek.net/2025/01/24/scary-movie-6-relase-date/",
+    "https://www.movieinsider.com/m22797/scary-movie-6",
+    "https://www.gamesradar.com/scream-6-box-office-franchise-best-opening-weekend/",
+    "https://kinocheck.com/movie/1zc/scary-movie-6-2026"
+  ],
+  "searchQueries": [
+    "Scary Movie 6 domestic box office opening weekend 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.6, \"confidence\": \"medium\", \"short_reason\": \"Upcoming 'Scary Movie 6' release faces competition from established franchises.\", \"key_evidence\": [\"'Scary Movie 6' scheduled for June 5, 2026 release.\", \"'Scream 6' achieved $44.5 million opening weekend.\", \"'Obsession' horror film earned $17 million in its opening weekend.\", \"'The Mandalorian and Grogu' topped box office with $82 million opening.\", \"'Scary Movie 6' faces competition from 'Masters of the Universe' release.\"], \"source_urls\": [\"https://www.cinemablend.com/movies/scary-movie-6-announced-popcorn-bucket-has-to-be-a-joke-right\", \"https://www.cinemablend.com/movies/obsession-makes-an-unprecedented-box-office-move-that-practically-overshadows-the-mandalorian-and-grogus-debut\", \"https://www.cinemablend.com/movies/scary-movie-6-announced-popcorn-bucket-has-to-be-a-joke-right\", \"https://www.cinemablend.com/movies/obsession-makes-an-unprecedented-box-office-move-that-practically-overshadows-the-mandalorian-and-grogus-debut\"]}"
+}
