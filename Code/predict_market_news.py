@@ -78,6 +78,8 @@ OUTPUT_COLUMNS = [
     "forecastCurrentDate",
     "forecastModel",
     "forecastInputPolicy",
+    "forecastStatus",
+    "forecastClosedAt",
     "newsPredictedYesProbability",
     "newsPredictedNoProbability",
     "newsConfidence",
@@ -115,6 +117,29 @@ def parse_float(value: Any) -> float | None:
         return float(text)
     except ValueError:
         return None
+
+
+def market_close_datetime(row: dict[str, str]) -> datetime | None:
+    close_time = parse_float(row.get("closeTime"))
+    if close_time is not None:
+        timestamp = close_time / 1000 if close_time > 10_000_000_000 else close_time
+        return datetime.fromtimestamp(timestamp, tz=ZoneInfo(TIMEZONE))
+
+    close_date = (row.get("closeDate") or "").strip()
+    if not close_date:
+        return None
+    try:
+        parsed = datetime.fromisoformat(close_date.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=ZoneInfo(TIMEZONE))
+    return parsed.astimezone(ZoneInfo(TIMEZONE))
+
+
+def is_market_closed(row: dict[str, str], now: datetime) -> bool:
+    close_time = market_close_datetime(row)
+    return close_time is not None and now >= close_time
 
 
 def format_probability(value: float) -> str:
@@ -503,6 +528,7 @@ def forecast_market(
 def predict_row(
     row: dict[str, str],
     current_date: str,
+    now: datetime,
     model: str,
     web_tool: str,
     api_key: str,
@@ -515,6 +541,30 @@ def predict_row(
 ) -> dict[str, str] | None:
     if row.get("outcomeType", "").strip().upper() != "BINARY":
         return None
+
+    output = dict(row)
+    output["forecastTimestamp"] = now.replace(microsecond=0).isoformat()
+    output["forecastCurrentDate"] = current_date
+    output["forecastModel"] = model
+    output["forecastInputPolicy"] = "question+description+current_date only"
+
+    close_time = market_close_datetime(row)
+    if is_market_closed(row, now):
+        closed_at = close_time.isoformat() if close_time is not None else ""
+        output["forecastStatus"] = "closed"
+        output["forecastClosedAt"] = closed_at
+        output["newsPredictedYesProbability"] = ""
+        output["newsPredictedNoProbability"] = ""
+        output["newsConfidence"] = ""
+        output["newsShortReason"] = "Market closed. No prediction generated."
+        output["newsKeyEvidence"] = ""
+        output["newsSourceUrls"] = ""
+        output["newsSearchQueries"] = ""
+        output["newsRawJson"] = json.dumps(
+            {"status": "closed", "closed_at": closed_at},
+            ensure_ascii=False,
+        )
+        return output
 
     forecast, queries = forecast_market(
         row=row,
@@ -530,13 +580,8 @@ def predict_row(
         max_source_urls=max_source_urls,
     )
 
-    output = dict(row)
-    output["forecastTimestamp"] = (
-        datetime.now(ZoneInfo(TIMEZONE)).replace(microsecond=0).isoformat()
-    )
-    output["forecastCurrentDate"] = current_date
-    output["forecastModel"] = model
-    output["forecastInputPolicy"] = "question+description+current_date only"
+    output["forecastStatus"] = "forecast"
+    output["forecastClosedAt"] = close_time.isoformat() if close_time else ""
     output["newsPredictedYesProbability"] = format_probability(
         forecast.yes_probability,
     )
@@ -649,6 +694,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     api_key = os.environ.get("OPENAI_API_KEY")
+    now = datetime.now(ZoneInfo(TIMEZONE))
     rows, fieldnames = load_rows(args.input)
     requested_ids = set(args.market_id or [])
     blocked_domains = args.blocked_domain
@@ -669,6 +715,11 @@ def main() -> int:
             print("No eligible binary markets matched the inputs.")
             return 1
         row = candidate_rows[0]
+        if is_market_closed(row, now):
+            close_time = market_close_datetime(row)
+            close_text = close_time.isoformat() if close_time else "unknown"
+            print(f"Market is closed at {close_text}. No prediction would be generated.")
+            return 0
         description = row.get("textDescription", "")
         prompt = build_prompt(
             row.get("question", ""),
@@ -688,11 +739,13 @@ def main() -> int:
 
     outputs: list[dict[str, str]] = []
     skipped = 0
+    closed = 0
     for row in candidate_rows:
         try:
             output = predict_row(
                 row=row,
                 current_date=args.current_date,
+                now=now,
                 model=args.model,
                 web_tool=args.web_tool,
                 api_key=api_key,
@@ -717,8 +770,14 @@ def main() -> int:
             continue
 
         outputs.append(output)
+        if output.get("forecastStatus") == "closed":
+            closed += 1
+        forecasted = len(outputs) - closed
         if len(outputs) == 1 or len(outputs) % 10 == 0:
-            print(f"forecasted={len(outputs)} skipped={skipped}", file=sys.stderr)
+            print(
+                f"forecasted={forecasted} closed={closed} skipped={skipped}",
+                file=sys.stderr,
+            )
 
     write_rows(args.output, outputs, fieldnames)
     summary = {
@@ -727,7 +786,9 @@ def main() -> int:
         "currentDate": args.current_date,
         "model": args.model,
         "webTool": args.web_tool,
-        "forecastedRows": len(outputs),
+        "forecastedRows": len(outputs) - closed,
+        "closedRows": closed,
+        "outputRows": len(outputs),
         "skippedRows": skipped,
         "inputPolicy": "question+description+current_date only",
         "blockedDomains": blocked_domains,

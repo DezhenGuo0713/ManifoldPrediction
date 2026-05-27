@@ -39,6 +39,13 @@ def parse_float(value: object, default: float = 0.0) -> float:
         return default
 
 
+def parse_optional_float(value: object) -> float | None:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def pct(value: object) -> str:
     return f"{round(parse_float(value) * 100)}%"
 
@@ -63,6 +70,44 @@ def split_pipe(value: str) -> list[str]:
 def source_label(url: str) -> str:
     host = urlsplit(url).netloc.lower()
     return host[4:] if host.startswith("www.") else host or url
+
+
+def market_close_datetime(row: dict[str, str]) -> datetime | None:
+    close_time = parse_optional_float(row.get("closeTime"))
+    if close_time is not None:
+        timestamp = close_time / 1000 if close_time > 10_000_000_000 else close_time
+        return datetime.fromtimestamp(timestamp, tz=DISPLAY_TIMEZONE)
+
+    close_date = (row.get("closeDate") or row.get("forecastClosedAt") or "").strip()
+    if not close_date:
+        return None
+    try:
+        parsed = datetime.fromisoformat(close_date.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=DISPLAY_TIMEZONE)
+    return parsed.astimezone(DISPLAY_TIMEZONE)
+
+
+def market_close_label(row: dict[str, str]) -> str:
+    close_time = market_close_datetime(row)
+    if close_time is not None:
+        return close_time.strftime("%Y-%m-%d %H:%M:%S %Z")
+    return "Market closed"
+
+
+def is_market_closed(row: dict[str, str]) -> bool:
+    if (row.get("forecastStatus") or "").strip().lower() == "closed":
+        return True
+    close_time = market_close_datetime(row)
+    return close_time is not None and datetime.now(DISPLAY_TIMEZONE) >= close_time
+
+
+def is_displayable_row(row: dict[str, str]) -> bool:
+    return bool(row.get("id")) and (
+        bool(row.get("newsPredictedYesProbability")) or is_market_closed(row)
+    )
 
 
 def market_symbol(question: str) -> str:
@@ -99,11 +144,7 @@ def load_rows() -> list[dict[str, str]]:
             with urlopen(url, timeout=15) as response:
                 text = response.read().decode("utf-8")
             reader = csv.DictReader(text.splitlines())
-            rows = [
-                row
-                for row in reader
-                if row.get("id") and row.get("newsPredictedYesProbability")
-            ]
+            rows = [row for row in reader if is_displayable_row(row)]
             if rows:
                 return rows
         except Exception:
@@ -113,11 +154,7 @@ def load_rows() -> list[dict[str, str]]:
         if os.path.exists(path):
             with open(path, newline="", encoding="utf-8") as input_file:
                 reader = csv.DictReader(input_file)
-                return [
-                    row
-                    for row in reader
-                    if row.get("id") and row.get("newsPredictedYesProbability")
-                ]
+                return [row for row in reader if is_displayable_row(row)]
     return []
 
 
@@ -137,23 +174,57 @@ def compact_source_html(row: dict[str, str]) -> str:
 
 
 def card_html(row: dict[str, str], embed: bool = False) -> str:
+    is_closed = is_market_closed(row)
     yes = parse_float(row.get("newsPredictedYesProbability"))
     no = parse_float(row.get("newsPredictedNoProbability"), 1 - yes)
     yes_score_class = "higher-score" if yes >= no else "lower-score"
     no_score_class = "higher-score" if no > yes else "lower-score"
-    band = probability_band(yes)
+    band = "closed" if is_closed else probability_band(yes)
     question = row.get("question", "").strip()
     confidence = (row.get("newsConfidence", "").strip() or "unknown").upper()
     source_count = min(2, len(split_pipe(row.get("newsSourceUrls", ""))))
     model = row.get("forecastModel", "").strip()
-    forecast_date = format_edt_timestamp(
-        row.get("forecastTimestamp", ""),
-        row.get("forecastCurrentDate", "").strip(),
-    )
-    reason = row.get("newsShortReason", "").strip()
+    if is_closed:
+        forecast_date = f"Closed: {market_close_label(row)}"
+        reason = "Market closed. No prediction generated."
+    else:
+        forecast_date = format_edt_timestamp(
+            row.get("forecastTimestamp", ""),
+            row.get("forecastCurrentDate", "").strip(),
+        )
+        reason = row.get("newsShortReason", "").strip()
     market_url = row.get("url", "").strip()
     symbol = market_symbol(question)
     mode_class = "embed-view" if embed else "full-view"
+    odds_html = (
+        """
+  <section class="poster-closed" aria-label="Market status">
+    <span>MARKET CLOSED</span>
+    <strong>No prediction</strong>
+  </section>"""
+        if is_closed
+        else f"""
+  <section class="poster-odds" aria-label="Forecast probabilities">
+    <div class="odds-side yes-side">
+      <span class="outcome-label {yes_score_class}">YES</span>
+      <strong class="{yes_score_class}">{h(pct(yes))}</strong>
+    </div>
+    <div class="split-line" aria-hidden="true"></div>
+    <div class="odds-side no-side">
+      <span class="outcome-label {no_score_class}">NO</span>
+      <strong class="{no_score_class}">{h(pct(no))}</strong>
+    </div>
+  </section>"""
+    )
+    sources_html = (
+        ""
+        if is_closed
+        else f"""
+      <div class="poster-sources" aria-label="Sources">
+        <span class="source-caption">Source</span>
+        {compact_source_html(row)}
+      </div>"""
+    )
 
     market_button = (
         f'<a class="lock-button" href="{h(market_url)}" target="_blank" '
@@ -177,6 +248,7 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
   --line: rgba(255, 255, 255, 0.16);
   --yes: #00f04f;
   --no: #f4f0e8;
+  --danger: #ff3b30;
   font-family: "Courier New", Courier, ui-monospace, monospace;
 }}
 * {{ box-sizing: border-box; }}
@@ -191,6 +263,9 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--ink);
   isolation: isolate;
+}}
+.forecast-poster.closed {{
+  border-color: rgba(255, 59, 48, 0.34);
 }}
 .forecast-poster::before {{
   content: "";
@@ -249,6 +324,28 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   grid-template-columns: minmax(96px, 1fr) 1px minmax(96px, 1fr);
   align-items: center;
   gap: 5%;
+}}
+.poster-closed {{
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 38%;
+  display: grid;
+  gap: 12px;
+  text-align: center;
+}}
+.poster-closed span {{
+  color: var(--danger);
+  font-size: clamp(28px, 4.7vw, 58px);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.75);
+}}
+.poster-closed strong {{
+  color: var(--ink);
+  font-size: clamp(18px, 2.8vw, 34px);
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.78);
 }}
 .split-line {{
   width: 1px;
@@ -376,6 +473,18 @@ body.full-view .poster-odds {{
   grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
   gap: 6%;
 }}
+body.full-view .poster-closed {{
+  left: 16%;
+  right: 16%;
+  top: 40%;
+  gap: 24px;
+}}
+body.full-view .poster-closed span {{
+  font-size: min(5vw, 86px);
+}}
+body.full-view .poster-closed strong {{
+  font-size: min(3vw, 44px);
+}}
 body.full-view .split-line {{ height: 190px; }}
 body.full-view .odds-side {{ gap: 34px; }}
 body.full-view .outcome-label {{ font-size: min(3.1vw, 58px); }}
@@ -463,6 +572,21 @@ body.embed-view .poster-odds {{
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 10px;
   align-self: center;
+}}
+body.embed-view .poster-closed {{
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  width: min(330px, calc(100vw - 32px));
+  gap: 8px;
+  align-self: center;
+}}
+body.embed-view .poster-closed span {{
+  font-size: clamp(28px, 6vw, 42px);
+}}
+body.embed-view .poster-closed strong {{
+  font-size: clamp(15px, 3.2vw, 22px);
 }}
 body.embed-view .yes-side {{
   grid-column: 1;
@@ -559,6 +683,16 @@ body.embed-view .lock-button {{
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     gap: 9px;
   }}
+  body.embed-view .poster-closed {{
+    width: min(330px, calc(100vw - 24px));
+    gap: 6px;
+  }}
+  body.embed-view .poster-closed span {{
+    font-size: 28px;
+  }}
+  body.embed-view .poster-closed strong {{
+    font-size: 15px;
+  }}
   body.embed-view .yes-side {{
     grid-column: 1;
     grid-row: 1;
@@ -610,25 +744,12 @@ body.embed-view .lock-button {{
       <span>{h(model)}</span>
     </div>
   </header>
-  <section class="poster-odds" aria-label="Forecast probabilities">
-    <div class="odds-side yes-side">
-      <span class="outcome-label {yes_score_class}">YES</span>
-      <strong class="{yes_score_class}">{h(pct(yes))}</strong>
-    </div>
-    <div class="split-line" aria-hidden="true"></div>
-    <div class="odds-side no-side">
-      <span class="outcome-label {no_score_class}">NO</span>
-      <strong class="{no_score_class}">{h(pct(no))}</strong>
-    </div>
-  </section>
+{odds_html}
   <footer class="poster-footer">
     <div class="footer-copy">
       <span class="poster-date">{h(forecast_date)}</span>
       <p class="poster-reason"><span>Reason:</span> {h(reason)}</p>
-      <div class="poster-sources" aria-label="Sources">
-        <span class="source-caption">Source</span>
-        {compact_source_html(row)}
-      </div>
+{sources_html}
     </div>
     {market_button}
   </footer>

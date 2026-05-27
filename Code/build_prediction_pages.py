@@ -60,6 +60,13 @@ def parse_float(value: Any, default: float = 0.0) -> float:
         return default
 
 
+def parse_optional_float(value: Any) -> float | None:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def pct(value: Any) -> str:
     return f"{round(parse_float(value) * 100)}%"
 
@@ -99,6 +106,44 @@ def source_label(url: str) -> str:
     return host[4:] if host.startswith("www.") else host or url
 
 
+def market_close_datetime(row: dict[str, str]) -> datetime | None:
+    close_time = parse_optional_float(row.get("closeTime"))
+    if close_time is not None:
+        timestamp = close_time / 1000 if close_time > 10_000_000_000 else close_time
+        return datetime.fromtimestamp(timestamp, tz=DISPLAY_TIMEZONE)
+
+    close_date = (row.get("closeDate") or row.get("forecastClosedAt") or "").strip()
+    if not close_date:
+        return None
+    try:
+        parsed = datetime.fromisoformat(close_date.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=DISPLAY_TIMEZONE)
+    return parsed.astimezone(DISPLAY_TIMEZONE)
+
+
+def market_close_label(row: dict[str, str]) -> str:
+    close_time = market_close_datetime(row)
+    if close_time is not None:
+        return close_time.strftime("%Y-%m-%d %H:%M:%S %Z")
+    return "Market closed"
+
+
+def is_market_closed(row: dict[str, str]) -> bool:
+    if (row.get("forecastStatus") or "").strip().lower() == "closed":
+        return True
+    close_time = market_close_datetime(row)
+    return close_time is not None and datetime.now(DISPLAY_TIMEZONE) >= close_time
+
+
+def is_displayable_row(row: dict[str, str]) -> bool:
+    return bool(row.get("id")) and (
+        bool(row.get("newsPredictedYesProbability")) or is_market_closed(row)
+    )
+
+
 def market_symbol(question: str) -> str:
     text = question.lower()
     if "bitcoin" in text or "btc" in text:
@@ -136,11 +181,7 @@ def resolve_input(path: str | None) -> str:
 def load_rows(path: str) -> list[dict[str, str]]:
     with open(path, newline="", encoding="utf-8") as input_file:
         reader = csv.DictReader(input_file)
-        return [
-            row
-            for row in reader
-            if row.get("id") and row.get("newsPredictedYesProbability")
-        ]
+        return [row for row in reader if is_displayable_row(row)]
 
 
 def write_text(path: str, content: str) -> None:
@@ -200,22 +241,60 @@ def compact_source_html(row: dict[str, str]) -> str:
 
 
 def market_card(row: dict[str, str], site_root: str) -> str:
+    is_closed = is_market_closed(row)
     yes = parse_float(row.get("newsPredictedYesProbability"))
     no = parse_float(row.get("newsPredictedNoProbability"), 1 - yes)
-    band = probability_band(yes)
+    band = "closed" if is_closed else probability_band(yes)
     yes_score_class = "higher-score" if yes >= no else "lower-score"
     no_score_class = "higher-score" if no > yes else "lower-score"
-    reason = row.get("newsShortReason", "").strip()
+    reason = (
+        "Market closed. No prediction generated."
+        if is_closed
+        else row.get("newsShortReason", "").strip()
+    )
     question = row.get("question", "").strip()
     market_url = row.get("url", "").strip()
-    forecast_date = format_edt_timestamp(
-        row.get("forecastTimestamp", ""),
-        row.get("forecastCurrentDate", "").strip(),
+    forecast_date = (
+        f"Closed: {market_close_label(row)}"
+        if is_closed
+        else format_edt_timestamp(
+            row.get("forecastTimestamp", ""),
+            row.get("forecastCurrentDate", "").strip(),
+        )
     )
     model = row.get("forecastModel", "").strip()
-    confidence = row.get("newsConfidence", "").strip() or "unknown"
+    confidence = "closed" if is_closed else row.get("newsConfidence", "").strip() or "unknown"
     source_count = min(2, len(split_pipe(row.get("newsSourceUrls", ""))))
     symbol = market_symbol(question)
+    odds_html = (
+        """
+      <section class="poster-closed" aria-label="Market status">
+        <span>MARKET CLOSED</span>
+        <strong>No prediction</strong>
+      </section>"""
+        if is_closed
+        else f"""
+      <section class="poster-odds" aria-label="Forecast probabilities">
+        <div class="odds-side yes-side">
+          <span class="outcome-label {yes_score_class}">YES</span>
+          <strong class="{yes_score_class}">{h(pct(yes))}</strong>
+        </div>
+        <div class="split-line" aria-hidden="true"></div>
+        <div class="odds-side no-side">
+          <span class="outcome-label {no_score_class}">NO</span>
+          <strong class="{no_score_class}">{h(pct(no))}</strong>
+        </div>
+      </section>"""
+    )
+    sources_html = (
+        ""
+        if is_closed
+        else f"""
+          <div class="poster-sources" aria-label="Sources">
+            <span class="source-caption">Source</span>
+            {compact_source_html(row)}
+          </div>"""
+    )
     manifold_link = (
         f'<a class="lock-button" href="{h(market_url)}" target="_blank" '
         f'rel="noopener noreferrer" aria-label="Open Manifold market">'
@@ -238,26 +317,13 @@ def market_card(row: dict[str, str], site_root: str) -> str:
         </div>
       </header>
 
-      <section class="poster-odds" aria-label="Forecast probabilities">
-        <div class="odds-side yes-side">
-          <span class="outcome-label">YES</span>
-          <strong class="{yes_score_class}">{h(pct(yes))}</strong>
-        </div>
-        <div class="split-line" aria-hidden="true"></div>
-        <div class="odds-side no-side">
-          <span class="outcome-label">NO</span>
-          <strong class="{no_score_class}">{h(pct(no))}</strong>
-        </div>
-      </section>
+{odds_html}
 
       <footer class="poster-footer">
         <div class="footer-copy">
           <span class="poster-date">{h(forecast_date)}</span>
           <p class="poster-reason"><span>Reason:</span> {h(reason)}</p>
-          <div class="poster-sources" aria-label="Sources">
-            <span class="source-caption">Source</span>
-            {compact_source_html(row)}
-          </div>
+{sources_html}
         </div>
         {manifold_link}
       </footer>
@@ -300,17 +366,32 @@ def build_market_page(row: dict[str, str], output_dir: str) -> str:
     market_id = slugify(row["id"])
     page_dir = os.path.join(output_dir, "markets", market_id)
     relative_url = f"markets/{market_id}/"
-    yes = pct(row.get("newsPredictedYesProbability"))
-    no = pct(row.get("newsPredictedNoProbability"))
-    title = f"{yes} YES / {no} NO - {row.get('question', '')}"
-    description = row.get("newsShortReason", "")
+    is_closed = is_market_closed(row)
+    if is_closed:
+        yes = "Closed"
+        no = "No prediction"
+        title = f"Market closed - {row.get('question', '')}"
+        description = "Market closed. No prediction generated."
+    else:
+        yes = pct(row.get("newsPredictedYesProbability"))
+        no = pct(row.get("newsPredictedNoProbability"))
+        title = f"{yes} YES / {no} NO - {row.get('question', '')}"
+        description = row.get("newsShortReason", "")
     absolute_page_url = f"{PUBLIC_SITE_BASE_URL}/{relative_url}"
     absolute_image_url = f"{PUBLIC_LINK_CARD_IMAGE_BASE_URL}/{market_id}.png"
-    forecast_date = format_edt_timestamp(
-        row.get("forecastTimestamp", ""),
-        row.get("forecastCurrentDate", "").strip(),
+    forecast_date = (
+        f"closed {market_close_label(row)}"
+        if is_closed
+        else format_edt_timestamp(
+            row.get("forecastTimestamp", ""),
+            row.get("forecastCurrentDate", "").strip(),
+        )
     )
-    preview_title = f"AIBot forecast: {yes} YES / {no} NO"
+    preview_title = (
+        "AIBot forecast: Market closed"
+        if is_closed
+        else f"AIBot forecast: {yes} YES / {no} NO"
+    )
     preview_description = truncate_text(
         f"{row.get('question', '')} Updated {forecast_date}. {description}",
         240,
@@ -371,13 +452,21 @@ def build_index(rows: list[dict[str, str]], page_urls: dict[str, str], output_di
     for row in rows:
         url = page_urls[row["id"]]
         yes = parse_float(row.get("newsPredictedYesProbability"))
+        if is_market_closed(row):
+            row_band = "closed"
+            probs = '<strong>Market closed</strong><span>No prediction</span>'
+        else:
+            row_band = probability_band(yes)
+            probs = (
+                f"<strong>{h(pct(row.get('newsPredictedYesProbability')))} YES</strong>"
+                f"<span>{h(pct(row.get('newsPredictedNoProbability')))} NO</span>"
+            )
         cards.append(
             f"""
-        <a class="market-row {probability_band(yes)}" href="{h(url)}">
+        <a class="market-row {row_band}" href="{h(url)}">
           <span class="row-question">{h(row.get("question", ""))}</span>
           <span class="row-probs">
-            <strong>{h(pct(row.get("newsPredictedYesProbability")))} YES</strong>
-            <span>{h(pct(row.get("newsPredictedNoProbability")))} NO</span>
+            {probs}
           </span>
         </a>"""
         )
@@ -432,17 +521,31 @@ def build_json(rows: list[dict[str, str]], page_urls: dict[str, str], output_dir
                     f"{PUBLIC_LINK_CARD_IMAGE_BASE_URL}/"
                     f"{slugify(row.get('id', ''))}.png"
                 ),
-                "yesProbability": parse_float(row.get("newsPredictedYesProbability")),
-                "noProbability": parse_float(row.get("newsPredictedNoProbability")),
+                "status": "closed" if is_market_closed(row) else "forecast",
+                "yesProbability": (
+                    None
+                    if is_market_closed(row)
+                    else parse_float(row.get("newsPredictedYesProbability"))
+                ),
+                "noProbability": (
+                    None
+                    if is_market_closed(row)
+                    else parse_float(row.get("newsPredictedNoProbability"))
+                ),
                 "confidence": row.get("newsConfidence", ""),
-                "reason": row.get("newsShortReason", ""),
-                "evidence": split_pipe(row.get("newsKeyEvidence", "")),
-                "sources": split_pipe(row.get("newsSourceUrls", "")),
+                "reason": (
+                    "Market closed. No prediction generated."
+                    if is_market_closed(row)
+                    else row.get("newsShortReason", "")
+                ),
+                "evidence": [] if is_market_closed(row) else split_pipe(row.get("newsKeyEvidence", "")),
+                "sources": [] if is_market_closed(row) else split_pipe(row.get("newsSourceUrls", "")),
                 "forecastDate": row.get("forecastCurrentDate", ""),
                 "forecastTimestamp": format_edt_timestamp(
                     row.get("forecastTimestamp", ""),
                     row.get("forecastCurrentDate", ""),
                 ),
+                "closedAt": market_close_label(row) if is_market_closed(row) else "",
                 "model": row.get("forecastModel", ""),
             }
         )
@@ -552,6 +655,10 @@ a {
   border-left-color: var(--amber);
 }
 
+.market-row.closed {
+  border-left-color: var(--danger);
+}
+
 .row-question {
   font-size: 16px;
   line-height: 1.35;
@@ -585,6 +692,10 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--ink);
   isolation: isolate;
+}
+
+.forecast-poster.closed {
+  border-color: rgba(255, 59, 48, 0.34);
 }
 
 .forecast-poster::before {
@@ -657,6 +768,31 @@ a {
   gap: 6%;
 }
 
+.poster-closed {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  top: 40%;
+  display: grid;
+  gap: 24px;
+  text-align: center;
+}
+
+.poster-closed span {
+  color: var(--danger);
+  font-size: min(5vw, 86px);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.75);
+}
+
+.poster-closed strong {
+  color: var(--ink);
+  font-size: min(3vw, 44px);
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.78);
+}
+
 .split-line {
   width: 1px;
   height: 190px;
@@ -693,6 +829,14 @@ a {
 }
 
 .odds-side strong.lower-score {
+  color: var(--no);
+}
+
+.outcome-label.higher-score {
+  color: var(--yes);
+}
+
+.outcome-label.lower-score {
   color: var(--no);
 }
 
@@ -832,6 +976,10 @@ a {
     right: 15%;
   }
 
+  .poster-closed {
+    top: 39%;
+  }
+
   .outcome-label {
     font-size: 34px;
   }
@@ -892,6 +1040,21 @@ a {
     top: 42%;
     gap: 4%;
     grid-template-columns: minmax(106px, 1fr) 1px minmax(106px, 1fr);
+  }
+
+  .poster-closed {
+    left: 8%;
+    right: 8%;
+    top: 40%;
+    gap: 12px;
+  }
+
+  .poster-closed span {
+    font-size: 34px;
+  }
+
+  .poster-closed strong {
+    font-size: 18px;
   }
 
   .split-line {
@@ -969,6 +1132,20 @@ a {
   right: 18%;
   top: 37%;
   gap: 5%;
+}
+
+.preview-shell .poster-closed {
+  left: 14%;
+  right: 14%;
+  top: 38%;
+}
+
+.preview-shell .poster-closed span {
+  font-size: 70px;
+}
+
+.preview-shell .poster-closed strong {
+  font-size: 34px;
 }
 
 .preview-shell .split-line {

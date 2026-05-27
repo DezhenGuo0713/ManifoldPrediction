@@ -2,7 +2,7 @@ name: Update prediction pages
 
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       limit:
