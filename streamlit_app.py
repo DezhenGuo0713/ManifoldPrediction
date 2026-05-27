@@ -679,17 +679,14 @@ def render_directory(rows: list[dict[str, str]]) -> None:
           border-top-color: #b42318;
         }
         .card-title {
-          display: -webkit-box;
-          min-height: 34px;
+          display: block;
           margin: 0;
-          overflow: hidden;
+          overflow: visible;
           color: #16181d;
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 720;
-          line-height: 1.22;
+          line-height: 1.28;
           overflow-wrap: anywhere;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
         }
         .card-meta {
           display: flex;
