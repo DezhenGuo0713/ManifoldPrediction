@@ -67,6 +67,17 @@ def split_pipe(value: str) -> list[str]:
     return [part.strip() for part in (value or "").split("|") if part.strip()]
 
 
+def direct_reason(value: str, max_chars: int = 190) -> str:
+    text = re.sub(r"\s+", " ", value or "").strip()
+    if not text:
+        return "No prediction reason available."
+    first_sentence = re.split(r"(?<=[.!?])\s+", text, maxsplit=1)[0].strip()
+    text = first_sentence or text
+    if len(text) <= max_chars:
+        return text
+    return text[: max_chars - 3].rstrip() + "..."
+
+
 def source_label(url: str) -> str:
     host = urlsplit(url).netloc.lower()
     return host[4:] if host.startswith("www.") else host or url
@@ -181,8 +192,7 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
     no_score_class = "higher-score" if no > yes else "lower-score"
     band = "closed" if is_closed else probability_band(yes)
     question = row.get("question", "").strip()
-    confidence = (row.get("newsConfidence", "").strip() or "unknown").upper()
-    source_count = min(2, len(split_pipe(row.get("newsSourceUrls", ""))))
+    confidence = (row.get("newsConfidence", "").strip() or "unknown").lower()
     model = row.get("forecastModel", "").strip()
     if is_closed:
         forecast_date = f"Closed: {market_close_label(row)}"
@@ -192,27 +202,25 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
             row.get("forecastTimestamp", ""),
             row.get("forecastCurrentDate", "").strip(),
         )
-        reason = row.get("newsShortReason", "").strip()
+        reason = direct_reason(row.get("newsShortReason", "").strip())
     market_url = row.get("url", "").strip()
-    symbol = market_symbol(question)
     mode_class = "embed-view" if embed else "full-view"
     odds_html = (
         """
-  <section class="poster-closed" aria-label="Market status">
-    <span>MARKET CLOSED</span>
+  <section class="market-status closed-status" aria-label="Market status">
+    <span>Market closed</span>
     <strong>No prediction</strong>
   </section>"""
         if is_closed
         else f"""
-  <section class="poster-odds" aria-label="Forecast probabilities">
-    <div class="odds-model">model: {h(model or "unknown")}</div>
-    <div class="odds-side yes-side">
-      <span class="outcome-label {yes_score_class}">YES</span>
+  <section class="probability-panel" aria-label="Forecast probabilities">
+    <div class="probability-cell yes-cell">
+      <span class="outcome-label {yes_score_class}">Yes</span>
       <strong class="{yes_score_class}">{h(pct(yes))}</strong>
     </div>
-    <div class="split-line" aria-hidden="true"></div>
-    <div class="odds-side no-side">
-      <span class="outcome-label {no_score_class}">NO</span>
+    <div class="probability-divider" aria-hidden="true">|</div>
+    <div class="probability-cell no-cell">
+      <span class="outcome-label {no_score_class}">No</span>
       <strong class="{no_score_class}">{h(pct(no))}</strong>
     </div>
   </section>"""
@@ -221,16 +229,14 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
         ""
         if is_closed
         else f"""
-      <div class="poster-sources" aria-label="Sources">
-        <span class="source-caption">Source</span>
+      <div class="source-row" aria-label="Sources">
         {compact_source_html(row)}
       </div>"""
     )
 
-    market_button = (
-        f'<a class="lock-button" href="{h(market_url)}" target="_blank" '
-        f'rel="noopener noreferrer" aria-label="Open Manifold market">'
-        f'<span class="lock-icon" aria-hidden="true"></span></a>'
+    market_link = (
+        f'<a class="market-link" href="{h(market_url)}" target="_blank" '
+        f'rel="noopener noreferrer">Market</a>'
         if market_url
         else ""
     )
@@ -242,545 +248,275 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root {{
-  color-scheme: dark;
-  --bg: #050406;
-  --ink: #f7f7f2;
-  --muted: #b8adae;
-  --line: rgba(255, 255, 255, 0.16);
-  --yes: #00f04f;
-  --no: #f4f0e8;
-  --danger: #ff3b30;
-  font-family: "Courier New", Courier, ui-monospace, monospace;
+  color-scheme: light;
+  --bg: #f3f1eb;
+  --card: #fffefa;
+  --ink: #16181d;
+  --muted: #656b75;
+  --soft: #eef0f2;
+  --line: #d9dde3;
+  --yes: #0aa34f;
+  --no: #4f5865;
+  --danger: #b42318;
+  --accent: #24324a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }}
 * {{ box-sizing: border-box; }}
 html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
-.forecast-poster {{
-  position: relative;
+.forecast-card {{
   width: 100%;
-  height: 320px;
-  min-height: 0;
+  max-width: 100vw;
+  min-height: 320px;
+  padding: 18px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 13px;
   overflow: hidden;
-  background: #090407;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, #fffefa 0%, #f9faf8 100%);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(18, 24, 34, 0.10);
   color: var(--ink);
-  isolation: isolate;
 }}
-.forecast-poster.closed {{
-  border-color: rgba(255, 59, 48, 0.34);
+.forecast-card.closed {{
+  border-top-color: var(--danger);
 }}
-.forecast-poster::before {{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #090407;
-  box-shadow: inset 0 0 180px rgba(111, 45, 8, 0.22), inset 0 0 0 9999px rgba(0, 0, 0, 0.18);
-  z-index: -3;
+.card-header {{
+  display: grid;
+  gap: 7px;
+  min-width: 0;
 }}
-.poster-watermark {{
-  position: absolute;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%) rotate(10deg);
-  color: rgba(255, 255, 255, 0.13);
-  font-size: clamp(150px, 28vw, 250px);
-  font-weight: 900;
-  line-height: 1;
-  z-index: -1;
-  user-select: none;
-}}
-.poster-header {{
-  position: absolute;
-  left: 4%;
-  top: 12px;
-  width: min(82%, 760px);
-}}
-.poster-header h1 {{
+.card-header h1 {{
   display: -webkit-box;
+  min-width: 0;
   margin: 0;
   overflow: hidden;
   color: var(--ink);
-  font-size: clamp(17px, 2.8vw, 25px);
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 720;
   line-height: 1.18;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.65);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }}
-.poster-meta {{
+.meta-row {{
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: clamp(13px, 2vw, 20px);
-  line-height: 1.15;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8);
-}}
-.poster-odds {{
-  position: absolute;
-  left: 14%;
-  right: 14%;
-  top: 34%;
-  display: grid;
-  grid-template-columns: minmax(96px, 1fr) 1px minmax(96px, 1fr);
+  gap: 6px;
   align-items: center;
-  column-gap: 5%;
-  row-gap: 9px;
-}}
-.odds-model {{
-  grid-column: 1 / -1;
-  min-width: 0;
-  overflow: hidden;
   color: var(--muted);
-  font-size: clamp(11px, 1.55vw, 16px);
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
+  font-size: 11px;
+  line-height: 1.1;
+}}
+.meta-row span, .market-link {{
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 7px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
   text-overflow: ellipsis;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.78);
   white-space: nowrap;
 }}
-.poster-closed {{
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 38%;
+.market-link {{
+  color: var(--accent);
+  text-decoration: none;
+}}
+.probability-panel {{
   display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
   gap: 12px;
-  text-align: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8faf9;
 }}
-.poster-closed span {{
-  color: var(--danger);
-  font-size: clamp(28px, 4.7vw, 58px);
-  font-weight: 900;
-  line-height: 1;
-  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.75);
+.probability-cell {{
+  display: grid;
+  gap: 4px;
+  min-width: 0;
 }}
-.poster-closed strong {{
-  color: var(--ink);
-  font-size: clamp(18px, 2.8vw, 34px);
-  line-height: 1;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.78);
-}}
-.split-line {{
-  width: 1px;
-  height: 88px;
-  background: rgba(255, 255, 255, 0.28);
-}}
-.odds-side {{ display: grid; gap: 8px; }}
-.no-side {{ text-align: right; }}
+.no-cell {{ text-align: right; }}
 .outcome-label {{
-  color: var(--ink);
-  font-size: clamp(19px, 3vw, 34px);
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 780;
   line-height: 1;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
 }}
-.odds-side strong {{
-  font-size: clamp(40px, 6.5vw, 70px);
-  font-weight: 900;
-  line-height: 0.95;
-  text-shadow: 0 6px 0 rgba(0, 0, 0, 0.78);
+.probability-cell strong {{
+  font-size: 36px;
+  font-weight: 820;
+  line-height: 1;
 }}
-.odds-side strong.higher-score {{ color: var(--yes); }}
-.odds-side strong.lower-score {{ color: var(--no); }}
+.probability-divider {{
+  color: #a0a7b2;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+}}
+.probability-cell strong.higher-score {{ color: var(--yes); }}
+.probability-cell strong.lower-score {{ color: var(--no); }}
 .outcome-label.higher-score {{ color: var(--yes); }}
 .outcome-label.lower-score {{ color: var(--no); }}
-.poster-footer {{
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  bottom: 14px;
+.market-status {{
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 18px;
-  align-items: end;
+  gap: 5px;
+  padding: 18px 14px;
+  border: 1px solid #f1b4ae;
+  border-radius: 8px;
+  background: #fff7f5;
+  text-align: center;
 }}
-.footer-copy {{
+.market-status span {{
+  color: var(--danger);
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+}}
+.market-status strong {{
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+}}
+.reason-block {{
   min-width: 0;
-  overflow: hidden;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  background: #f6f7f8;
 }}
-.poster-date {{
+.reason-label {{
   display: block;
-  color: var(--ink);
-  font-size: clamp(14px, 2.15vw, 20px);
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
   line-height: 1;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.75);
+  text-transform: uppercase;
 }}
-.poster-reason {{
+.reason-block p {{
   display: -webkit-box;
-  max-width: 720px;
-  margin: 8px 0 8px;
+  min-width: 0;
+  margin: 0;
   overflow: hidden;
   color: var(--ink);
-  font-size: clamp(11px, 1.45vw, 14px);
-  line-height: 1.2;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.82);
+  font-size: 13px;
+  font-weight: 560;
+  line-height: 1.28;
+  overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }}
-.poster-reason span, .source-caption {{ color: var(--muted); }}
-.poster-sources {{ display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }}
-.source-caption {{ font-size: 11px; line-height: 1; }}
+.card-footer {{
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}}
+.updated-line {{
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1;
+}}
+.source-row {{ display: flex; gap: 6px; min-width: 0; overflow: hidden; }}
 .source-pill {{
   display: inline-flex;
   align-items: center;
-  min-height: 22px;
-  max-width: 174px;
+  min-width: 0;
+  max-width: calc((100% - 6px) / 2);
+  min-height: 23px;
   padding: 4px 8px;
   overflow: hidden;
-  border: 1px solid rgba(0, 240, 79, 0.42);
+  border: 1px solid #c8d1db;
   border-radius: 6px;
-  background: rgba(0, 240, 79, 0.08);
-  color: var(--ink);
+  background: #ffffff;
+  color: var(--accent);
   cursor: pointer;
-  font-size: 11px;
+  font-size: 10px;
+  font-weight: 650;
   line-height: 1;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
 }}
 .source-pill:hover, .source-pill:focus-visible {{
-  border-color: rgba(0, 240, 79, 0.82);
-  background: rgba(0, 240, 79, 0.16);
-  color: var(--yes);
+  border-color: var(--accent);
+  background: #f2f5f8;
   outline: none;
 }}
-.lock-button {{
-  position: relative;
-  display: grid;
-  width: clamp(54px, 9vw, 74px);
-  min-width: 54px;
-  aspect-ratio: 1 / 0.76;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.23);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.045);
-}}
-body.full-view .forecast-poster {{
-  height: auto;
+body.full-view .forecast-card {{
   min-height: 540px;
-  aspect-ratio: 16 / 9;
-}}
-body.full-view .poster-watermark {{
-  top: 49%;
-  font-size: min(31vw, 430px);
-}}
-body.full-view .poster-header {{
-  left: 4.5%;
-  top: 3.5%;
-  width: min(78%, 1080px);
-}}
-body.full-view .poster-header h1 {{
-  font-size: min(3vw, 38px);
-  line-height: 1.22;
-}}
-body.full-view .poster-meta {{
-  gap: 34px;
-  margin-top: 22px;
-  font-size: min(2.2vw, 36px);
-}}
-body.full-view .poster-odds {{
-  left: 21%;
-  right: 21%;
-  top: 40%;
-  grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
-  column-gap: 6%;
-  row-gap: 24px;
-}}
-body.full-view .odds-model {{
-  font-size: min(1.9vw, 28px);
-}}
-body.full-view .poster-closed {{
-  left: 16%;
-  right: 16%;
-  top: 40%;
+  padding: 34px;
   gap: 24px;
 }}
-body.full-view .poster-closed span {{
-  font-size: min(5vw, 86px);
-}}
-body.full-view .poster-closed strong {{
-  font-size: min(3vw, 44px);
-}}
-body.full-view .split-line {{ height: 190px; }}
-body.full-view .odds-side {{ gap: 34px; }}
-body.full-view .outcome-label {{ font-size: min(3.1vw, 58px); }}
-body.full-view .odds-side strong {{ font-size: min(7.2vw, 130px); }}
-body.full-view .poster-footer {{
-  left: 4.5%;
-  right: 4.5%;
-  bottom: 4.4%;
-  gap: 30px;
-}}
-body.full-view .poster-date {{ font-size: min(2.4vw, 44px); }}
-body.full-view .poster-reason {{
-  max-width: 930px;
-  margin: 16px 0 12px;
-  font-size: min(1.75vw, 25px);
-  line-height: 1.28;
-}}
-body.full-view .poster-sources {{ gap: 8px; }}
-body.full-view .source-caption {{ font-size: 13px; }}
-body.full-view .source-pill {{
-  min-height: 28px;
-  max-width: 300px;
-  padding: 5px 10px;
-  font-size: 13px;
-}}
-body.full-view .lock-button {{
-  width: min(11.5vw, 134px);
-  min-width: 78px;
-  border-radius: 20px;
-}}
-.lock-icon {{
-  position: relative;
-  display: block;
-  width: 38%;
-  height: 31%;
-  border: 3px solid rgba(255, 255, 255, 0.74);
-  border-radius: 3px;
-}}
-.lock-icon::before {{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 78%;
-  width: 54%;
-  height: 78%;
-  border: 3px solid rgba(255, 255, 255, 0.74);
-  border-bottom: 0;
-  border-radius: 18px 18px 0 0;
-  transform: translateX(-50%);
-}}
-body.embed-view .forecast-poster {{
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 8px;
-  width: 100vw;
-  max-width: 100vw;
-  height: 320px;
-  padding: 14px 16px 12px;
-}}
-body.embed-view .poster-watermark {{
-  display: none;
-}}
-body.embed-view .poster-header {{
-  position: relative;
-  left: auto;
-  top: auto;
-  width: min(360px, calc(100vw - 32px));
-  max-width: min(360px, calc(100vw - 32px));
-}}
-body.embed-view .poster-header h1 {{
-  font-size: clamp(15px, 2.5vw, 22px);
-  line-height: 1.18;
-  -webkit-line-clamp: 2;
-}}
-body.embed-view .poster-meta {{
-  display: none;
-}}
-body.embed-view .poster-odds {{
-  position: relative;
-  left: auto;
-  right: auto;
-  top: auto;
-  width: min(330px, calc(100vw - 32px));
-  margin: 0;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  column-gap: 10px;
-  row-gap: 7px;
-  align-self: center;
-}}
-body.embed-view .odds-model {{
-  font-size: 10px;
-  grid-row: 1;
-}}
-body.embed-view .poster-closed {{
-  position: relative;
-  left: auto;
-  right: auto;
-  top: auto;
-  width: min(330px, calc(100vw - 32px));
-  gap: 8px;
-  align-self: center;
-}}
-body.embed-view .poster-closed span {{
-  font-size: clamp(28px, 6vw, 42px);
-}}
-body.embed-view .poster-closed strong {{
-  font-size: clamp(15px, 3.2vw, 22px);
-}}
-body.embed-view .yes-side {{
-  grid-column: 1;
-  grid-row: 2;
-}}
-body.embed-view .split-line {{
-  grid-row: 2;
-  display: grid;
-  width: auto;
-  height: auto;
-  place-items: center;
-  background: transparent;
-  color: var(--muted);
-  font-size: clamp(24px, 5vw, 34px);
-  font-weight: 800;
-  line-height: 1;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.78);
-}}
-body.embed-view .split-line::before {{
-  content: "|";
-}}
-body.embed-view .no-side {{
-  grid-column: 3;
-  grid-row: 2;
-}}
-body.embed-view .odds-side {{
-  gap: 6px;
-}}
-body.embed-view .outcome-label {{
-  font-size: clamp(20px, 4.8vw, 30px);
-}}
-body.embed-view .odds-side strong {{
-  font-size: clamp(32px, 7vw, 52px);
-}}
-body.embed-view .poster-footer {{
-  position: relative;
-  left: auto;
-  right: auto;
-  bottom: auto;
-  display: block;
-  width: min(360px, calc(100vw - 32px));
-  max-width: min(360px, calc(100vw - 32px));
-}}
-body.embed-view .poster-date {{
-  margin-bottom: 5px;
-  color: var(--muted);
-  font-size: 11px;
-}}
-body.embed-view .poster-reason {{
-  max-width: none;
-  margin: 0 0 8px;
-  font-size: clamp(10px, 1.75vw, 12px);
-  line-height: 1.22;
-  overflow-wrap: anywhere;
-  white-space: normal;
-  -webkit-line-clamp: 3;
-}}
-body.embed-view .poster-sources {{
-  flex-wrap: nowrap;
-  overflow: hidden;
-}}
-body.embed-view .source-caption {{
-  flex: 0 0 auto;
-  font-size: 10px;
-}}
-body.embed-view .source-pill {{
-  min-width: 0;
-  max-width: calc((100% - 58px) / 2);
-  min-height: 21px;
-  padding: 3px 7px;
-  font-size: 10px;
-}}
-body.embed-view .lock-button {{
-  display: none;
+body.full-view .card-header h1 {{ font-size: min(3vw, 38px); }}
+body.full-view .meta-row {{ font-size: 14px; gap: 8px; }}
+body.full-view .probability-panel {{ padding: 28px 34px; gap: 26px; }}
+body.full-view .outcome-label {{ font-size: min(2.4vw, 38px); }}
+body.full-view .probability-cell strong {{ font-size: min(6.6vw, 112px); }}
+body.full-view .probability-divider {{ font-size: min(4vw, 58px); }}
+body.full-view .reason-block {{ padding: 18px 20px; }}
+body.full-view .reason-label {{ font-size: 13px; }}
+body.full-view .reason-block p {{ font-size: min(1.7vw, 24px); line-height: 1.32; }}
+body.full-view .updated-line {{ font-size: 14px; }}
+body.full-view .source-pill {{ min-height: 30px; max-width: 280px; font-size: 13px; }}
+body.embed-view .forecast-card {{
+  width: min(100%, 390px);
+  max-width: 100%;
+  min-height: 320px;
+  padding: 13px;
+  gap: 10px;
+  border-radius: 0;
+  box-shadow: none;
 }}
 @media (max-width: 520px) {{
-  body.embed-view .forecast-poster {{
-    width: 100vw;
-    max-width: 100vw;
-    padding: 10px 12px;
-    gap: 6px;
-  }}
-  body.embed-view .poster-header,
-  body.embed-view .poster-footer {{
-    width: min(360px, calc(100vw - 24px));
-    max-width: min(360px, calc(100vw - 24px));
-  }}
-  body.embed-view .poster-header h1 {{
+  body.embed-view .forecast-card {{ padding: 11px 12px; gap: 8px; }}
+  body.embed-view .card-header h1 {{
     font-size: 13px;
-    line-height: 1.16;
+    line-height: 1.18;
     -webkit-line-clamp: 2;
   }}
-  body.embed-view .poster-odds {{
-    width: min(330px, calc(100vw - 24px));
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    column-gap: 9px;
-    row-gap: 5px;
-  }}
-  body.embed-view .odds-model {{
-    font-size: 9px;
-  }}
-  body.embed-view .poster-closed {{
-    width: min(330px, calc(100vw - 24px));
-    gap: 6px;
-  }}
-  body.embed-view .poster-closed span {{
-    font-size: 28px;
-  }}
-  body.embed-view .poster-closed strong {{
-    font-size: 15px;
-  }}
-  body.embed-view .yes-side {{
-    grid-column: 1;
-    grid-row: 2;
-  }}
-  body.embed-view .no-side {{
-    grid-column: 3;
-    grid-row: 2;
-  }}
-  body.embed-view .odds-side {{ gap: 5px; }}
-  body.embed-view .split-line {{ font-size: 24px; }}
-  body.embed-view .outcome-label {{ font-size: 18px; }}
-  body.embed-view .odds-side strong {{ font-size: 30px; }}
-  body.embed-view .poster-date {{ font-size: 10px; }}
-  body.embed-view .poster-reason {{
-    margin: 0 0 7px;
-    font-size: 10px;
-    line-height: 1.16;
-    -webkit-line-clamp: 3;
-  }}
-  body.embed-view .poster-sources {{ gap: 5px; }}
-  body.embed-view .source-caption {{ display: none; }}
-  body.embed-view .source-pill {{
-    max-width: calc((100% - 5px) / 2);
-    min-height: 20px;
-    padding: 3px 6px;
-    font-size: 9px;
-  }}
+  body.embed-view .meta-row {{ font-size: 9px; }}
+  body.embed-view .meta-row span, body.embed-view .market-link {{ padding: 3px 6px; }}
+  body.embed-view .probability-panel {{ padding: 9px 10px; gap: 8px; }}
+  body.embed-view .outcome-label {{ font-size: 16px; }}
+  body.embed-view .probability-cell strong {{ font-size: 30px; }}
+  body.embed-view .probability-divider {{ font-size: 24px; }}
+  body.embed-view .reason-block {{ padding: 8px 10px; }}
+  body.embed-view .reason-label {{ font-size: 9px; }}
+  body.embed-view .reason-block p {{ font-size: 10px; line-height: 1.22; }}
+  body.embed-view .updated-line {{ font-size: 9px; }}
+  body.embed-view .source-pill {{ min-height: 20px; padding: 3px 6px; font-size: 9px; }}
 }}
 @media (max-width: 900px) {{
-  body.full-view .forecast-poster {{ min-height: 430px; }}
-  body.full-view .poster-header h1 {{ font-size: 30px; }}
-  body.full-view .poster-meta {{ gap: 18px; font-size: 22px; }}
-  body.full-view .poster-odds {{ top: 38%; left: 15%; right: 15%; }}
-  body.full-view .outcome-label {{ font-size: 34px; }}
-  body.full-view .odds-side strong {{ font-size: 70px; }}
-  body.full-view .poster-date {{ font-size: 28px; }}
-  body.full-view .poster-reason {{ font-size: 16px; }}
+  body.full-view .forecast-card {{ min-height: 430px; padding: 24px; }}
+  body.full-view .card-header h1 {{ font-size: 28px; }}
+  body.full-view .probability-cell strong {{ font-size: 66px; }}
+  body.full-view .reason-block p {{ font-size: 16px; }}
 }}
 </style>
 </head>
 <body class="{mode_class}">
-<article class="forecast-poster {band}">
-  <div class="poster-watermark" aria-hidden="true">{h(symbol)}</div>
-  <header class="poster-header">
+<article class="forecast-card {band}">
+  <header class="card-header">
     <h1>{h(question)}</h1>
-    <div class="poster-meta">
-      <span>Conf: {h(confidence)}</span>
-      <span>Src: {source_count}</span>
-      <span>{h(model)}</span>
+    <div class="meta-row">
+      <span>model: {h(model or "unknown")}</span>
+      <span>confidence: {h(confidence)}</span>
+      {market_link}
     </div>
   </header>
 {odds_html}
-  <footer class="poster-footer">
-    <div class="footer-copy">
-      <span class="poster-date">{h(forecast_date)}</span>
-      <p class="poster-reason"><span>Reason:</span> {h(reason)}</p>
+  <section class="reason-block" aria-label="Forecast reason">
+    <span class="reason-label">Reason</span>
+    <p>{h(reason)}</p>
+  </section>
+  <footer class="card-footer">
+    <span class="updated-line">{h(forecast_date)}</span>
 {sources_html}
-    </div>
-    {market_button}
   </footer>
 </article>
 </body>

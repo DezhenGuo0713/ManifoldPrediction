@@ -78,6 +78,17 @@ def truncate_text(value: str, max_chars: int) -> str:
     return text[: max_chars - 3].rstrip() + "..."
 
 
+def direct_reason(value: str, max_chars: int = 190) -> str:
+    text = re.sub(r"\s+", " ", value or "").strip()
+    if not text:
+        return "No prediction reason available."
+    first_sentence = re.split(r"(?<=[.!?])\s+", text, maxsplit=1)[0].strip()
+    text = first_sentence or text
+    if len(text) <= max_chars:
+        return text
+    return text[: max_chars - 3].rstrip() + "..."
+
+
 def format_edt_timestamp(value: str, fallback: str = "") -> str:
     text = (value or "").strip()
     if not text:
@@ -250,7 +261,7 @@ def market_card(row: dict[str, str], site_root: str) -> str:
     reason = (
         "Market closed. No prediction generated."
         if is_closed
-        else row.get("newsShortReason", "").strip()
+        else direct_reason(row.get("newsShortReason", "").strip())
     )
     question = row.get("question", "").strip()
     market_url = row.get("url", "").strip()
@@ -264,25 +275,22 @@ def market_card(row: dict[str, str], site_root: str) -> str:
     )
     model = row.get("forecastModel", "").strip()
     confidence = "closed" if is_closed else row.get("newsConfidence", "").strip() or "unknown"
-    source_count = min(2, len(split_pipe(row.get("newsSourceUrls", ""))))
-    symbol = market_symbol(question)
     odds_html = (
         """
-      <section class="poster-closed" aria-label="Market status">
-        <span>MARKET CLOSED</span>
+      <section class="market-status closed-status" aria-label="Market status">
+        <span>Market closed</span>
         <strong>No prediction</strong>
       </section>"""
         if is_closed
         else f"""
-      <section class="poster-odds" aria-label="Forecast probabilities">
-        <div class="odds-model">model: {h(model or "unknown")}</div>
-        <div class="odds-side yes-side">
-          <span class="outcome-label {yes_score_class}">YES</span>
+      <section class="probability-panel" aria-label="Forecast probabilities">
+        <div class="probability-cell yes-cell">
+          <span class="outcome-label {yes_score_class}">Yes</span>
           <strong class="{yes_score_class}">{h(pct(yes))}</strong>
         </div>
-        <div class="split-line" aria-hidden="true"></div>
-        <div class="odds-side no-side">
-          <span class="outcome-label {no_score_class}">NO</span>
+        <div class="probability-divider" aria-hidden="true">|</div>
+        <div class="probability-cell no-cell">
+          <span class="outcome-label {no_score_class}">No</span>
           <strong class="{no_score_class}">{h(pct(no))}</strong>
         </div>
       </section>"""
@@ -291,42 +299,38 @@ def market_card(row: dict[str, str], site_root: str) -> str:
         ""
         if is_closed
         else f"""
-          <div class="poster-sources" aria-label="Sources">
-            <span class="source-caption">Source</span>
+          <div class="source-row" aria-label="Sources">
             {compact_source_html(row)}
           </div>"""
     )
-    manifold_link = (
-        f'<a class="lock-button" href="{h(market_url)}" target="_blank" '
-        f'rel="noopener noreferrer" aria-label="Open Manifold market">'
-        f'<span class="lock-icon" aria-hidden="true"></span></a>'
+    market_link = (
+        f'<a class="market-link" href="{h(market_url)}" target="_blank" '
+        f'rel="noopener noreferrer">Market</a>'
         if market_url
         else ""
     )
 
     return f"""
-    <article class="forecast-poster {band}">
-      <div class="poster-glow" aria-hidden="true"></div>
-      <div class="poster-watermark" aria-hidden="true">{h(symbol)}</div>
-
-      <header class="poster-header">
+    <article class="forecast-card {band}">
+      <header class="card-header">
         <h1>{h(question)}</h1>
-        <div class="poster-meta">
-          <span>Conf: {h(confidence.upper())}</span>
-          <span>Src: {source_count}</span>
-          <span>{h(model)}</span>
+        <div class="meta-row">
+          <span>model: {h(model or "unknown")}</span>
+          <span>confidence: {h(confidence)}</span>
+          {market_link}
         </div>
       </header>
 
 {odds_html}
 
-      <footer class="poster-footer">
-        <div class="footer-copy">
-          <span class="poster-date">{h(forecast_date)}</span>
-          <p class="poster-reason"><span>Reason:</span> {h(reason)}</p>
+      <section class="reason-block" aria-label="Forecast reason">
+        <span class="reason-label">Reason</span>
+        <p>{h(reason)}</p>
+      </section>
+
+      <footer class="card-footer">
+        <span class="updated-line">{h(forecast_date)}</span>
 {sources_html}
-        </div>
-        {manifold_link}
       </footer>
     </article>
 """
@@ -377,7 +381,7 @@ def build_market_page(row: dict[str, str], output_dir: str) -> str:
         yes = pct(row.get("newsPredictedYesProbability"))
         no = pct(row.get("newsPredictedNoProbability"))
         title = f"{yes} YES / {no} NO - {row.get('question', '')}"
-        description = row.get("newsShortReason", "")
+        description = direct_reason(row.get("newsShortReason", ""))
     absolute_page_url = f"{PUBLIC_SITE_BASE_URL}/{relative_url}"
     absolute_image_url = f"{PUBLIC_LINK_CARD_IMAGE_BASE_URL}/{market_id}.png"
     forecast_date = (
@@ -433,10 +437,14 @@ def build_market_page(row: dict[str, str], output_dir: str) -> str:
 def build_link_preview_page(row: dict[str, str], output_dir: str) -> None:
     market_id = slugify(row["id"])
     page_dir = os.path.join(output_dir, "link-previews", market_id)
-    yes = pct(row.get("newsPredictedYesProbability"))
-    no = pct(row.get("newsPredictedNoProbability"))
-    title = f"Link preview image - {yes} YES / {no} NO"
-    description = row.get("newsShortReason", "")
+    if is_market_closed(row):
+        title = "Link preview image - Market closed"
+        description = "Market closed. No prediction generated."
+    else:
+        yes = pct(row.get("newsPredictedYesProbability"))
+        no = pct(row.get("newsPredictedNoProbability"))
+        title = f"Link preview image - {yes} YES / {no} NO"
+        description = direct_reason(row.get("newsShortReason", ""))
     body = f"""
   <main class="embed-shell preview-shell">
 {market_card(row, "../../")}
@@ -537,7 +545,7 @@ def build_json(rows: list[dict[str, str]], page_urls: dict[str, str], output_dir
                 "reason": (
                     "Market closed. No prediction generated."
                     if is_market_closed(row)
-                    else row.get("newsShortReason", "")
+                    else direct_reason(row.get("newsShortReason", ""))
                 ),
                 "evidence": [] if is_market_closed(row) else split_pipe(row.get("newsKeyEvidence", "")),
                 "sources": [] if is_market_closed(row) else split_pipe(row.get("newsSourceUrls", "")),
@@ -1220,6 +1228,312 @@ a {
 .preview-shell .lock-button {
   width: 112px;
   min-width: 112px;
+}
+
+.forecast-card {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 540px;
+  padding: 34px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fffefa 0%, #f9faf8 100%);
+  border: 1px solid #d9dde3;
+  border-top: 4px solid #24324a;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(18, 24, 34, 0.10);
+  color: #16181d;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.forecast-card.closed {
+  border-top-color: #b42318;
+}
+
+.card-header {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.card-header h1 {
+  display: -webkit-box;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #16181d;
+  font-size: min(3vw, 38px);
+  font-weight: 720;
+  line-height: 1.18;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: #656b75;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.meta-row span,
+.market-link {
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 8px;
+  overflow: hidden;
+  border: 1px solid #d9dde3;
+  border-radius: 999px;
+  background: #ffffff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.market-link {
+  color: #24324a;
+  text-decoration: none;
+}
+
+.probability-panel {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+  padding: 28px 34px;
+  border: 1px solid #d9dde3;
+  border-radius: 8px;
+  background: #f8faf9;
+}
+
+.probability-cell {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.no-cell {
+  text-align: right;
+}
+
+.forecast-card .outcome-label {
+  font-size: min(2.4vw, 38px);
+  font-weight: 780;
+  line-height: 1;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+.probability-cell strong {
+  font-size: min(6.6vw, 112px);
+  font-weight: 820;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.probability-divider {
+  color: #a0a7b2;
+  font-size: min(4vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.probability-cell strong.higher-score,
+.forecast-card .outcome-label.higher-score {
+  color: #0aa34f;
+}
+
+.probability-cell strong.lower-score,
+.forecast-card .outcome-label.lower-score {
+  color: #4f5865;
+}
+
+.market-status {
+  display: grid;
+  gap: 5px;
+  padding: 28px 34px;
+  border: 1px solid #f1b4ae;
+  border-radius: 8px;
+  background: #fff7f5;
+  text-align: center;
+}
+
+.market-status span {
+  color: #b42318;
+  font-size: min(3vw, 44px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.market-status strong {
+  color: #656b75;
+  font-size: min(1.8vw, 26px);
+  font-weight: 650;
+}
+
+.reason-block {
+  min-width: 0;
+  padding: 18px 20px;
+  border-left: 3px solid #24324a;
+  background: #f6f7f8;
+}
+
+.reason-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #656b75;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.reason-block p {
+  display: -webkit-box;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #16181d;
+  font-size: min(1.7vw, 24px);
+  font-weight: 560;
+  line-height: 1.32;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.card-footer {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.updated-line {
+  color: #656b75;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.source-row {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.forecast-card .source-pill {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 280px;
+  min-height: 30px;
+  padding: 5px 10px;
+  overflow: hidden;
+  border: 1px solid #c8d1db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #24324a;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.forecast-card .source-pill:hover,
+.forecast-card .source-pill:focus-visible {
+  border-color: #24324a;
+  background: #f2f5f8;
+  outline: none;
+}
+
+.preview-shell .forecast-card {
+  min-height: 600px;
+}
+
+@media (max-width: 900px) {
+  .forecast-card {
+    min-height: 430px;
+    padding: 24px;
+  }
+
+  .card-header h1 {
+    font-size: 28px;
+  }
+
+  .probability-cell strong {
+    font-size: 66px;
+  }
+
+  .reason-block p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .forecast-card {
+    min-height: 390px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .card-header h1 {
+    font-size: 18px;
+    -webkit-line-clamp: 3;
+  }
+
+  .meta-row {
+    font-size: 11px;
+  }
+
+  .probability-panel {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .forecast-card .outcome-label {
+    font-size: 20px;
+  }
+
+  .probability-cell strong {
+    font-size: 42px;
+  }
+
+  .probability-divider {
+    font-size: 30px;
+  }
+
+  .reason-block {
+    padding: 11px 12px;
+  }
+
+  .reason-label {
+    font-size: 10px;
+  }
+
+  .reason-block p {
+    font-size: 12px;
+  }
+
+  .updated-line {
+    font-size: 11px;
+  }
+
+  .forecast-card .source-pill {
+    max-width: calc((100% - 8px) / 2);
+    min-height: 24px;
+    font-size: 10px;
+  }
 }
 """
     write_text(os.path.join(output_dir, "assets", "styles.css"), css)

@@ -73,7 +73,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add Markets/MarketNewsPredictions.csv docs/
+          git add Markets/MarketNewsPredictions.csv Predictions/ docs/
 
           if git diff --cached --quiet; then
             echo "No prediction page changes to commit."

@@ -55,6 +55,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MARKETS_DIR = os.path.join(PROJECT_DIR, "Markets")
 DEFAULT_INPUT_CSV = os.path.join(MARKETS_DIR, "MarketsRandomization.csv")
 DEFAULT_OUTPUT_CSV = os.path.join(MARKETS_DIR, "MarketNewsPredictions.csv")
+DEFAULT_HISTORY_DIR = os.path.join(PROJECT_DIR, "Predictions")
 
 MANIFOLD_API_BASE = "https://api.manifold.markets/v0"
 DEFAULT_OPENAI_BASE_URL = "https://api.openai.com"
@@ -144,6 +145,17 @@ def is_market_closed(row: dict[str, str], now: datetime) -> bool:
 
 def format_probability(value: float) -> str:
     return f"{clamp_probability(value):.6f}"
+
+
+def make_direct_reason(value: str, max_chars: int = 190) -> str:
+    text = re.sub(r"\s+", " ", value or "").strip()
+    if not text:
+        return ""
+    first_sentence = re.split(r"(?<=[.!?])\s+", text, maxsplit=1)[0].strip()
+    text = first_sentence or text
+    if len(text) <= max_chars:
+        return text
+    return text[: max_chars - 3].rstrip() + "..."
 
 
 def clean_source_url(url: str) -> str:
@@ -237,6 +249,72 @@ def write_rows(path: str, rows: list[dict[str, str]], input_fieldnames: list[str
         writer.writerows(rows)
 
 
+def safe_path_part(value: str) -> str:
+    text = re.sub(r"[^a-zA-Z0-9_-]+", "-", value.strip())
+    text = re.sub(r"-+", "-", text).strip("-")
+    return text or "unknown"
+
+
+def safe_timestamp(value: str) -> str:
+    text = value.strip()
+    if text:
+        try:
+            parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+            return parsed.strftime("%Y%m%dT%H%M%S%z")
+        except ValueError:
+            pass
+    return datetime.now(ZoneInfo(TIMEZONE)).strftime("%Y%m%dT%H%M%S%z")
+
+
+def prediction_history_payload(row: dict[str, str]) -> dict[str, Any]:
+    return {
+        "id": row.get("id", ""),
+        "question": row.get("question", ""),
+        "marketUrl": row.get("url", ""),
+        "status": row.get("forecastStatus", "forecast"),
+        "forecastTimestamp": row.get("forecastTimestamp", ""),
+        "forecastCurrentDate": row.get("forecastCurrentDate", ""),
+        "forecastClosedAt": row.get("forecastClosedAt", ""),
+        "model": row.get("forecastModel", ""),
+        "inputPolicy": row.get("forecastInputPolicy", ""),
+        "yesProbability": parse_float(row.get("newsPredictedYesProbability")),
+        "noProbability": parse_float(row.get("newsPredictedNoProbability")),
+        "confidence": row.get("newsConfidence", ""),
+        "reason": row.get("newsShortReason", ""),
+        "evidence": [
+            item.strip()
+            for item in row.get("newsKeyEvidence", "").split("|")
+            if item.strip()
+        ],
+        "sources": [
+            item.strip()
+            for item in row.get("newsSourceUrls", "").split("|")
+            if item.strip()
+        ],
+        "searchQueries": [
+            item.strip()
+            for item in row.get("newsSearchQueries", "").split("|")
+            if item.strip()
+        ],
+        "raw": row.get("newsRawJson", ""),
+    }
+
+
+def write_prediction_history(history_dir: str, rows: list[dict[str, str]]) -> None:
+    os.makedirs(history_dir, exist_ok=True)
+    for row in rows:
+        market_id = safe_path_part(row.get("id", ""))
+        timestamp = safe_timestamp(row.get("forecastTimestamp", ""))
+        market_dir = os.path.join(history_dir, market_id)
+        os.makedirs(market_dir, exist_ok=True)
+        payload = prediction_history_payload(row)
+        for filename in (f"{timestamp}.json", "latest.json"):
+            path = os.path.join(market_dir, filename)
+            with open(path, "w", encoding="utf-8", newline="\n") as output_file:
+                json.dump(payload, output_file, indent=2, ensure_ascii=False)
+                output_file.write("\n")
+
+
 def clean_description(description: str, max_chars: int) -> str:
     description = re.sub(r"\s+", " ", description or "").strip()
     if len(description) <= max_chars:
@@ -268,8 +346,9 @@ Do not use prediction-market or forecasting-site pages as evidence. Blocked
 forecasting domains: {blocked_text}.
 
 Return a calibrated probability that the market ultimately resolves YES.
-Put URLs only in source_urls. Do not put markdown links in short_reason or
-key_evidence.
+Make short_reason one direct sentence, 12-24 words, with the main evidence
+first. Avoid filler, hedging phrases, citations, and markdown links in
+short_reason. Put URLs only in source_urls.
 
 Current date: {current_date}
 Question: {question}
@@ -296,7 +375,7 @@ def response_schema() -> dict[str, Any]:
                 },
                 "short_reason": {
                     "type": "string",
-                    "description": "One to three concise sentences explaining the forecast.",
+                    "description": "One direct sentence, 12-24 words, explaining the main evidence for the forecast.",
                 },
                 "key_evidence": {
                     "type": "array",
@@ -348,7 +427,8 @@ def call_openai_responses(
                 "content": (
                     "You are a calibrated superforecaster. You search the web, "
                     "separate resolution criteria from background facts, avoid "
-                    "overconfidence, and always return valid JSON."
+                    "overconfidence, write direct one-sentence rationales, and "
+                    "always return valid JSON."
                 ),
             },
             {"role": "user", "content": prompt},
@@ -481,7 +561,7 @@ def parse_forecast(response: dict[str, Any], max_source_urls: int) -> Forecast:
     return Forecast(
         yes_probability=clamp_probability(probability),
         confidence=confidence,
-        short_reason=str(payload.get("short_reason") or "").strip(),
+        short_reason=make_direct_reason(str(payload.get("short_reason") or "")),
         key_evidence=key_evidence,
         source_urls=source_urls,
         raw_json=payload,
@@ -613,6 +693,16 @@ def parse_args() -> argparse.Namespace:
         "--output",
         default=DEFAULT_OUTPUT_CSV,
         help=f"Output CSV path. Default: {DEFAULT_OUTPUT_CSV}",
+    )
+    parser.add_argument(
+        "--history-dir",
+        default=DEFAULT_HISTORY_DIR,
+        help=f"Directory for per-market prediction JSON history. Default: {DEFAULT_HISTORY_DIR}",
+    )
+    parser.add_argument(
+        "--no-history",
+        action="store_true",
+        help="Do not write per-market prediction history JSON files.",
     )
     parser.add_argument(
         "--current-date",
@@ -780,9 +870,12 @@ def main() -> int:
             )
 
     write_rows(args.output, outputs, fieldnames)
+    if not args.no_history:
+        write_prediction_history(args.history_dir, outputs)
     summary = {
         "inputCsv": args.input,
         "outputCsv": args.output,
+        "historyDir": "" if args.no_history else args.history_dir,
         "currentDate": args.current_date,
         "model": args.model,
         "webTool": args.web_tool,
