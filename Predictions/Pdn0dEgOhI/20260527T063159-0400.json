@@ -1,0 +1,34 @@
+{
+  "id": "Pdn0dEgOhI",
+  "question": "Will the Federal Reserve cut interest rates by 25bp or more at the June 17, 2026 FOMC meeting?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-the-federal-reserve-cut-intere-qLLpItRzy9",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-17T18:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "Federal Reserve officials favor rate hikes if inflation stays high, with no cuts expected in June.",
+  "evidence": [
+    "Minutes from the April 28-29, 2026 FOMC meeting reveal a majority of officials believe rate hikes may be necessary if inflation remains persistently above the 2% target. ([axios.com](https://www.axios.com/2026/05/20/fed-rates-minutes-warsh?utm_source=openai))",
+    "The Federal Reserve held the federal funds rate at 4.25%–4.50% on May 7, 2026, indicating a cautious approach to monetary policy. ([investozora.com](https://investozora.com/fed-rate-hold-may-7-2026-fomc-decision/?utm_source=openai))",
+    "The next FOMC meeting is scheduled for June 16-17, 2026, with no indications of a rate cut at that time. ([federalreserve.gov](https://www.federalreserve.gov/monetarypolicy.htm?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.axios.com/2026/05/20/fed-rates-minutes-warsh",
+    "https://investozora.com/fed-rate-hold-may-7-2026-fomc-decision/",
+    "https://www.federalreserve.gov/monetarypolicy.htm",
+    "https://wealthvieu.com/banking/interest-rates/federal-funds-rate/",
+    "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm?os=0",
+    "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm?aff_id=1035",
+    "https://averin.com/en/journal/fed-may-2026-fomc-preview",
+    "https://www.mql5.com/en/economic-calendar/united-states/fed-interest-rate-decision"
+  ],
+  "searchQueries": [
+    "Federal Reserve interest rate decision June 2026 inflation economic indicators FOMC May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"Federal Reserve officials favor rate hikes if inflation stays high, with no cuts expected in June.\", \"key_evidence\": [\"Minutes from the April 28-29, 2026 FOMC meeting reveal a majority of officials believe rate hikes may be necessary if inflation remains persistently above the 2% target. ([axios.com](https://www.axios.com/2026/05/20/fed-rates-minutes-warsh?utm_source=openai))\", \"The Federal Reserve held the federal funds rate at 4.25%–4.50% on May 7, 2026, indicating a cautious approach to monetary policy. ([investozora.com](https://investozora.com/fed-rate-hold-may-7-2026-fomc-decision/?utm_source=openai))\", \"The next FOMC meeting is scheduled for June 16-17, 2026, with no indications of a rate cut at that time. ([federalreserve.gov](https://www.federalreserve.gov/monetarypolicy.htm?utm_source=openai))\"], \"source_urls\": [\"https://www.axios.com/2026/05/20/fed-rates-minutes-warsh\", \"https://investozora.com/fed-rate-hold-may-7-2026-fomc-decision/\", \"https://www.federalreserve.gov/monetarypolicy.htm\"]}"
+}

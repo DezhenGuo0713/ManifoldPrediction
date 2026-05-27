@@ -1,0 +1,34 @@
+{
+  "id": "tUn9npAcSp",
+  "question": "Will I have a generally favorable opinion of Elon Musk on June 1, 2026?",
+  "marketUrl": "https://manifold.markets/derikk/will-i-have-a-generally-favorable-o",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-02T02:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.65,
+  "noProbability": 0.35,
+  "confidence": "medium",
+  "reason": "Musk's recent focus on space and technology projects suggests a positive shift in his public image.",
+  "evidence": [
+    "Musk announced the 'TeraFab' semiconductor project, aiming to produce a terawatt of annual compute power, indicating a significant investment in technological advancement. ([tomshardware.com](https://www.tomshardware.com/tech-industry/elon-musk-formally-launches-20-billion-terafab-chip-project?utm_source=openai))",
+    "SpaceX successfully launched its Starship Version 3 rocket, the most powerful to date, marking progress in space exploration. ([space.com](https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight?utm_source=openai))",
+    "Musk declared himself 'CEO for life' of SpaceX, signaling strong leadership and commitment to the company's future. ([axios.com](https://www.axios.com/2026/05/21/musk-ceo-spacex-control?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.tomshardware.com/tech-industry/elon-musk-formally-launches-20-billion-terafab-chip-project",
+    "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight",
+    "https://www.axios.com/2026/05/21/musk-ceo-spacex-control",
+    "https://techcrunch.com/2026/01/20/elon-musk-says-teslas-restarted-dojo3-will-be-for-space-based-ai-compute/",
+    "https://techcrunch.com/2026/02/12/musk-needed-a-new-vision-for-spacex-and-xai-he-landed-on-moonbase-alpha/",
+    "https://techcrunch.com/2026/04/21/spacex-is-working-with-cursor-and-has-an-option-to-buy-the-startup-for-60-billion/",
+    "https://techcrunch.com/2026/01/14/musk-denies-awareness-of-grok-sexual-underage-images-as-california-ag-launches-probe/",
+    "https://techcrunch.com/2026/02/11/senior-engineers-including-co-founders-exit-xai-amid-controversy/"
+  ],
+  "searchQueries": [
+    "Elon Musk 2026 recent activities new projects twitter behavior"
+  ],
+  "raw": "{\"yes_probability\": 0.65, \"confidence\": \"medium\", \"short_reason\": \"Musk's recent focus on space and technology projects suggests a positive shift in his public image.\", \"key_evidence\": [\"Musk announced the 'TeraFab' semiconductor project, aiming to produce a terawatt of annual compute power, indicating a significant investment in technological advancement. ([tomshardware.com](https://www.tomshardware.com/tech-industry/elon-musk-formally-launches-20-billion-terafab-chip-project?utm_source=openai))\", \"SpaceX successfully launched its Starship Version 3 rocket, the most powerful to date, marking progress in space exploration. ([space.com](https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight?utm_source=openai))\", \"Musk declared himself 'CEO for life' of SpaceX, signaling strong leadership and commitment to the company's future. ([axios.com](https://www.axios.com/2026/05/21/musk-ceo-spacex-control?utm_source=openai))\"], \"source_urls\": [\"https://www.tomshardware.com/tech-industry/elon-musk-formally-launches-20-billion-terafab-chip-project\", \"https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-v3-megarocket-first-test-flight\", \"https://www.axios.com/2026/05/21/musk-ceo-spacex-control\"]}"
+}

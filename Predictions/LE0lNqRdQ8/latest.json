@@ -1,0 +1,34 @@
+{
+  "id": "LE0lNqRdQ8",
+  "question": "Will European Central Bank cut interest rates before June 2026?",
+  "marketUrl": "https://manifold.markets/DylanGulliver/will-european-central-bank-cut-inte",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "ECB's recent statements and projections indicate no intention to cut interest rates before June 2026.",
+  "evidence": [
+    "On April 30, 2026, the ECB held rates at 2% and signaled a potential rate hike in June. ([lemonde.fr](https://www.lemonde.fr/en/economy/article/2026/05/01/european-central-bank-moves-toward-a-june-interest-rate-hike_6753032_19.html?utm_source=openai))",
+    "On May 4, 2026, Bundesbank President Joachim Nagel suggested a rate hike in June if inflation doesn't improve. ([investing.com](https://www.investing.com/news/economy-news/ecb-may-need-to-hike-rates-in-june-nagel-says-4657031?utm_source=openai))",
+    "On May 26, 2026, ECB Executive Board member Isabel Schnabel indicated that the ECB plans to raise rates in June to address rising inflation. ([cadenaser.com](https://cadenaser.com/nacional/2026/05/26/el-bce-apunta-a-una-subida-de-tipos-en-junio-para-compensar-la-subida-de-la-inflacion-por-la-guerra-cadena-ser/?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.lemonde.fr/en/economy/article/2026/05/01/european-central-bank-moves-toward-a-june-interest-rate-hike_6753032_19.html",
+    "https://www.investing.com/news/economy-news/ebc-may-need-to-hike-rates-in-june-nagel-says-4657031",
+    "https://cadenaser.com/nacional/2026/05/26/el-bce-apunta-a-una-subida-de-tipos-en-junio-para-compensar-la-subida-de-precios-por-la-guerra-cadena-ser/",
+    "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260319~3057739775.en.html",
+    "https://www.ecb.europa.eu/press/pr/date/2025/html/ecb.mp250605~3b5f67d007.en.html",
+    "https://www.ecb.europa.eu/press/press_conference/monetary-policy-statement/2026/html/ecb.is260319~93b1cbad97.en.html",
+    "https://www.econostream-media.com/news/2025-06-05/ecb_cuts_by_25bp_inflation_revised_down_to_1.6_in_2026.html",
+    "https://www.econostream-media.com/news/2026-03-19/ecb_holds_rates_at_2_raises_inflation_outlook_and_cuts_growth_forecasts.html"
+  ],
+  "searchQueries": [
+    "European Central Bank interest rate decision forecasts May June 2026 inflation and growth outlook"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"ECB's recent statements and projections indicate no intention to cut interest rates before June 2026.\", \"key_evidence\": [\"On April 30, 2026, the ECB held rates at 2% and signaled a potential rate hike in June. ([lemonde.fr](https://www.lemonde.fr/en/economy/article/2026/05/01/european-central-bank-moves-toward-a-june-interest-rate-hike_6753032_19.html?utm_source=openai))\", \"On May 4, 2026, Bundesbank President Joachim Nagel suggested a rate hike in June if inflation doesn't improve. ([investing.com](https://www.investing.com/news/economy-news/ecb-may-need-to-hike-rates-in-june-nagel-says-4657031?utm_source=openai))\", \"On May 26, 2026, ECB Executive Board member Isabel Schnabel indicated that the ECB plans to raise rates in June to address rising inflation. ([cadenaser.com](https://cadenaser.com/nacional/2026/05/26/el-bce-apunta-a-una-subida-de-tipos-en-junio-para-compensar-la-subida-de-la-inflacion-por-la-guerra-cadena-ser/?utm_source=openai))\"], \"source_urls\": [\"https://www.lemonde.fr/en/economy/article/2026/05/01/european-central-bank-moves-toward-a-june-interest-rate-hike_6753032_19.html\", \"https://www.investing.com/news/economy-news/ebc-may-need-to-hike-rates-in-june-nagel-says-4657031\", \"https://cadenaser.com/nacional/2026/05/26/el-bce-apunta-a-una-subida-de-tipos-en-junio-para-compensar-la-subida-de-precios-por-la-guerra-cadena-ser/\"]}"
+}

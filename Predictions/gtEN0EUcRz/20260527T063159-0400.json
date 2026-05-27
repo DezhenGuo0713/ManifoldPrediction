@@ -1,0 +1,33 @@
+{
+  "id": "gtEN0EUcRz",
+  "question": "Will Elon Musk become a trillionaire before July 2026?",
+  "marketUrl": "https://manifold.markets/Ynad23/will-elon-musk-become-a-trillionair",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.85,
+  "noProbability": 0.15,
+  "confidence": "high",
+  "reason": "Elon Musk's net worth is estimated at $808.1 billion as of May 21, 2026, according to Forbes.",
+  "evidence": [
+    "SpaceX's IPO is projected to value the company between $1.75 trillion and $2 trillion, potentially making Musk the world's first trillionaire. ([lemonde.fr](https://www.lemonde.fr/en/economy/article/2026/05/21/with-spacex-elon-musk-launches-the-most-spectacular-ipo-ever_6753682_19.html?utm_source=openai))",
+    "Musk's compensation package includes 7.5% of the IPO value, amounting to $550 billion, contingent upon achieving specific milestones. ([lemonde.fr](https://www.lemonde.fr/en/economy/article/2026/05/21/with-spacex-elon-musk-launches-the-most-spectacular-ipo-ever_6753682_19.html?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.forbes.com/profile/elon-musk/",
+    "https://www.lemonde.fr/en/economy/article/2026/05/21/with-spacex-elon-musk-launches-the-most-spectacular-ipo-ever_6753682_19.html",
+    "https://www.bloomberg.com/billionaires/",
+    "https://www.bloomberg.com/billionaires/profiles/elon-r-musk/",
+    "https://www.bloomberg.com/billionaires?itm_content=Bloomberg_Billionaires_Index-0",
+    "https://www.bloomberg.com/billionaires?terminal=true",
+    "https://www.bloomberg.com/billionaires//",
+    "https://www.forbes.com/sites/forbeswealthteam/article/the-top-ten-richest-people-in-the-world/?ctpv=xlrecirc"
+  ],
+  "searchQueries": [
+    "Elon Musk net worth Bloomberg Forbes May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.85, \"confidence\": \"high\", \"short_reason\": \"Elon Musk's net worth is estimated at $808.1 billion as of May 21, 2026, according to Forbes.\", \"key_evidence\": [\"SpaceX's IPO is projected to value the company between $1.75 trillion and $2 trillion, potentially making Musk the world's first trillionaire. ([lemonde.fr](https://www.lemonde.fr/en/economy/article/2026/05/21/with-spacex-elon-musk-launches-the-most-spectacular-ipo-ever_6753682_19.html?utm_source=openai))\", \"Musk's compensation package includes 7.5% of the IPO value, amounting to $550 billion, contingent upon achieving specific milestones. ([lemonde.fr](https://www.lemonde.fr/en/economy/article/2026/05/21/with-spacex-elon-musk-launches-the-most-spectacular-ipo-ever_6753682_19.html?utm_source=openai))\"], \"source_urls\": [\"https://www.forbes.com/profile/elon-musk/\", \"https://www.lemonde.fr/en/economy/article/2026/05/21/with-spacex-elon-musk-launches-the-most-spectacular-ipo-ever_6753682_19.html\"]}"
+}

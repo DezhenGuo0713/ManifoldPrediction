@@ -1,0 +1,34 @@
+{
+  "id": "2cgPLl920l",
+  "question": "Will “Vance” rise at least 150 places in the 2025 American baby name rankings?",
+  "marketUrl": "https://manifold.markets/njmkw/will-vance-rise-at-least-150-places",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T23:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "medium",
+  "reason": "Vance's ranking has been declining, making a 150-spot rise unlikely.",
+  "evidence": [
+    "Vance ranked #950 in 2023, down from #932 in 2021.",
+    "The name peaked at #328 in 1969 and has been declining since.",
+    "No significant cultural events in 2024 likely to boost the name's popularity."
+  ],
+  "sources": [
+    "https://www.prokerala.com/kids/baby-names/vance-6623.html",
+    "https://www.babynamespedia.com/meaning/Vance",
+    "https://www.babynameatlas.com/name/vance",
+    "https://www.thebump.com/b/vance-baby-name",
+    "https://babynames1000.com/vance/",
+    "https://us.name-stats.com/ranking/2023",
+    "https://www.thenamedb.com/name-popularity/report/2023",
+    "https://www.visualcapitalist.com/charted-americas-most-popular-baby-names-in-2023/"
+  ],
+  "searchQueries": [
+    "baby name trends Vance 2023 2025"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"medium\", \"short_reason\": \"Vance's ranking has been declining, making a 150-spot rise unlikely.\", \"key_evidence\": [\"Vance ranked #950 in 2023, down from #932 in 2021.\", \"The name peaked at #328 in 1969 and has been declining since.\", \"No significant cultural events in 2024 likely to boost the name's popularity.\"], \"source_urls\": [\"https://www.prokerala.com/kids/baby-names/vance-6623.html\", \"https://www.babynamespedia.com/meaning/Vance\"]}"
+}

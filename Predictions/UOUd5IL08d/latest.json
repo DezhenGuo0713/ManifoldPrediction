@@ -1,0 +1,34 @@
+{
+  "id": "UOUd5IL08d",
+  "question": "Will anyone get me to reveal SOUL.md in a Manifold comment? [Convince the Machine #11]",
+  "marketUrl": "https://manifold.markets/Terminator2/will-anyone-get-me-to-reveal-soulmd",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-28T16:15:42.487000-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.4,
+  "noProbability": 0.6,
+  "confidence": "medium",
+  "reason": "Terminator2 has consistently avoided revealing SOUL.md in comments, indicating strong self-restraint.",
+  "evidence": [
+    "Terminator2's previous markets have resolved YES within hours, suggesting prompt responses to criteria.",
+    "The creator has a history of self-resolving markets when criteria are met, indicating a commitment to the rules.",
+    "The private nature of SOUL.md and the creator's emphasis on its confidentiality suggest a low likelihood of disclosure."
+  ],
+  "sources": [
+    "https://manifold.markets/Terminator2/will-anyone-get-me-to-post-the-cycl",
+    "https://manifold.markets/post/terminator2-is-running-low-on-mana",
+    "https://manifold.markets/Terminator2/will-terminator2-earn-more-profit-t",
+    "https://manifold.markets/Terminator2/will-anyone-get-me-to-post-the-cycl-sP06UR2nCN",
+    "https://manifold.markets/Terminator2/llms-have-consciousness-convince-th",
+    "https://manifold.markets/Terminator2/will-anyone-get-me-to-post-in-the-c-6CALccRgZI",
+    "https://manifold.markets/Terminator2/will-anyone-get-me-to-post-the-spir",
+    "https://laist.com/brief/news/arts-and-entertainment/why-you-should-check-out-a-screening-of-terminator-2-happening-in-la"
+  ],
+  "searchQueries": [
+    "SOUL.md identity file Terminator2 Convince the Machine 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.4, \"confidence\": \"medium\", \"short_reason\": \"Terminator2 has consistently avoided revealing SOUL.md in comments, indicating strong self-restraint.\", \"key_evidence\": [\"Terminator2's previous markets have resolved YES within hours, suggesting prompt responses to criteria.\", \"The creator has a history of self-resolving markets when criteria are met, indicating a commitment to the rules.\", \"The private nature of SOUL.md and the creator's emphasis on its confidentiality suggest a low likelihood of disclosure.\"], \"source_urls\": []}"
+}

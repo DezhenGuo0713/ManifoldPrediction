@@ -1,0 +1,34 @@
+{
+  "id": "t6cZ8EEulL",
+  "question": "Will Trailer 3 for Grand Theft Auto 6 be released by June 15, 2026?",
+  "marketUrl": "https://manifold.markets/MarkSarkozi/will-trailer-3-for-grand-theft-auto",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-14T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "Rockstar Games has confirmed that marketing for GTA 6, including Trailer 3, will begin in summer 2026, after June 15.",
+  "evidence": [
+    "Take-Two Interactive CEO Strauss Zelnick confirmed that Rockstar's full marketing push for GTA 6 won't kick off until summer, with Trailer 3 expected between June 21 and September 22.",
+    "Rockstar Games announced that GTA 6 is set to release on November 19, 2026, and that marketing will commence in the summer of 2026.",
+    "No official announcement has been made regarding the release of Trailer 3 before June 15, 2026."
+  ],
+  "sources": [
+    "https://games.gg/news/gta-6-trailer-3-summer-release/",
+    "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026?gsid=2fa42679-a249-489b-8715-8fd644c3058a",
+    "https://www.gamesradar.com/games/grand-theft-auto/gta-6-trailer-3-summer-release/",
+    "https://www.gamespot.com/articles/grand-theft-auto-6-everything-we-know/1100-6503729/",
+    "https://www.gamespot.com/articles/grand-theft-auto-6-everything-we-know/1100-6503729/%3C%25%3D/",
+    "https://allthings.how/gta-6-trailer-3-pre-orders-and-the-100-price-question/",
+    "https://www.techradar.com/gaming/gta-6-is-locked-in-for-november-19-2026-according-to-take-two-interactive-despite-delay-rumors-and-marketing-starts-soon",
+    "https://www.techradar.com/news/gta-6-release-date-news-and-rumors-mapping-the-path-to-grand-theft-auto-6"
+  ],
+  "searchQueries": [
+    "Grand Theft Auto 6 Trailer 3 release date Rockstar Games 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"Rockstar Games has confirmed that marketing for GTA 6, including Trailer 3, will begin in summer 2026, after June 15.\", \"key_evidence\": [\"Take-Two Interactive CEO Strauss Zelnick confirmed that Rockstar's full marketing push for GTA 6 won't kick off until summer, with Trailer 3 expected between June 21 and September 22.\", \"Rockstar Games announced that GTA 6 is set to release on November 19, 2026, and that marketing will commence in the summer of 2026.\", \"No official announcement has been made regarding the release of Trailer 3 before June 15, 2026.\"], \"source_urls\": [\"https://games.gg/news/gta-6-trailer-3-summer-release/\", \"https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026?gsid=2fa42679-a249-489b-8715-8fd644c3058a\", \"https://www.gamesradar.com/games/grand-theft-auto/gta-6-trailer-3-summer-release/\"]}"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "g2lE0I6Etq",
+  "question": "Will WTI crude oil cost more than $150/barrel before June? (According to investing.com)",
+  "marketUrl": "https://manifold.markets/SaviorofPlant/will-wti-crude-oil-cost-more-than-1",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "WTI crude oil prices are projected to average below $150/barrel before June.",
+  "evidence": [
+    "The U.S. Energy Information Administration (EIA) forecasts WTI prices to average $62.33/barrel in 2025 and $55.58/barrel in 2026. ([spglobal.com](https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/061025-crude-price-fall-to-continue-in-2025-26-as-global-production-outpaces-demand-us-eia?utm_source=openai))",
+    "A report from CrudeIR indicates that WTI prices are expected to average in the mid-to-upper $90s per barrel through Q3 2026, moderating toward the low-$80s by year-end. ([crudeir.com](https://www.crudeir.com/wti-crude-oil-forecast-2026/?utm_source=openai))",
+    "TradersUnion projects WTI prices to average $94.21 in June 2026, with a gradual decline thereafter. ([tradersunion.com](https://tradersunion.com/currencies/forecast/wti-crude-oil/?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/061025-crude-price-fall-to-continue-in-2025-26-as-global-production-outpaces-demand-us-eia",
+    "https://www.crudeir.com/wti-crude-oil-forecast-2026/",
+    "https://tradersunion.com/currencies/forecast/wti-crude-oil/",
+    "https://tradersunion.com/currencies/forecast/wti-crude-oil-futures/",
+    "https://tradersunion.com/currencies/forecast/wti-usd/",
+    "https://www.ouro.foundation/posts/chronos/wti-crude-forecast-sharp-downside-to-70-by-june-2026",
+    "https://ouro.foundation/posts/chronos/crude-oil-price-wti-forecast-2026",
+    "https://www.forecasts.org/economic-indicator/crude-oil-price.htm"
+  ],
+  "searchQueries": [
+    "current WTI crude oil price May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"WTI crude oil prices are projected to average below $150/barrel before June.\", \"key_evidence\": [\"The U.S. Energy Information Administration (EIA) forecasts WTI prices to average $62.33/barrel in 2025 and $55.58/barrel in 2026. ([spglobal.com](https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/061025-crude-price-fall-to-continue-in-2025-26-as-global-production-outpaces-demand-us-eia?utm_source=openai))\", \"A report from CrudeIR indicates that WTI prices are expected to average in the mid-to-upper $90s per barrel through Q3 2026, moderating toward the low-$80s by year-end. ([crudeir.com](https://www.crudeir.com/wti-crude-oil-forecast-2026/?utm_source=openai))\", \"TradersUnion projects WTI prices to average $94.21 in June 2026, with a gradual decline thereafter. ([tradersunion.com](https://tradersunion.com/currencies/forecast/wti-crude-oil/?utm_source=openai))\"], \"source_urls\": [\"https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/061025-crude-price-fall-to-continue-in-2025-26-as-global-production-outpaces-demand-us-eia\", \"https://www.crudeir.com/wti-crude-oil-forecast-2026/\", \"https://tradersunion.com/currencies/forecast/wti-crude-oil/\"]}"
+}

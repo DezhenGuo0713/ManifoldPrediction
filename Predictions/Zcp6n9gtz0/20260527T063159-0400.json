@@ -1,0 +1,34 @@
+{
+  "id": "Zcp6n9gtz0",
+  "question": "Will Anthropic release a new model stronger than Haiku 4.5 before June 16?",
+  "marketUrl": "https://manifold.markets/Lorenzo/will-anthropic-release-a-new-model-yLLZSucNyA",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-15T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Anthropic's recent model releases and deprecations suggest no new model stronger than Haiku 4.5 before June 16.",
+  "evidence": [
+    "Anthropic released Sonnet 4.6 in February 2026, Opus 4.6 in February 2026, and Haiku 4.5 in October 2025, indicating a pattern of releasing models approximately every four months.",
+    "On April 14, 2026, Anthropic announced the retirement of Sonnet 4 and Opus 4 models, with recommended replacements being Sonnet 4.6 and Opus 4.7, respectively, suggesting a focus on updating existing models rather than releasing new ones.",
+    "There is no public information indicating that Anthropic plans to release a model stronger than Haiku 4.5 before June 16, 2026."
+  ],
+  "sources": [
+    "https://www.anthropic.com/news/claude-haiku-4-5",
+    "https://platform.claude.com/docs/en/resources/model-deprecations",
+    "https://www.anthropic.com/claude/haiku",
+    "https://www.anthropic.com/news/claude-haiku-4-5?via=aivyx",
+    "https://www.anthropic.com/news/claude-haiku-4-5?s=08",
+    "https://docs.anthropic.com/en/docs/about-claude/models/overview",
+    "https://www.anthropic.com/news?type=research",
+    "https://techcrunch.com/2026/02/17/anthropic-releases-sonnet-4-6/"
+  ],
+  "searchQueries": [
+    "Anthropic new model release after Haiku 4.5 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Anthropic's recent model releases and deprecations suggest no new model stronger than Haiku 4.5 before June 16.\", \"key_evidence\": [\"Anthropic released Sonnet 4.6 in February 2026, Opus 4.6 in February 2026, and Haiku 4.5 in October 2025, indicating a pattern of releasing models approximately every four months.\", \"On April 14, 2026, Anthropic announced the retirement of Sonnet 4 and Opus 4 models, with recommended replacements being Sonnet 4.6 and Opus 4.7, respectively, suggesting a focus on updating existing models rather than releasing new ones.\", \"There is no public information indicating that Anthropic plans to release a model stronger than Haiku 4.5 before June 16, 2026.\"], \"source_urls\": [\"https://www.anthropic.com/news/claude-haiku-4-5\", \"https://platform.claude.com/docs/en/resources/model-deprecations\"]}"
+}

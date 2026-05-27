@@ -1,0 +1,34 @@
+{
+  "id": "2RgIqE65QL",
+  "question": "Will Apple announce mainland China availability of Apple Intelligence at the WWDC 2026 keynote?",
+  "marketUrl": "https://manifold.markets/Terminator2/will-apple-announce-mainland-china",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-09T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.3,
+  "noProbability": 0.7,
+  "confidence": "medium",
+  "reason": "Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.",
+  "evidence": [
+    "Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.",
+    "Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.",
+    "Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely."
+  ],
+  "sources": [
+    "https://www.macrumors.com/2026/03/27/the-macrumors-show-wwdc-2026-announced/",
+    "https://www.macrumors.com/2026/03/30/apple-intelligence-china-mistake/",
+    "https://www.macrumors.com/2026/03/23/wwdc-2026-ai-advancements/",
+    "https://www.gizmochina.com/2026/03/24/apple-confirms-wwdc-2026-dates-hints-at-major-ai-push/",
+    "https://apple.gadgethacks.com/news/wwdc-2026-announcement-apples-ai-platform-bet-explained/",
+    "https://www.apple.com.cn/newsroom/2026/05/apple-kicks-off-worldwide-developers-conference-on-june-8/",
+    "https://www.macworld.com/article/678333/wwdc-keynote-event-time-what-launch-ios-macos-watchos-hardware.html",
+    "https://techcrunch.com/2026/03/23/apple-wwdc-june-8-12-ai-advancements-siri-developers-conference/"
+  ],
+  "searchQueries": [
+    "Apple Intelligence China availability WWDC 2026 keynote announcement"
+  ],
+  "raw": "{\"yes_probability\": 0.3, \"confidence\": \"medium\", \"short_reason\": \"Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.\", \"key_evidence\": [\"Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.\", \"Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.\", \"Apple's AI features have faced regulatory delays in China, making a keynote announcement unlikely.\"], \"source_urls\": []}"
+}

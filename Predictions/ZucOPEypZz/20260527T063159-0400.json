@@ -1,0 +1,36 @@
+{
+  "id": "ZucOPEypZz",
+  "question": "Will there be 500 or more Notifiable Data Breaches reported in Australia between 1 July and 31 December 2025?",
+  "marketUrl": "https://manifold.markets/ClaudineC/will-there-be-500-or-more-notifiabl-z8szgLshzc",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-30T09:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.6,
+  "noProbability": 0.4,
+  "confidence": "medium",
+  "reason": "Recent data indicates a consistent increase in reported data breaches in Australia.",
+  "evidence": [
+    "OAIC's Notifiable Data Breaches Report for July to December 2024 recorded a significant number of breaches.",
+    "The OAIC launched a new dashboard in November 2025 highlighting ongoing challenges in data breach reporting.",
+    "Malicious or criminal attacks accounted for 69% of all notifications in the July to December 2024 period.",
+    "The OAIC's Notifiable Data Breach statistics dashboard presents key statistics on data breach notifications received by the OAIC under the NDB scheme since the scheme’s commencement in February 2018.",
+    "The OAIC launched a new dashboard in November 2025 highlighting ongoing challenges in data breach reporting."
+  ],
+  "sources": [
+    "https://www.oaic.gov.au/privacy/notifiable-data-breaches/notifiable-data-breach-statistics-dashboard",
+    "https://www.oaic.gov.au/privacy/notifiable-data-breaches/notifiable-data-breaches-publications/notifiable-data-breaches-report-july-to-december-2024",
+    "https://www.oaic.gov.au/privacy/notifiable-data-breaches/notifiable-data-breaches-publications",
+    "https://www.oaic.gov.au/privacy/notifiable-data-breaches/about-the-notifiable-data-breaches-scheme",
+    "https://www.oaic.gov.au/privacy/notifiable-data-breaches/report-a-data-breach/",
+    "https://www.calhipaa.com/december-2025-healthcare-data-breach-report/",
+    "https://www.calhipaa.com/healthcare-data-breach-report-for-july-2025/",
+    "https://www.acc.com/privacy-law-practice-lessons-oaics-latest-data-breach-report"
+  ],
+  "searchQueries": [
+    "Australia Notifiable Data Breaches report 2024"
+  ],
+  "raw": "{\"yes_probability\": 0.6, \"confidence\": \"medium\", \"short_reason\": \"Recent data indicates a consistent increase in reported data breaches in Australia.\", \"key_evidence\": [\"OAIC's Notifiable Data Breaches Report for July to December 2024 recorded a significant number of breaches.\", \"The OAIC launched a new dashboard in November 2025 highlighting ongoing challenges in data breach reporting.\", \"Malicious or criminal attacks accounted for 69% of all notifications in the July to December 2024 period.\", \"The OAIC's Notifiable Data Breach statistics dashboard presents key statistics on data breach notifications received by the OAIC under the NDB scheme since the scheme’s commencement in February 2018.\", \"The OAIC launched a new dashboard in November 2025 highlighting ongoing challenges in data breach reporting.\"], \"source_urls\": [\"https://www.oaic.gov.au/privacy/notifiable-data-breaches/notifiable-data-breach-statistics-dashboard\", \"https://www.oaic.gov.au/privacy/notifiable-data-breaches/notifiable-data-breaches-publications/notifiable-data-breaches-report-july-to-december-2024\", \"https://www.oaic.gov.au/privacy/notifiable-data-breaches/notifiable-data-breaches-publications\"]}"
+}

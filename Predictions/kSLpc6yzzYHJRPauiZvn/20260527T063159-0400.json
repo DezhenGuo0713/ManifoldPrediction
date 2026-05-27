@@ -1,0 +1,37 @@
+{
+  "id": "kSLpc6yzzYHJRPauiZvn",
+  "question": "Will homicides return to pre-BLM levels by 2025?",
+  "marketUrl": "https://manifold.markets/Gigacasting/will-homicides-return-to-preblm-lev",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T00:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Homicide rates have declined since 2021 but remain higher than pre-BLM levels.",
+  "evidence": [
+    "2024 homicide rate of 6.2 per 100,000 people, down from 8.2 in 2021, but still above 2019's 5.0 rate.",
+    "2025 projected firearm-related homicide rate of 3.6 per 100,000, lower than 2024's 4.1, yet higher than 2019's 3.8.",
+    "2020 saw a 30% increase in homicide rates, the largest in over a century.",
+    "2021 marked a 36.7% rise in homicide rates compared to 2019.",
+    "2024 homicide rates are the lowest in decades, indicating a downward trend.",
+    "2025 projected rates suggest continued decline, but not to pre-BLM levels."
+  ],
+  "sources": [
+    "https://www.cdc.gov/nchs/state-stats/deaths/homicide.html",
+    "https://www.theglobalstatistics.com/homicide-rates-in-us-by-year/",
+    "https://www.pewresearch.org/short-reads/2026/04/28/what-the-data-says-about-gun-deaths-in-the-us/",
+    "https://www.cdc.gov/mmwr/volumes/71/wr/mm7101a3.htm",
+    "https://www.cdc.gov/nchs/pressroom/releases/20211006.html",
+    "https://www.cdc.gov/mmwr/volumes/67/wr/mm6715a8.htm",
+    "https://www.cdc.gov/nchs/products/databriefs/db526.htm",
+    "https://www.cdc.gov/nchs/fastats/homicide.htm"
+  ],
+  "searchQueries": [
+    "homicide rates United States pre-BLM levels 2020 to 2025"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Homicide rates have declined since 2021 but remain higher than pre-BLM levels.\", \"key_evidence\": [\"2024 homicide rate of 6.2 per 100,000 people, down from 8.2 in 2021, but still above 2019's 5.0 rate.\", \"2025 projected firearm-related homicide rate of 3.6 per 100,000, lower than 2024's 4.1, yet higher than 2019's 3.8.\", \"2020 saw a 30% increase in homicide rates, the largest in over a century.\", \"2021 marked a 36.7% rise in homicide rates compared to 2019.\", \"2024 homicide rates are the lowest in decades, indicating a downward trend.\", \"2025 projected rates suggest continued decline, but not to pre-BLM levels.\"], \"source_urls\": [\"https://www.cdc.gov/nchs/state-stats/deaths/homicide.html\", \"https://www.theglobalstatistics.com/homicide-rates-in-us-by-year/\", \"https://www.pewresearch.org/short-reads/2026/04/28/what-the-data-says-about-gun-deaths-in-the-us/\"]}"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "yNEEnqIz69",
+  "question": "Will I go to the gym 2x this week",
+  "marketUrl": "https://manifold.markets/Dojitza/will-i-go-to-the-gym-2x-this-week",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.6,
+  "noProbability": 0.4,
+  "confidence": "medium",
+  "reason": "Personal motivation and routine consistency influence gym attendance, but no external recent evidence directly affects this personal behavior.",
+  "evidence": [
+    "Gym attendance depends primarily on individual motivation and routine habits.",
+    "No external news or events specifically impact personal gym attendance this week.",
+    "The criteria require attending gym twice in separate days with minimal effort, which is generally achievable."
+  ],
+  "sources": [],
+  "searchQueries": [],
+  "raw": "{\"yes_probability\": 0.6, \"confidence\": \"medium\", \"short_reason\": \"Personal motivation and routine consistency influence gym attendance, but no external recent evidence directly affects this personal behavior.\", \"key_evidence\": [\"Gym attendance depends primarily on individual motivation and routine habits.\", \"No external news or events specifically impact personal gym attendance this week.\", \"The criteria require attending gym twice in separate days with minimal effort, which is generally achievable.\"], \"source_urls\": []}"
+}

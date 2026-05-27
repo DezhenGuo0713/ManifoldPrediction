@@ -1,0 +1,34 @@
+{
+  "id": "ySS6lQpd8y",
+  "question": "Will May 2026 headline PCE inflation be at least 0.3% month-over-month?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-may-2026-headline-pce-inflatio",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-25T08:35:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.7,
+  "noProbability": 0.3,
+  "confidence": "medium",
+  "reason": "April 2026 PCE inflation was 3.5% YoY, indicating persistent inflationary pressures.",
+  "evidence": [
+    "April 2026 PCE inflation at 3.5% YoY",
+    "April 2026 CPI rose 0.6% MoM, driven by energy prices",
+    "Ongoing Middle East conflict affecting oil prices"
+  ],
+  "sources": [
+    "https://www.kiplinger.com/investing/economy/cpi-report-april-2026-what-to-expect",
+    "https://www.kiplinger.com/economic-forecasts/inflation",
+    "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+    "https://fxmacrodata.com/articles/usd-core-pce-april-2026",
+    "https://fxmacrodata.com/es-AR/articles/usd-pce-may-2026",
+    "https://fxmacrodata.com/articles/usd-pce-may-2026",
+    "https://fxmacrodata.com/sr/articles/usd-pce-may-2026",
+    "https://fxmacrodata.com/zh/articles/2026-4-3-50"
+  ],
+  "searchQueries": [
+    "US headline PCE inflation April 2026 and May 2026 forecast"
+  ],
+  "raw": "{\"yes_probability\": 0.7, \"confidence\": \"medium\", \"short_reason\": \"April 2026 PCE inflation was 3.5% YoY, indicating persistent inflationary pressures.\", \"key_evidence\": [\"April 2026 PCE inflation at 3.5% YoY\", \"April 2026 CPI rose 0.6% MoM, driven by energy prices\", \"Ongoing Middle East conflict affecting oil prices\"], \"source_urls\": [\"https://www.kiplinger.com/investing/economy/cpi-report-april-2026-what-to-expect\", \"https://www.kiplinger.com/economic-forecasts/inflation\"]}"
+}

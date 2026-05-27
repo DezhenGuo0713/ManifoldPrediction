@@ -1,0 +1,35 @@
+{
+  "id": "zhqgOAQ089",
+  "question": "Will Trump Die Before June 30th 2026",
+  "marketUrl": "https://manifold.markets/IanSmith6dNU/will-trump-die-before-june-30th-202",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-29T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "Recent medical exams show no immediate life-threatening conditions.",
+  "evidence": [
+    "President Trump underwent a routine medical and dental checkup on May 26, 2026, at Walter Reed National Military Medical Center, with results reported as 'perfectly' normal.",
+    "The White House has previously disclosed that Trump has chronic venous insufficiency, a common condition in older adults, but it is not life-threatening.",
+    "Despite concerns about his age and health, there have been no official reports indicating imminent health risks.",
+    "Trump's physician has stated that his cardiac age is approximately 14 years younger than his chronological age, suggesting good cardiovascular health."
+  ],
+  "sources": [
+    "https://www.washingtonexaminer.com/news/white-house/4582073/trump-announces-six-month-physical-went-perfectly/",
+    "https://www.theguardian.com/us-news/2026/may/26/trump-annual-physical-health-issues",
+    "https://www.cbsnews.com/amp/news/trump-walter-reed-physical/",
+    "https://www.washingtonpost.com/politics/2026/05/11/trump-health-doctor-medical-exam/620a8276-4daf-11f1-97e7-22c6c29ff0d8_story.html",
+    "https://www.post-gazette.com/news/politics-nation/2026/05/26/trump-health-walter-reed-physical/stories/202605260029",
+    "https://www.vpm.org/npr-news/npr-news/2026-05-25/trump-to-get-routine-annual-medical-exam-7-months-after-last-visit-to-walter-reed",
+    "https://abcnews.com/Politics/wireStory/trump-doctors-annual-physical-public-finds-133305883",
+    "https://www.nbcboston.com/news/national-international/trump-fourth-medical-checkup-since-2025/3948444/"
+  ],
+  "searchQueries": [
+    "Donald Trump health status May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"Recent medical exams show no immediate life-threatening conditions.\", \"key_evidence\": [\"President Trump underwent a routine medical and dental checkup on May 26, 2026, at Walter Reed National Military Medical Center, with results reported as 'perfectly' normal.\", \"The White House has previously disclosed that Trump has chronic venous insufficiency, a common condition in older adults, but it is not life-threatening.\", \"Despite concerns about his age and health, there have been no official reports indicating imminent health risks.\", \"Trump's physician has stated that his cardiac age is approximately 14 years younger than his chronological age, suggesting good cardiovascular health.\"], \"source_urls\": [\"https://www.washingtonexaminer.com/news/white-house/4582073/trump-announces-six-month-physical-went-perfectly/\", \"https://www.theguardian.com/us-news/2026/may/26/trump-annual-physical-health-issues\", \"https://www.cbsnews.com/amp/news/trump-walter-reed-physical/\"]}"
+}

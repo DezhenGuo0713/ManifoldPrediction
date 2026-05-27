@@ -1,0 +1,34 @@
+{
+  "id": "qyPLgQnNOd",
+  "question": "Will APR (ammonium perrhenate) Rotterdam price exceed 8000 USD/kg on May 31, 2026?",
+  "marketUrl": "https://manifold.markets/MikhailTal/will-apr-ammonium-perrhenate-rotter-l5zSP6ZZtZ",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T00:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "APR Rotterdam price is currently below $8,000/kg and expected to remain below that threshold.",
+  "evidence": [
+    "As of May 27, 2026, the price of ammonium rhenate (APR) in China is approximately $3,474.36 per kilogram. ([www-old.metal.com](https://www-old.metal.com/other-minor-metals/202507300002?utm_source=openai))",
+    "Rhenium prices have surged dramatically through 2025 into 2026, climbing from approximately $1,370/kg in 2024 to over $6,100/kg by February 2026—a gain of more than 340%. ([criticalstrategicmetals.com](https://criticalstrategicmetals.com/minerals/rhenium/price/?utm_source=openai))",
+    "The rhenium market remains firm, supported by tight supply conditions and steady demand from high-performance industries, with limited ability to increase output quickly. ([procurementresource.com](https://www.procurementresource.com/resource-center/rhenium-price-trends?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.metal.com/en/other-minor-metals/202507300002",
+    "https://criticalstrategicmetals.com/minerals/rhenium/price/",
+    "https://www.procurementresource.com/resource-center/rhenium-price-trends",
+    "https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/12/lynas-forecast-to-double-revenue-in-2026-as-production-and-prices-rebound",
+    "https://energy.spglobal.com/2026-metals-price-outlook-report",
+    "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/04/consensus-price-forecasts-us-israel-war-on-iran-roils-metals-markets",
+    "https://www.investing.com/news/commodities-news/analysts-raise-2026-price-forecasts-for-platinum-palladium-after-2025-rally-4310196",
+    "https://news.metal.com/en/newscontent/103904123-SMM-Analysis-Rhenium-Prices-Dip-Global-Markets-Diverge-Industry-Price-Standoff-Continues"
+  ],
+  "searchQueries": [
+    "ammonium perrhenate (APR) price Rotterdam 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"APR Rotterdam price is currently below $8,000/kg and expected to remain below that threshold.\", \"key_evidence\": [\"As of May 27, 2026, the price of ammonium rhenate (APR) in China is approximately $3,474.36 per kilogram. ([www-old.metal.com](https://www-old.metal.com/other-minor-metals/202507300002?utm_source=openai))\", \"Rhenium prices have surged dramatically through 2025 into 2026, climbing from approximately $1,370/kg in 2024 to over $6,100/kg by February 2026—a gain of more than 340%. ([criticalstrategicmetals.com](https://criticalstrategicmetals.com/minerals/rhenium/price/?utm_source=openai))\", \"The rhenium market remains firm, supported by tight supply conditions and steady demand from high-performance industries, with limited ability to increase output quickly. ([procurementresource.com](https://www.procurementresource.com/resource-center/rhenium-price-trends?utm_source=openai))\"], \"source_urls\": [\"https://www.metal.com/en/other-minor-metals/202507300002\", \"https://criticalstrategicmetals.com/minerals/rhenium/price/\", \"https://www.procurementresource.com/resource-center/rhenium-price-trends\"]}"
+}

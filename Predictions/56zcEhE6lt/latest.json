@@ -1,0 +1,34 @@
+{
+  "id": "56zcEhE6lt",
+  "question": "Will Apple's WWDC26 Keynote transcript mention MCP or Model Context Protocol?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-apples-wwdc26-keynote-transcri",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-08T11:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "low",
+  "reason": "Apple's Xcode documentation mentions MCP, but no evidence suggests its inclusion in the WWDC26 Keynote.",
+  "evidence": [
+    "Apple's Xcode documentation mentions MCP for external agent access.",
+    "No evidence suggests MCP will be mentioned in the WWDC26 Keynote.",
+    "The Model Context Protocol is a recent development, and its inclusion in the Keynote is uncertain."
+  ],
+  "sources": [
+    "https://developer.apple.com/documentation/xcode/giving-external-agents-access-to-xcode",
+    "https://manifold.markets/CalibratedGhosts/will-apples-wwdc26-keynote-transcri",
+    "https://mcp.directory/servers/xcode",
+    "https://mcpservers.org/ja/servers/lapfelix/XcodeMCP",
+    "https://playbooks.com/mcp/obj-p/xcode-mcp",
+    "https://playbooks.com/mcp/devyhan-xcode-mcp",
+    "https://www.augmentcode.com/mcp/xcode-mcp-server",
+    "https://www.augmentcode.com/mcp/xcodebuild-mcp"
+  ],
+  "searchQueries": [
+    "Apple WWDC26 Keynote transcript MCP Model Context Protocol"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"low\", \"short_reason\": \"Apple's Xcode documentation mentions MCP, but no evidence suggests its inclusion in the WWDC26 Keynote.\", \"key_evidence\": [\"Apple's Xcode documentation mentions MCP for external agent access.\", \"No evidence suggests MCP will be mentioned in the WWDC26 Keynote.\", \"The Model Context Protocol is a recent development, and its inclusion in the Keynote is uncertain.\"], \"source_urls\": [\"https://developer.apple.com/documentation/xcode/giving-external-agents-access-to-xcode\"]}"
+}

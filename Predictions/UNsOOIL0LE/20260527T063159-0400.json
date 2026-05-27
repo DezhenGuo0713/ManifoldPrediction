@@ -1,0 +1,33 @@
+{
+  "id": "UNsOOIL0LE",
+  "question": "Will Abelardo de la Espriella be the next president in Colombia?",
+  "marketUrl": "https://manifold.markets/EmanuelNunez/who-will-be-the-new-presindent-in-c",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T14:15:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.3,
+  "noProbability": 0.7,
+  "confidence": "medium",
+  "reason": "Abelardo de la Espriella is currently trailing in polls behind Iván Cepeda.",
+  "evidence": [
+    "In the latest Invamer poll (April 15–24, 2026), Iván Cepeda leads with 54.6% to De la Espriella's 42.6%. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2026_Colombian_presidential_election?utm_source=openai))",
+    "De la Espriella's campaign has intensified, but he remains in second place in recent polls. ([elpais.com](https://elpais.com/america-colombia/elecciones-presidenciales/2026-05-24/abelardo-de-la-espriella-cierra-su-campana-con-un-show-de-drones-y-polvora-en-barranquilla-vine-a-cambiar-la-politica-para-siempre.html?utm_source=openai))"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/2026_Colombian_presidential_election",
+    "https://elpais.com/america-colombia/elecciones-presidenciales/2026-05-24/abelardo-de-la-espriella-cierra-su-campana-con-un-show-de-drones-y-polvora-en-barranquilla-vine-a-cambiar-la-politica-para-siempre.html",
+    "https://elpais.com/america-colombia/elecciones-presidenciales/2026-05-06/abelardo-de-la-espriella-y-paloma-valencia-escalan-la-ofensiva-por-el-voto-de-derecha.html",
+    "https://elpais.com/america-colombia/elecciones-presidenciales/2026-05-26/las-propuestas-de-abelardo-de-la-espriella-reduccion-del-estado-y-libertades-tributarias-para-un-pais-milagro.html?outputType=amp",
+    "https://elpais.com/america-colombia/elecciones-presidenciales/2026-03-10/abelardo-de-la-espriella-tiende-una-mano-al-uribismo-con-un-exministro-de-ivan-duque.html",
+    "https://elpais.com/america-colombia/2026-03-10/abelardo-de-la-espriella-anuncia-como-formula-vicepresidencial-al-exministro-jose-manuel-restrepo.html",
+    "https://www.infobae.com/colombia/2026/03/12/abelardo-de-la-espriella-lanzo-dura-advertencia-ante-una-eventual-derrota-del-petrismo-va-a-querer-quemar-colombia/",
+    "https://www.infobae.com/colombia/2026/05/21/abelardo-de-la-espriella-seguira-siendo-candidato-presidencial-consejo-nacional-electoral-rechazo-demanda-de-revocatoria/?outputType=amp-type"
+  ],
+  "searchQueries": [
+    "Abelardo de la Espriella Colombian presidential election 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.3, \"confidence\": \"medium\", \"short_reason\": \"Abelardo de la Espriella is currently trailing in polls behind Iván Cepeda.\", \"key_evidence\": [\"In the latest Invamer poll (April 15–24, 2026), Iván Cepeda leads with 54.6% to De la Espriella's 42.6%. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2026_Colombian_presidential_election?utm_source=openai))\", \"De la Espriella's campaign has intensified, but he remains in second place in recent polls. ([elpais.com](https://elpais.com/america-colombia/elecciones-presidenciales/2026-05-24/abelardo-de-la-espriella-cierra-su-campana-con-un-show-de-drones-y-polvora-en-barranquilla-vine-a-cambiar-la-politica-para-siempre.html?utm_source=openai))\"], \"source_urls\": [\"https://en.wikipedia.org/wiki/2026_Colombian_presidential_election\", \"https://elpais.com/america-colombia/elecciones-presidenciales/2026-05-24/abelardo-de-la-espriella-cierra-su-campana-con-un-show-de-drones-y-polvora-en-barranquilla-vine-a-cambiar-la-politica-para-siempre.html\"]}"
+}

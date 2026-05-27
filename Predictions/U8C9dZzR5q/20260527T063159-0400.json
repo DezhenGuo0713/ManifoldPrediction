@@ -1,0 +1,34 @@
+{
+  "id": "U8C9dZzR5q",
+  "question": "Will a Russian IRBM/ICBM strike the Kyiv metropolitan area before June 1, 2026?",
+  "marketUrl": "https://manifold.markets/vlads/will-a-russian-irbmicbm-strike-the",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T14:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.9,
+  "noProbability": 0.1,
+  "confidence": "high",
+  "reason": "Russia's May 24, 2026, attack on Kyiv included a hypersonic Oreshnik missile, causing significant damage and casualties.",
+  "evidence": [
+    "The Oreshnik missile struck Kyiv, causing widespread destruction and at least four fatalities.",
+    "The attack involved over 600 drones and 90 missiles, including the Oreshnik, marking its third use in the conflict.",
+    "Ukrainian President Zelenskyy confirmed the use of the Oreshnik missile in the assault."
+  ],
+  "sources": [
+    "https://apnews.com/article/998aeaab5833ca397290d9ee2737b0e5",
+    "https://www.theguardian.com/world/2026/may/24/russia-hits-kyiv-ukraine-hypersonic-ballistic-missile",
+    "https://www.aljazeera.com/news/2026/5/24/russian-attacks-on-ukraines-kyiv-kill-at-least-four-people",
+    "https://www.gpb.org/news/2026/05/24/russia-uses-hypersonic-oreshnik-missile-in-mass-attack-on-kyiv",
+    "https://www.latimes.com/world-nation/story/2026-05-24/russia-uses-hypersonic-missile-in-mass-attack-on-kyiv-ukraine-says",
+    "https://www.euronews.com/my-europe/2026/05/24/at-least-one-killed-after-massive-russian-drone-and-missile-attack-on-kyiv",
+    "https://www.theguardian.com/world/2026/may/24/ukraine-war-briefing-zelenskyy-sounds-warning-after-russia-strikes-kyiv-with-oreshnik-missile",
+    "https://www.abc.net.au/news/2026-05-24/kyiv-missile-strike-four-killed/106715836"
+  ],
+  "searchQueries": [
+    "2026 Russian IRBM or ICBM strike Kyiv metropolitan area"
+  ],
+  "raw": "{\"yes_probability\": 0.9, \"confidence\": \"high\", \"short_reason\": \"Russia's May 24, 2026, attack on Kyiv included a hypersonic Oreshnik missile, causing significant damage and casualties.\", \"key_evidence\": [\"The Oreshnik missile struck Kyiv, causing widespread destruction and at least four fatalities.\", \"The attack involved over 600 drones and 90 missiles, including the Oreshnik, marking its third use in the conflict.\", \"Ukrainian President Zelenskyy confirmed the use of the Oreshnik missile in the assault.\"], \"source_urls\": [\"https://apnews.com/article/998aeaab5833ca397290d9ee2737b0e5\", \"https://www.theguardian.com/world/2026/may/24/russia-hits-kyiv-ukraine-hypersonic-ballistic-missile\", \"https://www.aljazeera.com/news/2026/5/24/russian-attacks-on-ukraines-kyiv-kill-at-least-four-people\"]}"
+}

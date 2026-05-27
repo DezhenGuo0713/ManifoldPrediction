@@ -1,0 +1,36 @@
+{
+  "id": "pOglz5qQIn",
+  "question": "Before July 2026, will I personally see an online ad which is obviously a prompt injection attack for AI agents?",
+  "marketUrl": "https://manifold.markets/AdamK/before-july-2026-will-i-personally",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-02T02:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Prompt injection attacks in online ads are rare and often not easily identifiable.",
+  "evidence": [
+    "Prompt injection attacks have surged 340% in 2026, but primarily target AI agents in enterprise environments.",
+    "Google reports prompt injection attempts across various web content, including pranks and SEO manipulation, but not specifically in online ads.",
+    "OpenAI acknowledges prompt injection as a significant threat to AI browsers, but does not mention online ads.",
+    "The UK's NCSC warns that prompt injection attacks may never be fully mitigated, but does not specify online ads.",
+    "Google adds prompt injection defenses to Chrome, focusing on indirect attacks in third-party content, not online ads."
+  ],
+  "sources": [
+    "https://agentmarketcap.ai/blog/2026/04/05/prompt-injection-attacks-surge-340-percent-2026-agent-attack-landscape",
+    "https://www.searchengineworld.com/google-says-prompt-injection-moving-from-theory-into-real-abuse",
+    "https://www.itpro.com/technology/artificial-intelligence/openai-chatgpt-atlas-ai-browser-prompt-injection-attack-risk",
+    "https://www.techradar.com/pro/security/prompt-injection-attacks-might-never-be-properly-mitigated-uk-ncsc-warns",
+    "https://www.techradar.com/pro/security/google-adds-prompt-injection-defenses-to-chrome",
+    "https://bytevanguard.com/2026/03/10/prompt-injection-enterprise-ai/",
+    "https://www.valtikstudios.com/blog/prompt-injection-attacks-complete-taxonomy-2026",
+    "https://www.techradar.com/pro/security/microsoft-copilot-ai-attack-took-just-a-single-click-to-compromise-users-heres-what-we-know"
+  ],
+  "searchQueries": [
+    "prompt injection attacks in online ads 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Prompt injection attacks in online ads are rare and often not easily identifiable.\", \"key_evidence\": [\"Prompt injection attacks have surged 340% in 2026, but primarily target AI agents in enterprise environments.\", \"Google reports prompt injection attempts across various web content, including pranks and SEO manipulation, but not specifically in online ads.\", \"OpenAI acknowledges prompt injection as a significant threat to AI browsers, but does not mention online ads.\", \"The UK's NCSC warns that prompt injection attacks may never be fully mitigated, but does not specify online ads.\", \"Google adds prompt injection defenses to Chrome, focusing on indirect attacks in third-party content, not online ads.\"], \"source_urls\": [\"https://agentmarketcap.ai/blog/2026/04/05/prompt-injection-attacks-surge-340-percent-2026-agent-attack-landscape\", \"https://www.searchengineworld.com/google-says-prompt-injection-moving-from-theory-into-real-abuse\", \"https://www.itpro.com/technology/artificial-intelligence/openai-chatgpt-atlas-ai-browser-prompt-injection-attack-risk\", \"https://www.techradar.com/pro/security/prompt-injection-attacks-might-never-be-properly-mitigated-uk-ncsc-warns\", \"https://www.techradar.com/pro/security/google-adds-prompt-injection-defenses-to-chrome\"]}"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "ZPN0pnEupC",
+  "question": "Gemini 3.5 Pro June?",
+  "marketUrl": "https://manifold.markets/jim/gemini-35-pro-june",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.9,
+  "noProbability": 0.1,
+  "confidence": "high",
+  "reason": "Google announced Gemini 3.5 Pro's June release at I/O 2026.",
+  "evidence": [
+    "Google I/O 2026 announcement of Gemini 3.5 Pro's June release",
+    "Internal deployment and significant performance improvements of Gemini 3.5 Pro as of May 20, 2026",
+    "Absence of official Gemini 3.5 Pro release as of May 19, 2026"
+  ],
+  "sources": [
+    "https://www.tmtpost.com/agent/ai-article?id=16327",
+    "https://www.donews.com/news/detail/8/6562970.html",
+    "https://codersera.com/blog/gemini-3-5-release-date-whats-new-2026/",
+    "https://chatforest.com/reviews/google-gemini-3-5-pro-preview-june-2026/",
+    "https://www.smarthey.com/detail/196072802284.html",
+    "https://apidog.com/blog/what-is-gemini-3-5/",
+    "https://pasqualepillitteri.it/en/news/2984/gemini-3-5-flash-pro-google-io-2026",
+    "https://www.watch.impress.co.jp/docs/news/2110012.html"
+  ],
+  "searchQueries": [
+    "Gemini 3.5 Pro release date June 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.9, \"confidence\": \"high\", \"short_reason\": \"Google announced Gemini 3.5 Pro's June release at I/O 2026.\", \"key_evidence\": [\"Google I/O 2026 announcement of Gemini 3.5 Pro's June release\", \"Internal deployment and significant performance improvements of Gemini 3.5 Pro as of May 20, 2026\", \"Absence of official Gemini 3.5 Pro release as of May 19, 2026\"], \"source_urls\": [\"https://www.tmtpost.com/agent/ai-article?id=16327\", \"https://www.donews.com/news/detail/8/6562970.html\", \"https://codersera.com/blog/gemini-3-5-release-date-whats-new-2026/\"]}"
+}

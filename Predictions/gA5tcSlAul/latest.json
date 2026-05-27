@@ -1,0 +1,33 @@
+{
+  "id": "gA5tcSlAul",
+  "question": "Will Donald Trump announce a new cabinet member before 1 July 2026?",
+  "marketUrl": "https://manifold.markets/DylanGulliver/will-donald-trump-announce-a-new-ca",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Recent reports indicate potential Cabinet changes, but no official announcements have been made.",
+  "evidence": [
+    "On April 3, 2026, The Washington Post reported that President Trump is considering further Cabinet changes, including positions held by Commerce Secretary Howard Lutnick and Labor Secretary Lori Chavez-DeRemer. ([washingtonpost.com](https://www.washingtonpost.com/politics/2026/04/03/trump-cabinet-lutnick-deremer-blanche-bondi/?utm_source=openai))",
+    "As of May 27, 2026, no official announcements have been made regarding new Cabinet appointments."
+  ],
+  "sources": [
+    "https://www.washingtonpost.com/politics/2026/04/03/trump-cabinet-lutnick-deremer-blanche-bondi/",
+    "https://www.whitehouse.gov/releases/2026/03/president-trump-announces-appointments-to-presidents-council-of-advisors-on-science-and-technology/",
+    "https://www.whitehouse.gov/gallery/president-donald-j-trump-hosts-a-cabinet-meeting-thursday-march-26-2026/",
+    "https://www.whitehouse.gov/administration/cabinet/",
+    "https://www.whitehouse.gov/presidential-actions/2025/01/cabinet-and-cabinet-level-appointments/",
+    "https://legalclarity.org/trumps-cabinet-15-secretaries-roles-and-confirmations/",
+    "https://www.presidency.ucsb.edu/documents/white-house-press-release-president-trump-announces-appointments-presidents-council",
+    "https://deluair.com/consultancy/insights/trump-cabinet-stability-2026"
+  ],
+  "searchQueries": [
+    "Donald Trump new cabinet member announcement 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Recent reports indicate potential Cabinet changes, but no official announcements have been made.\", \"key_evidence\": [\"On April 3, 2026, The Washington Post reported that President Trump is considering further Cabinet changes, including positions held by Commerce Secretary Howard Lutnick and Labor Secretary Lori Chavez-DeRemer. ([washingtonpost.com](https://www.washingtonpost.com/politics/2026/04/03/trump-cabinet-lutnick-deremer-blanche-bondi/?utm_source=openai))\", \"As of May 27, 2026, no official announcements have been made regarding new Cabinet appointments.\"], \"source_urls\": [\"https://www.washingtonpost.com/politics/2026/04/03/trump-cabinet-lutnick-deremer-blanche-bondi/\"]}"
+}

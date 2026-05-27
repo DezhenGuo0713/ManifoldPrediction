@@ -1,0 +1,34 @@
+{
+  "id": "u8UuypuNzQ",
+  "question": "Will Bitcoin reach $90K USD in May 2026?",
+  "marketUrl": "https://manifold.markets/100Anonymous/will-bitcoin-reach-90k-usd-in-may-2",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.",
+  "evidence": [
+    "Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.",
+    "Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.",
+    "Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026."
+  ],
+  "sources": [
+    "https://www.coingecko.com/en/coins/bitcoin/prediction",
+    "https://www.coingecko.com/learn/bitcoin-price-predictions-expert-forecasts",
+    "https://www.coingecko.com/it/monete/bitcoin/prediction",
+    "https://www.coingecko.com/de/munze/bitcoin/prediction",
+    "https://coincodex.com/crypto/bitcoin/price-prediction/",
+    "https://coincodex.com/article/84827/bitcoin-prediction-may-16-2026/",
+    "https://www.coingabbar.com/en/price-prediction/bitcoin-btc-price-prediction-for-may-2026",
+    "https://www.forbes.com/sites/digital-assets/2026/01/01/what-is-bitcoins-price-prediction-for-2026/"
+  ],
+  "searchQueries": [
+    "Bitcoin price forecast May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.01, \"confidence\": \"high\", \"short_reason\": \"Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.\", \"key_evidence\": [\"Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.\", \"Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.\", \"Analyst forecasts indicate a 1% chance of Bitcoin reaching $90,000 by May 2026.\"], \"source_urls\": [\"https://www.coingecko.com/en/coins/bitcoin/prediction\"]}"
+}

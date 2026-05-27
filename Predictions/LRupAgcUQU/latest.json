@@ -1,0 +1,34 @@
+{
+  "id": "LRupAgcUQU",
+  "question": "F1: 2026 Canadian Grand Prix (Montreal) Mercedes Winner?",
+  "marketUrl": "https://manifold.markets/JasonMendoza2008/f1-2026-canadian-grand-prix-montrea-zPCsLZz86S",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-07T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "high",
+  "reason": "Kimi Antonelli's recent victories and George Russell's mechanical issues make Mercedes' win unlikely.",
+  "evidence": [
+    "Kimi Antonelli won the 2026 Canadian Grand Prix after George Russell's mechanical failure.",
+    "Russell and Antonelli secured the front-row lockout in qualifying.",
+    "Russell and Antonelli have been the main contenders for Mercedes this season."
+  ],
+  "sources": [
+    "https://www.formula1.com/en/latest/article/official-grid-who-starts-where-for-the-canadian-grand-prix-2026.3E6do0IXSg2EAW3WbuShR2",
+    "https://www.formula1.com/en/latest/article/antonelli-outlines-goal-to-fight-for-the-title-with-youngster-looking.3rn99SSJSMSOFybKlh1ThA/",
+    "https://www.formula1.com/en/latest/article/russell-and-antonelli-confirmed-as-2026-mercedes-line-up.1vrWrdgEflkIwPgaybBEDj.1vrWrdgEflkIwPgaybBEDj",
+    "https://www.formula1.com/en/drivers/kimi-antonelli",
+    "https://www.formula1.com/en/drivers/kimi-antonelli/",
+    "https://www.formula1.com/en/drivers/kimi-antonelli.html",
+    "https://www.formula1.com/en/latest/article/i-feel-more-in-control-antonelli-on-being-stronger-in-2026-the-goal-for-miami-and-his-relationship-with-russell.4g7IltAAy7jmLDHUoJhmVR.4g7IltAAy7jmLDHUoJhmVR",
+    "https://www.formula1.com/en/results/2026/races/1285/canada/starting-grid"
+  ],
+  "searchQueries": [
+    "2026 Canadian Grand Prix Mercedes winner George Russell Kimi Antonelli"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"high\", \"short_reason\": \"Kimi Antonelli's recent victories and George Russell's mechanical issues make Mercedes' win unlikely.\", \"key_evidence\": [\"Kimi Antonelli won the 2026 Canadian Grand Prix after George Russell's mechanical failure.\", \"Russell and Antonelli secured the front-row lockout in qualifying.\", \"Russell and Antonelli have been the main contenders for Mercedes this season.\"], \"source_urls\": [\"https://www.formula1.com/en/latest/article/official-grid-who-starts-where-for-the-canadian-grand-prix-2026.3E6do0IXSg2EAW3WbuShR2\", \"https://www.formula1.com/en/latest/article/antonelli-outlines-goal-to-fight-for-the-title-with-youngster-looking.3rn99SSJSMSOFybKlh1ThA/\", \"https://www.formula1.com/en/latest/article/russell-and-antonelli-confirmed-as-2026-mercedes-line-up.1vrWrdgEflkIwPgaybBEDj.1vrWrdgEflkIwPgaybBEDj\"]}"
+}

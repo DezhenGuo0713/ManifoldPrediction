@@ -1,0 +1,36 @@
+{
+  "id": "5pnhA0q8pp",
+  "question": "Will Apple announce Vision Pro 2 (or any new Vision Pro hardware) at WWDC 2026 (June 8-12)?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-apple-announce-vision-pro-2-or",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-13T02:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "Apple has delayed Vision Pro 2 launch to late 2026, making announcement at WWDC 2026 unlikely.",
+  "evidence": [
+    "Apple has postponed the second-generation Vision Pro headset from an internal target of mid-2026 to December 2026 at the earliest.",
+    "Reports indicate that Apple is facing difficulties integrating a custom M5-based processor for the Vision Pro 2.",
+    "Apple's Vision Pro headset has experienced disappointing sales, with only around 600,000 units sold.",
+    "Apple has reportedly disbanded its Vision Products Group in 2025, reallocating software team members to Siri and hardware team to smart glasses.",
+    "Despite rumors of Apple abandoning the product, the company is still hiring for its Vision Production Group, suggesting possible continued work in the mixed reality space."
+  ],
+  "sources": [
+    "https://www.macrumors.com/2024/04/29/no-apple-vision-pro-2-before-end-of-2026/",
+    "https://techcrawlr.com/apple-delays-vision-pro-2-launch-to-late-2026-as-m5-chip-integration-falters/",
+    "https://www.tomshardware.com/virtual-reality/apple-has-given-up-on-vision-pro-report-claims-costly-price-and-weight-behind-purported-failure-but-the-company-continues-to-hire-into-its-vision-production-group",
+    "https://www.macrumors.com/2026/03/27/the-macrumors-show-wwdc-2026-announced/",
+    "https://www.macrumors.com/2026/03/23/apple-announces-wwdc-2026-dates/",
+    "https://www.macrumors.com/roundup/wwdc/",
+    "https://www.macrumors.com/467/",
+    "https://www.macrumors.com/38/"
+  ],
+  "searchQueries": [
+    "Apple Vision Pro 2 announcement WWDC 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"Apple has delayed Vision Pro 2 launch to late 2026, making announcement at WWDC 2026 unlikely.\", \"key_evidence\": [\"Apple has postponed the second-generation Vision Pro headset from an internal target of mid-2026 to December 2026 at the earliest.\", \"Reports indicate that Apple is facing difficulties integrating a custom M5-based processor for the Vision Pro 2.\", \"Apple's Vision Pro headset has experienced disappointing sales, with only around 600,000 units sold.\", \"Apple has reportedly disbanded its Vision Products Group in 2025, reallocating software team members to Siri and hardware team to smart glasses.\", \"Despite rumors of Apple abandoning the product, the company is still hiring for its Vision Production Group, suggesting possible continued work in the mixed reality space.\"], \"source_urls\": [\"https://www.macrumors.com/2024/04/29/no-apple-vision-pro-2-before-end-of-2026/\", \"https://techcrawlr.com/apple-delays-vision-pro-2-launch-to-late-2026-as-m5-chip-integration-falters/\", \"https://www.tomshardware.com/virtual-reality/apple-has-given-up-on-vision-pro-report-claims-costly-price-and-weight-behind-purported-failure-but-the-company-continues-to-hire-into-its-vision-production-group\"]}"
+}

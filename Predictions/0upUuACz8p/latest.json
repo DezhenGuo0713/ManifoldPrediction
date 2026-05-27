@@ -1,0 +1,41 @@
+{
+  "id": "0upUuACz8p",
+  "question": "any U.S. federal official visit Venezuela before June 1, 2026?",
+  "marketUrl": "https://manifold.markets/NorthShoreAwesome/any-us-federal-official-visit-venez",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-05T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.8,
+  "noProbability": 0.2,
+  "confidence": "high",
+  "reason": "U.S.",
+  "evidence": [
+    "On May 23, 2026, U.S. Southern Command chief Gen. Francis L. Donovan conducted a rapid response exercise at the U.S. Embassy in Caracas, marking his second official visit to Venezuela in 2026.",
+    "On April 29, 2026, White House official Jarrod Agen visited Venezuela to meet with energy and mining executives.",
+    "On May 12, 2026, U.S. Transportation Secretary Sean P. Duffy announced that United Airlines would resume flights to Venezuela this summer, the first such flights in eight years.",
+    "On May 30, 2026, U.S. Interior Secretary Doug Burgum is scheduled to visit Venezuela to meet with interim President Delcy Rodríguez to discuss critical minerals supply chains.",
+    "The U.S. Embassy in Caracas resumed operations on March 30, 2026, after a seven-year closure.",
+    "The U.S. Department of State issued a Level 3 Travel Advisory for Venezuela on May 18, 2026, citing risks of crime, kidnapping, terrorism, and poor health infrastructure.",
+    "The U.S. Department of Transportation celebrated the return of commercial U.S.-Venezuela air travel at a special event in Miami International Airport on April 30, 2026.",
+    "The U.S. Department of Homeland Security rescinded the suspension of all direct commercial passenger and cargo flights between the United States and Venezuela on April 17, 2026.",
+    "The U.S. Department of State announced the resumption of operations at the U.S. Embassy in Caracas on March 30, 2026.",
+    "The U.S. Department of State issued a Level 3 Travel Advisory for Venezuela on May 18, 2026, citing risks of crime, kidnapping, terrorism, and poor health infrastructure."
+  ],
+  "sources": [
+    "https://apnews.com/article/b8feee6c1add9f2b48a2e1e1a1627579",
+    "https://www.transportation.gov/briefing-room/trumps-us-secretary-transportation-sean-p-duffy-celebrates-uniteds-first-flight",
+    "https://www.transportation.gov/briefing-room/trumps-transportation-department-celebrates-return-commercial-us-venezuela-air-travel",
+    "https://en.mercopress.com/2026/02/19/southcom-chief-and-senior-pentagon-official-visit-venezuela-meet-interim-government",
+    "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/venezuela-travel-advisory.html?os=vbkn42tqhonripebn6",
+    "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/venezuela-travel-advisory.html?os=wtmb",
+    "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/venezuela-travel-advisory.html?os=roku...",
+    "https://travel.state.gov/content/travel/en/News/visas-news/suspension-of-visa-issuance-to-foreign-nationals-to-protect-the-united-states-from-foreign-terrorists-and-other-national-security-and-public-safety-threats.html?gsid=6070194e-b4b6-418f-8d97-60708c606937"
+  ],
+  "searchQueries": [
+    "U.S. federal official visit Venezuela 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.8, \"confidence\": \"high\", \"short_reason\": \"U.S. officials have visited Venezuela recently and are scheduled to do so before June 1, 2026.\", \"key_evidence\": [\"On May 23, 2026, U.S. Southern Command chief Gen. Francis L. Donovan conducted a rapid response exercise at the U.S. Embassy in Caracas, marking his second official visit to Venezuela in 2026.\", \"On April 29, 2026, White House official Jarrod Agen visited Venezuela to meet with energy and mining executives.\", \"On May 12, 2026, U.S. Transportation Secretary Sean P. Duffy announced that United Airlines would resume flights to Venezuela this summer, the first such flights in eight years.\", \"On May 30, 2026, U.S. Interior Secretary Doug Burgum is scheduled to visit Venezuela to meet with interim President Delcy Rodríguez to discuss critical minerals supply chains.\", \"The U.S. Embassy in Caracas resumed operations on March 30, 2026, after a seven-year closure.\", \"The U.S. Department of State issued a Level 3 Travel Advisory for Venezuela on May 18, 2026, citing risks of crime, kidnapping, terrorism, and poor health infrastructure.\", \"The U.S. Department of Transportation celebrated the return of commercial U.S.-Venezuela air travel at a special event in Miami International Airport on April 30, 2026.\", \"The U.S. Department of Homeland Security rescinded the suspension of all direct commercial passenger and cargo flights between the United States and Venezuela on April 17, 2026.\", \"The U.S. Department of State announced the resumption of operations at the U.S. Embassy in Caracas on March 30, 2026.\", \"The U.S. Department of State issued a Level 3 Travel Advisory for Venezuela on May 18, 2026, citing risks of crime, kidnapping, terrorism, and poor health infrastructure.\"], \"source_urls\": [\"https://apnews.com/article/b8feee6c1add9f2b48a2e1e1a1627579\", \"https://www.transportation.gov/briefing-room/trumps-us-secretary-transportation-sean-p-duffy-celebrates-uniteds-first-flight\", \"https://www.transportation.gov/briefing-room/trumps-transportation-department-celebrates-return-commercial-us-venezuela-air-travel\", \"https://en.mercopress.com/2026/02/19/southcom-chief-and-senior-pentagon-official-visit-venezuela-meet-interim-government\", \"https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/venezuela-travel-advisory.html?os=vbkn42tqhonripebn6\"]}"
+}

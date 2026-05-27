@@ -1,0 +1,16 @@
+id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,forecastTimestamp,forecastCurrentDate,forecastModel,forecastInputPolicy,forecastStatus,forecastClosedAt,newsPredictedYesProbability,newsPredictedNoProbability,newsConfidence,newsShortReason,newsKeyEvidence,newsSourceUrls,newsSearchQueries,newsRawJson
+2QIEugnp5S,"Will susvent reach Candidate Master on Codeforces by his birthday (June 19, 2026)?",https://manifold.markets/JonathanJi/will-susvent-reach-candidate-master,JonathanJi,BINARY,1781913540000,2026-06-19T19:59:00-04:00,1779649734721,2026-05-24T15:08:54.721000-04:00,0.09988497803860397,3783.4828028629267,50,18,"HS class of 2026
+
+USACO Plat, Open Contest Qualifier (2026)
+
+CF Profile: https://codeforces.com/profile/susvent
+
+max. rating 1899, current rating 1618 (trolled a lot in school and got lazy)
+
+has no school after 1pm every day (but is addicted to Geometry Dash a lot)
+
+is in a race to CM with sukon (CF user, 1800 rated)
+
+can only do contests on weekends, or sometimes on weekdays after daylight savings in school (on Mondays and Wednesdays at 10:35)
+
+will most likely wake up to take every saturday 10:35 contest",,Control,265,20260525,2026-05-27T06:31:59-04:00,2026-05-27,gpt-4.1-mini,question+description+current_date only,forecast,2026-06-19T19:59:00-04:00,0.200000,0.800000,medium,"Susvent's current rating is 1625, 274 points below Candidate Master threshold.","Susvent's current rating is 1625, 274 points below Candidate Master threshold. | Susvent's maximum rating is 1899, achieved in 2023. | Susvent has a history of inconsistent contest participation. | Susvent's recent activity includes solving 10 problems in the last month. | Susvent's profile indicates limited recent engagement. | Susvent's profile indicates limited recent engagement.",https://codeforces.com/profile/susvent | https://codeforces.com/ratings | https://codeforces.com/ratings/organization/49733 | https://codeforces.com/ratings/organization/39163 | https://codeforces.com/contest/2026/ratings | https://mirror.codeforces.com/profile/susvent | https://codeforces.com/ratings?locale=en | https://codeforces.com/blog/entry/67712?locale=en,susvent Codeforces rating progress 2026,"{""yes_probability"": 0.2, ""confidence"": ""medium"", ""short_reason"": ""Susvent's current rating is 1625, 274 points below Candidate Master threshold."", ""key_evidence"": [""Susvent's current rating is 1625, 274 points below Candidate Master threshold."", ""Susvent's maximum rating is 1899, achieved in 2023."", ""Susvent has a history of inconsistent contest participation."", ""Susvent's recent activity includes solving 10 problems in the last month."", ""Susvent's profile indicates limited recent engagement."", ""Susvent's profile indicates limited recent engagement.""], ""source_urls"": [""https://codeforces.com/profile/susvent""]}"

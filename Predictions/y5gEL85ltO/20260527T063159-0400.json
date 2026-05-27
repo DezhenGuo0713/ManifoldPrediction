@@ -1,0 +1,34 @@
+{
+  "id": "y5gEL85ltO",
+  "question": "Will the U.S. officially lift/issue a formal waiver on sanctions for any Chinese entity purchasing Iranian oil by May 31",
+  "marketUrl": "https://manifold.markets/ShaneBo/will-the-us-officially-liftissue-a",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T23:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "U.S.",
+  "evidence": [
+    "April 24, 2026: U.S. sanctions Hengli Petrochemical (Dalian) Refinery Co. Ltd. and 40 shipping firms for processing Iranian crude oil.",
+    "May 1, 2026: U.S. sanctions Qingdao Haiye Oil Terminal Co. for receiving Iranian crude oil.",
+    "May 11, 2026: U.S. sanctions 12 entities and individuals for facilitating Iranian oil sales to China."
+  ],
+  "sources": [
+    "https://home.treasury.gov/news/press-releases/sb0472",
+    "https://home.treasury.gov/news/press-releases/sb0476",
+    "https://home.treasury.gov/news/press-releases/sb0498",
+    "https://ofac.treasury.gov/recent-actions/20260501",
+    "https://www.bloomberg.com/news/articles/2026-05-11/us-sanctions-twelve-entities-for-sales-of-iranian-oil-to-china",
+    "https://www.bloomberg.com/news/articles/2026-05-01/us-sanctions-iranian-exchanges-china-terminal-on-oil-purchases",
+    "https://www.bloomberg.com/news/articles/2026-05-01/us-sanctions-iranian-exchanges-china-terminal-on-oil-purchases?srnd=phx-fx-center",
+    "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/050126-us-sanctions-chinese-oil-terminal-in-new-measures-targeting-iranian-oil-trade"
+  ],
+  "searchQueries": [
+    "U.S. sanctions waiver on Chinese entities purchasing Iranian oil May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"U.S. has recently imposed sanctions on Chinese entities involved in Iranian oil trade.\", \"key_evidence\": [\"April 24, 2026: U.S. sanctions Hengli Petrochemical (Dalian) Refinery Co. Ltd. and 40 shipping firms for processing Iranian crude oil.\", \"May 1, 2026: U.S. sanctions Qingdao Haiye Oil Terminal Co. for receiving Iranian crude oil.\", \"May 11, 2026: U.S. sanctions 12 entities and individuals for facilitating Iranian oil sales to China.\"], \"source_urls\": [\"https://home.treasury.gov/news/press-releases/sb0472\", \"https://home.treasury.gov/news/press-releases/sb0476\", \"https://home.treasury.gov/news/press-releases/sb0498\"]}"
+}

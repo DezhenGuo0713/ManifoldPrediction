@@ -1,0 +1,32 @@
+{
+  "id": "uCg5EI9Zcu",
+  "question": "Will a NBA player get suspended in the remainder of the NBA playoffs?",
+  "marketUrl": "https://manifold.markets/OnlySlides/will-a-nba-player-get-suspended-in",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-20T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "No recent reports of player suspensions in the 2026 NBA playoffs involving Spurs, Thunder, Knicks, or Cavaliers.",
+  "evidence": [
+    "No recent reports of player suspensions in the 2026 NBA playoffs involving Spurs, Thunder, Knicks, or Cavaliers."
+  ],
+  "sources": [
+    "https://cdn-uat.nba.com/playoffs/2026",
+    "https://www.nba.com/news/2026-nba-playoffs-schedule?lctg=5ed4ccff7d228b4de559fa61&lid=ouyrx04egcbd",
+    "https://www.nba.com/news/2026-nba-playoffs-schedule?hidenav=true",
+    "https://www.nba.com/news/2026-nba-playoffs-schedule?lctg=5e6397fdb7074d458b90c591&lid=24ep7xk89dsi",
+    "https://api-hub.nba.com/news/2026-nba-playoffs-schedule",
+    "https://www.nbcsports.com/nba/news/2026-nba-playoffs-bracket-schedule-scores-matchups",
+    "https://www.statmuse.com/nba/ask/nba-playoffs-2026-results",
+    "https://www.statmuse.com/nba/ask/nba-playoffs-2026-scores"
+  ],
+  "searchQueries": [
+    "NBA player suspension NBA playoffs 2026 Spurs Thunder Knicks Cavaliers"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"No recent reports of player suspensions in the 2026 NBA playoffs involving Spurs, Thunder, Knicks, or Cavaliers.\", \"key_evidence\": [\"No recent reports of player suspensions in the 2026 NBA playoffs involving Spurs, Thunder, Knicks, or Cavaliers.\"], \"source_urls\": []}"
+}

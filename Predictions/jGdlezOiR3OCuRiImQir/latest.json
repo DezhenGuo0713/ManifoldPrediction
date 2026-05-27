@@ -1,0 +1,34 @@
+{
+  "id": "jGdlezOiR3OCuRiImQir",
+  "question": "Will Zelenskyy be re-elected as president of Ukraine in the next election?",
+  "marketUrl": "https://manifold.markets/StanPinsent/will-zelenskyy-be-reelected-as-pres",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T20:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.4,
+  "noProbability": 0.6,
+  "confidence": "medium",
+  "reason": "Zelenskyy's re-election depends on war's end and public opinion.",
+  "evidence": [
+    "Zelenskyy stated he is 'ready' to not run after the war ends.",
+    "Majority of Ukrainians believe he should remain until martial law ends.",
+    "Sociologists suggest his re-election chances depend on war and home front issues."
+  ],
+  "sources": [
+    "https://www.nytimes.com/2025/09/25/world/europe/zelensky-ukraine-election.html",
+    "https://en.lb.ua/news/2024/02/20/27004_poll_majority_ukrainians_believe.html",
+    "https://english.nv.ua/nation/zelenskyy-s-re-election-chances-tied-to-war-and-home-front-issues-50478589.html",
+    "https://www.pravda.com.ua/eng/news/2024/10/23/7481023/",
+    "https://www.pravda.com.ua/eng/news/2024/10/18/7480252/",
+    "https://www.politifact.com/factchecks/2024/may/29/instagram-posts/us-secretary-of-state-didnt-announce-suspension-of/",
+    "https://www.chathamhouse.org/2024/09/zelenskyy-makes-one-final-attempt-change-bidens-strategy-ukraine",
+    "https://english.nv.ua/nation/zelenskyy-s-re-election-chances-tied-to-war-and-home-front-issues-sociologist-says-50478589.html"
+  ],
+  "searchQueries": [
+    "Zelenskyy 2024 Ukraine presidential election re-election prospects"
+  ],
+  "raw": "{\"yes_probability\": 0.4, \"confidence\": \"medium\", \"short_reason\": \"Zelenskyy's re-election depends on war's end and public opinion.\", \"key_evidence\": [\"Zelenskyy stated he is 'ready' to not run after the war ends.\", \"Majority of Ukrainians believe he should remain until martial law ends.\", \"Sociologists suggest his re-election chances depend on war and home front issues.\"], \"source_urls\": [\"https://www.nytimes.com/2025/09/25/world/europe/zelensky-ukraine-election.html\", \"https://en.lb.ua/news/2024/02/20/27004_poll_majority_ukrainians_believe.html\", \"https://english.nv.ua/nation/zelenskyy-s-re-election-chances-tied-to-war-and-home-front-issues-50478589.html\"]}"
+}

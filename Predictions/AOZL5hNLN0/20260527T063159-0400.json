@@ -1,0 +1,34 @@
+{
+  "id": "AOZL5hNLN0",
+  "question": "Will Russia gain more territory than it loses in May 2026?",
+  "marketUrl": "https://manifold.markets/a_l_e_x/will-russia-gain-more-territory-tha",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-07T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Recent reports indicate Russian forces have lost territory in April and May 2026.",
+  "evidence": [
+    "In April 2026, Russian forces recorded a net loss of 116 square kilometers of Ukrainian territory, marking the first such loss since August 2024. ([rubryka.com](https://rubryka.com/en/2026/05/03/minus-116-kv-km-za-misyats-zgidno-z-novym-zvitom-isw-dynamika-frontu-zminyuyetsya-na-koryst-ukrayiny/?utm_source=openai))",
+    "Between April 21 and May 19, 2026, Russian forces lost a net 69 square miles of Ukrainian territory. ([russiamatters.org](https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026?utm_source=openai))",
+    "As of May 20, 2026, Russian forces had a net loss of 69 square miles of Ukrainian territory over the previous four weeks. ([russiamatters.org](https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026?utm_source=openai))"
+  ],
+  "sources": [
+    "https://rubryka.com/en/2026/05/03/minus-116-kv-km-za-misyats-zgidno-z-novym-zvitom-isw-dynamika-frontu-zminyuyetsya-na-koryst-ukrayiny/",
+    "https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026",
+    "https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-6-2026",
+    "https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-13-2026",
+    "https://www.russiamatters.org/news/russia-review/russia-review-may-15-22-2026",
+    "https://charter97.org/en/news/2026/5/4/682747/",
+    "https://www.theguardian.com/world/2026/may/09/ukraine-war-briefing-zelenskyy-hereby-decrees-moscow-can-hold-victory-day-parade",
+    "https://euromaidanpress.com/2026/05/05/ukraine-flipped-the-drone-math-and-russias-assault-tempo-just-stopped-buying-ground/"
+  ],
+  "searchQueries": [
+    "Russia territorial changes May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Recent reports indicate Russian forces have lost territory in April and May 2026.\", \"key_evidence\": [\"In April 2026, Russian forces recorded a net loss of 116 square kilometers of Ukrainian territory, marking the first such loss since August 2024. ([rubryka.com](https://rubryka.com/en/2026/05/03/minus-116-kv-km-za-misyats-zgidno-z-novym-zvitom-isw-dynamika-frontu-zminyuyetsya-na-koryst-ukrayiny/?utm_source=openai))\", \"Between April 21 and May 19, 2026, Russian forces lost a net 69 square miles of Ukrainian territory. ([russiamatters.org](https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026?utm_source=openai))\", \"As of May 20, 2026, Russian forces had a net loss of 69 square miles of Ukrainian territory over the previous four weeks. ([russiamatters.org](https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026?utm_source=openai))\"], \"source_urls\": [\"https://rubryka.com/en/2026/05/03/minus-116-kv-km-za-misyats-zgidno-z-novym-zvitom-isw-dynamika-frontu-zminyuyetsya-na-koryst-ukrayiny/\", \"https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026\", \"https://www.russiamatters.org/news/russia-ukraine-war-report-card/russia-ukraine-war-report-card-may-20-2026\"]}"
+}

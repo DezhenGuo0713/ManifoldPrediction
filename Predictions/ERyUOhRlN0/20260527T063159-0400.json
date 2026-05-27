@@ -1,0 +1,41 @@
+{
+  "id": "ERyUOhRlN0",
+  "question": "Will a Chinese airline announce a purchase of at least 25 Boeing aircraft before June?",
+  "marketUrl": "https://manifold.markets/JoshuaWilkes/will-a-chinese-airline-announce-a-p-NR26dt5ZpE",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "China's order for 200 Boeing jets announced on May 14, 2026, does not meet the market's criteria.",
+  "evidence": [
+    "China agreed to purchase 200 Boeing aircraft on May 14, 2026, marking the first major order from China in nearly a decade.",
+    "The order was announced by President Donald Trump, with details confirmed by China's Ministry of Commerce.",
+    "The order does not meet the market's criteria of at least 25 aircraft announced by a Chinese airline before June 1, 2026.",
+    "Chinese airlines have historically been reluctant to publicly disclose large orders, often remaining unidentified customers until delivery.",
+    "The 200-aircraft order was announced by President Trump, not by a Chinese airline or Boeing's official press release.",
+    "The market's resolution criteria specify that announcements must come from the airline itself or be officially confirmed by Boeing.",
+    "The 200-aircraft order was announced by President Trump, not by a Chinese airline or Boeing's official press release.",
+    "Chinese airlines have historically been reluctant to publicly disclose large orders, often remaining unidentified customers until delivery.",
+    "The 200-aircraft order was announced by President Trump, not by a Chinese airline or Boeing's official press release.",
+    "The market's resolution criteria specify that announcements must come from the airline itself or be officially confirmed by Boeing."
+  ],
+  "sources": [
+    "https://www.bloomberg.com/news/articles/2026-05-14/boeing-wins-200-jet-plane-order-from-china-trump-says",
+    "https://www.aerotime.aero/articles/boeing-secures-200-aircraft-order-from-china",
+    "https://www.moneycontrol.com/news/business/boeing-wins-200-jet-plane-order-from-china-trump-says-13919740.html",
+    "https://www.bloomberg.com/news/articles/2026-05-14/boeing-wins-200-jet-plane-order-from-china-trump-says?srnd=phx-alternative-investments",
+    "https://travelradar.aero/china-confirms-200-boeing-jet-order/",
+    "https://www.aircraftinsider.com/china-halts-boeing-deliveries-as-china-southern-orders-137-airbus-jets-a-devastating-double-blow/",
+    "https://omniflights.com/articles/boeing-secures-200-aircraft-order-from-china",
+    "https://omniflights.com/articles/boeing-nears-500-jet-order-from-china-during-summit"
+  ],
+  "searchQueries": [
+    "Boeing aircraft orders from Chinese airlines 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"China's order for 200 Boeing jets announced on May 14, 2026, does not meet the market's criteria.\", \"key_evidence\": [\"China agreed to purchase 200 Boeing aircraft on May 14, 2026, marking the first major order from China in nearly a decade.\", \"The order was announced by President Donald Trump, with details confirmed by China's Ministry of Commerce.\", \"The order does not meet the market's criteria of at least 25 aircraft announced by a Chinese airline before June 1, 2026.\", \"Chinese airlines have historically been reluctant to publicly disclose large orders, often remaining unidentified customers until delivery.\", \"The 200-aircraft order was announced by President Trump, not by a Chinese airline or Boeing's official press release.\", \"The market's resolution criteria specify that announcements must come from the airline itself or be officially confirmed by Boeing.\", \"The 200-aircraft order was announced by President Trump, not by a Chinese airline or Boeing's official press release.\", \"Chinese airlines have historically been reluctant to publicly disclose large orders, often remaining unidentified customers until delivery.\", \"The 200-aircraft order was announced by President Trump, not by a Chinese airline or Boeing's official press release.\", \"The market's resolution criteria specify that announcements must come from the airline itself or be officially confirmed by Boeing.\"], \"source_urls\": [\"https://www.bloomberg.com/news/articles/2026-05-14/boeing-wins-200-jet-plane-order-from-china-trump-says\", \"https://www.aerotime.aero/articles/boeing-secures-200-aircraft-order-from-china\", \"https://www.moneycontrol.com/news/business/boeing-wins-200-jet-plane-order-from-china-trump-says-13919740.html\"]}"
+}

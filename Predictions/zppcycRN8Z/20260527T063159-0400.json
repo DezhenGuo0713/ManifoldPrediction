@@ -1,0 +1,35 @@
+{
+  "id": "zppcycRN8Z",
+  "question": "Will South Carolina H.3492 (partially refundable EITC) be signed into law in 2026?",
+  "marketUrl": "https://manifold.markets/MaxGhenis/will-south-carolina-h3492-partially",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T13:33:16-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "low",
+  "reason": "H.3492 remains in committee; no recent legislative action indicates low likelihood of passage.",
+  "evidence": [
+    "H.3492 introduced on January 14, 2025; referred to House Ways and Means Committee; no further action reported.",
+    "Governor McMaster signed H.4216 into law on April 15, 2026, which modifies South Carolina's Individual Income Tax rates and decouples from federal deductions, but does not include H.3492's provisions.",
+    "No recent news or legislative updates indicate progress for H.3492.",
+    "The 2026 legislative session adjourned in mid-May, reducing the window for H.3492 to be signed into law by December 31, 2026."
+  ],
+  "sources": [
+    "https://www.scstatehouse.gov/sess126_2025-2026/bills/3492.htm",
+    "https://dor.sc.gov/index.php/news/information-about-h-4216",
+    "https://governor.sc.gov/news/2026-04/governor-mcmaster-ceremonially-signs-income-tax-bill-law",
+    "https://www.policyengine.org/us/research/sc-h3492-eitc-refundability",
+    "https://dor.sc.gov/tax-credits/ecenc-program-credits",
+    "https://www.dor.sc.gov/index.php/news/tax-season-opens-january-26-2026",
+    "https://dor.sc.gov/tax-credits/tax-credits-forms",
+    "https://dor.sc.gov/iit/prepare-you-file/iit-faqs"
+  ],
+  "searchQueries": [
+    "South Carolina H.3492 Earned Income Tax Credit refundable 2026 status"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"low\", \"short_reason\": \"H.3492 remains in committee; no recent legislative action indicates low likelihood of passage.\", \"key_evidence\": [\"H.3492 introduced on January 14, 2025; referred to House Ways and Means Committee; no further action reported.\", \"Governor McMaster signed H.4216 into law on April 15, 2026, which modifies South Carolina's Individual Income Tax rates and decouples from federal deductions, but does not include H.3492's provisions.\", \"No recent news or legislative updates indicate progress for H.3492.\", \"The 2026 legislative session adjourned in mid-May, reducing the window for H.3492 to be signed into law by December 31, 2026.\"], \"source_urls\": [\"https://www.scstatehouse.gov/sess126_2025-2026/bills/3492.htm\", \"https://dor.sc.gov/index.php/news/information-about-h-4216\", \"https://governor.sc.gov/news/2026-04/governor-mcmaster-ceremonially-signs-income-tax-bill-law\"]}"
+}

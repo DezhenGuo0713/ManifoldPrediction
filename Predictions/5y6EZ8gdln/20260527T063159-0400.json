@@ -1,0 +1,34 @@
+{
+  "id": "5y6EZ8gdln",
+  "question": "Will Karmelo Anthony be convicted of first-degree murder for the killing of Austin Metcalf?",
+  "marketUrl": "https://manifold.markets/chrisjbillington/will-karmelo-anthony-be-convicted-o",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T20:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Karmelo Anthony's self-defense claim and lack of prior criminal history may influence trial outcome.",
+  "evidence": [
+    "Anthony's self-defense claim and lack of prior criminal history may influence trial outcome.",
+    "Trial scheduled for June 1, 2026; outcome uncertain.",
+    "Anthony's self-defense claim and lack of prior criminal history may influence trial outcome."
+  ],
+  "sources": [
+    "https://www.cbsnews.com/texas/news/trial-date-set-karmelo-anthony-charged-in-fatal-stabbing-austin-metcalf-frisco-track-meet/",
+    "https://www.cbsnews.com/texas/news/karmelo-anthony-indicted-murder-stabbing-death-austin-metcalf-frisco-isd-track-meet/",
+    "https://austinpost.com/news/2025/06/24/teen-indicted-for-murder-in-frisco-track-meet-stabbing",
+    "https://www.tmz.com/2025/06/24/karmelo-anthony-charged-with-first-degree-murder-over-h-s-track-meet-stabbing/",
+    "https://www.tmz.com/2025/04/02/teen-charged-with-murder-track-meet/",
+    "https://www.crimeonline.com/2025/06/24/texas-teen-indicted-on-murder-charge-for-killing-another-teen-at-school-track-meet/",
+    "https://www.si.com/high-school/texas/texas-teen-indicted-over-fatal-stabbing-at-high-school-track-meet-01jyhqpv1fny",
+    "https://www.si.com/high-school/texas/grand-jury-indicts-teen-in-stabbing-death-of-texas-high-school-football-standout-01jyrcecxbsg"
+  ],
+  "searchQueries": [
+    "Karmelo Anthony charged first-degree murder Austin Metcalf Texas high school track meet latest updates"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Karmelo Anthony's self-defense claim and lack of prior criminal history may influence trial outcome.\", \"key_evidence\": [\"Anthony's self-defense claim and lack of prior criminal history may influence trial outcome.\", \"Trial scheduled for June 1, 2026; outcome uncertain.\", \"Anthony's self-defense claim and lack of prior criminal history may influence trial outcome.\"], \"source_urls\": [\"https://www.cbsnews.com/texas/news/trial-date-set-karmelo-anthony-charged-in-fatal-stabbing-austin-metcalf-frisco-track-meet/\", \"https://www.cbsnews.com/texas/news/karmelo-anthony-indicted-murder-stabbing-death-austin-metcalf-frisco-isd-track-meet/\"]}"
+}

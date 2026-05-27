@@ -1,0 +1,41 @@
+{
+  "id": "UUzSRIItnR",
+  "question": "Hamas-Israel hostilities in Gaza resume by June 30, 2026?",
+  "marketUrl": "https://manifold.markets/HenriConfucius/hamasisrael-hostilities-in-gaza-res",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.85,
+  "noProbability": 0.15,
+  "confidence": "high",
+  "reason": "Recent Israeli airstrikes targeting Hamas leaders and ongoing ceasefire violations indicate a high likelihood of resumed hostilities.",
+  "evidence": [
+    "Israeli airstrikes on May 26, 2026, killed Hamas military leader Mohammed Odeh and at least two others in Gaza City.",
+    "Israeli airstrike on May 15, 2026, targeted Hamas military chief Izz al-Din al-Haddad, resulting in at least one death and several injuries.",
+    "Israeli Defense Forces (IDF) reported 19 ceasefire violations by Hamas between April 21 and May 5, 2026.",
+    "Hamas has reiterated its refusal to disarm, placing the Gaza ceasefire in jeopardy.",
+    "Israeli government announced plans to implement a 'voluntary emigration' plan for Gaza residents, indicating potential escalation.",
+    "Ongoing Israeli military operations in Gaza and Lebanon suggest a broader regional escalation.",
+    "Hamas has urged the U.S. to stop Israeli attacks on Gaza, indicating rising tensions.",
+    "U.S.-led Board of Peace envoy Nickolay Mladenov stated that the ceasefire hinges on Hamas' disarmament, which remains stalled.",
+    "Analysts warn that Israel is exploiting a nominal Gaza 'ceasefire' to systematically dismantle the enclave ahead of elections.",
+    "The disappearance of almost all Hamas leaders paves the way for the emergence of a new generation, potentially leading to further instability."
+  ],
+  "sources": [
+    "https://www.washingtonpost.com/world/2026/05/27/israel-palestinians-gaza-hamas-war-eid-news-05-27-2026/e598eb3a-59aa-11f1-8a9d-afb1148204e1_story.html",
+    "https://www.washingtonpost.com/world/2026/05/26/israel-palestinians-gaza-hamas-war-eid/6f9aa81a-5946-11f1-8a9d-afb1148204e1_story.html",
+    "https://www.aljazeera.com/news/2026/5/25/israel-escalates-gaza-attacks-as-netanyahu-stalls-ceasefire-for-polls",
+    "https://www.aljazeera.com/news/2026/5/9/one-killed-in-gaza-as-turkish-fm-talks-peace-efforts-with-hamas-official",
+    "https://www.aljazeera.com/news/2026/5/7/hamas-urges-us-to-stop-israeli-attacks-on-gaza-following-deadly-strikes",
+    "https://www.aljazeera.com/news/2026/5/13/board-of-peace-envoy-mladenov-says-ceasefire-hinges-on-hamas-disarmament",
+    "https://www.bloomberg.com/news/articles/2026/05/08/israel-tightens-grip-on-gaza-as-deadlock-with-hamas-persists",
+    "https://www.fdd.org/analysis/2026/05/05/talks-over-hamas-disarmament-stall-idf-reports-19-gaza-ceasefire-violations-april-21-may-5/"
+  ],
+  "searchQueries": [
+    "Hamas Israel Gaza hostilities 2026 recent news"
+  ],
+  "raw": "{\"yes_probability\": 0.85, \"confidence\": \"high\", \"short_reason\": \"Recent Israeli airstrikes targeting Hamas leaders and ongoing ceasefire violations indicate a high likelihood of resumed hostilities.\", \"key_evidence\": [\"Israeli airstrikes on May 26, 2026, killed Hamas military leader Mohammed Odeh and at least two others in Gaza City.\", \"Israeli airstrike on May 15, 2026, targeted Hamas military chief Izz al-Din al-Haddad, resulting in at least one death and several injuries.\", \"Israeli Defense Forces (IDF) reported 19 ceasefire violations by Hamas between April 21 and May 5, 2026.\", \"Hamas has reiterated its refusal to disarm, placing the Gaza ceasefire in jeopardy.\", \"Israeli government announced plans to implement a 'voluntary emigration' plan for Gaza residents, indicating potential escalation.\", \"Ongoing Israeli military operations in Gaza and Lebanon suggest a broader regional escalation.\", \"Hamas has urged the U.S. to stop Israeli attacks on Gaza, indicating rising tensions.\", \"U.S.-led Board of Peace envoy Nickolay Mladenov stated that the ceasefire hinges on Hamas' disarmament, which remains stalled.\", \"Analysts warn that Israel is exploiting a nominal Gaza 'ceasefire' to systematically dismantle the enclave ahead of elections.\", \"The disappearance of almost all Hamas leaders paves the way for the emergence of a new generation, potentially leading to further instability.\"], \"source_urls\": [\"https://www.washingtonpost.com/world/2026/05/27/israel-palestinians-gaza-hamas-war-eid-news-05-27-2026/e598eb3a-59aa-11f1-8a9d-afb1148204e1_story.html\", \"https://www.washingtonpost.com/world/2026/05/26/israel-palestinians-gaza-hamas-war-eid/6f9aa81a-5946-11f1-8a9d-afb1148204e1_story.html\", \"https://www.aljazeera.com/news/2026/5/25/israel-escalates-gaza-attacks-as-netanyahu-stalls-ceasefire-for-polls\", \"https://www.aljazeera.com/news/2026/5/9/one-killed-in-gaza-as-turkish-fm-talks-peace-efforts-with-hamas-official\", \"https://www.aljazeera.com/news/2026/5/7/hamas-urges-us-to-stop-israeli-attacks-on-gaza-following-deadly-strikes\", \"https://www.aljazeera.com/news/2026/5/13/board-of-peace-envoy-mladenov-says-ceasefire-hinges-on-hamas-disarmament\", \"https://www.bloomberg.com/news/articles/2026/05/08/israel-tightens-grip-on-gaza-as-deadlock-with-hamas-persists\", \"https://www.fdd.org/analysis/2026/05/05/talks-over-hamas-disarmament-stall-idf-reports-19-gaza-ceasefire-violations-april-21-may-5/\", \"https://www.fdd.org/analysis/2026/04/17/hamas-reiterates-refusal-to-disarm-placing-gaza-ceasefire-in-jeopardy/\", \"https://www.washingtonpost.com/world/2026/05/15/gaza-hamas-israel-strike/34f7a9f0-50a0-11f1-97e7-22c6c29ff0d8_story.html\"]}"
+}

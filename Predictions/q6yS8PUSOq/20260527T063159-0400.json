@@ -1,0 +1,34 @@
+{
+  "id": "q6yS8PUSOq",
+  "question": "Will the WTI Crude Oil Spot Price be above $98.50 on May 28, 2026?",
+  "marketUrl": "https://manifold.markets/ShaneBo/will-the-wti-crude-oil-spot-price-b-Cqgnq2tICg",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-27T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "WTI Crude Oil prices have been below $98.50 recently and are projected to remain below that threshold.",
+  "evidence": [
+    "As of May 27, 2026, WTI Crude Oil is trading at $91.90 per barrel.",
+    "Analysts forecast WTI Crude Oil prices to average around $94.21 in June 2026.",
+    "The U.S. Energy Information Administration projects WTI Crude Oil prices to average $94 per barrel in July 2026."
+  ],
+  "sources": [
+    "https://tradersunion.com/currencies/forecast/wti-crude-oil/",
+    "https://www.crudeir.com/wti-crude-oil-forecast-2026/",
+    "https://www.oilpriceapi.com/insights/monthly/2026-05",
+    "https://www.oilpriceapi.com/insights/monthly/2026-04",
+    "https://www.oilpriceapi.com/insights/monthly/2026-02",
+    "https://robinhood.com/us/en/prediction-markets/commodities/wti/",
+    "https://ouro.foundation/posts/chronos/wti-crude-forecast-gradual-drift-lower-into-late-may-2026",
+    "https://ouro.foundation/posts/chronos/crude-oil-price-wti-forecast-2026"
+  ],
+  "searchQueries": [
+    "WTI Crude Oil Spot Price May 2026 forecast May 27, 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"WTI Crude Oil prices have been below $98.50 recently and are projected to remain below that threshold.\", \"key_evidence\": [\"As of May 27, 2026, WTI Crude Oil is trading at $91.90 per barrel.\", \"Analysts forecast WTI Crude Oil prices to average around $94.21 in June 2026.\", \"The U.S. Energy Information Administration projects WTI Crude Oil prices to average $94 per barrel in July 2026.\"], \"source_urls\": [\"https://tradersunion.com/currencies/forecast/wti-crude-oil/\", \"https://www.crudeir.com/wti-crude-oil-forecast-2026/\"]}"
+}

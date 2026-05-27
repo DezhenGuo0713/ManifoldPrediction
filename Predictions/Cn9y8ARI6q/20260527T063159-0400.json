@@ -1,0 +1,34 @@
+{
+  "id": "Cn9y8ARI6q",
+  "question": "Bella Poarch - Ribcage (Official Music Video) on youtube will reach above 3M views  before the end of May 2026??",
+  "marketUrl": "https://manifold.markets/SuryaVino/bella-poarch-ribcage-official-music",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "medium",
+  "reason": "Bella Poarch's 'Ribcage' music video, released on May 1, 2026, has not yet reached 3 million views.",
+  "evidence": [
+    "'Ribcage' released on May 1, 2026, with no current view count data available.",
+    "Bella Poarch's previous music videos have taken several months to reach 3 million views.",
+    "The video has been available for 26 days as of May 27, 2026."
+  ],
+  "sources": [
+    "https://www.mnrk.com/press-room/2026/05/bella-poarch-releases-new-single-ribcage-reveals-debut-album-picnic-at-the-cemetery-coming-this-fall/",
+    "https://www.kworb.net/youtube/video/o4evZ9foxBk.html",
+    "https://www.kworb.net/youtube/video/F93BD5wtkdo.html",
+    "https://kworb.net/youtube/video/bINR3bzegaI.html",
+    "https://kworb.net/youtube/video/o4evZ9foxBk.html",
+    "https://kworb.net/youtube/video/iCPm55hqA3k.html",
+    "https://kworb.net/youtube/video/lcjmoyKojJM.html",
+    "https://kworb.net/youtube/video/cGJIl1TM074.html"
+  ],
+  "searchQueries": [
+    "Bella Poarch Ribcage Official Music Video YouTube views May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"medium\", \"short_reason\": \"Bella Poarch's 'Ribcage' music video, released on May 1, 2026, has not yet reached 3 million views.\", \"key_evidence\": [\"'Ribcage' released on May 1, 2026, with no current view count data available.\", \"Bella Poarch's previous music videos have taken several months to reach 3 million views.\", \"The video has been available for 26 days as of May 27, 2026.\"], \"source_urls\": []}"
+}

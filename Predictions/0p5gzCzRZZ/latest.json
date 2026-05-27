@@ -1,0 +1,35 @@
+{
+  "id": "0p5gzCzRZZ",
+  "question": "Will I reach 1,175,000 Energy Points on Khan Academy by the end of May?",
+  "marketUrl": "https://manifold.markets/musuko384/will-i-reach-1175000-energy-points",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Achieving 1,175,000 Energy Points by May 31, 2026, requires an average of 46,627.25 points per day, which is a significant increase from the current rate.",
+  "evidence": [
+    "Current Energy Points: 988,491",
+    "Required Energy Points: 1,175,000",
+    "Remaining Days: 4",
+    "Daily Points Needed: 46,627.25"
+  ],
+  "sources": [
+    "https://support.khanacademy.org/hc/en-us/articles/202487710-What-are-energy-",
+    "https://support.khanacademy.org/hc/en-us/community/posts/4404063934477-Energy-Points",
+    "https://support.khanacademy.org/hc/en-us/community/posts/4412980187149-Energy-Points",
+    "https://www.khanacademy.org/science/ap-biology/ap-ecology/a/energy-flow-primary-productivity",
+    "https://www.khanacademy.org/science/physics/work-and-energy/work-and-energy-tutorial/a/work-and-energy",
+    "https://www.khanacademy.org/science/grade-6-science-cambridge-curriculum/xdb2c1c997608bdb6%3Aenergy/xdb2c1c997608bdb6%3Akinetic-and-potential-energy/e/apply-kineticenergy",
+    "https://khanacademy.fandom.com/wiki/Energy_Points",
+    "https://kaos.fandom.com/wiki/Point_values"
+  ],
+  "searchQueries": [
+    "Khan Academy Energy Points gain rate typical May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Achieving 1,175,000 Energy Points by May 31, 2026, requires an average of 46,627.25 points per day, which is a significant increase from the current rate.\", \"key_evidence\": [\"Current Energy Points: 988,491\", \"Required Energy Points: 1,175,000\", \"Remaining Days: 4\", \"Daily Points Needed: 46,627.25\"], \"source_urls\": []}"
+}

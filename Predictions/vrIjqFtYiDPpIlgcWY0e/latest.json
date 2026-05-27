@@ -1,0 +1,35 @@
+{
+  "id": "vrIjqFtYiDPpIlgcWY0e",
+  "question": "Will Sam Bankman-Fried successfully appeal any of his convictions or sentence?",
+  "marketUrl": "https://manifold.markets/NateWatson/will-sam-bankmanfried-successfully",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-30T02:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "Recent legal setbacks and judicial skepticism suggest low likelihood of successful appeal.",
+  "evidence": [
+    "April 28, 2026: Judge denies Bankman-Fried's new trial request, calling claims baseless.",
+    "November 4, 2025: Appeals court judges express skepticism over Bankman-Fried's appeal arguments.",
+    "February 2026: Bankman-Fried files for new trial, but appeal remains active.",
+    "March 2026: Court audio reveals discussions on potential mediation in Bankman-Fried's case."
+  ],
+  "sources": [
+    "https://www.investmentnews.com/regulation-legal-compliance/judge-rejects-sam-bankman-frieds-new-trial-bid-in-ftx-fraud-case/266380",
+    "https://www.youtube.com/watch?v=dwLelCO4NGk",
+    "https://www.youtube.com/watch?v=4atMHrbA12s",
+    "https://ingest.abcnews.com/US/judge-denies-new-trial-sam-bankman-fried-after/story?id=132471994",
+    "https://coingeek.com/appeals-court-denies-sam-bankman-fried-latest-bid-for-release/",
+    "https://coingeek.com/judge-rejects-new-trial-for-ftx-ceo-sam-bankman-fried/",
+    "https://arstechnica.com/tech-policy/2026/04/new-sam-bankman-fried-trial-would-be-huge-waste-of-courts-time-judge-says/",
+    "https://www.coindesk.com/policy/2026/02/10/sam-bankman-fried-files-for-new-trial-over-ftx-fraud-charges"
+  ],
+  "searchQueries": [
+    "Sam Bankman-Fried appeal status 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"Recent legal setbacks and judicial skepticism suggest low likelihood of successful appeal.\", \"key_evidence\": [\"April 28, 2026: Judge denies Bankman-Fried's new trial request, calling claims baseless.\", \"November 4, 2025: Appeals court judges express skepticism over Bankman-Fried's appeal arguments.\", \"February 2026: Bankman-Fried files for new trial, but appeal remains active.\", \"March 2026: Court audio reveals discussions on potential mediation in Bankman-Fried's case.\"], \"source_urls\": [\"https://www.investmentnews.com/regulation-legal-compliance/judge-rejects-sam-bankman-frieds-new-trial-bid-in-ftx-fraud-case/266380\", \"https://www.youtube.com/watch?v=dwLelCO4NGk\", \"https://www.youtube.com/watch?v=4atMHrbA12s\"]}"
+}

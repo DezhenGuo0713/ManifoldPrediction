@@ -1,0 +1,20 @@
+id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,forecastTimestamp,forecastCurrentDate,forecastModel,forecastInputPolicy,forecastStatus,forecastClosedAt,newsPredictedYesProbability,newsPredictedNoProbability,newsConfidence,newsShortReason,newsKeyEvidence,newsSourceUrls,newsSearchQueries,newsRawJson
+LyZNlZqdNA,"Last trader wins, linear growth",https://manifold.markets/Capital/last-trader-wins-linear-growth,Capital,BINARY,1780303200000,2026-06-01T04:40:00-04:00,1779725224869,2026-05-25T12:07:04.869000-04:00,0.4710422128241821,139.71677741369942,139.71677741369942,8,"This question resolves to the position of the trader who holds the largest singular trade if after 24 hours this record has not been beaten.
+
+Limit orders don't count, only Quick orders.
+
+This is not ""Holders"" this is previous trades as shown in ""Trades""
+
+Example:
+
+John: 100 Mana Yes
+
+Jeff: 101 Mana No (5 hours later)
+
+John: 300 Mana Yes (10 hours later)
+
+(No single trade higher than 300 mana in 24 hours)
+
+Resolves to the position of John, which in this case is Yes.
+
+Update 2026-05-25 (PST) (AI summary of creator comment): The close date extends indefinitely as long as the record keeps getting broken.",,Treatment,177,20260525,2026-05-27T06:31:59-04:00,2026-05-27,gpt-4.1-mini,question+description+current_date only,forecast,2026-06-01T04:40:00-04:00,0.500000,0.500000,medium,No significant evidence indicates that a single trader's position will remain unchallenged for 24 hours.,"Kalshi's record daily volume reached $701.7 million in January 2026, indicating high trading activity. | Large trades on Kalshi, such as a $316,248 bet on a political event, suggest substantial market participation. | The prediction market industry saw a total volume of $24.47 billion in March 2026, reflecting increased trader engagement.",https://www.sportsbookreview.com/news/prediction-market-volume-hits-record-trading-volume-jan-15-2026/ | https://0xinsider.com/research/biggest-kalshi-trades-real-time | https://pm.wiki/learn/prediction-market-volume-records-march-2026 | https://www.objectwire.org/define/largest-prediction-markets-united-states-2026 | https://www.kalshisignals.net/ | https://kalshisignals.net/signals | https://0xinsider.com/research/whale-tracking-live-trades-prediction-markets | https://orrery.me/receipts,largest singular trade record in prediction markets after 24 hours no new record,"{""yes_probability"": 0.5, ""confidence"": ""medium"", ""short_reason"": ""No significant evidence indicates that a single trader's position will remain unchallenged for 24 hours."", ""key_evidence"": [""Kalshi's record daily volume reached $701.7 million in January 2026, indicating high trading activity."", ""Large trades on Kalshi, such as a $316,248 bet on a political event, suggest substantial market participation."", ""The prediction market industry saw a total volume of $24.47 billion in March 2026, reflecting increased trader engagement.""], ""source_urls"": [""https://www.sportsbookreview.com/news/prediction-market-volume-hits-record-trading-volume-jan-15-2026/"", ""https://0xinsider.com/research/biggest-kalshi-trades-real-time"", ""https://pm.wiki/learn/prediction-market-volume-records-march-2026""]}"

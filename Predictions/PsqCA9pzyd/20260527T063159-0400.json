@@ -1,0 +1,19 @@
+{
+  "id": "PsqCA9pzyd",
+  "question": "Will large amounts of GTA VI-related time-off requests be reported within two weeks of release? ",
+  "marketUrl": "https://manifold.markets/super61/major-news-outlets-report-gta-virel",
+  "status": "closed",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-26T23:51:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": null,
+  "noProbability": null,
+  "confidence": "",
+  "reason": "Market closed. No prediction generated.",
+  "evidence": [],
+  "sources": [],
+  "searchQueries": [],
+  "raw": "{\"status\": \"closed\", \"closed_at\": \"2026-05-26T23:51:00-04:00\"}"
+}

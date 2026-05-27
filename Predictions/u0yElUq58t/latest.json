@@ -1,0 +1,37 @@
+{
+  "id": "u0yElUq58t",
+  "question": "Iran charges \"Strait of Hormuz fees\" on June 1?",
+  "marketUrl": "https://manifold.markets/Ziddletwix/iran-charges-strait-of-hormuz-fees",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.85,
+  "noProbability": 0.15,
+  "confidence": "high",
+  "reason": "Iran has implemented a fee system for ships transiting the Strait of Hormuz, effective June 1.",
+  "evidence": [
+    "Iran's Supreme National Security Council announced the launch of the Persian Gulf Strait Authority (PGSA) to manage ship transits and collect passage fees, formalizing a system in place since March.",
+    "Vessels must apply via the PGSA's official email, submitting ownership details, insurance, crew manifests, cargo declarations, and intended routing. A transit permit is issued only after approval and fee payment.",
+    "Reports indicate some vessels have already paid up to $2 million per transit, with payment made in Chinese yuan.",
+    "Iran's Revolutionary Guards have introduced a 'de facto 'toll booth' regime' to control international shipping in the Strait of Hormuz, requiring ships to present full documentation, obtain clearance codes, and accept an escort through a controlled corridor.",
+    "Iran has started charging transit fees on some commercial vessels passing through the Strait of Hormuz, with payments of as much as $2 million per voyage being sought on an ad hoc basis.",
+    "Iran's deputy foreign minister stated that navigation through the Strait of Hormuz will be subject to fees, and Iran's vice president publicly asserted that Iran's sovereign right over the strait is 'unquestionable and definite.'"
+  ],
+  "sources": [
+    "https://www.euronews.com/2026/05/18/iran-sets-up-hormuz-transit-authority-to-charge-ships-for-passage",
+    "https://www.bloomberg.com/news/articles/2026-03-24/iran-charges-some-ships-hormuz-transit-fees-for-safe-passage",
+    "https://www.coindesk.com/markets/2026/04/08/iran-eyes-crypto-toll-for-oil-tanker-transit-through-strait-of-hormuz",
+    "https://www.insurancejournal.com/news/international/2026/05/20/870737.htm",
+    "https://www.axios.com/2026/05/07/us-iran-hormuz-strait-fire-exchange",
+    "https://www.euronews.com/2026/05/25/iran-says-it-is-charging-fees-for-navigational-services-through-strait-of-hormuz",
+    "https://www.iranintl.com/en/202605204512",
+    "https://www.abc.net.au/news/2026-05-22/iran-tightens-grip-on-strait-of-hormuz-with-new-transit-regime/106705792"
+  ],
+  "searchQueries": [
+    "Iran Strait of Hormuz fee enforcement June 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.85, \"confidence\": \"high\", \"short_reason\": \"Iran has implemented a fee system for ships transiting the Strait of Hormuz, effective June 1.\", \"key_evidence\": [\"Iran's Supreme National Security Council announced the launch of the Persian Gulf Strait Authority (PGSA) to manage ship transits and collect passage fees, formalizing a system in place since March.\", \"Vessels must apply via the PGSA's official email, submitting ownership details, insurance, crew manifests, cargo declarations, and intended routing. A transit permit is issued only after approval and fee payment.\", \"Reports indicate some vessels have already paid up to $2 million per transit, with payment made in Chinese yuan.\", \"Iran's Revolutionary Guards have introduced a 'de facto 'toll booth' regime' to control international shipping in the Strait of Hormuz, requiring ships to present full documentation, obtain clearance codes, and accept an escort through a controlled corridor.\", \"Iran has started charging transit fees on some commercial vessels passing through the Strait of Hormuz, with payments of as much as $2 million per voyage being sought on an ad hoc basis.\", \"Iran's deputy foreign minister stated that navigation through the Strait of Hormuz will be subject to fees, and Iran's vice president publicly asserted that Iran's sovereign right over the strait is 'unquestionable and definite.'\"], \"source_urls\": [\"https://www.euronews.com/2026/05/18/iran-sets-up-hormuz-transit-authority-to-charge-ships-for-passage\", \"https://www.bloomberg.com/news/articles/2026-03-24/iran-charges-some-ships-hormuz-transit-fees-for-safe-passage\", \"https://www.coindesk.com/markets/2026/04/08/iran-eyes-crypto-toll-for-oil-tanker-transit-through-strait-of-hormuz\", \"https://www.insurancejournal.com/news/international/2026/05/20/870737.htm\", \"https://www.axios.com/2026/05/07/us-iran-hormuz-strait-fire-exchange\"]}"
+}

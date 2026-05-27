@@ -1,0 +1,36 @@
+{
+  "id": "IZNcZQAu0d",
+  "question": "Will the ICE deployment in Minnesota be substantially reduced by June 1, 2026?",
+  "marketUrl": "https://manifold.markets/NicholasWeininger/will-the-ice-deployment-in-minnesot",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "Operation Metro Surge concluded in February 2026, reducing ICE agents in Minnesota to fewer than 500.",
+  "evidence": [
+    "Operation Metro Surge ended in February 2026, reducing ICE agents in Minnesota to fewer than 500.",
+    "Federal officials confirmed a major drawdown of Operation Metro Surge in Minnesota starting late February 2026.",
+    "ICE agents in Minnesota are scaling back as Operation Metro Surge continues, with roughly 2,000 agents still active in the state.",
+    "Federal agents in Minnesota are scaling back as Operation Metro Surge continues, with roughly 2,000 agents still active in the state.",
+    "Federal authorities are withdrawing thousands of agents from Minnesota's Operation Metro Surge as courts investigate claims of racial profiling and abuse."
+  ],
+  "sources": [
+    "https://www.visaverge.com/news/operation-metro-surge-ends-as-ice-draws-down-courts-hear-racial-profiling-claims/",
+    "https://www.mncrime.com/latest/operation-metro-surge-ending-after-4000-arrests",
+    "https://www.visaverge.com/news/operation-metro-surge-ends-as-ice-winds-down-minnesota-immigration-crackdown/",
+    "https://minnesotareformer.com/2026/02/23/the-end-of-operation-metro-surge-in-data/",
+    "https://minnesotareformer.com/2026/02/20/fewer-than-500-ice-agents-left-in-minnesota-per-federal-officials/",
+    "https://minnesotareformer.com/2026/04/08/ice-labeled-1300-arrests-during-operation-metro-surge-as-collateral/",
+    "https://minnesotareformer.com/2026/03/31/3700-immigrants-arrested-during-operation-metro-surge/",
+    "https://www.oann.com/newsroom/homan-announces-end-of-operation-metro-surge-in-minn/"
+  ],
+  "searchQueries": [
+    "ICE deployment Minnesota Operation Metro Surge 2026 latest news"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"Operation Metro Surge concluded in February 2026, reducing ICE agents in Minnesota to fewer than 500.\", \"key_evidence\": [\"Operation Metro Surge ended in February 2026, reducing ICE agents in Minnesota to fewer than 500.\", \"Federal officials confirmed a major drawdown of Operation Metro Surge in Minnesota starting late February 2026.\", \"ICE agents in Minnesota are scaling back as Operation Metro Surge continues, with roughly 2,000 agents still active in the state.\", \"Federal agents in Minnesota are scaling back as Operation Metro Surge continues, with roughly 2,000 agents still active in the state.\", \"Federal authorities are withdrawing thousands of agents from Minnesota's Operation Metro Surge as courts investigate claims of racial profiling and abuse.\"], \"source_urls\": [\"https://www.visaverge.com/news/operation-metro-surge-ends-as-ice-draws-down-courts-hear-racial-profiling-claims/\", \"https://www.mncrime.com/latest/operation-metro-surge-ending-after-4000-arrests\", \"https://www.mncrime.com/latest/operation-metro-surge-ending-after-4000-arrests\"]}"
+}

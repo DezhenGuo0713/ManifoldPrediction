@@ -1,0 +1,34 @@
+{
+  "id": "6tQNIPcS6E",
+  "question": "Will Brad Lander win the NY10 Democratic House Primary?",
+  "marketUrl": "https://manifold.markets/Jack1/will-brad-lander-win-the-ny10-democ",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-23T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.82,
+  "noProbability": 0.18,
+  "confidence": "high",
+  "reason": "Recent polls and endorsements indicate Lander's strong lead over Goldman in the NY-10 Democratic primary.",
+  "evidence": [
+    "An Emerson College Polling/PIX11 survey from May 21, 2026, shows Lander leading Goldman 57% to 23% among likely Democratic primary voters in the 10th District. ([politicsny.com](https://politicsny.com/2026/05/21/poll-on-ny-10-congress-primary-has-lander-leading-goldman-by-wide-margin-other-nyc-house-races-tight/?utm_source=openai))",
+    "Prediction markets, such as Polymarket, reflect an 82% implied probability of Lander winning the primary. ([predictionedge.com](https://www.predictionedge.com/elections/us-house/new-york-district-10-democratic-primary/?utm_source=openai))",
+    "Lander has secured endorsements from prominent figures like Senator Bernie Sanders and Mayor Zohran Mamdani, bolstering his campaign. ([notus.org](https://www.notus.org/2026-election/bernie-sanders-backs-brad-lander-primary-challenge-dan-goldman?utm_source=openai))"
+  ],
+  "sources": [
+    "https://politicsny.com/2026/05/21/poll-on-ny-10-congress-primary-has-lander-leading-goldman-by-wide-margin-other-nyc-house-races-tight/",
+    "https://www.predictionedge.com/elections/us-house/new-york-district-10-democratic-primary/",
+    "https://www.notus.org/2026-election/bernie-sanders-backs-brad-lander-primary-challenge-dan-goldman",
+    "https://ny1.com/nyc/all-boroughs/news/2026/05/11/proxy-war-among-top-democrats-spills-in-ny-10-primary",
+    "https://politicsny.com/2026/05/20/ny-10-congress-primary-brooklyn-marine-terminal-fight-sharpens-goldman-lander-battle/",
+    "https://www.standwithcrypto.org/us/races/state/ny/district/10/democrat",
+    "https://polymarket.com/event/ny-10-democratic-primary-winner",
+    "https://polymarket.com/it/event/ny-10-democratic-primary-winner"
+  ],
+  "searchQueries": [
+    "Brad Lander 2026 NY10 Democratic House Primary"
+  ],
+  "raw": "{\"yes_probability\": 0.82, \"confidence\": \"high\", \"short_reason\": \"Recent polls and endorsements indicate Lander's strong lead over Goldman in the NY-10 Democratic primary.\", \"key_evidence\": [\"An Emerson College Polling/PIX11 survey from May 21, 2026, shows Lander leading Goldman 57% to 23% among likely Democratic primary voters in the 10th District. ([politicsny.com](https://politicsny.com/2026/05/21/poll-on-ny-10-congress-primary-has-lander-leading-goldman-by-wide-margin-other-nyc-house-races-tight/?utm_source=openai))\", \"Prediction markets, such as Polymarket, reflect an 82% implied probability of Lander winning the primary. ([predictionedge.com](https://www.predictionedge.com/elections/us-house/new-york-district-10-democratic-primary/?utm_source=openai))\", \"Lander has secured endorsements from prominent figures like Senator Bernie Sanders and Mayor Zohran Mamdani, bolstering his campaign. ([notus.org](https://www.notus.org/2026-election/bernie-sanders-backs-brad-lander-primary-challenge-dan-goldman?utm_source=openai))\"], \"source_urls\": [\"https://politicsny.com/2026/05/21/poll-on-ny-10-congress-primary-has-lander-leading-goldman-by-wide-margin-other-nyc-house-races-tight/\", \"https://www.predictionedge.com/elections/us-house/new-york-district-10-democratic-primary/\", \"https://www.notus.org/2026-election/bernie-sanders-backs-brad-lander-primary-challenge-dan-goldman\"]}"
+}

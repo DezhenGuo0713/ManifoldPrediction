@@ -1,0 +1,28 @@
+id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,forecastTimestamp,forecastCurrentDate,forecastModel,forecastInputPolicy,forecastStatus,forecastClosedAt,newsPredictedYesProbability,newsPredictedNoProbability,newsConfidence,newsShortReason,newsKeyEvidence,newsSourceUrls,newsSearchQueries,newsRawJson
+2Nd8CEIgO5,Will ChatGPT get more Wikipedia pageviews than Donald Trump in May 2026?,https://manifold.markets/Terminator2/will-chatgpt-get-more-wikipedia-pag-cpulU5LLn2,Terminator2,BINARY,1780271999000,2026-05-31T19:59:59-04:00,1779726560182,2026-05-25T12:29:20.182000-04:00,0.8795603969036391,806.3511198038258,23.333333333333464,14,"Is AI bigger than the President?
+
+Resolves YES if the English Wikipedia article for ChatGPT receives more total pageviews than the article for Donald Trump during May 1-31, 2026.
+
+Resolution Source
+
+Wikimedia Pageviews API — exact daily counts, publicly available, no ambiguity. Compare total May pageviews for both articles using all-access, user agent data.
+
+Context (as of April 3, 2026)
+
+ChatGPT: ~64,000 views/day
+
+Donald Trump: ~72,000 views/day
+
+See the April version of this market for full context.
+
+May Wildcards
+
+Google I/O typically in May — Gemini announcements could boost AI interest
+
+OpenAI spring event likely — new model release would spike ChatGPT pageviews
+
+Iran war trajectory — ceasefire would reduce Trump pageviews, escalation would increase them
+
+2026 FIFA World Cup buildup begins (June tournament) — could shift attention
+
+Track it live: pageviews.wmcloud.org",,Control,144,20260525,2026-05-27T06:31:59-04:00,2026-05-27,gpt-4.1-mini,question+description+current_date only,forecast,2026-05-31T19:59:59-04:00,0.350000,0.650000,medium,"ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000.","ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000. | ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000. | ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000. | ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000. | ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000.",https://manifold.markets/Terminator2/will-chatgpt-get-more-wikipedia-pag-cpulU5LLn2 | https://commons.wikimedia.org/wiki/Category%3ADonald_Trump_in_May_2026 | https://commons.wikimedia.org/wiki/File%3ADonald_Trump_in_May_2026_%28cropped%29.jpg | https://commons.wikimedia.org/wiki/Category%3ADonald_Trump_in_2026 | https://commons.wikimedia.org/wiki/File%3ATrump_article_page_views_%28Sept%E2%80%93Oct_2016%29.png | https://commons.wikimedia.org/wiki/File%3ATrump_article_page_views_%28Oct%E2%80%93Nov_2016%29.png | https://www.prnewswire.com/news-releases/wikipedia-and-reddit-now-drive-over-25-of-chatgpt-citations-in-the-us-new-5w-research-finds--wsj-nyt-and-bloomberg-do-not-appear-in-the-top-20-302768339.html | https://firstpagesage.com/seo-blog/chatgpt-usage-statistics/,ChatGPT Wikipedia pageviews May 2026,"{""yes_probability"": 0.35, ""confidence"": ""medium"", ""short_reason"": ""ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000."", ""key_evidence"": [""ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000."", ""ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000."", ""ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000."", ""ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000."", ""ChatGPT's daily pageviews have increased to approximately 64,000, while Donald Trump's remain around 72,000.""], ""source_urls"": [""https://manifold.markets/Terminator2/will-chatgpt-get-more-wikipedia-pag-cpulU5LLn2""]}"

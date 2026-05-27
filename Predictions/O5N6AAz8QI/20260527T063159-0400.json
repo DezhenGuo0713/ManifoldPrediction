@@ -1,0 +1,36 @@
+{
+  "id": "O5N6AAz8QI",
+  "question": "Starmer out before July?",
+  "marketUrl": "https://manifold.markets/brod/starmer-out-before-july",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Keir Starmer remains Prime Minister despite significant internal pressure and recent resignations.",
+  "evidence": [
+    "As of May 27, 2026, Keir Starmer continues to serve as Prime Minister of the United Kingdom.",
+    "Despite calls for his resignation following poor local election results, Starmer has refused to step down.",
+    "On May 12, 2026, Starmer told his Cabinet he would not resign and intends to 'get on with governing'.",
+    "On May 14, 2026, Health Secretary Wes Streeting resigned and called for a leadership contest to oust Starmer.",
+    "Despite these pressures, Starmer has not announced any plans to resign before June 30, 2026."
+  ],
+  "sources": [
+    "https://www.itv.com/news/2026-05-12/keir-starmer-cabinet-meeting-calls-to-resign",
+    "https://www.itv.com/news/2026-05-14/top-aides-quit-and-join-dozens-of-labour-mps-calling-for-starmer-to-resign",
+    "https://www.itv.com/news/2026-05-11/top-aides-quit-and-join-dozens-of-labour-mps-calling-for-starmer-to-resign",
+    "https://www.itv.com/news/2026-05-09/starmer-under-pressure-to-agree-exit-plan-after-election-losses",
+    "https://www.itv.com/news/2026-05-15/pm-keir-starmer-leadership-under-scrutiny-andy-burnham",
+    "https://www.itv.com/news/2026-05-19/starmer-to-face-commons-grilling-as-streeting-plans-resignation-speech",
+    "https://www.itv.com/news/2026-05-18/keir-starmer-to-chair-first-cabinet-meeting-since-wes-streetings-resignation",
+    "https://www.itv.com/news/2026-05-11/starmer-leadership-in-peril-as-cabinet-ministers-tell-him-to-consider-position"
+  ],
+  "searchQueries": [
+    "Keir Starmer Prime Minister UK status May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Keir Starmer remains Prime Minister despite significant internal pressure and recent resignations.\", \"key_evidence\": [\"As of May 27, 2026, Keir Starmer continues to serve as Prime Minister of the United Kingdom.\", \"Despite calls for his resignation following poor local election results, Starmer has refused to step down.\", \"On May 12, 2026, Starmer told his Cabinet he would not resign and intends to 'get on with governing'.\", \"On May 14, 2026, Health Secretary Wes Streeting resigned and called for a leadership contest to oust Starmer.\", \"Despite these pressures, Starmer has not announced any plans to resign before June 30, 2026.\"], \"source_urls\": [\"https://www.itv.com/news/2026-05-12/keir-starmer-cabinet-meeting-calls-to-resign\", \"https://www.itv.com/news/2026-05-14/top-aides-quit-and-join-dozens-of-labour-mps-calling-for-starmer-to-resign\"]}"
+}

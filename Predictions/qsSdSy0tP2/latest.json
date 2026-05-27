@@ -1,0 +1,34 @@
+{
+  "id": "qsSdSy0tP2",
+  "question": "Spain wins the UEFA Nations League final on June 8, 2025",
+  "marketUrl": "https://manifold.markets/TumeloLekgwarayy9N/spain-wins-the-uefa-nations-league",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-07T04:48:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "Real Madrid lost 4-0 to PSG in the 2025 FIFA Club World Cup semifinal.",
+  "evidence": [
+    "Real Madrid's 4-0 loss to PSG in the 2025 FIFA Club World Cup semifinal",
+    "Chelsea won the 2025 FIFA Club World Cup final 3-0 against PSG",
+    "Real Madrid did not advance to the FIFA Club World Cup final in 2025"
+  ],
+  "sources": [
+    "https://www.plus.fifa.com/en/content/paris-saint-germain-v-real-madrid-c-f-semi-finals-fifa-club-world-cup-2025tm-highlights-2025/151e86a4-c9b4-47e5-9201-a5c11b023be4",
+    "https://www.futbol24.com/international/FIFA/Club-World-Cup/2025/results/",
+    "https://es.uefa.com/uefanationsleague/news/026e-1372b24e2b52-ac6946e71456-1000--palmares-de-la-uefa-nations-league/",
+    "https://es.uefa.com/uefanationsleague/news/029a-1df4422dd53b-44f0d69a3140-1000--cronica-y-video-del-portugal-espana-2-2-t-p-5-3-en-los-p/",
+    "https://es.uefa.com/uefanationsleague/news/0297-1d5cd67dceea-2e0798c6be27-1000--conoce-a-las-selecciones-finalistas-de-la-uefa-nations-leag/",
+    "https://www.uefa.com/uefanationsleague/news/029a-1df446a2d81d-0bc47d9324a5-1000/",
+    "https://www.uefa.com/uefanationsleague/news/0297-1d5ccb0b6747-d10a8fc4eb86-1000--nations-league-final-portugal-vs-spain-meet-the-teams/",
+    "https://www.fifa.com/es/tournaments/mens/club-world-cup/usa-2025/articles/real-madrid-vs-psg-mundial-de-clubes-2025-cuando-es-a-que-hora-donde-como-verlo-en-vivo"
+  ],
+  "searchQueries": [
+    "Spain UEFA Nations League final 2025 team status latest"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"Real Madrid lost 4-0 to PSG in the 2025 FIFA Club World Cup semifinal.\", \"key_evidence\": [\"Real Madrid's 4-0 loss to PSG in the 2025 FIFA Club World Cup semifinal\", \"Chelsea won the 2025 FIFA Club World Cup final 3-0 against PSG\", \"Real Madrid did not advance to the FIFA Club World Cup final in 2025\"], \"source_urls\": [\"https://www.plus.fifa.com/en/content/paris-saint-germain-v-real-madrid-c-f-semi-finals-fifa-club-world-cup-2025tm-highlights-2025/151e86a4-c9b4-47e5-9201-a5c11b023be4\", \"https://www.futbol24.com/international/FIFA/Club-World-Cup/2025/results/\"]}"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "rbMyKEy7zuLcx1yyjJbn",
+  "question": "At the end of Juneteenth 2026 (June 19) will Manifold have sold enough Mana in the last 30 days to buy one bitcoin?",
+  "marketUrl": "https://manifold.markets/strutheo/at-the-end-of-juneteenth-2026-june",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-19T23:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "low",
+  "reason": "Manifold's recent Mana sales are insufficient to purchase one Bitcoin.",
+  "evidence": [
+    "Manifold's total Mana sales in the last 30 days are approximately $6,888 as of April 22, 2025.",
+    "Bitcoin's price on May 27, 2026, is $75,801, significantly higher than Manifold's recent Mana sales.",
+    "Historical data indicates that Manifold's Mana sales have not reached the threshold to purchase a Bitcoin in the past."
+  ],
+  "sources": [
+    "https://manifold.markets/stats",
+    "https://www.statmuse.com/money/ask/price-of-bitcoin-in-2026-usd",
+    "https://manifold.markets/strutheo/at-the-end-of-boxing-day-2027-dec-2",
+    "https://manifold.markets/strutheo/at-the-end-of-juneteenth-2026-june",
+    "https://manifold.markets/GazDownright/in-the-next-30-days-will-this-marke",
+    "https://manifold.markets/strutheo/at-the-end-of-groundhog-day-2028-fe",
+    "https://manifold.markets/strutheo/at-the-end-of-blue-monday-2025-jan",
+    "https://manifold.markets/JTX/after-the-pivot-is-implemented-what?play=true"
+  ],
+  "searchQueries": [
+    "Bitcoin price June 19 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"low\", \"short_reason\": \"Manifold's recent Mana sales are insufficient to purchase one Bitcoin.\", \"key_evidence\": [\"Manifold's total Mana sales in the last 30 days are approximately $6,888 as of April 22, 2025.\", \"Bitcoin's price on May 27, 2026, is $75,801, significantly higher than Manifold's recent Mana sales.\", \"Historical data indicates that Manifold's Mana sales have not reached the threshold to purchase a Bitcoin in the past.\"], \"source_urls\": [\"https://manifold.markets/stats\", \"https://www.statmuse.com/money/ask/price-of-bitcoin-in-2026-usd\"]}"
+}

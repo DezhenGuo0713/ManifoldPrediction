@@ -1,0 +1,36 @@
+{
+  "id": "uRIu9zO8nq",
+  "question": "Will Jinbaobao's TTM tin production fall below 40 kt on May 31, 2026?",
+  "marketUrl": "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T17:06:15.847000-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.85,
+  "noProbability": 0.15,
+  "confidence": "high",
+  "reason": "Jinbaobao's tin export ban significantly tightens global supply, leading to elevated prices and production constraints.",
+  "evidence": [
+    "Jinbaobao's tin export ban covers approximately 12% of global supply, tightening the market amid ongoing geopolitical supply constraints from Myanmar and Indonesia.",
+    "Tin prices surged to record highs in early 2026, reaching around US$57,730 per tonne, a 45% increase year-on-year, before moderating to roughly US$46,000 per tonne.",
+    "Refined tin production is projected to grow just 3.0% in 2026, following 2.0% growth in 2025, constrained by regulatory challenges in Indonesia and ongoing operational issues in Myanmar and the Democratic Republic of Congo.",
+    "Indonesia is expected to remain a key trigger of global tin price volatility in 2026 as mine supply recovers only partially.",
+    "The global tin industry stands at a historic turning point, with supply constraints becoming the new normal due to repeated setbacks in Myanmar's production resumptions, continued tightening of Indonesian policies, and elevated geopolitical risks in the DRC."
+  ],
+  "sources": [
+    "https://www.smm.cn/en/news/1020130.html",
+    "https://www.nst.com.my/business/corporate/2026/03/1400253/tin-prices-soar-early-2026-remain-historically-elevated-despite-pullback",
+    "https://www.petromindo.com/news/article/indonesia-to-remain-tin-supply-wildcard-in-2026",
+    "https://news.metal.com/en/newscontent/103907443-Ganzhou-Yunsheng-Tin-Co-Ltd-Invites-You-to-the-2026-SMM-16th-Tin-Industry-Chain-Conference",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-tin-production-fall",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production-l9cs6PuCI6",
+    "https://www.spglobal.com/energy/en/news-research/latest-news/metals/062425-drc-extends-cobalt-export-ban-tightening-supply-to-impact-china"
+  ],
+  "searchQueries": [
+    "Jinbaobao tin production 2026 latest report"
+  ],
+  "raw": "{\"yes_probability\": 0.85, \"confidence\": \"high\", \"short_reason\": \"Jinbaobao's tin export ban significantly tightens global supply, leading to elevated prices and production constraints.\", \"key_evidence\": [\"Jinbaobao's tin export ban covers approximately 12% of global supply, tightening the market amid ongoing geopolitical supply constraints from Myanmar and Indonesia.\", \"Tin prices surged to record highs in early 2026, reaching around US$57,730 per tonne, a 45% increase year-on-year, before moderating to roughly US$46,000 per tonne.\", \"Refined tin production is projected to grow just 3.0% in 2026, following 2.0% growth in 2025, constrained by regulatory challenges in Indonesia and ongoing operational issues in Myanmar and the Democratic Republic of Congo.\", \"Indonesia is expected to remain a key trigger of global tin price volatility in 2026 as mine supply recovers only partially.\", \"The global tin industry stands at a historic turning point, with supply constraints becoming the new normal due to repeated setbacks in Myanmar's production resumptions, continued tightening of Indonesian policies, and elevated geopolitical risks in the DRC.\"], \"source_urls\": [\"https://www.smm.cn/en/news/1020130.html\", \"https://www.nst.com.my/business/corporate/2026/03/1400253/tin-prices-soar-early-2026-remain-historically-elevated-despite-pullback\", \"https://www.petromindo.com/news/article/indonesia-to-remain-tin-supply-wildcard-in-2026\", \"https://news.metal.com/en/newscontent/103907443-Ganzhou-Yunsheng-Tin-Co-Ltd-Invites-You-to-the-2026-SMM-16th-Tin-Industry-Chain-Conference\"]}"
+}

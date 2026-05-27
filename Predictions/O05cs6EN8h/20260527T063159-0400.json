@@ -1,0 +1,34 @@
+{
+  "id": "O05cs6EN8h",
+  "question": "Will Hezbollah of Lebanon be fully disarmed before June, 2026?",
+  "marketUrl": "https://manifold.markets/apol/will-hezbollah-of-lebanon-be-fully",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.05,
+  "noProbability": 0.95,
+  "confidence": "high",
+  "reason": "Hezbollah's consistent rejection of disarmament plans and ongoing military activities make full disarmament by May 31, 2026, highly unlikely.",
+  "evidence": [
+    "Hezbollah rejected the Lebanese government's disarmament plan and four-month timeline in February 2026. ([al-monitor.com](https://www.al-monitor.com/originals/2026/02/hezbollah-rejects-disarmament-plan-and-governments-four-month-timeline?utm_source=openai))",
+    "Israeli military operations targeting Hezbollah positions in southern Lebanon and the Bekaa Valley have intensified, indicating ongoing hostilities. ([lemonde.fr](https://www.lemonde.fr/en/international/article/2026/05/27/israel-launches-new-military-escalation-in-lebanon_6753865_4.html?utm_source=openai))",
+    "Lebanon's Homeland Shield Plan, initiated in September 2025, has faced significant challenges, with Hezbollah's resistance hindering progress. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Homeland_Shield_Plan?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.al-monitor.com/originals/2026/02/hezbollah-rejects-disarmament-plan-and-governments-four-month-timeline",
+    "https://www.lemonde.fr/en/international/article/2026/05/27/israel-launches-new-military-escalation-in-lebanon_6753865_4.html",
+    "https://en.wikipedia.org/wiki/Homeland_Shield_Plan",
+    "https://www.cnas.org/publications/commentary/lebanon-is-disarming-hezbollah-the-u-s-and-israel-can-do-more-to-help",
+    "https://www.al-monitor.com/originals/2025/09/lebanon-discuss-army-plan-disarm-hezbollah",
+    "https://www.inss.org.il/publication/lebanon-ddr/",
+    "https://mcac.maryland.gov/2026/02/hezbollah-rejects-disarmament-plan-and-governments-four-month-timeline/",
+    "https://www.jpost.com/opinion/article-868224"
+  ],
+  "searchQueries": [
+    "Hezbollah disarmament status May 2026 Lebanon international news"
+  ],
+  "raw": "{\"yes_probability\": 0.05, \"confidence\": \"high\", \"short_reason\": \"Hezbollah's consistent rejection of disarmament plans and ongoing military activities make full disarmament by May 31, 2026, highly unlikely.\", \"key_evidence\": [\"Hezbollah rejected the Lebanese government's disarmament plan and four-month timeline in February 2026. ([al-monitor.com](https://www.al-monitor.com/originals/2026/02/hezbollah-rejects-disarmament-plan-and-governments-four-month-timeline?utm_source=openai))\", \"Israeli military operations targeting Hezbollah positions in southern Lebanon and the Bekaa Valley have intensified, indicating ongoing hostilities. ([lemonde.fr](https://www.lemonde.fr/en/international/article/2026/05/27/israel-launches-new-military-escalation-in-lebanon_6753865_4.html?utm_source=openai))\", \"Lebanon's Homeland Shield Plan, initiated in September 2025, has faced significant challenges, with Hezbollah's resistance hindering progress. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Homeland_Shield_Plan?utm_source=openai))\"], \"source_urls\": [\"https://www.al-monitor.com/originals/2026/02/hezbollah-rejects-disarmament-plan-and-governments-four-month-timeline\", \"https://www.lemonde.fr/en/international/article/2026/05/27/israel-launches-new-military-escalation-in-lebanon_6753865_4.html\", \"https://en.wikipedia.org/wiki/Homeland_Shield_Plan\"]}"
+}

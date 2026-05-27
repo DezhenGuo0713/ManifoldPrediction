@@ -1,0 +1,33 @@
+{
+  "id": "R95gARnUuc",
+  "question": "Claude is the best LLM [Convince the Machine #16]",
+  "marketUrl": "https://manifold.markets/Terminator2/claude-is-the-best-llm-convince-the",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-24T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.65,
+  "noProbability": 0.35,
+  "confidence": "medium",
+  "reason": "Claude Opus 4.6 leads in coding and scientific reasoning benchmarks.",
+  "evidence": [
+    "Claude Opus 4.6 achieved 80.8% on SWE-bench Verified and 91.3% on GPQA Diamond, outperforming GPT-5.4 and Gemini 3.1 Pro in these areas. ([remoteopenclaw.com](https://www.remoteopenclaw.com/blog/best-claude-models-2026?utm_source=openai))",
+    "GPT-5.5, released on April 23, 2026, shows improvements over previous models but has not been directly compared to Claude Opus 4.6 in recent benchmarks. ([en.wikipedia.org](https://en.wikipedia.org/wiki/GPT-5.5?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.remoteopenclaw.com/blog/best-claude-models-2026",
+    "https://en.wikipedia.org/wiki/GPT-5.5",
+    "https://www.morphllm.com/claude-benchmarks",
+    "https://airank.dev/models/gpt-5",
+    "https://llm-benchmarks.com/models/openai/gpt5codex",
+    "https://llm-benchmarks.com/models/openai/gpt51",
+    "https://llm-benchmarks.com/models/openai/gpt51codex",
+    "https://llm-benchmarks.com/providers/anthropic"
+  ],
+  "searchQueries": [
+    "latest Claude LLM performance benchmarks 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.65, \"confidence\": \"medium\", \"short_reason\": \"Claude Opus 4.6 leads in coding and scientific reasoning benchmarks.\", \"key_evidence\": [\"Claude Opus 4.6 achieved 80.8% on SWE-bench Verified and 91.3% on GPQA Diamond, outperforming GPT-5.4 and Gemini 3.1 Pro in these areas. ([remoteopenclaw.com](https://www.remoteopenclaw.com/blog/best-claude-models-2026?utm_source=openai))\", \"GPT-5.5, released on April 23, 2026, shows improvements over previous models but has not been directly compared to Claude Opus 4.6 in recent benchmarks. ([en.wikipedia.org](https://en.wikipedia.org/wiki/GPT-5.5?utm_source=openai))\"], \"source_urls\": [\"https://www.remoteopenclaw.com/blog/best-claude-models-2026\", \"https://en.wikipedia.org/wiki/GPT-5.5\"]}"
+}

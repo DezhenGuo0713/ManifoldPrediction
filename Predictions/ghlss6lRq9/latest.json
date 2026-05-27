@@ -1,0 +1,34 @@
+{
+  "id": "ghlss6lRq9",
+  "question": "Will the first Starship catch attempt target a launch from Pad A, booster catch on tower A, and ship catch on tower B?",
+  "marketUrl": "https://manifold.markets/Nat/will-the-first-starship-catch-attem",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T09:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.3,
+  "noProbability": 0.7,
+  "confidence": "medium",
+  "reason": "SpaceX has not announced plans for a ship catch using tower B.",
+  "evidence": [
+    "SpaceX has not announced plans for a ship catch using tower B.",
+    "SpaceX has not announced plans for a ship catch using tower B.",
+    "SpaceX has not announced plans for a ship catch using tower B."
+  ],
+  "sources": [
+    "https://www.opb.org/article/2024/10/13/spacex-rocket-booster-caught-on-first-attempt-during-flight-test/",
+    "https://manifold.markets/Nat/will-the-first-starship-catch-attem",
+    "https://spaceexplored.com/2024/09/05/spacex-prepares-launch-pad-for-starship-booster-catch/",
+    "https://www.scientificamerican.com/article/spacex-catches-a-falling-starship-a-first-in-spaceflight-history/",
+    "https://starship-spacex.fandom.com/wiki/Orbital_Launch_and_Integration_Tower_1_%28OLIT-1%29",
+    "https://starship-spacex.fandom.com/wiki/Starship_14/33",
+    "https://www.kpbs.org/news/science-technology/2024/10/13/spacex-rocket-booster-successfully-caught-on-first-attempt-during-flight-test",
+    "https://www.space.com/spacex-starship-super-heavy-chopsticks-catch-near-abort"
+  ],
+  "searchQueries": [
+    "first Starship catch attempt launch Pad A booster catch tower A ship catch tower B SpaceX official flight plan"
+  ],
+  "raw": "{\"yes_probability\": 0.3, \"confidence\": \"medium\", \"short_reason\": \"SpaceX has not announced plans for a ship catch using tower B.\", \"key_evidence\": [\"SpaceX has not announced plans for a ship catch using tower B.\", \"SpaceX has not announced plans for a ship catch using tower B.\", \"SpaceX has not announced plans for a ship catch using tower B.\"], \"source_urls\": []}"
+}

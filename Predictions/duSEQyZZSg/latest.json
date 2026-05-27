@@ -1,0 +1,34 @@
+{
+  "id": "duSEQyZZSg",
+  "question": "BLS pauses monthly job report by June 2026?",
+  "marketUrl": "https://manifold.markets/AffineTyped/bls-pauses-monthly-job-report-by-ju",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "E.J.",
+  "evidence": [
+    "E.J. Antoni suggested suspending monthly jobs reports in August 2025 due to data accuracy concerns.",
+    "His nomination was withdrawn in October 2025, removing the proposal from consideration.",
+    "No subsequent actions or proposals have been reported regarding suspending monthly jobs reports."
+  ],
+  "sources": [
+    "https://www.cbsnews.com/amp/news/ej-antoni-bureau-of-labor-statistics-nomination-withdrawn/",
+    "https://www.washingtonpost.com/business/2025/08/12/bls-antoni-suspend-jobs-report/",
+    "https://www.foxbusiness.com/politics/trumps-bls-pick-could-pause-monthly-jobs-report-over-accuracy-concerns",
+    "https://www.foxbusiness.com/economy/treasurys-bessent-says-he-doesnt-support-suspending-monthly-jobs-reports",
+    "https://www.wesh.com/article/ej-antoni-bls-monthly-jobs-report-revisions/65666265",
+    "https://www.cbsnews.com/amp/news/trump-bls-nominee-e-j-antoni-suspending-monthly-jobs-report/",
+    "https://manifold.markets/AffineTyped/bls-pauses-monthly-job-report-by-ju",
+    "https://fortune.com/2025/08/12/trump-bls-jobs-report-suspended-antoni-fox-business/"
+  ],
+  "searchQueries": [
+    "E.J. Antoni Bureau of Labor Statistics pause monthly jobs report 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"E.J. Antoni's nomination to lead BLS was withdrawn in October 2025, ending the proposal to suspend monthly jobs reports.\", \"key_evidence\": [\"E.J. Antoni suggested suspending monthly jobs reports in August 2025 due to data accuracy concerns.\", \"His nomination was withdrawn in October 2025, removing the proposal from consideration.\", \"No subsequent actions or proposals have been reported regarding suspending monthly jobs reports.\"], \"source_urls\": [\"https://www.cbsnews.com/amp/news/ej-antoni-bureau-of-labor-statistics-nomination-withdrawn/\"]}"
+}

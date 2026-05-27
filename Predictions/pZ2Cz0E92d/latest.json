@@ -1,0 +1,34 @@
+{
+  "id": "pZ2Cz0E92d",
+  "question": "Will I be promoted to Mana Gold by 12 am May 31, 2026?",
+  "marketUrl": "https://manifold.markets/SamwiseGamgee/will-i-be-promoted-to-mana-gold-by",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Promotion requirements are stringent and time is limited.",
+  "evidence": [
+    "Promotion requires a single deposit of at least $1,000 and trading 18 lots for Classic accounts or 30 lots for ECN accounts.",
+    "The promotion period runs from January 1 to December 31, 2026.",
+    "The promotion is available to clients from permitted countries."
+  ],
+  "sources": [
+    "https://www.forexpenguin.com/press-release/wegolden-introduces-300-gold-trading-deposit-bonus-for-xauusd-traders-in-2026/",
+    "https://www.forexpenguin.com/press-release/bcr-launches-may-2026-gold-rewards-trading-promotion-for-bvi-mt5-clients/",
+    "https://www.forexpenguin.com/press-release/trade-for-gold-bcr-unveils-horse-gold-giveaway-with-exclusive-mt5-rewards/",
+    "https://www.forexpenguin.com/press-release/trade-gold-earn-real-gold-mega-fusion-launches-exclusive-vip-reward-promotion/",
+    "https://www.forexpenguin.com/press-release/celebrate-chinese-new-year-with-guaranteed-1g-gold-from-phillip-nova/",
+    "https://www.bluebirdgroup.com/promo/bmsgold2026?lang=en",
+    "https://www.mana.app/mana-lite",
+    "https://www.utspay.com/vantage-markets-promotion-lucky-draw-2026-cashback-utspay/"
+  ],
+  "searchQueries": [
+    "Mana Gold promotion requirements 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Promotion requirements are stringent and time is limited.\", \"key_evidence\": [\"Promotion requires a single deposit of at least $1,000 and trading 18 lots for Classic accounts or 30 lots for ECN accounts.\", \"The promotion period runs from January 1 to December 31, 2026.\", \"The promotion is available to clients from permitted countries.\"], \"source_urls\": [\"https://www.forexpenguin.com/press-release/wegolden-introduces-300-gold-trading-deposit-bonus-for-xauusd-traders-in-2026/\"]}"
+}

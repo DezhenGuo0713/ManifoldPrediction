@@ -1,0 +1,34 @@
+{
+  "id": "UnZRnsSlSt",
+  "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-the-oklahoma-city-thunder-win-CQROclySl8",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T18:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.75,
+  "noProbability": 0.25,
+  "confidence": "high",
+  "reason": "Thunder lead Western Conference Finals 2-1, Shai Gilgeous-Alexander's MVP performance, strong team depth.",
+  "evidence": [
+    "Thunder lead Western Conference Finals 2-1 against Spurs.",
+    "Shai Gilgeous-Alexander named 2024-25 NBA MVP.",
+    "Thunder's bench contributed significantly in recent playoff games."
+  ],
+  "sources": [
+    "https://elpais.com/deportes/baloncesto/2026-05-23/los-thunder-restauran-el-orden-en-la-casa-de-wembanyama-y-se-adelantan-en-la-final-del-oeste.html",
+    "https://en.wikipedia.org/wiki/Oklahoma_City_Thunder",
+    "https://en.wikipedia.org/wiki/2026_NBA_playoffs",
+    "https://www.sportsbookreview.com/picks/nba/finals-odds-april-2026/",
+    "https://www.sportsbookreview.com//picks/nba//finals-odds/",
+    "https://news.bet365.com/en-us/article/2026-nba-finals-odds/2026041416211223827",
+    "https://www.covers.com/nba/finals/odds",
+    "https://www.covers.com/industry/nba-finals-odds-update-thunder-lead-knicks-biggest-winner-of-playoffs-so-far-may-4-2026"
+  ],
+  "searchQueries": [
+    "Oklahoma City Thunder NBA Finals 2026 odds team strength key players recent performance"
+  ],
+  "raw": "{\"yes_probability\": 0.75, \"confidence\": \"high\", \"short_reason\": \"Thunder lead Western Conference Finals 2-1, Shai Gilgeous-Alexander's MVP performance, strong team depth.\", \"key_evidence\": [\"Thunder lead Western Conference Finals 2-1 against Spurs.\", \"Shai Gilgeous-Alexander named 2024-25 NBA MVP.\", \"Thunder's bench contributed significantly in recent playoff games.\"], \"source_urls\": [\"https://elpais.com/deportes/baloncesto/2026-05-23/los-thunder-restauran-el-orden-en-la-casa-de-wembanyama-y-se-adelantan-en-la-final-del-oeste.html\", \"https://en.wikipedia.org/wiki/Oklahoma_City_Thunder\", \"https://en.wikipedia.org/wiki/2026_NBA_playoffs\"]}"
+}

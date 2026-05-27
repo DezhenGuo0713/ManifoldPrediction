@@ -1,0 +1,34 @@
+{
+  "id": "qUddA2t00u",
+  "question": "S&P 500 reaches 7600 in May?",
+  "marketUrl": "https://manifold.markets/jim/sp-500-reaches-7600-in-may",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "S&P 500 reached 7,519.12 on May 26, 2026, far below 7,600.",
+  "evidence": [
+    "S&P 500 closed at 7,519.12 on May 26, 2026.",
+    "S&P 500 closed at 7,445.72 on May 21, 2026.",
+    "S&P 500 closed at 7,432.97 on May 20, 2026."
+  ],
+  "sources": [
+    "https://www.spglobal.com/spdji/en/indices/equity/sp-500/",
+    "https://www.investing.com/indices/us-spx-500-historical-data",
+    "https://govspending.org/series/SP500/",
+    "https://ycharts.com/indicators/sandp_500",
+    "https://za.investing.com/indices/us-spx-500-historical-data",
+    "https://ca.investing.com/indices/us-spx-500-historical-data",
+    "https://www.statmuse.com/money/ask/s-and-p-500-chart-2026-year-to-date",
+    "https://www.statmuse.com/money/ask/current-price-of-sandp-500"
+  ],
+  "searchQueries": [
+    "S&P 500 current level May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"S&P 500 reached 7,519.12 on May 26, 2026, far below 7,600.\", \"key_evidence\": [\"S&P 500 closed at 7,519.12 on May 26, 2026.\", \"S&P 500 closed at 7,445.72 on May 21, 2026.\", \"S&P 500 closed at 7,432.97 on May 20, 2026.\"], \"source_urls\": [\"https://www.spglobal.com/spdji/en/indices/equity/sp-500/\", \"https://www.investing.com/indices/us-spx-500-historical-data\"]}"
+}

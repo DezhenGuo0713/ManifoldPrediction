@@ -1,0 +1,37 @@
+{
+  "id": "ds2yC0gOSR",
+  "question": "Will Claude Code be available on the Pro plan on June 1?",
+  "marketUrl": "https://manifold.markets/Interrobang/will-claude-code-be-available-on-th",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Anthropic removed Claude Code from Pro plan in April 2026; no evidence of reinstatement by June 1.",
+  "evidence": [
+    "Anthropic removed Claude Code from Pro plan in April 2026; no evidence of reinstatement by June 1.",
+    "Anthropic tested removing Claude Code from Pro plan in April 2026.",
+    "Anthropic's head of growth, Amol Avasare, clarified that the removal was a 'small test on ~2% of new prosumer signups.'",
+    "Anthropic's pricing page was updated to reflect that Claude Code is not supported in the Pro plan.",
+    "Existing subscribers retained access to Claude Code, but new subscribers were unable to access it.",
+    "No official announcements indicate that Claude Code will be reinstated on the Pro plan by June 1, 2026."
+  ],
+  "sources": [
+    "https://arstechnica.com/ai/2026/04/anthropic-tested-removing-claude-code-from-the-pro-plan/",
+    "https://www.redpacketsecurity.com/anthropic-tests-how-devs-react-to-yanking-claude-code-from-pro-plan/",
+    "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
+    "https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan",
+    "https://support.claude.com/en/articles/11049762-choosing-a-claude-ai-plan",
+    "https://support.claude.com/en/articles/11049762-choosing-a-claude-plan/",
+    "https://support.claude.com/en/articles/12138966-release-notes",
+    "https://manifold.markets/Interrobang/will-claude-code-be-available-on-th"
+  ],
+  "searchQueries": [
+    "Claude Code availability on Pro plan June 1 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Anthropic removed Claude Code from Pro plan in April 2026; no evidence of reinstatement by June 1.\", \"key_evidence\": [\"Anthropic removed Claude Code from Pro plan in April 2026; no evidence of reinstatement by June 1.\", \"Anthropic tested removing Claude Code from Pro plan in April 2026.\", \"Anthropic's head of growth, Amol Avasare, clarified that the removal was a 'small test on ~2% of new prosumer signups.'\", \"Anthropic's pricing page was updated to reflect that Claude Code is not supported in the Pro plan.\", \"Existing subscribers retained access to Claude Code, but new subscribers were unable to access it.\", \"No official announcements indicate that Claude Code will be reinstated on the Pro plan by June 1, 2026.\"], \"source_urls\": [\"https://arstechnica.com/ai/2026/04/anthropic-tested-removing-claude-code-from-the-pro-plan/\", \"https://www.redpacketsecurity.com/anthropic-tests-how-devs-react-to-yanking-claude-code-from-pro-plan/\"]}"
+}

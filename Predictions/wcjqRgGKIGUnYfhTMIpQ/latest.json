@@ -1,0 +1,34 @@
+{
+  "id": "wcjqRgGKIGUnYfhTMIpQ",
+  "question": "Will we have a popular LLM fine-tuned on people's personal texts by June 1, 2026?",
+  "marketUrl": "https://manifold.markets/_deleted_/will-we-have-a-popular-llm-finetune-5ca89a8e945a",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T02:29:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "low",
+  "reason": "No evidence of a popular LLM fine-tuned on personal texts with 20 million+ users by June 1, 2026.",
+  "evidence": [
+    "Microsoft Research's 2026 study found that current LLM-based individual simulation methods do not pass the Individual Turing Test, indicating limitations in fine-tuning LLMs on personal data. ([microsoft.com](https://www.microsoft.com/en-us/research/publication/individual-turing-test-a-case-study-of-llm-based-simulation-using-longitudinal-personal-data/?utm_source=openai))",
+    "OpenAI's 2026 fine-tuning guide emphasizes that fine-tuning is not always the best solution, suggesting that better prompt engineering or retrieval-augmented generation (RAG) may be more effective in many cases. ([respan.ai](https://www.respan.ai/articles/openai-fine-tuning-guide?utm_source=openai))",
+    "As of May 2026, there is no publicly available information about an LLM fine-tuned on personal texts achieving 20 million+ users."
+  ],
+  "sources": [
+    "https://www.microsoft.com/en-us/research/publication/individual-turing-test-a-case-study-of-llm-based-simulation-using-longitudinal-personal-data/",
+    "https://www.respan.ai/articles/openai-fine-tuning-guide",
+    "https://beltsys.com/en/blog/llm-fine-tuning-complete-guide/",
+    "https://learn.ryzlabs.com/llm-development/best-open-source-llms-for-fine-tuning-in-2026",
+    "https://tokenmix.ai/blog/ai-model-fine-tuning-guide",
+    "https://www.turing.com/resources/finetuning-large-language-models",
+    "https://www.turing.com/resources/data-collection-methods-and-tools-for-llms",
+    "https://www.computerworld.com/article/4131253/researchers-propose-a-self-distillation-fix-for-catastrophic-forgetting-in-llms-2.html"
+  ],
+  "searchQueries": [
+    "LLM fine-tuned on people's personal texts popular 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"low\", \"short_reason\": \"No evidence of a popular LLM fine-tuned on personal texts with 20 million+ users by June 1, 2026.\", \"key_evidence\": [\"Microsoft Research's 2026 study found that current LLM-based individual simulation methods do not pass the Individual Turing Test, indicating limitations in fine-tuning LLMs on personal data. ([microsoft.com](https://www.microsoft.com/en-us/research/publication/individual-turing-test-a-case-study-of-llm-based-simulation-using-longitudinal-personal-data/?utm_source=openai))\", \"OpenAI's 2026 fine-tuning guide emphasizes that fine-tuning is not always the best solution, suggesting that better prompt engineering or retrieval-augmented generation (RAG) may be more effective in many cases. ([respan.ai](https://www.respan.ai/articles/openai-fine-tuning-guide?utm_source=openai))\", \"As of May 2026, there is no publicly available information about an LLM fine-tuned on personal texts achieving 20 million+ users.\"], \"source_urls\": [\"https://www.microsoft.com/en-us/research/publication/individual-turing-test-a-case-study-of-llm-based-simulation-using-longitudinal-personal-data/\", \"https://www.respan.ai/articles/openai-fine-tuning-guide\", \"\"]}"
+}

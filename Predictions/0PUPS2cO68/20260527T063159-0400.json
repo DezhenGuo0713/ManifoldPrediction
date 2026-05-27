@@ -1,0 +1,19 @@
+{
+  "id": "0PUPS2cO68",
+  "question": "Oklahoma City Thunder vs San Antonio Spurs, game 5 May 26th",
+  "marketUrl": "https://manifold.markets/Mochi/oklahoma-city-thunder-vs-san-antoni-CAI9nh99hh",
+  "status": "closed",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-26T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": null,
+  "noProbability": null,
+  "confidence": "",
+  "reason": "Market closed. No prediction generated.",
+  "evidence": [],
+  "sources": [],
+  "searchQueries": [],
+  "raw": "{\"status\": \"closed\", \"closed_at\": \"2026-05-26T19:59:00-04:00\"}"
+}

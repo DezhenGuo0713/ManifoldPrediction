@@ -1,0 +1,35 @@
+{
+  "id": "sSN282z2pQ",
+  "question": "China uses military force to take Taiwan by July 1, 2026",
+  "marketUrl": "https://manifold.markets/DrewReynolds/china-uses-military-force-to-take-t",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "China's recent military activities near Taiwan are likely posturing rather than preparation for invasion.",
+  "evidence": [
+    "China has conducted multiple 'joint combat readiness patrols' near Taiwan without initiating conflict.",
+    "U.S. intelligence reports indicate China does not plan to invade Taiwan in 2027.",
+    "Taiwan's Deputy Foreign Minister emphasizes Taiwan's critical role and sovereignty, suggesting no imminent threat.",
+    "President Trump's recent visit to China focused on economic and trade relations, not military matters."
+  ],
+  "sources": [
+    "https://www.aljazeera.com/news/2026/5/26/taiwan-monitors-unprovoked-chinese-combat-patrol-near-island",
+    "https://news.usni.org/2026/03/19/china-not-committed-to-2027-taiwan-invasion-u-s-intel-report-says",
+    "https://www.lemonde.fr/en/international/article/2026/05/03/taiwan-has-become-essential-for-the-world-s-future-says-francois-wu-deputy-foreign-minister_6753086_4.html",
+    "https://www.whitehouse.gov/fact-sheets/2026/01/fact-sheet-president-donald-j-trump-takes-action-on-certain-advanced-computing-chips-to-protect-americas-economic-and-national-security/",
+    "https://www.whitehouse.gov/fact-sheets/2025/11/fact-sheet-president-donald-j-trump-strikes-deal-on-economic-and-trade-relations-with-china/",
+    "https://www.whitehouse.gov/articles/2025/03/another-historic-investment-secured-under-president-trump/",
+    "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-over-taiwan",
+    "https://www.cfr.org/articles/china-in-the-indo-pacific-january-2026"
+  ],
+  "searchQueries": [
+    "China Taiwan military conflict 2026 latest news"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"China's recent military activities near Taiwan are likely posturing rather than preparation for invasion.\", \"key_evidence\": [\"China has conducted multiple 'joint combat readiness patrols' near Taiwan without initiating conflict.\", \"U.S. intelligence reports indicate China does not plan to invade Taiwan in 2027.\", \"Taiwan's Deputy Foreign Minister emphasizes Taiwan's critical role and sovereignty, suggesting no imminent threat.\", \"President Trump's recent visit to China focused on economic and trade relations, not military matters.\"], \"source_urls\": [\"https://www.aljazeera.com/news/2026/5/26/taiwan-monitors-unprovoked-chinese-combat-patrol-near-island\", \"https://news.usni.org/2026/03/19/china-not-committed-to-2027-taiwan-invasion-u-s-intel-report-says\", \"https://www.lemonde.fr/en/international/article/2026/05/03/taiwan-has-become-essential-for-the-world-s-future-says-francois-wu-deputy-foreign-minister_6753086_4.html\"]}"
+}

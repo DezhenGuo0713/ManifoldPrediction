@@ -1,0 +1,34 @@
+{
+  "id": "ZQL0tCgd5Q",
+  "question": "Will I qualify for at least one international olympiad?",
+  "marketUrl": "https://manifold.markets/WLJessica/will-i-qualify-for-at-least-one-int",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-28T08:53:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.8,
+  "noProbability": 0.2,
+  "confidence": "high",
+  "reason": "Your exceptional qualifications and strengths significantly enhance your chances of qualifying for at least one international olympiad.",
+  "evidence": [
+    "Your SAT score of 1600 places you in the top 0.02% of all participants, indicating strong academic aptitude.",
+    "Your previous experience includes qualifying once and making the final selection three times, demonstrating consistent high-level performance.",
+    "Your strength in solving problems, coupled with effective time management strategies, positions you well for success in competitive settings."
+  ],
+  "sources": [
+    "https://imo-official.org/year_statistics.aspx?language=en&year=2024",
+    "https://imo-official.org/year_statistics.aspx?year=2024",
+    "https://www2.imo-official.org/results_year.aspx",
+    "https://www.app.imo-official.org/year_info.aspx?year=2023",
+    "https://imo-official.org/year_statistics.aspx?year=2023",
+    "https://www.imo-official.org/year_statistics.aspx?year=2024",
+    "https://www.imo-official.org/results_year.aspx?column=awards&order=desc",
+    "https://olympiads.imo-official.org/year_statistics.aspx?year=2025"
+  ],
+  "searchQueries": [
+    "international olympiad qualification statistics 2023 2024"
+  ],
+  "raw": "{\"yes_probability\": 0.8, \"confidence\": \"high\", \"short_reason\": \"Your exceptional qualifications and strengths significantly enhance your chances of qualifying for at least one international olympiad.\", \"key_evidence\": [\"Your SAT score of 1600 places you in the top 0.02% of all participants, indicating strong academic aptitude.\", \"Your previous experience includes qualifying once and making the final selection three times, demonstrating consistent high-level performance.\", \"Your strength in solving problems, coupled with effective time management strategies, positions you well for success in competitive settings.\"], \"source_urls\": []}"
+}

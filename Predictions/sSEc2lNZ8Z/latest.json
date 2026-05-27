@@ -1,0 +1,34 @@
+{
+  "id": "sSEc2lNZ8Z",
+  "question": "The US takes Military Action against Cuba by end of May 2026",
+  "marketUrl": "https://manifold.markets/SG2pSQ/the-us-takes-military-action-agains",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Despite escalating tensions, U.S.",
+  "evidence": [
+    "U.S. military not preparing for Cuba invasion, senior U.S. general says ([theguardian.com](https://www.theguardian.com/us-news/2026/mar/19/us-military-not-invading-cuba-trump?utm_source=openai))",
+    "U.S. isn't looking at imminent military action in Cuba despite Trump threats, AP sources say ([washingtonpost.com](https://www.washingtonpost.com/politics/2026/05/07/cuba-trump-rubio-energy-blockade/fc184620-4a5b-11f1-a119-857cd2bf4fd4_story.html?utm_source=openai))",
+    "U.S. intel community analyzing how Cuba might respond to military action ([cbsnews.com](https://www.cbsnews.com/amp/news/u-s-intel-community-analyzing-how-cuba-might-respond-to-military-action/?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.theguardian.com/us-news/2026/mar/19/us-military-not-invading-cuba-trump",
+    "https://www.washingtonpost.com/politics/2026/05/07/cuba-trump-rubio-energy-blockade/fc184620-4a5b-11f1-a119-857cd2bf4fd4_story.html",
+    "https://www.cbsnews.com/amp/news/u-s-intel-community-analyzing-how-cuba-might-respond-to-military-action/",
+    "https://www.aljazeera.com/amp/news/2026/5/22/us-raises-threat-of-military-action-against-cuba",
+    "https://www.aljazeera.com/amp/news/2026/4/29/us-senate-blocks-bid-to-stop-trump-using-military-against-cuba",
+    "https://www.axios.com/2026/05/17/us-military-drones-cuba",
+    "https://www.nwpb.org/npr-top-stories/2026-05-21/rubio-doubtful-of-diplomacy-with-cuba-as-trump-raises-new-threat-of-military-action",
+    "https://abcnews.com/US/wireStory/rubio-doubtful-diplomacy-cuba-trump-raises-new-threat-133198607"
+  ],
+  "searchQueries": [
+    "US military action Cuba May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Despite escalating tensions, U.S. officials indicate no imminent military action against Cuba.\", \"key_evidence\": [\"U.S. military not preparing for Cuba invasion, senior U.S. general says ([theguardian.com](https://www.theguardian.com/us-news/2026/mar/19/us-military-not-invading-cuba-trump?utm_source=openai))\", \"U.S. isn't looking at imminent military action in Cuba despite Trump threats, AP sources say ([washingtonpost.com](https://www.washingtonpost.com/politics/2026/05/07/cuba-trump-rubio-energy-blockade/fc184620-4a5b-11f1-a119-857cd2bf4fd4_story.html?utm_source=openai))\", \"U.S. intel community analyzing how Cuba might respond to military action ([cbsnews.com](https://www.cbsnews.com/amp/news/u-s-intel-community-analyzing-how-cuba-might-respond-to-military-action/?utm_source=openai))\"], \"source_urls\": [\"https://www.theguardian.com/us-news/2026/mar/19/us-military-not-invading-cuba-trump\", \"https://www.washingtonpost.com/politics/2026/05/07/cuba-trump-rubio-energy-blockade/fc184620-4a5b-11f1-a119-857cd2bf4fd4_story.html\", \"https://www.cbsnews.com/amp/news/u-s-intel-community-analyzing-how-cuba-might-respond-to-military-action/\"]}"
+}

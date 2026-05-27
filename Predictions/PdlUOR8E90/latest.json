@@ -1,0 +1,34 @@
+{
+  "id": "PdlUOR8E90",
+  "question": "Will the US and Iran reach a formal nuclear deal framework by July 1, 2026?",
+  "marketUrl": "https://manifold.markets/ExcuseMeSir/will-the-us-and-iran-reach-a-formal",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.7,
+  "noProbability": 0.3,
+  "confidence": "medium",
+  "reason": "Recent reports indicate U.S.",
+  "evidence": [
+    "President Trump announced on May 23, 2026, that a deal to end the war with Iran would be finalized 'shortly,' with final negotiations underway. ([axios.com](https://www.axios.com/2026/05/23/us-iran-trump-deal-war?utm_source=openai))",
+    "A draft memorandum of understanding under discussion between Iran and the United States includes a 60-day ceasefire extension, reopening the Strait of Hormuz, and mechanisms for disposing of Iran's highly enriched uranium stockpile. ([iranintl.com](https://www.iranintl.com/en/202605259647?utm_source=openai))",
+    "The U.S. and Iran are reportedly close to reaching a significant diplomatic breakthrough, negotiating a one-page, 14-point memorandum of understanding that could end ongoing conflict and serve as a foundation for more detailed nuclear discussions. ([axios.com](https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.axios.com/2026/05/23/us-iran-trump-deal-war",
+    "https://www.iranintl.com/en/202605259647",
+    "https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo",
+    "https://www.investing.com/analysis/markets-shift-focus-to-usiran-deal-framework-as-risks-evolve-200679782",
+    "https://gulfnews.com/world/mena/tehrans-3-red-lines-deal-attainable-in-fresh-iran-us-nuclear-talks-1.500456031",
+    "https://news.usni.org/2026/02/16/report-to-congress-on-iranian-nuclear-programs",
+    "https://www.washingtonpost.com/world/2026/05/24/us-iran-near-deal-extend-ceasefire-reopen-hormuz/",
+    "https://www.washingtonpost.com/national-security/2026/02/25/iran-us-nuclear-negotiations-geneva/"
+  ],
+  "searchQueries": [
+    "US Iran nuclear deal framework 2026 official announcement"
+  ],
+  "raw": "{\"yes_probability\": 0.7, \"confidence\": \"medium\", \"short_reason\": \"Recent reports indicate U.S. and Iran nearing a formal nuclear deal framework by July 1, 2026.\", \"key_evidence\": [\"President Trump announced on May 23, 2026, that a deal to end the war with Iran would be finalized 'shortly,' with final negotiations underway. ([axios.com](https://www.axios.com/2026/05/23/us-iran-trump-deal-war?utm_source=openai))\", \"A draft memorandum of understanding under discussion between Iran and the United States includes a 60-day ceasefire extension, reopening the Strait of Hormuz, and mechanisms for disposing of Iran's highly enriched uranium stockpile. ([iranintl.com](https://www.iranintl.com/en/202605259647?utm_source=openai))\", \"The U.S. and Iran are reportedly close to reaching a significant diplomatic breakthrough, negotiating a one-page, 14-point memorandum of understanding that could end ongoing conflict and serve as a foundation for more detailed nuclear discussions. ([axios.com](https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo?utm_source=openai))\"], \"source_urls\": [\"https://www.axios.com/2026/05/23/us-iran-trump-deal-war\", \"https://www.iranintl.com/en/202605259647\", \"https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo\"]}"
+}

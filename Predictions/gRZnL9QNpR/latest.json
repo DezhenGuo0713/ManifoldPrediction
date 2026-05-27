@@ -1,0 +1,39 @@
+{
+  "id": "gRZnL9QNpR",
+  "question": "Will the US attack Iran's infrastructure before June 1st?",
+  "marketUrl": "https://manifold.markets/Jo2e2b/will-the-us-attack-irans-infrastruc",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "U.S.",
+  "evidence": [
+    "U.S. military conducted airstrikes in southern Iran on May 25, 2026, targeting missile sites and boats.",
+    "Iran condemned the U.S. strikes as a display of 'bad faith' amid ongoing negotiations.",
+    "Diplomatic talks are ongoing, with Pakistan's Field Marshal Asim Munir in Tehran to mediate a peace deal.",
+    "President Trump postponed a planned military strike on Iran at the request of Gulf allies.",
+    "The U.S. military conducted 'self-defense' strikes in southern Iran on May 25, 2026, targeting missile launch sites and boats.",
+    "Iran condemned the U.S. airstrikes as a violation of good faith amid ongoing negotiations.",
+    "Diplomatic talks are ongoing, with Pakistan's Field Marshal Asim Munir in Tehran to mediate a peace deal.",
+    "President Trump postponed a planned military strike on Iran at the request of Gulf allies."
+  ],
+  "sources": [
+    "https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c",
+    "https://apnews.com/article/183cec1109442e17c84b403091381f97",
+    "https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b",
+    "https://www.axios.com/2026/05/22/trump-iran-meeting-resume-war-deal",
+    "https://www.axios.com/2026/05/22/pakistan-munir-iran-deal-trump",
+    "https://www.investing.com/news/world-news/us-carries-out-retaliatory-strikes-against-iran-us-military-says-4670305",
+    "https://www.investing.com/news/commodities-news/us-forces-ready-to-restart-combat-if-iran-doesnt-agree-a-deal-says-hegseth-4618091",
+    "https://www.al-monitor.com/originals/2026/05/us-military-says-it-carried-out-retaliatory-strikes-against-iran"
+  ],
+  "searchQueries": [
+    "US Iran tensions military strike infrastructure May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"U.S. military conducted airstrikes in southern Iran on May 25, 2026, targeting missile sites and boats.\", \"key_evidence\": [\"U.S. military conducted airstrikes in southern Iran on May 25, 2026, targeting missile sites and boats.\", \"Iran condemned the U.S. strikes as a display of 'bad faith' amid ongoing negotiations.\", \"Diplomatic talks are ongoing, with Pakistan's Field Marshal Asim Munir in Tehran to mediate a peace deal.\", \"President Trump postponed a planned military strike on Iran at the request of Gulf allies.\", \"The U.S. military conducted 'self-defense' strikes in southern Iran on May 25, 2026, targeting missile launch sites and boats.\", \"Iran condemned the U.S. airstrikes as a violation of good faith amid ongoing negotiations.\", \"Diplomatic talks are ongoing, with Pakistan's Field Marshal Asim Munir in Tehran to mediate a peace deal.\", \"President Trump postponed a planned military strike on Iran at the request of Gulf allies.\"], \"source_urls\": [\"https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c\", \"https://apnews.com/article/183cec1109442e17c84b403091381f97\", \"https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b\", \"https://www.axios.com/2026/05/22/trump-iran-meeting-resume-war-deal\", \"https://www.axios.com/2026/05/22/pakistan-munir-iran-deal-trump\"]}"
+}

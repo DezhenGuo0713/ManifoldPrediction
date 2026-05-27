@@ -1,0 +1,34 @@
+{
+  "id": "99gszRZN58",
+  "question": "Was playing in Rome a bad idea for Sinner in terms of his chances at the French Open?",
+  "marketUrl": "https://manifold.markets/StanDolafel/was-playing-in-rome-a-bad-idea-for",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-07T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Sinner's minimal rest after Italian Open raises concerns about potential fatigue affecting French Open performance.",
+  "evidence": [
+    "Sinner plans minimal tennis work over the next few days, focusing on rest and family time.",
+    "Tournament director Angelo Binaghi expressed concerns about Sinner's physical condition due to his hectic schedule.",
+    "Sinner's 29-match winning streak and recent titles indicate strong form, but recovery time is limited."
+  ],
+  "sources": [
+    "https://www.rolandgarros.com/en-us/article/2026-edition-positivity-recharging-sinner-upon-special-return",
+    "https://www.tennis365.com/news/worrying-update-emerges-on-jannik-sinners-physical-condition-ahead-of-roland-garros",
+    "https://www.rolandgarros.com/fr-fr/article/jannik-sinner-media-day-2026-interview-simple-messieurs-souvenirs-forme-physique",
+    "https://thesportstak.com/amp/football/story/jannik-sinners-priority-is-clear-ahead-of-french-open-2026-3257215-2026-05-18",
+    "https://www.straitstimes.com/sport/tennis/irrepressible-jannik-sinner-primed-for-career-grand-slam-at-roland-garros",
+    "https://www.livetennis.com/tournaments/french-open-roland-garros/french-open-2026-preview",
+    "https://lastwordonsports.com/tennis/2026/05/26/jannik-sinner-wont-win-french-open/",
+    "https://www.obnews.co/Index/newsDetail/id/15235036.html?ch=transsion&val=8d0f66edb57e7efd327c82b389335fd6"
+  ],
+  "searchQueries": [
+    "Jannik Sinner performance and condition after Italian Open 2026 before French Open Roland Garros"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Sinner's minimal rest after Italian Open raises concerns about potential fatigue affecting French Open performance.\", \"key_evidence\": [\"Sinner plans minimal tennis work over the next few days, focusing on rest and family time.\", \"Tournament director Angelo Binaghi expressed concerns about Sinner's physical condition due to his hectic schedule.\", \"Sinner's 29-match winning streak and recent titles indicate strong form, but recovery time is limited.\"], \"source_urls\": [\"https://www.rolandgarros.com/en-us/article/2026-edition-positivity-recharging-sinner-upon-special-return\", \"https://www.tennis365.com/news/worrying-update-emerges-on-jannik-sinners-physical-condition-ahead-of-roland-garros\"]}"
+}

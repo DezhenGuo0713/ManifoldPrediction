@@ -1,0 +1,38 @@
+{
+  "id": "ltnqy9ppt9",
+  "question": "Will Nickel price on the London Metal Exchange exceed 8500 USD/tonne on May 31, 2026?",
+  "marketUrl": "https://manifold.markets/CurtisSteele/will-nickel-price-on-the-london-met-0sCSPlCszc",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-30T20:04:33.462000-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.85,
+  "noProbability": 0.15,
+  "confidence": "high",
+  "reason": "Indonesia's significant nickel production cuts have led to a substantial market deficit, driving prices above $18,000 per tonne.",
+  "evidence": [
+    "Indonesia's 2026 nickel mining quota reduced by 34% to 250–260 million tonnes, causing global supply concerns.",
+    "LME nickel prices surged to a 1½-year high of $18,950 per tonne on January 29, 2026.",
+    "Analysts predict a 32,000-tonne deficit in 2026, the first since 2021, due to reduced Indonesian output.",
+    "Nickel prices have stabilized between $17,000 and $17,400 per tonne as markets adjust to tighter quotas.",
+    "Indonesia's policy shift aims to regulate supply volatility and support prices.",
+    "The International Nickel Study Group forecasts a 32,000-tonne deficit in 2026, the first since 2021.",
+    "Analysts predict a 32,000-tonne deficit in 2026, the first since 2021, due to reduced Indonesian output."
+  ],
+  "sources": [
+    "https://www.idnfinancials.com/jp/news/60514",
+    "https://www.spgplc.com/energy/en/news-research/latest-news/metals/122925-indonesia-navigates-nickel-market-with-output-cuts-policy-shifts",
+    "https://www.tacto.ai/en-us/commodities/nickel-price",
+    "https://www.lme.com/nickel",
+    "https://www.lme.com/en/Metals/Non-ferrous/LME-Nickel",
+    "https://www.lme.com/en/metals/non-ferrous/lme-nickel",
+    "https://www.lme.com/home",
+    "https://www.lme.com/home.aspx"
+  ],
+  "searchQueries": [
+    "nickel price forecast May 2026 London Metal Exchange"
+  ],
+  "raw": "{\"yes_probability\": 0.85, \"confidence\": \"high\", \"short_reason\": \"Indonesia's significant nickel production cuts have led to a substantial market deficit, driving prices above $18,000 per tonne.\", \"key_evidence\": [\"Indonesia's 2026 nickel mining quota reduced by 34% to 250–260 million tonnes, causing global supply concerns.\", \"LME nickel prices surged to a 1½-year high of $18,950 per tonne on January 29, 2026.\", \"Analysts predict a 32,000-tonne deficit in 2026, the first since 2021, due to reduced Indonesian output.\", \"Nickel prices have stabilized between $17,000 and $17,400 per tonne as markets adjust to tighter quotas.\", \"Indonesia's policy shift aims to regulate supply volatility and support prices.\", \"The International Nickel Study Group forecasts a 32,000-tonne deficit in 2026, the first since 2021.\", \"Analysts predict a 32,000-tonne deficit in 2026, the first since 2021, due to reduced Indonesian output.\"], \"source_urls\": [\"https://www.idnfinancials.com/jp/news/60514\", \"https://www.spgplc.com/energy/en/news-research/latest-news/metals/122925-indonesia-navigates-nickel-market-with-output-cuts-policy-shifts\", \"https://www.tacto.ai/en-us/commodities/nickel-price\"]}"
+}

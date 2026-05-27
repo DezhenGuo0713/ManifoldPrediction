@@ -1,0 +1,34 @@
+{
+  "id": "ERQONcsNt5",
+  "question": "Will Jinba Bowe tungsten export suspension impact on APT prices exceed 10 percent increase on May 31, 2026?",
+  "marketUrl": "https://manifold.markets/CurtisSteele/will-jinba-bowe-tungsten-export-sus-PIlQzQyl8R",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T14:07:10.743000-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.85,
+  "noProbability": 0.15,
+  "confidence": "high",
+  "reason": "Jinba Bowe's export suspension has significantly tightened global tungsten supply, leading to substantial price increases.",
+  "evidence": [
+    "China's export volume of tungsten has declined by nearly 40% year-on-year since the implementation of export controls in February 2025. ([investing.com](https://www.investing.com/news/stock-market-news/tungstenrises-to-record-highs-as-export-curbs-turn-up-supply-heat-4471841?utm_source=openai))",
+    "Ammonium paratungstate (APT) prices have surged from approximately $330 per metric ton unit (mtu) in December 2024 to around $2,050 per mtu by March 2026, reflecting a cumulative increase of over 520%. ([masanhightechmaterials.com](https://masanhightechmaterials.com/wp-content/uploads/2026/04/BCTC-TA-FINAL.pdf?utm_source=openai))",
+    "European APT prices have risen sharply, with reports indicating prices between $2,800 and $3,280 per mtu as of April 17, 2026, up 230.4% year-to-date. ([sct-usa.com](https://sct-usa.com/why-carbide-prices-are-rising?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.investing.com/news/stock-market-news/tungstenrises-to-record-highs-as-export-curbs-turn-up-supply-heat-4471841",
+    "https://masanhightechmaterials.com/wp-content/uploads/2026/04/BCTC-TA-FINAL.pdf",
+    "https://sct-usa.com/why-carbide-prices-are-rising",
+    "https://manifold.markets/CurtisSteele/will-the-apt-tungsten-price-exceed-tQUdgzOcRd",
+    "https://manifold.markets/CurtisSteele/will-the-apt-tungsten-price-exceed-Ic8ItI9tZR",
+    "https://manifold.markets/CurtisSteele/will-the-apt-tungsten-price-exceed-CZyn6Lyzsc",
+    "https://www.fhonk.com/news_detail/166.html",
+    "https://www.prnewswire.com/news-releases/apt-up-900-in-twelve-months-and-one-junior-has-a-past-producer-302777725.html"
+  ],
+  "searchQueries": [
+    "Jinba Bowe tungsten export suspension impact on APT prices May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.85, \"confidence\": \"high\", \"short_reason\": \"Jinba Bowe's export suspension has significantly tightened global tungsten supply, leading to substantial price increases.\", \"key_evidence\": [\"China's export volume of tungsten has declined by nearly 40% year-on-year since the implementation of export controls in February 2025. ([investing.com](https://www.investing.com/news/stock-market-news/tungstenrises-to-record-highs-as-export-curbs-turn-up-supply-heat-4471841?utm_source=openai))\", \"Ammonium paratungstate (APT) prices have surged from approximately $330 per metric ton unit (mtu) in December 2024 to around $2,050 per mtu by March 2026, reflecting a cumulative increase of over 520%. ([masanhightechmaterials.com](https://masanhightechmaterials.com/wp-content/uploads/2026/04/BCTC-TA-FINAL.pdf?utm_source=openai))\", \"European APT prices have risen sharply, with reports indicating prices between $2,800 and $3,280 per mtu as of April 17, 2026, up 230.4% year-to-date. ([sct-usa.com](https://sct-usa.com/why-carbide-prices-are-rising?utm_source=openai))\"], \"source_urls\": [\"https://www.investing.com/news/stock-market-news/tungstenrises-to-record-highs-as-export-curbs-turn-up-supply-heat-4471841\", \"https://masanhightechmaterials.com/wp-content/uploads/2026/04/BCTC-TA-FINAL.pdf\", \"https://sct-usa.com/why-carbide-prices-are-rising\"]}"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "zyqt6uttL5",
+  "question": "Anthropic 'falls behind' by July 2026?",
+  "marketUrl": "https://manifold.markets/satchljold/anthropic-falls-behind-by-july-2026",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Anthropic's recent AI model releases, including Claude Opus 4.7, demonstrate competitive performance.",
+  "evidence": [
+    "Claude Opus 4.7 released in April 2026, leading in agentic coding and financial analysis benchmarks.",
+    "Claude Sonnet 4.6, launched in February 2026, matches flagship models on office tasks and financial analysis.",
+    "Anthropic's projected Q2 revenues of $10.9 billion indicate strong market position.",
+    "Partnerships with major financial institutions and adoption of Model Context Protocol (MCP) enhance Anthropic's AI integration.",
+    "Claude Opus 4.6 achieves top scores on Terminal-Bench 2.0 and Humanity’s Last Exam, indicating high performance.",
+    "Claude Opus 4.6 features a 1 million token context window, enhancing its capabilities.",
+    "Claude Sonnet 4.6 offers near-Opus performance at a fifth of the price, broadening accessibility.",
+    "Claude Opus 4.6 leads on agentic coding, enterprise knowledge work, and long-context retrieval.",
+    "Claude Opus 4.6 holds the top Chatbot Arena ranking at roughly 1,496 Elo.",
+    "Claude Opus 4.6 is priced at $5 per million tokens, positioning it competitively in the market."
+  ],
+  "sources": [
+    "https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm",
+    "https://www.365i.co.uk/blog/2026/02/18/claude-sonnet-4-6-release-near-flagship-ai/",
+    "https://www.axios.com/2026/05/21/ai-news-cycle-openai-anthropic-spacex",
+    "https://www.axios.com/2026/05/21/google-ai-anthropic-openai-war",
+    "https://www.anthropic.com/news/claude-opus-4-6?_bhlid=b5216c6f82b9062ef05190f54a211db38cd69b43",
+    "https://www.macobserver.com/news/anthropic-releases-claude-opus-4-6-with-record-breaking-benchmarks/",
+    "https://awesomeagents.ai/models/claude-opus-4-6/",
+    "https://winbuzzer.com/2026/02/17/anthropic-claude-sonnet-4-6-flagship-performance-mid-tier-pricing-xcxwbn/"
+  ],
+  "searchQueries": [
+    "Anthropic AI model release performance 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Anthropic's recent AI model releases, including Claude Opus 4.7, demonstrate competitive performance.\", \"key_evidence\": [\"Claude Opus 4.7 released in April 2026, leading in agentic coding and financial analysis benchmarks.\", \"Claude Sonnet 4.6, launched in February 2026, matches flagship models on office tasks and financial analysis.\", \"Anthropic's projected Q2 revenues of $10.9 billion indicate strong market position.\", \"Partnerships with major financial institutions and adoption of Model Context Protocol (MCP) enhance Anthropic's AI integration.\", \"Claude Opus 4.6 achieves top scores on Terminal-Bench 2.0 and Humanity’s Last Exam, indicating high performance.\", \"Claude Opus 4.6 features a 1 million token context window, enhancing its capabilities.\", \"Claude Sonnet 4.6 offers near-Opus performance at a fifth of the price, broadening accessibility.\", \"Claude Opus 4.6 leads on agentic coding, enterprise knowledge work, and long-context retrieval.\", \"Claude Opus 4.6 holds the top Chatbot Arena ranking at roughly 1,496 Elo.\", \"Claude Opus 4.6 is priced at $5 per million tokens, positioning it competitively in the market.\"], \"source_urls\": [\"https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm\", \"https://www.365i.co.uk/blog/2026/02/18/claude-sonnet-4-6-release-near-flagship-ai/\", \"https://www.axios.com/2026/05/21/ai-news-cycle-openai-anthropic-spacex\", \"https://www.axios.com/2026/05/21/google-ai-anthropic-openai-war\", \"https://www.anthropic.com/news/claude-opus-4-6?_bhlid=b5216c6f82b9062ef05190f54a211db38cd69b43\", \"https://www.macobserver.com/news/anthropic-releases-claude-opus-4-6-with-record-breaking-benchmarks/\", \"https://www.365i.co.uk/blog/2026/02/18/claude-sonnet-4-6-release-near-flagship-ai/\", \"https://awesomeagents.ai/models/claude-opus-4-6/\"]}"
+}

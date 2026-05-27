@@ -1,0 +1,37 @@
+{
+  "id": "2h2nhqyQq0",
+  "question": "will there be a Substack TV app for Fire TV?",
+  "marketUrl": "https://manifold.markets/duck_master/will-there-be-a-substack-tv-app-for",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T00:28:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "low",
+  "reason": "No official Substack TV app for Fire TV has been announced or released as of May 27, 2026.",
+  "evidence": [
+    "Substack launched TV apps for Apple TV and Google TV on January 22, 2026, but no mention of Fire TV support.",
+    "No official announcements or news reports indicate plans for a Fire TV app.",
+    "The Substack TV app is currently in beta for Apple TV and Google TV.",
+    "Substack has not provided updates regarding a Fire TV app since the initial launch.",
+    "No information suggests that Substack is developing a Fire TV app.",
+    "The absence of a Fire TV app may be due to technical challenges or strategic decisions."
+  ],
+  "sources": [
+    "https://techcrunch.com/2026/01/22/substack-launches-a-tv-app/",
+    "https://9to5mac.com/2026/01/22/newsletter-platform-substack-now-has-an-apple-tv-app/",
+    "https://www.netinfluencer.com/substack-releases-tv-app-for-connected-television/",
+    "https://techcrunch.com/2023/08/21/amazon-launches-fire-tv-channels-app-400-fast-channels/",
+    "https://ppc.land/substack-launches-tv-apps-on-apple-and-google-platforms-escalating-video-expansion/",
+    "https://thedesk.net/2026/01/substack-launches-tv-app/",
+    "https://www.thewrap.com/media-platforms/journalism/substack-launches-tv-app/",
+    "https://www.spreekbuis.nl/substack-lanceert-tv-app/"
+  ],
+  "searchQueries": [
+    "Substack TV app Fire TV release date 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"low\", \"short_reason\": \"No official Substack TV app for Fire TV has been announced or released as of May 27, 2026.\", \"key_evidence\": [\"Substack launched TV apps for Apple TV and Google TV on January 22, 2026, but no mention of Fire TV support.\", \"No official announcements or news reports indicate plans for a Fire TV app.\", \"The Substack TV app is currently in beta for Apple TV and Google TV.\", \"Substack has not provided updates regarding a Fire TV app since the initial launch.\", \"No information suggests that Substack is developing a Fire TV app.\", \"The absence of a Fire TV app may be due to technical challenges or strategic decisions.\"], \"source_urls\": [\"https://techcrunch.com/2026/01/22/substack-launches-a-tv-app/\", \"https://9to5mac.com/2026/01/22/newsletter-platform-substack-now-has-an-apple-tv-app/\", \"https://www.netinfluencer.com/substack-releases-tv-app-for-connected-television/\"]}"
+}

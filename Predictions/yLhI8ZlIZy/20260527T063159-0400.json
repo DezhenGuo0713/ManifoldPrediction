@@ -1,0 +1,34 @@
+{
+  "id": "yLhI8ZlIZy",
+  "question": "Will the Narrows be hikeable on 2026/05/29?",
+  "marketUrl": "https://manifold.markets/arctangent/will-the-narrows-be-hikeable-on-202",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-28T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.9,
+  "noProbability": 0.1,
+  "confidence": "high",
+  "reason": "Recent data shows Virgin River flow at 51.5 cfs on May 7, 2026, well below 150 cfs threshold.",
+  "evidence": [
+    "Virgin River flow at 51.5 cfs on May 7, 2026, well below 150 cfs threshold.",
+    "Zion National Park anticipates high visitation and potential trail congestion during Memorial Day weekend.",
+    "No significant rainfall or snowmelt events reported in the area leading up to May 29, 2026."
+  ],
+  "sources": [
+    "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09405500",
+    "https://www.nps.gov/zion/learn/news/2026-05-21-memorial-day-weekend.htm",
+    "https://www.nps.gov/zion/planyourvisit/thenarrows.htm",
+    "https://home.nps.gov/zion/planyourvisit/thenarrows.htm",
+    "https://home.nps.gov/zion/planyourvisit/virgin-river-narrows-information.htm",
+    "https://home.nps.gov/zion/planyourvisit/conditions.htm",
+    "https://home.nps.gov/thingstodo/hike-the-narrows.htm",
+    "https://www.nps.gov/zion/planyourvisit/conditions.htm"
+  ],
+  "searchQueries": [
+    "Narrows hiking trail accessibility flooding May 2026 water flow USGS 09405500"
+  ],
+  "raw": "{\"yes_probability\": 0.9, \"confidence\": \"high\", \"short_reason\": \"Recent data shows Virgin River flow at 51.5 cfs on May 7, 2026, well below 150 cfs threshold.\", \"key_evidence\": [\"Virgin River flow at 51.5 cfs on May 7, 2026, well below 150 cfs threshold.\", \"Zion National Park anticipates high visitation and potential trail congestion during Memorial Day weekend.\", \"No significant rainfall or snowmelt events reported in the area leading up to May 29, 2026.\"], \"source_urls\": [\"https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09405500\", \"https://www.nps.gov/zion/learn/news/2026-05-21-memorial-day-weekend.htm\"]}"
+}

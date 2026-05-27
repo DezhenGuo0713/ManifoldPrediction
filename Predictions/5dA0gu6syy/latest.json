@@ -1,0 +1,33 @@
+{
+  "id": "5dA0gu6syy",
+  "question": "Will Anthropic make Claude Mythos broadly available before July 1, 2026?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-anthropic-make-claude-mythos-b",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Anthropic has not announced plans to make Claude Mythos broadly available before July 1, 2026.",
+  "evidence": [
+    "Anthropic's April 2026 announcement of Claude Mythos Preview indicates limited access, with no mention of broad availability plans. ([arstechnica.com](https://arstechnica.com/ai/2026/04/why-anthropic-sent-its-claude-ai-to-an-actual-psychiatrist/?utm_source=openai))",
+    "The May 2026 update on Project Glasswing highlights the use of Claude Mythos Preview by select partners, without indicating a broader release. ([anthropic.com](https://www.anthropic.com/research/glasswing-initial-update?vid=87&utm_source=openai))"
+  ],
+  "sources": [
+    "https://arstechnica.com/ai/2026/04/why-anthropic-sent-its-claude-ai-to-an-actual-psychiatrist/",
+    "https://www.anthropic.com/research/glasswing-initial-update?vid=87",
+    "https://red.anthropic.com/2026/cvd/",
+    "https://www.anthropic.com/news/claude-opus-4-7?_bhlid=ffe081823072bb7008d8b427d996d1c3c40954a1",
+    "https://www.anthropic.com/news/anthropic-amazon-compute?cam=claude",
+    "https://www.anthropic.com/engineering/how-we-contain-claude",
+    "https://www.anthropic.com/claude/opus",
+    "https://www.anthropic.com/news"
+  ],
+  "searchQueries": [
+    "Anthropic Claude Mythos broad availability July 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Anthropic has not announced plans to make Claude Mythos broadly available before July 1, 2026.\", \"key_evidence\": [\"Anthropic's April 2026 announcement of Claude Mythos Preview indicates limited access, with no mention of broad availability plans. ([arstechnica.com](https://arstechnica.com/ai/2026/04/why-anthropic-sent-its-claude-ai-to-an-actual-psychiatrist/?utm_source=openai))\", \"The May 2026 update on Project Glasswing highlights the use of Claude Mythos Preview by select partners, without indicating a broader release. ([anthropic.com](https://www.anthropic.com/research/glasswing-initial-update?vid=87&utm_source=openai))\"], \"source_urls\": [\"https://arstechnica.com/ai/2026/04/why-anthropic-sent-its-claude-ai-to-an-actual-psychiatrist/\", \"https://www.anthropic.com/research/glasswing-initial-update?vid=87\"]}"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "gEy6pqL02z",
+  "question": "Will the US lift its naval blockade of the Strait of Hormuz by May 31, 2026?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-the-us-lift-its-naval-blockade",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T18:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.3,
+  "noProbability": 0.7,
+  "confidence": "medium",
+  "reason": "U.S.",
+  "evidence": [
+    "Oil prices dropped by approximately $5 per barrel on Sunday evening following early signs of a possible U.S.-Iran peace deal aimed at ending their ongoing conflict. ([axios.com](https://www.axios.com/2026/05/24/oil-prices-iran-war-hormuz-strait-trump-tehran-peace-talks?utm_source=openai))",
+    "The Wall Street Journal criticized President Trump's handling of U.S.–Iran negotiations, particularly concerning the reopening of the Strait of Hormuz. ([thedailybeast.com](https://www.thedailybeast.com/murdoch-paper-wall-street-journal-sounds-alarm-on-who-really-holds-trump-card-in-iran-war/?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.axios.com/2026/05/24/oil-prices-iran-war-hormuz-strait-trump-tehran-peace-talks",
+    "https://www.thedailybeast.com/murdoch-paper-wall-street-journal-sounds-alarm-on-who-really-holds-trump-card-in-iran-war",
+    "https://www.fdd.org/analysis/2026/05/08/iran-attacks-u-s-navy-vessels-transiting-strait-of-hormuz/",
+    "https://www.theguardian.com/world/2026/may/04/shipping-bosses-nervous-trump-plan-to-guide-vessels-strait-of-hormuz-iran",
+    "https://www.centcom.mil/MEDIA/PRESS-RELEASES/Article/4476318/",
+    "https://www.centcom.mil/MEDIA/PRESS-RELEASES/Press-Release-View/Article/4457255/us-to-blockade-ships-entering-or-exiting-iranian-ports/",
+    "https://www.centcom.mil/MEDIA/PRESS-RELEASES/Year/2026/",
+    "https://www.navaltoday.com/2026/05/08/iranian-missiles-drones-target-us-destroyer-trio-in-strait-of-hormuz/"
+  ],
+  "searchQueries": [
+    "US naval blockade Strait of Hormuz May 2026 recent news"
+  ],
+  "raw": "{\"yes_probability\": 0.3, \"confidence\": \"medium\", \"short_reason\": \"U.S. and Iran are negotiating a peace deal to end the blockade.\", \"key_evidence\": [\"Oil prices dropped by approximately $5 per barrel on Sunday evening following early signs of a possible U.S.-Iran peace deal aimed at ending their ongoing conflict. ([axios.com](https://www.axios.com/2026/05/24/oil-prices-iran-war-hormuz-strait-trump-tehran-peace-talks?utm_source=openai))\", \"The Wall Street Journal criticized President Trump's handling of U.S.–Iran negotiations, particularly concerning the reopening of the Strait of Hormuz. ([thedailybeast.com](https://www.thedailybeast.com/murdoch-paper-wall-street-journal-sounds-alarm-on-who-really-holds-trump-card-in-iran-war/?utm_source=openai))\"], \"source_urls\": [\"https://www.axios.com/2026/05/24/oil-prices-iran-war-hormuz-strait-trump-tehran-peace-talks\", \"https://www.thedailybeast.com/murdoch-paper-wall-street-journal-sounds-alarm-on-who-really-holds-trump-card-in-iran-war\"]}"
+}

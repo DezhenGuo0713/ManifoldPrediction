@@ -1,0 +1,36 @@
+{
+  "id": "2qZplnRd02",
+  "question": "Will the 2026 California governor runoff be two Republicans?",
+  "marketUrl": "https://manifold.markets/Ibozz91/will-the-california-governor-runoff",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-02T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.5,
+  "noProbability": 0.5,
+  "confidence": "medium",
+  "reason": "Recent polls indicate a competitive race with both Republican and Democratic candidates leading.",
+  "evidence": [
+    "Steve Hilton leads polls with 18% support, backed by Trump.",
+    "Chad Bianco, another Republican, is also a strong contender.",
+    "Democratic candidates like Xavier Becerra and Tom Steyer are vying for the position.",
+    "California's 'jungle primary' system allows top two candidates, regardless of party, to advance.",
+    "Recent polls show a competitive race with both Republican and Democratic candidates leading."
+  ],
+  "sources": [
+    "https://elpais.com/us/2026-05-05/steve-hilton-el-comentarista-politico-respaldado-por-trump-que-lidera-las-encuestas-para-gobernador-de-california.html",
+    "https://www.axios.com/2026/05/10/gavin-newsom-california-governor-race",
+    "https://www.axios.com/local/san-diego/2026/05/15/california-governor-race-encampments-housing-mental-health",
+    "https://voterguide.sos.ca.gov/candidates/",
+    "https://www.sos.ca.gov/elections/upcoming-elections/primary-election-june-2-2026/2026-california-election-guide",
+    "https://electionscali.com/candidates",
+    "https://www.transparencyusa.org/ca/race/governor-of-california",
+    "https://www.latimes.com/california/story/2026-02-25/california-governors-race-wealth-tax-congress-ppic-poll"
+  ],
+  "searchQueries": [
+    "2026 California governor race Republican candidates"
+  ],
+  "raw": "{\"yes_probability\": 0.5, \"confidence\": \"medium\", \"short_reason\": \"Recent polls indicate a competitive race with both Republican and Democratic candidates leading.\", \"key_evidence\": [\"Steve Hilton leads polls with 18% support, backed by Trump.\", \"Chad Bianco, another Republican, is also a strong contender.\", \"Democratic candidates like Xavier Becerra and Tom Steyer are vying for the position.\", \"California's 'jungle primary' system allows top two candidates, regardless of party, to advance.\", \"Recent polls show a competitive race with both Republican and Democratic candidates leading.\"], \"source_urls\": [\"https://elpais.com/us/2026-05-05/steve-hilton-el-comentarista-politico-respaldado-por-trump-que-lidera-las-encuestas-para-gobernador-de-california.html\", \"https://www.axios.com/2026/05/10/gavin-newsom-california-governor-race\", \"https://www.axios.com/local/san-diego/2026/05/15/california-governor-race-encampments-housing-mental-health\"]}"
+}

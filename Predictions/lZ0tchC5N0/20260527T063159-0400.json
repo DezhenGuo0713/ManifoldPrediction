@@ -1,0 +1,34 @@
+{
+  "id": "lZ0tchC5N0",
+  "question": "Will a full-scale military conflict between the US/Israel and Iran resume by May 31, 2026?",
+  "marketUrl": "https://manifold.markets/IrmiPolonsky/will-a-fullscale-military-conflict",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Ongoing diplomatic negotiations and recent U.S.",
+  "evidence": [
+    "U.S. military conducted 'self-defense' airstrikes in southern Iran on May 25, 2026, targeting missile launch sites and boats. ([apnews.com](https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b?utm_source=openai))",
+    "President Trump announced on May 23, 2026, that a deal to end the war with Iran would be finalized 'shortly,' with final negotiations underway. ([axios.com](https://www.axios.com/2026/05/23/us-iran-trump-deal-war?utm_source=openai))",
+    "Iran condemned recent U.S. airstrikes as a display of 'bad faith' amid ongoing negotiations aimed at ending the war. ([apnews.com](https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c?utm_source=openai))"
+  ],
+  "sources": [
+    "https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b",
+    "https://www.axios.com/2026/05/23/us-iran-trump-deal-war",
+    "https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c",
+    "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran",
+    "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran/",
+    "https://www.aljazeera.com/news/2026/5/5/us-iran-ceasefire-holds-despite-hormuz-standoff-pentagon-chief-hegseth",
+    "https://www.aljazeera.com/news/2026/5/6/iran-war-day-68-trump-talks-about-progress-in-talks-rubio-says-war-over",
+    "https://www.defensenews.com/news/pentagon-congress/2026/05/05/us-iran-launch-new-attacks-as-they-wrestle-for-control-of-gulf-waters/"
+  ],
+  "searchQueries": [
+    "current Iran Israel US military conflict status May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Ongoing diplomatic negotiations and recent U.S. airstrikes suggest a low likelihood of full-scale military conflict by May 31, 2026.\", \"key_evidence\": [\"U.S. military conducted 'self-defense' airstrikes in southern Iran on May 25, 2026, targeting missile launch sites and boats. ([apnews.com](https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b?utm_source=openai))\", \"President Trump announced on May 23, 2026, that a deal to end the war with Iran would be finalized 'shortly,' with final negotiations underway. ([axios.com](https://www.axios.com/2026/05/23/us-iran-trump-deal-war?utm_source=openai))\", \"Iran condemned recent U.S. airstrikes as a display of 'bad faith' amid ongoing negotiations aimed at ending the war. ([apnews.com](https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c?utm_source=openai))\"], \"source_urls\": [\"https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b\", \"https://www.axios.com/2026/05/23/us-iran-trump-deal-war\", \"https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c\"]}"
+}

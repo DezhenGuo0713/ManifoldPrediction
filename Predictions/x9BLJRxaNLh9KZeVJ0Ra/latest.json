@@ -1,0 +1,34 @@
+{
+  "id": "x9BLJRxaNLh9KZeVJ0Ra",
+  "question": "Will Donald Trump turn 80?",
+  "marketUrl": "https://manifold.markets/Predictor/will-donald-trump-turn-80",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-14T23:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.95,
+  "noProbability": 0.05,
+  "confidence": "high",
+  "reason": "Recent medical exams show no significant health issues, suggesting Trump will live to 80.",
+  "evidence": [
+    "Trump's May 2026 physical at Walter Reed reported as 'perfect'",
+    "No major health concerns reported in recent months",
+    "Trump's active schedule and public appearances indicate good health"
+  ],
+  "sources": [
+    "https://www.washingtonexaminer.com/news/white-house/4582073/trump-announces-six-month-physical-went-perfectly/",
+    "https://www.cbsnews.com/news/trump-walter-reed-physical/",
+    "https://www.washingtonpost.com/politics/2026/05/11/trump-health-doctor-medical-exam/620a8276-4daf-11f1-97e7-22c6c29ff0d8_story.html",
+    "https://www.theguardian.com/us-news/2026/may/26/trump-annual-physical-health-issues",
+    "https://www.post-gazette.com/news/politics-nation/2026/05/26/trump-health-walter-reed-physical/stories/202605260029",
+    "https://www.vpm.org/npr-news/npr-news/2026-05-25/trump-to-get-routine-annual-medical-exam-7-months-after-last-visit-to-walter-reed",
+    "https://www.cbsnews.com/amp/news/trump-walter-reed-physical/",
+    "https://www.nbcboston.com/news/national-international/trump-fourth-medical-checkup-since-2025/3948444/"
+  ],
+  "searchQueries": [
+    "Donald Trump health status 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.95, \"confidence\": \"high\", \"short_reason\": \"Recent medical exams show no significant health issues, suggesting Trump will live to 80.\", \"key_evidence\": [\"Trump's May 2026 physical at Walter Reed reported as 'perfect'\", \"No major health concerns reported in recent months\", \"Trump's active schedule and public appearances indicate good health\"], \"source_urls\": [\"https://www.washingtonexaminer.com/news/white-house/4582073/trump-announces-six-month-physical-went-perfectly/\", \"https://www.cbsnews.com/news/trump-walter-reed-physical/\", \"https://www.washingtonpost.com/politics/2026/05/11/trump-health-doctor-medical-exam/620a8276-4daf-11f1-97e7-22c6c29ff0d8_story.html\"]}"
+}

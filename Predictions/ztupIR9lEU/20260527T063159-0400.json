@@ -1,0 +1,36 @@
+{
+  "id": "ztupIR9lEU",
+  "question": "Will Jinbaobao's TTM tin production fall below 60 kt on May 31, 2026?",
+  "marketUrl": "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production-l9cs6PuCI6",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T17:06:15.847000-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.12,
+  "noProbability": 0.88,
+  "confidence": "medium",
+  "reason": "Jinbaobao's tin export ban significantly tightens market, but no recent production data available.",
+  "evidence": [
+    "Jinbaobao's tin export ban covers about 12% of global supply, tightening market availability.",
+    "No recent official production data from Jinbaobao or authoritative industry reports.",
+    "The U.S. Geological Survey's Mineral Commodity Summaries 2026 does not provide specific data on Jinbaobao's production.",
+    "The International Trade Administration initiated a countervailing duty investigation into Chinese tin mill products in May 2026, indicating ongoing trade scrutiny.",
+    "The U.S. Department of Commerce awarded $19 million to a U.S. company to develop a domestic tin smelting, refining, and recycling facility in late 2024, highlighting efforts to address global tin supply constraints."
+  ],
+  "sources": [
+    "https://pubs.usgs.gov/publication/mcs2026",
+    "https://www.usgs.gov/nmic",
+    "https://www.usgs.gov/publications/mineral-commodity-summaries-2026",
+    "https://regulations.justia.com/regulations/fedreg/2026/05/05/2026-08744.html",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-tin-production-fall",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production-5ltEyQndnS",
+    "https://manifold.markets/CurtisSteele/will-jinbaobaos-ttm-tin-production-l9cs6PuCI6"
+  ],
+  "searchQueries": [
+    "Jinbaobao tin production 2026 May official company report USGS"
+  ],
+  "raw": "{\"yes_probability\": 0.12, \"confidence\": \"medium\", \"short_reason\": \"Jinbaobao's tin export ban significantly tightens market, but no recent production data available.\", \"key_evidence\": [\"Jinbaobao's tin export ban covers about 12% of global supply, tightening market availability.\", \"No recent official production data from Jinbaobao or authoritative industry reports.\", \"The U.S. Geological Survey's Mineral Commodity Summaries 2026 does not provide specific data on Jinbaobao's production.\", \"The International Trade Administration initiated a countervailing duty investigation into Chinese tin mill products in May 2026, indicating ongoing trade scrutiny.\", \"The U.S. Department of Commerce awarded $19 million to a U.S. company to develop a domestic tin smelting, refining, and recycling facility in late 2024, highlighting efforts to address global tin supply constraints.\"], \"source_urls\": [\"https://pubs.usgs.gov/publication/mcs2026\", \"https://www.usgs.gov/nmic\", \"https://www.usgs.gov/publications/mineral-commodity-summaries-2026\", \"https://regulations.justia.com/regulations/fedreg/2026/05/05/2026-08744.html\"]}"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "qQ9zqIpnCl",
+  "question": "Will the S&P500 be within 1% of all time high at the end of May 2026?",
+  "marketUrl": "https://manifold.markets/Magnify/will-the-sp500-be-within-1-of-all-t-cSs0lsLNqz",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.95,
+  "noProbability": 0.05,
+  "confidence": "high",
+  "reason": "S&P 500 reached 7,519.12 on May 26, 2026, nearing its all-time high.",
+  "evidence": [
+    "S&P 500 closed at 7,519.12 on May 26, 2026, close to its all-time high.",
+    "Goldman Sachs raised its 2026 year-end target to 8,000, citing strong earnings growth.",
+    "Analysts expect S&P 500 earnings to grow about 15% year-on-year in 2026.",
+    "S&P 500 is up 9.8% year-to-date as of May 26, 2026."
+  ],
+  "sources": [
+    "https://apnews.com/article/b2fb9ef30834ed73768f2afd65ec7de0",
+    "https://uk.marketscreener.com/news/goldman-sachs-lifts-sp-500-year-end-target-to-8-000-on-strong-earnings-outlook-ce7f5ad2df88fe2c",
+    "https://www.movingmarkets.org/top-stories/sp-500s-2026-outlook-high-valuations-profits-must-now-deliver",
+    "https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/05/global-economic-outlook-may-2026",
+    "https://www.forecastrends.com/SP500-forecast/",
+    "https://uk.marketscreener.com/news/goldman-sachs-lifts-s-p-500-year-end-target-to-8-000-on-strong-earnings-outlook-ce7f5ad2df88fe2c",
+    "https://www.forbes.com/advisor/investing/stock-market-outlook/",
+    "https://m.investing.com/news/stock-market-news/goldman-sachs-lifts-sp-500-yearend-target-to-8000-on-strong-earnings-outlook-4711151?ampMode=1"
+  ],
+  "searchQueries": [
+    "S&P 500 forecast May 2026 all-time high economic outlook"
+  ],
+  "raw": "{\"yes_probability\": 0.95, \"confidence\": \"high\", \"short_reason\": \"S&P 500 reached 7,519.12 on May 26, 2026, nearing its all-time high.\", \"key_evidence\": [\"S&P 500 closed at 7,519.12 on May 26, 2026, close to its all-time high.\", \"Goldman Sachs raised its 2026 year-end target to 8,000, citing strong earnings growth.\", \"Analysts expect S&P 500 earnings to grow about 15% year-on-year in 2026.\", \"S&P 500 is up 9.8% year-to-date as of May 26, 2026.\"], \"source_urls\": [\"https://apnews.com/article/b2fb9ef30834ed73768f2afd65ec7de0\", \"https://uk.marketscreener.com/news/goldman-sachs-lifts-sp-500-year-end-target-to-8-000-on-strong-earnings-outlook-ce7f5ad2df88fe2c\", \"https://www.movingmarkets.org/top-stories/sp-500s-2026-outlook-high-valuations-profits-must-now-deliver\"]}"
+}

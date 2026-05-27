@@ -97,6 +97,10 @@ a {
   border-left-color: var(--amber);
 }
 
+.market-row.closed {
+  border-left-color: var(--danger);
+}
+
 .row-question {
   font-size: 16px;
   line-height: 1.35;
@@ -130,6 +134,10 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--ink);
   isolation: isolate;
+}
+
+.forecast-poster.closed {
+  border-color: rgba(255, 59, 48, 0.34);
 }
 
 .forecast-poster::before {
@@ -199,7 +207,47 @@ a {
   display: grid;
   grid-template-columns: minmax(180px, 1fr) 1px minmax(180px, 1fr);
   align-items: center;
-  gap: 6%;
+  column-gap: 6%;
+  row-gap: 24px;
+}
+
+.odds-model {
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: min(1.9vw, 28px);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.78);
+  white-space: nowrap;
+}
+
+.poster-closed {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  top: 40%;
+  display: grid;
+  gap: 24px;
+  text-align: center;
+}
+
+.poster-closed span {
+  color: var(--danger);
+  font-size: min(5vw, 86px);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 0.75);
+}
+
+.poster-closed strong {
+  color: var(--ink);
+  font-size: min(3vw, 44px);
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.78);
 }
 
 .split-line {
@@ -238,6 +286,14 @@ a {
 }
 
 .odds-side strong.lower-score {
+  color: var(--no);
+}
+
+.outcome-label.higher-score {
+  color: var(--yes);
+}
+
+.outcome-label.lower-score {
   color: var(--no);
 }
 
@@ -377,6 +433,14 @@ a {
     right: 15%;
   }
 
+  .odds-model {
+    font-size: 16px;
+  }
+
+  .poster-closed {
+    top: 39%;
+  }
+
   .outcome-label {
     font-size: 34px;
   }
@@ -435,8 +499,28 @@ a {
     left: 8%;
     right: 8%;
     top: 42%;
-    gap: 4%;
+    column-gap: 4%;
+    row-gap: 10px;
     grid-template-columns: minmax(106px, 1fr) 1px minmax(106px, 1fr);
+  }
+
+  .odds-model {
+    font-size: 12px;
+  }
+
+  .poster-closed {
+    left: 8%;
+    right: 8%;
+    top: 40%;
+    gap: 12px;
+  }
+
+  .poster-closed span {
+    font-size: 34px;
+  }
+
+  .poster-closed strong {
+    font-size: 18px;
   }
 
   .split-line {
@@ -513,7 +597,26 @@ a {
   left: 18%;
   right: 18%;
   top: 37%;
-  gap: 5%;
+  column-gap: 5%;
+  row-gap: 18px;
+}
+
+.preview-shell .odds-model {
+  font-size: 22px;
+}
+
+.preview-shell .poster-closed {
+  left: 14%;
+  right: 14%;
+  top: 38%;
+}
+
+.preview-shell .poster-closed span {
+  font-size: 70px;
+}
+
+.preview-shell .poster-closed strong {
+  font-size: 34px;
 }
 
 .preview-shell .split-line {
@@ -558,4 +661,310 @@ a {
 .preview-shell .lock-button {
   width: 112px;
   min-width: 112px;
+}
+
+.forecast-card {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 500px;
+  padding: 34px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fffefa 0%, #f9faf8 100%);
+  border: 1px solid #d9dde3;
+  border-top: 4px solid #24324a;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(18, 24, 34, 0.10);
+  color: #16181d;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.forecast-card.closed {
+  border-top-color: #b42318;
+}
+
+.card-header {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.card-header h1 {
+  display: -webkit-box;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #16181d;
+  font-size: min(3vw, 38px);
+  font-weight: 720;
+  line-height: 1.18;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: #656b75;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.meta-row span,
+.market-link {
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px 8px;
+  overflow: hidden;
+  border: 1px solid #d9dde3;
+  border-radius: 999px;
+  background: #ffffff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.market-link {
+  color: #24324a;
+  text-decoration: none;
+}
+
+.probability-panel {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+  padding: 28px 34px;
+  border: 1px solid #d9dde3;
+  border-radius: 8px;
+  background: #f8faf9;
+}
+
+.probability-cell {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.no-cell {
+  text-align: right;
+}
+
+.forecast-card .outcome-label {
+  font-size: min(2.4vw, 38px);
+  font-weight: 780;
+  line-height: 1;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+.probability-cell strong {
+  font-size: min(6.6vw, 112px);
+  font-weight: 820;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.probability-divider {
+  color: #a0a7b2;
+  font-size: min(4vw, 58px);
+  font-weight: 500;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.probability-cell strong.higher-score,
+.forecast-card .outcome-label.higher-score {
+  color: #0aa34f;
+}
+
+.probability-cell strong.lower-score,
+.forecast-card .outcome-label.lower-score {
+  color: #4f5865;
+}
+
+.market-status {
+  display: grid;
+  gap: 5px;
+  padding: 28px 34px;
+  border: 1px solid #f1b4ae;
+  border-radius: 8px;
+  background: #fff7f5;
+  text-align: center;
+}
+
+.market-status span {
+  color: #b42318;
+  font-size: min(3vw, 44px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.market-status strong {
+  color: #656b75;
+  font-size: min(1.8vw, 26px);
+  font-weight: 650;
+}
+
+.reason-block {
+  min-width: 0;
+  padding: 18px 20px;
+  border-left: 3px solid #24324a;
+  background: #f6f7f8;
+}
+
+.reason-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #656b75;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.reason-block p {
+  display: -webkit-box;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #16181d;
+  font-size: min(1.7vw, 24px);
+  font-weight: 560;
+  line-height: 1.32;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.card-footer {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.updated-line {
+  color: #656b75;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.source-row {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.forecast-card .source-pill {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 280px;
+  min-height: 30px;
+  padding: 5px 10px;
+  overflow: hidden;
+  border: 1px solid #c8d1db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #24324a;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.forecast-card .source-pill:hover,
+.forecast-card .source-pill:focus-visible {
+  border-color: #24324a;
+  background: #f2f5f8;
+  outline: none;
+}
+
+.preview-shell .forecast-card {
+  min-height: 600px;
+}
+
+@media (max-width: 900px) {
+  .forecast-card {
+    min-height: 400px;
+    padding: 24px;
+  }
+
+  .card-header h1 {
+    font-size: 28px;
+  }
+
+  .probability-cell strong {
+    font-size: 66px;
+  }
+
+  .reason-block p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .forecast-card {
+    min-height: 340px;
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .card-header h1 {
+    font-size: 18px;
+    -webkit-line-clamp: 3;
+  }
+
+  .meta-row {
+    font-size: 11px;
+  }
+
+  .probability-panel {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .forecast-card .outcome-label {
+    font-size: 20px;
+  }
+
+  .probability-cell strong {
+    font-size: 42px;
+  }
+
+  .probability-divider {
+    font-size: 30px;
+  }
+
+  .reason-block {
+    padding: 11px 12px;
+  }
+
+  .reason-label {
+    font-size: 10px;
+  }
+
+  .reason-block p {
+    font-size: 12px;
+  }
+
+  .updated-line {
+    font-size: 11px;
+  }
+
+  .forecast-card .source-pill {
+    max-width: calc((100% - 8px) / 2);
+    min-height: 24px;
+    font-size: 10px;
+  }
 }

@@ -1,0 +1,34 @@
+{
+  "id": "XqK1nn3TmVG83hF5PglL",
+  "question": "Will there be a space station with artificial gravity by June 2026?",
+  "marketUrl": "https://manifold.markets/BoltonBailey/will-there-be-a-space-station-with",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T23:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "No space station with artificial gravity exists or is scheduled to exist by June 2026.",
+  "evidence": [
+    "The International Space Station (ISS) continues to operate without artificial gravity, with no plans for such a feature. ([nasa.gov](https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/?utm_source=openai))",
+    "Russia patented a design for a space station with artificial gravity, but it is not expected to be operational by June 2026. ([daily-sun.com](https://www.daily-sun.com/20/848128?utm_source=openai))",
+    "The Voyager Space Station, a proposed commercial space station with artificial gravity, is scheduled to begin construction in 2026, but it is not expected to be operational by June 2026. ([en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_space_stations?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/",
+    "https://www.daily-sun.com/20/848128",
+    "https://en.wikipedia.org/wiki/List_of_space_stations",
+    "https://www.nasa.gov/blogs/spacestation/2026/04/16/station-orbits-higher-as-crew-runs-new-science-experiments/",
+    "https://www.nasa.gov/humans-in-space/nasas-spacex-crew-12-to-study-adaptation-to-altered-gravity/",
+    "https://www.nasa.gov/blogs/spacestation/2026/01/23/crew-studies-cardiac-research-artificial-intelligence-as-dragon-boosts-stations-orbit/",
+    "https://www.nasa.gov/blogs/spacestation/2026/01/09/expedition-74-preps-for-crew-departure-keeps-up-advanced-research/",
+    "https://svs.gsfc.nasa.gov/gallery/storiestorm-time-oringcurrent-imaging-evolution/"
+  ],
+  "searchQueries": [
+    "space station with artificial gravity 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"No space station with artificial gravity exists or is scheduled to exist by June 2026.\", \"key_evidence\": [\"The International Space Station (ISS) continues to operate without artificial gravity, with no plans for such a feature. ([nasa.gov](https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/?utm_source=openai))\", \"Russia patented a design for a space station with artificial gravity, but it is not expected to be operational by June 2026. ([daily-sun.com](https://www.daily-sun.com/20/848128?utm_source=openai))\", \"The Voyager Space Station, a proposed commercial space station with artificial gravity, is scheduled to begin construction in 2026, but it is not expected to be operational by June 2026. ([en.wikipedia.org](https://en.wikipedia.org/wiki/List_of_space_stations?utm_source=openai))\"], \"source_urls\": [\"https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/\", \"https://www.daily-sun.com/20/848128\", \"https://en.wikipedia.org/wiki/List_of_space_stations\"]}"
+}

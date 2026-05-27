@@ -1,0 +1,34 @@
+{
+  "id": "OIhySlytEh",
+  "question": "Will Chainsaw Man part 3 be announced?",
+  "marketUrl": "https://manifold.markets/ookina_inu/will-chainsaw-man-part-3-be-announc",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T18:56:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.1,
+  "noProbability": 0.9,
+  "confidence": "high",
+  "reason": "Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.",
+  "evidence": [
+    "Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.",
+    "Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.",
+    "Final chapter of Chainsaw Man Part 2 released without announcement of Part 3."
+  ],
+  "sources": [
+    "https://us.oricon-group.com/news/8098/",
+    "https://respawn.outlookindia.com/gaming/gaming-news/chainsaw-man-chapter-232-ends-without-part-3-plans",
+    "https://dailyanimenews.com/chainsaw-man-concludes-drawing-the-curtain-on-an-eight-year-run-no-part-3-announced-please-look-forward-to-tatsuki-fujimotos-next-work/",
+    "https://us.oricon-group.com/news/7259/",
+    "https://www.otakupt.com/manga/chainsaw-man-fim-oito-anos-capitulo-final/",
+    "https://www.manga-news.com/index.php/actus/2026/03/11/Fin-annoncee-pour-Chainsaw-Man",
+    "https://www.crunchyroll.com/id/news/latest/2026/3/24/chainsaw-man-manga-ends",
+    "https://modoradio.cl/2026/03/26/no-habra-tercera-parte-chainsaw-man-finaliza-su-publicacion-tras-ocho-anos/"
+  ],
+  "searchQueries": [
+    "Chainsaw Man part 3 announcement 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.1, \"confidence\": \"high\", \"short_reason\": \"Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.\", \"key_evidence\": [\"Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.\", \"Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.\", \"Final chapter of Chainsaw Man Part 2 released without announcement of Part 3.\"], \"source_urls\": [\"https://us.oricon-group.com/news/8098/\", \"https://respawn.outlookindia.com/gaming/gaming-news/chainsaw-man-chapter-232-ends-without-part-3-plans\", \"https://dailyanimenews.com/chainsaw-man-concludes-drawing-the-curtain-on-an-eight-year-run-no-part-3-announced-please-look-forward-to-tatsuki-fujimotos-next-work/\"]}"
+}

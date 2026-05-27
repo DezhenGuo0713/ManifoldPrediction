@@ -1,0 +1,33 @@
+{
+  "id": "UsclLIL2Cu",
+  "question": "Will Evan Li’s text to his EX gain a response",
+  "marketUrl": "https://manifold.markets/DongchengHan/will-evan-lis-text-to-his-ex-gain-a",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:57:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "No public information on Evan Li's text to his ex; general patterns suggest low response likelihood.",
+  "evidence": [
+    "No public information on Evan Li's text to his ex",
+    "General patterns suggest low response likelihood"
+  ],
+  "sources": [
+    "https://echosreply.com/replies-to-an-ex-asking-how-you-are/",
+    "https://vervo.app/blog/how-to-text-your-ex-back",
+    "https://theexplan.com/why-your-ex-replies-but-never-texts-first/",
+    "https://theexplan.com/why-your-ex-texts-then-disappears/",
+    "https://omny.fm/shows/on-purpose-with/still-thinking-about-your-ex-use-this-2-step-reset-to-stop-the-spiral-for-good",
+    "https://www.smoothrizz.com/blog/how-to-ask-someone-out-over-text",
+    "https://www.partnerpilot.io/answers/should-i-text-my-ex",
+    "https://www.getoverhimsis.blog/should-i-text-my-ex-a-flowchart-for-your-3am-brain"
+  ],
+  "searchQueries": [
+    "Evan Li text to ex response 2026 May"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"No public information on Evan Li's text to his ex; general patterns suggest low response likelihood.\", \"key_evidence\": [\"No public information on Evan Li's text to his ex\", \"General patterns suggest low response likelihood\"], \"source_urls\": []}"
+}

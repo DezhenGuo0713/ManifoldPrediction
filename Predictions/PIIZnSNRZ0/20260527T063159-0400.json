@@ -1,0 +1,35 @@
+{
+  "id": "PIIZnSNRZ0",
+  "question": "Will Gratwick's Just Drive production launch on the App Store by June 15, 2026?",
+  "marketUrl": "https://manifold.markets/JohnnyMelendez/will-gratwicks-just-drive-productio",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-01T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.6,
+  "noProbability": 0.4,
+  "confidence": "medium",
+  "reason": "Gratwick Enterprises announced a June 1, 2026 launch for Just Drive, but no App Store launch date is confirmed.",
+  "evidence": [
+    "Gratwick Enterprises announced a June 1, 2026 launch for Just Drive.",
+    "No App Store launch date is confirmed.",
+    "No recent news on Just Drive's App Store release.",
+    "No recent news on Just Drive's App Store release."
+  ],
+  "sources": [
+    "https://manifold.markets/JohnnyMelendez/will-gratwicks-just-drive-productio",
+    "https://www.macrumors.com/2026/05/08/apple-carplay-third-ai-chatbot/",
+    "https://appagg.com/ios/food-drink/just-drive-thrus-40602074.html?hl=en",
+    "https://appshunter.io/ios/app/6478536541",
+    "https://apprecs.com/ios/1367160582/just-drive.",
+    "https://www.techbuzznews.com/pocket-announces-pocket-drives/",
+    "https://support.ifasttrak.com/support/solutions/articles/62000237361-driver-app-4-0-pre-release-testing-2026-",
+    "https://drvu.app/news-updates/"
+  ],
+  "searchQueries": [
+    "Gratwick's Just Drive App Store launch June 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.6, \"confidence\": \"medium\", \"short_reason\": \"Gratwick Enterprises announced a June 1, 2026 launch for Just Drive, but no App Store launch date is confirmed.\", \"key_evidence\": [\"Gratwick Enterprises announced a June 1, 2026 launch for Just Drive.\", \"No App Store launch date is confirmed.\", \"No recent news on Just Drive's App Store release.\", \"No recent news on Just Drive's App Store release.\"], \"source_urls\": []}"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "l5p6zcOAQc",
+  "question": "Will there be a red card in the 2026 UEFA Champions League final?",
+  "marketUrl": "https://manifold.markets/JaimeM/will-there-be-a-red-card-in-the-202",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.15,
+  "noProbability": 0.85,
+  "confidence": "medium",
+  "reason": "UEFA's disciplinary records show a low incidence of red cards in recent finals.",
+  "evidence": [
+    "The 2025 final between Paris Saint-Germain and Inter Milan had no red cards.",
+    "UEFA's all-time statistics indicate that only a few players have received multiple red cards in Champions League finals.",
+    "The 2026 final between Paris Saint-Germain and Arsenal is scheduled for May 30, 2026, with no red cards reported in recent matches."
+  ],
+  "sources": [
+    "https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
+    "https://www.uefa.com/uefachampionsleague/history/rankings/players/red_cards/",
+    "https://en.wikipedia.org/wiki/2026_UEFA_Champions_League_final",
+    "https://es.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/",
+    "https://www.uefa.com/uefachampionsleague/news/0299-1de41a81a0d8-2cfefc69a802-1000/",
+    "https://www.uefa.com/uefachampionsleague/news/029d-1ebd52c0e86d-cc44b76e6bc1-1000--uefa-champions-league-var-technical-explanations/",
+    "https://www.uefa.com/api/v1/linkrules/article/029d-1ebd52c0e86d-cc44b76e6bc1-1000/",
+    "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000/"
+  ],
+  "searchQueries": [
+    "2026 UEFA Champions League final red card likelihood"
+  ],
+  "raw": "{\"yes_probability\": 0.15, \"confidence\": \"medium\", \"short_reason\": \"UEFA's disciplinary records show a low incidence of red cards in recent finals.\", \"key_evidence\": [\"The 2025 final between Paris Saint-Germain and Inter Milan had no red cards.\", \"UEFA's all-time statistics indicate that only a few players have received multiple red cards in Champions League finals.\", \"The 2026 final between Paris Saint-Germain and Arsenal is scheduled for May 30, 2026, with no red cards reported in recent matches.\"], \"source_urls\": [\"https://www.uefa.com/uefachampionsleague/news/0252-0e98c715bb79-dea77f56e2bd-1000--champions-league-final-records-and-statistics/\", \"https://www.uefa.com/uefachampionsleague/history/rankings/players/red_cards/\", \"https://en.wikipedia.org/wiki/2026_UEFA_Champions_League_final\"]}"
+}

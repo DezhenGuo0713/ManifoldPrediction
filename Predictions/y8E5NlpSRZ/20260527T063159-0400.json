@@ -1,0 +1,33 @@
+{
+  "id": "y8E5NlpSRZ",
+  "question": "Will DR Congo and Rwanda sign a ceasefire agreement by May 31, 2026?",
+  "marketUrl": "https://manifold.markets/orchestrator/will-dr-congo-and-rwanda-sign-a-cea",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.01,
+  "noProbability": 0.99,
+  "confidence": "high",
+  "reason": "No credible reports indicate DR Congo and Rwanda will sign a ceasefire agreement by May 31, 2026.",
+  "evidence": [
+    "The most recent peace agreement between DR Congo and Rwanda was signed on June 27, 2025, in Washington, D.C. ([ungeneva.org](https://www.ungeneva.org/en/news-media/news/2025/06/107953/guterres-welcomes-peace-deal-between-dr-congo-and-rwanda?utm_source=openai))",
+    "The fifth Joint Oversight Committee meeting on April 23, 2026, assessed the implementation of the existing peace agreement, with no indication of a new ceasefire agreement being planned. ([allafrica.com](https://allafrica.com/stories/202604240397.html?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.ungeneva.org/en/news-media/news/2025/06/107953/guterres-welcomes-peace-deal-between-dr-congo-and-rwanda",
+    "https://allafrica.com/stories/202604240397.html",
+    "https://www.aa.com.tr/en/africa/african-union-welcomes-ceasefire-mechanism-agreement-between-dr-congo-afc-m23/3828664",
+    "https://en.hespress.com/116136-drcongo-m23-armed-group-sign-ceasefire-deal.html",
+    "https://www.bloomberg.com/news/articles/2026-02-13/congo-strikes-ceasefire-with-rwanda-backed-m23-in-breakthrough",
+    "https://www.gulf-times.com/article/724546/qatar/joint-statement-on-5th-oversight-committee-meeting-for-dr-congo-rwanda-peace-agreement",
+    "https://www.aljazeera.com/news/2026/4/19/drc-government-m23-rebels-commit-to-protect-civilians-aid-deliveries",
+    "https://www.aljazeera.com/news/2025/6/19/dr-congo-and-rwanda-sign-draft-peace-agreement"
+  ],
+  "searchQueries": [
+    "DR Congo Rwanda ceasefire agreement May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.0, \"confidence\": \"high\", \"short_reason\": \"No credible reports indicate DR Congo and Rwanda will sign a ceasefire agreement by May 31, 2026.\", \"key_evidence\": [\"The most recent peace agreement between DR Congo and Rwanda was signed on June 27, 2025, in Washington, D.C. ([ungeneva.org](https://www.ungeneva.org/en/news-media/news/2025/06/107953/guterres-welcomes-peace-deal-between-dr-congo-and-rwanda?utm_source=openai))\", \"The fifth Joint Oversight Committee meeting on April 23, 2026, assessed the implementation of the existing peace agreement, with no indication of a new ceasefire agreement being planned. ([allafrica.com](https://allafrica.com/stories/202604240397.html?utm_source=openai))\"], \"source_urls\": [\"https://www.ungeneva.org/en/news-media/news/2025/06/107953/guterres-welcomes-peace-deal-between-dr-congo-and-rwanda\", \"https://allafrica.com/stories/202604240397.html\"]}"
+}

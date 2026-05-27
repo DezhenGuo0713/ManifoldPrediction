@@ -1,0 +1,32 @@
+id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,forecastTimestamp,forecastCurrentDate,forecastModel,forecastInputPolicy,forecastStatus,forecastClosedAt,newsPredictedYesProbability,newsPredictedNoProbability,newsConfidence,newsShortReason,newsKeyEvidence,newsSourceUrls,newsSearchQueries,newsRawJson
+EsOcztn9zS,Free Lottery (LMC),https://manifold.markets/ttoe/free-lottery-lmc,ttoe,BINARY,1779766800000,2026-05-25T23:40:00-04:00,1779728844069,2026-05-25T13:07:24.069000-04:00,0.05393158673937237,64.00000000001992,64.00000000001992,9,"How it works
+
+After this market closes, I will ask @FairlyRandom to generate a random number M among 1 to 100 in the comments. The Mth unique trader of this market wins 300 mana from the lottery prize pool, if such a trader exists. Otherwise, the lottery falls through till next time.
+
+For free play, make a trade with 1 mana and sell it. Your trade will be recorded and you will become a unique trader.
+
+This market will resolve to x%. Sagittarius A* is the name for the supermassive black hole at the centre of our galaxy. Large Magellanic Cloud (LMC) is the closest easily visible galaxy to the naked eye, at roughly 1.6*10^x light-years away.
+
+Previous winners
+
+@PaperBoy 100Ṁ
+
+@hogshedges 100Ṁ
+
+@Pancarre 300Ṁ
+
+@wolf 400Ṁ
+
+@Chumchulum 200Ṁ
+
+@KarlWang 4000Ṁ
+
+@WobertqUIQz 300Ṁ
+
+@2ndPairofBoots 300Ṁ
+
+@jbm 300Ṁ
+
+@AritificialJudgement 300Ṁ
+
+@Primer 300Ṁ",,Treatment,66,20260525,2026-05-27T06:31:59-04:00,2026-05-27,gpt-4.1-mini,question+description+current_date only,closed,2026-05-25T23:40:00-04:00,,,,Market closed. No prediction generated.,,,,"{""status"": ""closed"", ""closed_at"": ""2026-05-25T23:40:00-04:00""}"

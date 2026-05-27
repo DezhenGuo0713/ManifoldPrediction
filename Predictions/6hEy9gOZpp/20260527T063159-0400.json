@@ -1,0 +1,33 @@
+{
+  "id": "6hEy9gOZpp",
+  "question": "Will the 2026 NBA Finals go to a Game 7?",
+  "marketUrl": "https://manifold.markets/Terminator2/will-the-2026-nba-finals-go-to-a-ga",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-26T20:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.25,
+  "noProbability": 0.75,
+  "confidence": "medium",
+  "reason": "Historically, about 20-25% of NBA Finals series reach Game 7.",
+  "evidence": [
+    "Historically, about 20-25% of NBA Finals series reach Game 7. ([nbcsportsboston.com](https://www.nbcsportsboston.com/nba/nba-playoffs-game-7-history-statistics/609963/?utm_source=openai))",
+    "The 2026 NBA Finals are scheduled to begin on June 3, 2026, with a potential Game 7 on June 19, 2026. ([nba.com](https://www.nba.com/news/2026-nba-finals-schedule?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.nbcsportsboston.com/nba/nba-playoffs-game-7-history-statistics/609963/",
+    "https://www.nba.com/news/2026-nba-finals-schedule",
+    "https://www.nba.com/news/nba-finals-numbers-to-know-game-7",
+    "https://cdn-uat.nba.com/news/nba-finals-numbers-to-know-game-7",
+    "https://cdn-uat.nba.com/playoffs/2026/nba-finals",
+    "https://api-hub.nba.com/playoffs/2026/nba-finals",
+    "https://www.nba.com/news/2026-nba-playoffs-schedule?lctg=5e6397fdb7074d458b90c591&lid=nkeznfhe6871",
+    "https://www.nba.com/news/2026-nba-playoffs-schedule?lctg=5e6397fdb7074d458b90c591&lid=7rqvarcklftv"
+  ],
+  "searchQueries": [
+    "2026 NBA Finals potential Game 7 likelihood NBA"
+  ],
+  "raw": "{\"yes_probability\": 0.25, \"confidence\": \"medium\", \"short_reason\": \"Historically, about 20-25% of NBA Finals series reach Game 7.\", \"key_evidence\": [\"Historically, about 20-25% of NBA Finals series reach Game 7. ([nbcsportsboston.com](https://www.nbcsportsboston.com/nba/nba-playoffs-game-7-history-statistics/609963/?utm_source=openai))\", \"The 2026 NBA Finals are scheduled to begin on June 3, 2026, with a potential Game 7 on June 19, 2026. ([nba.com](https://www.nba.com/news/2026-nba-finals-schedule?utm_source=openai))\"], \"source_urls\": [\"https://www.nbcsportsboston.com/nba/nba-playoffs-game-7-history-statistics/609963/\", \"https://www.nba.com/news/2026-nba-finals-schedule\"]}"
+}

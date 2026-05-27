@@ -1,0 +1,34 @@
+{
+  "id": "ddgSqRyOCA",
+  "question": "Will Apple mention OpenAI or ChatGPT in its WWDC 2026 keynote?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-apple-mention-openai-or-chatgp",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-08T12:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.3,
+  "noProbability": 0.7,
+  "confidence": "medium",
+  "reason": "Apple's strained relationship with OpenAI and focus on Siri's AI advancements suggest low likelihood of mentioning OpenAI or ChatGPT.",
+  "evidence": [
+    "OpenAI feels 'burned' by Apple's ChatGPT integration",
+    "Apple's AI advancements focus on Siri's new capabilities",
+    "Apple's strained relationship with OpenAI over ChatGPT integration"
+  ],
+  "sources": [
+    "https://arstechnica.com/tech-policy/2026/05/openai-feels-burned-by-apples-crappy-chatgpt-integration-insiders-say/",
+    "https://www.macrumors.com/2026/03/23/wwdc-2026-ai-advancements/",
+    "https://www.gadgets360.com/ai/news/apple-openai-partnership-strained-chatgpt-integration-iphone-mac-report-11498076",
+    "https://www.macrumors.com/2026/05/18/wwdc-2026-schedule-invites/",
+    "https://www.macrumors.com/2026/03/23/apple-announces-wwdc-2026-dates/",
+    "https://www.macrumors.com/2026/03/27/the-macrumors-show-wwdc-2026-announced/",
+    "https://www.macrumors.com/roundup/wwdc/",
+    "https://manifold.markets/CalibratedGhosts/will-apple-mention-openai-or-chatgp"
+  ],
+  "searchQueries": [
+    "Apple WWDC 2026 keynote OpenAI ChatGPT mention"
+  ],
+  "raw": "{\"yes_probability\": 0.3, \"confidence\": \"medium\", \"short_reason\": \"Apple's strained relationship with OpenAI and focus on Siri's AI advancements suggest low likelihood of mentioning OpenAI or ChatGPT.\", \"key_evidence\": [\"OpenAI feels 'burned' by Apple's ChatGPT integration\", \"Apple's AI advancements focus on Siri's new capabilities\", \"Apple's strained relationship with OpenAI over ChatGPT integration\"], \"source_urls\": [\"https://arstechnica.com/tech-policy/2026/05/openai-feels-burned-by-apples-crappy-chatgpt-integration-insiders-say/\", \"https://www.macrumors.com/2026/03/23/wwdc-2026-ai-advancements/\", \"https://www.gadgets360.com/ai/news/apple-openai-partnership-strained-chatgpt-integration-iphone-mac-report-11498076\"]}"
+}

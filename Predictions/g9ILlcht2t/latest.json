@@ -1,0 +1,23 @@
+{
+  "id": "g9ILlcht2t",
+  "question": "Will I attend Manifest this year?",
+  "marketUrl": "https://manifold.markets/SaviorofPlant/will-i-attend-manifest-this-year",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T18:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.3,
+  "noProbability": 0.7,
+  "confidence": "low",
+  "reason": "Lack of specific personal factors and the inconvenience of travel reduce the likelihood of attending Manifest this year.",
+  "evidence": [
+    "User expresses reluctance due to inconvenience of traveling from outside the Bay Area.",
+    "User notes potential social motivation (meeting @jim) but still uncertain.",
+    "No concrete plans or commitments mentioned."
+  ],
+  "sources": [],
+  "searchQueries": [],
+  "raw": "{\"yes_probability\": 0.3, \"confidence\": \"low\", \"short_reason\": \"Lack of specific personal factors and the inconvenience of travel reduce the likelihood of attending Manifest this year.\", \"key_evidence\": [\"User expresses reluctance due to inconvenience of traveling from outside the Bay Area.\", \"User notes potential social motivation (meeting @jim) but still uncertain.\", \"No concrete plans or commitments mentioned.\"], \"source_urls\": []}"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "Lzh2g9PINy",
+  "question": "US x China tariff agreement by May 31st? [Polymarket]",
+  "marketUrl": "https://manifold.markets/Mochi/us-x-china-tariff-agreement-by-may",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.7,
+  "noProbability": 0.3,
+  "confidence": "medium",
+  "reason": "Recent US-China trade talks have led to tariff reductions and agreements on agricultural imports.",
+  "evidence": [
+    "On May 12, 2026, the US and China announced a trade truce, reducing US tariffs on Chinese goods from approximately 145% to 30% and Chinese tariffs on US goods from 125% to 10%. ([abhs.in](https://www.abhs.in/blog/us-china-trade-truce-beijing-summit-chip-export-controls-semiconductor-may-2026?utm_source=openai))",
+    "Following a summit in Beijing on May 14-15, 2026, China agreed to purchase at least $17 billion worth of US agricultural products annually through 2028, including beef and poultry. ([apnews.com](https://apnews.com/article/832bafb5ca0be21e4a1d149c5db56b58?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.abhs.in/blog/us-china-trade-truce-beijing-summit-chip-export-controls-semiconductor-may-2026",
+    "https://apnews.com/article/832bafb5ca0be21e4a1d149c5db56b58",
+    "https://www.china-briefing.com/news/us-china-relations-in-the-trump-2-0-implications/",
+    "https://www.china-briefing.com/news/us-china-tariff-rates-2025?email=2026",
+    "https://www.china-briefing.com/news/xi-trump-beijing-summit-what-was-agreed/",
+    "https://www.steptoe.com/en/news-publications/global-trade-and-investment-law-blog/ustr-initiates-second-four-year-review-of-section-301-china-technology-transfer-tariffs.html",
+    "https://ustariffrates.com/tariff-tracker",
+    "https://ustariffrates.com/tariff-rates/china"
+  ],
+  "searchQueries": [
+    "US China tariff agreement latest May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.7, \"confidence\": \"medium\", \"short_reason\": \"Recent US-China trade talks have led to tariff reductions and agreements on agricultural imports.\", \"key_evidence\": [\"On May 12, 2026, the US and China announced a trade truce, reducing US tariffs on Chinese goods from approximately 145% to 30% and Chinese tariffs on US goods from 125% to 10%. ([abhs.in](https://www.abhs.in/blog/us-china-trade-truce-beijing-summit-chip-export-controls-semiconductor-may-2026?utm_source=openai))\", \"Following a summit in Beijing on May 14-15, 2026, China agreed to purchase at least $17 billion worth of US agricultural products annually through 2028, including beef and poultry. ([apnews.com](https://apnews.com/article/832bafb5ca0be21e4a1d149c5db56b58?utm_source=openai))\"], \"source_urls\": [\"https://www.abhs.in/blog/us-china-trade-truce-beijing-summit-chip-export-controls-semiconductor-may-2026\", \"https://apnews.com/article/832bafb5ca0be21e4a1d149c5db56b58\"]}"
+}

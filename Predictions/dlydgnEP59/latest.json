@@ -1,0 +1,34 @@
+{
+  "id": "dlydgnEP59",
+  "question": "Will US Average Gas Prices rise or fall 10 cents in one day in May 2026?",
+  "marketUrl": "https://manifold.markets/Jack1/will-us-average-gas-prices-rise-or",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-05-31T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.8,
+  "noProbability": 0.2,
+  "confidence": "high",
+  "reason": "Recent data indicates significant daily fluctuations in U.S.",
+  "evidence": [
+    "On May 4, 2026, the national average gas price was $4.457 per gallon, rising to $4.558 by May 7, 2026, a 10-cent increase over three days. ([politifact.com](https://www.politifact.com/factchecks/2026/may/08/donald-trump/gasoline-prices-falling-crude-oil/?utm_source=openai))",
+    "Between May 4 and May 18, 2026, the national average gas price increased from $4.452 to $4.490 per gallon, a 3.8-cent rise over two weeks. ([eia.gov](https://www.eia.gov/petroleum/gasdiesel/?os=___&utm_source=openai))",
+    "In Metro Detroit, gas prices surged nearly 66 cents in one week, from $4.17 to $4.82 per gallon, highlighting significant daily price changes. ([axios.com](https://www.axios.com/local/detroit/2026/05/05/metro-detroit-gas-prices-average-iran?utm_source=openai))"
+  ],
+  "sources": [
+    "https://www.politifact.com/factchecks/2026/may/08/donald-trump/gasoline-prices-falling-crude-oil/",
+    "https://www.eia.gov/petroleum/gasdiesel/?os=___",
+    "https://www.axios.com/local/detroit/2026/05/05/metro-detroit-gas-prices-average-iran",
+    "https://ycharts.com/indicators/us_retail_gasoline_prices",
+    "https://ycharts.com/indicators/us_gas_price",
+    "https://ycharts.com/indicators/us_retail_price_of_regular_gasoline_conventional_areas",
+    "https://ycharts.com/indicators/us_retail_price_of_regular_gasoline_monthly",
+    "https://ycharts.com/indicators/us_retail_price_of_regular_gasoline_conventional_areas_monthly"
+  ],
+  "searchQueries": [
+    "US average gas prices volatility May 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.8, \"confidence\": \"high\", \"short_reason\": \"Recent data indicates significant daily fluctuations in U.S. gas prices, suggesting a high likelihood of a 10-cent change.\", \"key_evidence\": [\"On May 4, 2026, the national average gas price was $4.457 per gallon, rising to $4.558 by May 7, 2026, a 10-cent increase over three days. ([politifact.com](https://www.politifact.com/factchecks/2026/may/08/donald-trump/gasoline-prices-falling-crude-oil/?utm_source=openai))\", \"Between May 4 and May 18, 2026, the national average gas price increased from $4.452 to $4.490 per gallon, a 3.8-cent rise over two weeks. ([eia.gov](https://www.eia.gov/petroleum/gasdiesel/?os=___&utm_source=openai))\", \"In Metro Detroit, gas prices surged nearly 66 cents in one week, from $4.17 to $4.82 per gallon, highlighting significant daily price changes. ([axios.com](https://www.axios.com/local/detroit/2026/05/05/metro-detroit-gas-prices-average-iran?utm_source=openai))\"], \"source_urls\": [\"https://www.politifact.com/factchecks/2026/may/08/donald-trump/gasoline-prices-falling-crude-oil/\", \"https://www.eia.gov/petroleum/gasdiesel/?os=___\", \"https://www.axios.com/local/detroit/2026/05/05/metro-detroit-gas-prices-average-iran\"]}"
+}

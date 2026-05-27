@@ -1,0 +1,34 @@
+{
+  "id": "dw6cq26qur",
+  "question": "[Deltarune] Is Asriel dead?",
+  "marketUrl": "https://manifold.markets/TiredCliche/deltarune-is-asriel-dead",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-24T04:34:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.5,
+  "noProbability": 0.5,
+  "confidence": "medium",
+  "reason": "Asriel's death status remains unconfirmed in Chapters 3 and 4, with no clear resolution provided.",
+  "evidence": [
+    "Chapters 3 and 4 released in 2025 without confirming Asriel's death status.",
+    "Toby Fox's development updates did not address Asriel's fate.",
+    "No significant in-game events or dialogues reveal Asriel's death."
+  ],
+  "sources": [
+    "https://www.gematsu.com/2024/10/deltarune-chapters-3-and-4-to-launch-in-2025",
+    "https://www.pcgamer.com/deltarune-chapter-3-is-pretty-much-content-complete-and-will-be-releasing-alongside-chapter-4-says-creator-toby-fox/",
+    "https://www.destructoid.com/deltarune-chapters-3-4-are-complete-barring-localization/",
+    "https://deltarune.fandom.com/wiki/Asriel",
+    "https://www.gematsu.com/2023/10/deltarune-chapter-3-nearing-completion-paid-chapters-to-launch-once-chapter-4-is-complete",
+    "https://comicbook.com/gaming/news/deltarune-toby-fox-chapter3-4-completed-everything/",
+    "https://comicbook.com/gaming/news/deltarune-chapter-3-4-release-update/",
+    "https://opencritic.com/news/5683/deltarune-development-update-reveals-chapters-3-and-4-are-almost-ready"
+  ],
+  "searchQueries": [
+    "Asriel dead Deltarune chapters 3 4 creator comments 2024"
+  ],
+  "raw": "{\"yes_probability\": 0.5, \"confidence\": \"medium\", \"short_reason\": \"Asriel's death status remains unconfirmed in Chapters 3 and 4, with no clear resolution provided.\", \"key_evidence\": [\"Chapters 3 and 4 released in 2025 without confirming Asriel's death status.\", \"Toby Fox's development updates did not address Asriel's fate.\", \"No significant in-game events or dialogues reveal Asriel's death.\"], \"source_urls\": [\"https://www.gematsu.com/2024/10/deltarune-chapters-3-and-4-to-launch-in-2025\", \"https://www.pcgamer.com/deltarune-chapter-3-is-pretty-much-content-complete-and-will-be-releasing-alongside-chapter-4-says-creator-toby-fox/\", \"https://www.destructoid.com/deltarune-chapters-3-4-are-complete-barring-localization/\"]}"
+}

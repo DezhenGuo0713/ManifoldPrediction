@@ -1,0 +1,34 @@
+{
+  "id": "hJHqIK3YOYvL655fjs0t",
+  "question": "Will TWA 800 crash lawsuit Krick v. Raytheon (Case 1:22-cv-11032-AK) be ruled in favor of the plaintiffs?",
+  "marketUrl": "https://manifold.markets/TracyHarms/will-twa800-crash-lawsuit-krick-v-r",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-02T01:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.2,
+  "noProbability": 0.8,
+  "confidence": "medium",
+  "reason": "Recent filings indicate ongoing litigation without clear signs favoring plaintiffs.",
+  "evidence": [
+    "Case filed on May 5, 2026, in the U.S. Court of Appeals, Second Circuit.",
+    "No recent rulings or settlements reported.",
+    "No significant developments favoring plaintiffs reported."
+  ],
+  "sources": [
+    "https://dockets.justia.com/browse/court-ca2/noscat-3/nos-315",
+    "https://dockets.justia.com/browse/noscat-3/nos-315",
+    "https://dockets.justia.com/docket/circuit-courts/ca5/25-11253",
+    "https://govconfeed.com/article/raytheon-nightwing-8m-cybersecurity-fca-nist-800-171-may-2026",
+    "https://www.justice.gov/opa/pr/raytheon-companies-and-nightwing-group-pay-84m-resolve-false-claims-act-allegations-relating",
+    "https://www.alstonprivacy.com/doj-settles-another-false-claims-act-case-for-alleged-failures-in-implementing-nist-sp-800-171-and-basic-cybersecurity-controls/",
+    "https://www.osi.af.mil/News/Features/Display/Article/4241514/price-of-fraud-raytheon-pays-84-million-following-cybersecurity-failures/",
+    "https://www.jdsupra.com/legalnews/doj-s-civil-cyber-fraud-initiative-5300337/"
+  ],
+  "searchQueries": [
+    "Krick v. Raytheon TWA 800 lawsuit latest updates"
+  ],
+  "raw": "{\"yes_probability\": 0.2, \"confidence\": \"medium\", \"short_reason\": \"Recent filings indicate ongoing litigation without clear signs favoring plaintiffs.\", \"key_evidence\": [\"Case filed on May 5, 2026, in the U.S. Court of Appeals, Second Circuit.\", \"No recent rulings or settlements reported.\", \"No significant developments favoring plaintiffs reported.\"], \"source_urls\": [\"https://dockets.justia.com/browse/court-ca2/noscat-3/nos-315\"]}"
+}

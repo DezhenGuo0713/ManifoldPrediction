@@ -1,0 +1,40 @@
+{
+  "id": "n6n8AIsQZS",
+  "question": "Will brent q6 close above $100",
+  "marketUrl": "https://manifold.markets/IsolatedMouse/will-brent-q6-close-above-100",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.5,
+  "noProbability": 0.5,
+  "confidence": "medium",
+  "reason": "Brent crude oil price forecasts for July 2026 vary between $60 and $110 per barrel.",
+  "evidence": [
+    "J.P. Morgan forecasts an average of $60 per barrel in 2026.",
+    "Traders Union projects an average of $110.14 per barrel in July 2026.",
+    "EIA's April 2026 STEO raised its 2026 average Brent price forecast to $96 per barrel.",
+    "UBS forecasts Brent crude oil prices averaging $100 per barrel in June 2026.",
+    "ANZ expects Brent crude to end 2026 at $88 per barrel.",
+    "EIA projects Brent crude to average $53 per barrel in 2027.",
+    "EIA's April 2026 STEO raised its 2026 average Brent price forecast to $96 per barrel.",
+    "UBS forecasts Brent crude oil prices averaging $100 per barrel in June 2026.",
+    "ANZ expects Brent crude to end 2026 at $88 per barrel."
+  ],
+  "sources": [
+    "https://www.jpmorgan.com/insights/global-research/commodities/oil-price-forecast",
+    "https://tradersunion.com/currencies/forecast/brent-crude-oil-futures/",
+    "https://www.aa.com.tr/en/energy/oil/us-raises-oil-price-forecast-for-2026/54622",
+    "https://www.exchangerates.org.uk/news/45912/2026-05-15-ubs-oil-price-forecast-brent-at-90-end-2026-85-by-march-2027.html",
+    "https://www.investing.com/news/commodities-news/factboxubs-raises-brent-oil-price-view-as-straitof-hormuz-disruptions-persist-4610170",
+    "https://gov.capital/commodity/brent-crude-oil",
+    "https://gov.capital/commodity/brent-crude-oil/",
+    "https://petroeyes.com/news/oil-price-forecast-2026-geopolitical-risk-surplus/"
+  ],
+  "searchQueries": [
+    "Brent Crude oil price forecast July 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.5, \"confidence\": \"medium\", \"short_reason\": \"Brent crude oil price forecasts for July 2026 vary between $60 and $110 per barrel.\", \"key_evidence\": [\"J.P. Morgan forecasts an average of $60 per barrel in 2026.\", \"Traders Union projects an average of $110.14 per barrel in July 2026.\", \"EIA's April 2026 STEO raised its 2026 average Brent price forecast to $96 per barrel.\", \"UBS forecasts Brent crude oil prices averaging $100 per barrel in June 2026.\", \"ANZ expects Brent crude to end 2026 at $88 per barrel.\", \"EIA projects Brent crude to average $53 per barrel in 2027.\", \"EIA's April 2026 STEO raised its 2026 average Brent price forecast to $96 per barrel.\", \"UBS forecasts Brent crude oil prices averaging $100 per barrel in June 2026.\", \"ANZ expects Brent crude to end 2026 at $88 per barrel.\"], \"source_urls\": [\"https://www.jpmorgan.com/insights/global-research/commodities/oil-price-forecast\", \"https://tradersunion.com/currencies/forecast/brent-crude-oil-futures/\", \"https://www.aa.com.tr/en/energy/oil/us-raises-oil-price-forecast-for-2026/54622\", \"https://www.exchangerates.org.uk/news/45912/2026-05-15-ubs-oil-price-forecast-brent-at-90-end-2026-85-by-march-2027.html\", \"https://www.investing.com/news/commodities-news/factboxubs-raises-brent-oil-price-view-as-straitof-hormuz-disruptions-persist-4610170\"]}"
+}

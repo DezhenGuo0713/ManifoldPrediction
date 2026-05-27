@@ -1,0 +1,20 @@
+id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,forecastTimestamp,forecastCurrentDate,forecastModel,forecastInputPolicy,forecastStatus,forecastClosedAt,newsPredictedYesProbability,newsPredictedNoProbability,newsConfidence,newsShortReason,newsKeyEvidence,newsSourceUrls,newsSearchQueries,newsRawJson
+q5hLIPdLll,"Will the US or Israel occupy Kharg Island (Iran) before June 1, 2026?",https://manifold.markets/SHA256/will-the-us-or-israel-occupy-kharg,SHA256,BINARY,1780271940000,2026-05-31T19:59:00-04:00,1779477912843,2026-05-22T15:25:12.843000-04:00,0.05180973065162827,4029.222365488998,0,48,"This market resolves YES if, before June 1, 2026, armed forces of the United States or Israel establish physical military control on Kharg Island (Iran) for at least 24 hours.
+
+Examples that qualify:
+
+Deployment of ground forces controlling part of the island
+
+Amphibious landing or airborne assault that results in temporary control
+
+Examples that do NOT qualify:
+
+Airstrikes, missile strikes, or drone attacks without ground control
+
+Naval blockade without landing forces
+
+Cyberattacks or sabotage without overt military occupation
+
+Control may be temporary and does not need to be recognized internationally.
+
+Resolution will rely on reporting from major news organizations (Reuters, AP, BBC, etc.).",,Control,107,20260525,2026-05-27T06:31:59-04:00,2026-05-27,gpt-4.1-mini,question+description+current_date only,forecast,2026-05-31T19:59:00-04:00,0.050000,0.950000,high,"No evidence of US or Israeli forces occupying Kharg Island before June 1, 2026.","US and Israeli forces have conducted airstrikes on Kharg Island, targeting military infrastructure, but have not established ground control. | Diplomatic negotiations are ongoing, with the US expressing optimism about extending the ceasefire and resolving the Strait of Hormuz closure. | Iran has condemned recent US airstrikes as violations of the ceasefire, indicating a preference for diplomatic solutions over military escalation.",https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c | https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b | https://www.jpost.com/international/article-890834 | https://www.jpost.com/middle-east/iran-news/article-892327 | https://www.euronews.com/2026/03/14/trump-threatens-irans-oil-infrastructure-after-us-bombs-kharg-island-military-sites | https://www.aljazeera.com/news/2026/3/14/us-attacks-military-sites-on-irans-kharg-island-home-to-vast-oil-facility | https://www.aljazeera.com/news/2026/3/26/tehran-issues-warning-to-regional-neighbour-if-iranian-island-occupied | https://www.gpb.org/news/2026/03/14/us-military-bombs-kharg-island-irans-main-oil-export-hub-trump-says,Kharg Island Iran military occupation US Israel latest news 2026,"{""yes_probability"": 0.05, ""confidence"": ""high"", ""short_reason"": ""No evidence of US or Israeli forces occupying Kharg Island before June 1, 2026."", ""key_evidence"": [""US and Israeli forces have conducted airstrikes on Kharg Island, targeting military infrastructure, but have not established ground control."", ""Diplomatic negotiations are ongoing, with the US expressing optimism about extending the ceasefire and resolving the Strait of Hormuz closure."", ""Iran has condemned recent US airstrikes as violations of the ceasefire, indicating a preference for diplomatic solutions over military escalation.""], ""source_urls"": [""https://apnews.com/article/47980a4d87c63c0adb873d306f9b932c"", ""https://apnews.com/article/01a13e9a63ece786a0a7fa4933dbf09b"", ""https://www.jpost.com/international/article-890834""]}"

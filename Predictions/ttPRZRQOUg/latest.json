@@ -1,0 +1,34 @@
+{
+  "id": "ttPRZRQOUg",
+  "question": "Hurricanes vs Canadiens series winner, Stanley Cup 2026",
+  "marketUrl": "https://manifold.markets/Mochi/hurricanes-vs-canadiens-series-winn",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-30T19:59:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.65,
+  "noProbability": 0.35,
+  "confidence": "medium",
+  "reason": "Hurricanes lead series 2-1, with Game 4 today; strong performance in previous games.",
+  "evidence": [
+    "Hurricanes lead series 2-1 after Game 3 overtime win.",
+    "Game 4 scheduled for today, May 27, 2026.",
+    "Hurricanes' strong performance in previous games."
+  ],
+  "sources": [
+    "https://www.nhl.com/news/topic/playoffs/vegas-golden-knights-carolina-hurricanes-montreal-canadiens-2026-playoff-lookahead",
+    "https://www.nhl.com/news/topic/playoffs/2026-stanley-cup-playoffs-conference-finals-schedule-television-results",
+    "https://www.nbc.com/sports/news/svechnikov-scores-in-ot-as-hurricanes-beat-canadiens-3-2-in-game-3-of-east-final",
+    "https://www.nhl.com/hurricanes/news/topic/game-coverage/recap-canes-drop-game-1-suffer-first-loss-of-the-playoffs",
+    "https://www.nbcsports.com/nhl/news/svechnikov-scores-in-ot-as-hurricanes-beat-canadiens-3-2-in-game-3-of-east-final",
+    "https://nhlrumors.com/2026-stanley-cup-playoffs-conference-final-schedule/2026/05/23/",
+    "https://nhlrumors.com/2026-stanley-cup-playoffs-conference-final-schedule/2026/05/26/amp/",
+    "https://www.wral.com/sports/hurricanes-as-montreal-game-three-eastern-conference-final-may-2026/"
+  ],
+  "searchQueries": [
+    "Toronto Maple Leafs vs Carolina Hurricanes 2026 NHL playoffs Stanley Cup finalists"
+  ],
+  "raw": "{\"yes_probability\": 0.65, \"confidence\": \"medium\", \"short_reason\": \"Hurricanes lead series 2-1, with Game 4 today; strong performance in previous games.\", \"key_evidence\": [\"Hurricanes lead series 2-1 after Game 3 overtime win.\", \"Game 4 scheduled for today, May 27, 2026.\", \"Hurricanes' strong performance in previous games.\"], \"source_urls\": [\"https://www.nhl.com/news/topic/playoffs/vegas-golden-knights-carolina-hurricanes-montreal-canadiens-2026-playoff-lookahead\", \"https://www.nhl.com/news/topic/playoffs/2026-stanley-cup-playoffs-conference-finals-schedule-television-results\", \"https://www.nbc.com/sports/news/svechnikov-scores-in-ot-as-hurricanes-beat-canadiens-3-2-in-game-3-of-east-final\"]}"
+}

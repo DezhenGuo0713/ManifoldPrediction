@@ -1,0 +1,32 @@
+{
+  "id": "2t5UQgdR5z",
+  "question": "Will somebody managram me at least 1500 mana before market close?",
+  "marketUrl": "https://manifold.markets/ZandaZhu/will-somebody-managram-me-at-least-g6UqlsZOpS",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-02T00:00:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.5,
+  "noProbability": 0.5,
+  "confidence": "medium",
+  "reason": "Recent markets with similar conditions have had mixed outcomes, indicating uncertainty.",
+  "evidence": [
+    "Previous markets with similar conditions have had mixed outcomes, indicating uncertainty."
+  ],
+  "sources": [
+    "https://manalink.app/",
+    "https://manalink.app/about",
+    "https://manifold.markets/ZandaZhu/will-somebody-managram-me-at-least",
+    "https://manifold.markets/ZandaZhu/will-somebody-managram-me-1500-mana",
+    "https://manifold.markets/ZandaZhu/will-somebody-managram-me-at-least-g6UqlsZOpS",
+    "https://manifold.markets/ZandaZhu/will-somebody-managram-me-at-least-U6pI5sIZ6Z",
+    "https://manifold.markets/ZandaZhu/will-somebody-managram-me-at-least-9UIcCuAR6s",
+    "https://manifold.markets/ZandaZhu/will-somebody-managram-me-at-least-ECURN9Ihl2"
+  ],
+  "searchQueries": [
+    "platforms or communities for managram transactions 1500 mana before June 1, 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.5, \"confidence\": \"medium\", \"short_reason\": \"Recent markets with similar conditions have had mixed outcomes, indicating uncertainty.\", \"key_evidence\": [\"Previous markets with similar conditions have had mixed outcomes, indicating uncertainty.\"], \"source_urls\": []}"
+}

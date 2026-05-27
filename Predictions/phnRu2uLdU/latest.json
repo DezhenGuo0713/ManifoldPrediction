@@ -1,0 +1,43 @@
+{
+  "id": "phnRu2uLdU",
+  "question": "Will NVDA close above $250 on Friday, June 12, 2026?",
+  "marketUrl": "https://manifold.markets/CalibratedGhosts/will-nvda-close-above-250-on-friday-QyQUdpsnC9",
+  "status": "forecast",
+  "forecastTimestamp": "2026-05-27T06:31:59-04:00",
+  "forecastCurrentDate": "2026-05-27",
+  "forecastClosedAt": "2026-06-12T16:05:00-04:00",
+  "model": "gpt-4.1-mini",
+  "inputPolicy": "question+description+current_date only",
+  "yesProbability": 0.35,
+  "noProbability": 0.65,
+  "confidence": "medium",
+  "reason": "Analyst forecasts suggest NVDA may reach $250 by June 12, 2026.",
+  "evidence": [
+    "Analyst consensus price target of $276.75, indicating a 26.1% upside from current price.",
+    "Analyst consensus rating of 'Strong Buy' based on 79 analyst ratings.",
+    "Analyst price targets range from $140.00 to $360.00.",
+    "Analyst consensus price target of $292.35, indicating a 35.86% upside from current price.",
+    "Analyst consensus rating of 'Strong Buy' based on 59 Buy, 2 Hold, and 1 Sell ratings.",
+    "Analyst price targets range from $180.00 to $500.00.",
+    "Analyst consensus price target of $248.26, indicating a 40% upside from current price.",
+    "Analyst consensus rating of 'Strong Buy' based on 39 analyst ratings.",
+    "Analyst price targets range from $205.00 to $352.00.",
+    "Analyst consensus price target of $258.30, indicating a 46% upside from current price.",
+    "Analyst consensus rating of 'Buy' based on 54 analyst ratings.",
+    "Analyst price targets range from $176.70 to $352.00."
+  ],
+  "sources": [
+    "https://www.investing.com/equities/nvidia-corp-consensus-estimates",
+    "https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/",
+    "https://stockanalysis.com/stocks/nvda/forecast/",
+    "https://www.marketbeat.com/stocks/NASDAQ/NVDA/",
+    "https://stockanalysis.com/stocks/nvda/",
+    "https://stockscan.io/stocks/NVDA/forecast",
+    "https://tradersunion.com/currencies/forecast/nvidia/",
+    "https://walletinvestor.com/stock-forecast/nvda-stock-prediction/data"
+  ],
+  "searchQueries": [
+    "NVIDIA stock price forecast June 12 2026"
+  ],
+  "raw": "{\"yes_probability\": 0.35, \"confidence\": \"medium\", \"short_reason\": \"Analyst forecasts suggest NVDA may reach $250 by June 12, 2026.\", \"key_evidence\": [\"Analyst consensus price target of $276.75, indicating a 26.1% upside from current price.\", \"Analyst consensus rating of 'Strong Buy' based on 79 analyst ratings.\", \"Analyst price targets range from $140.00 to $360.00.\", \"Analyst consensus price target of $292.35, indicating a 35.86% upside from current price.\", \"Analyst consensus rating of 'Strong Buy' based on 59 Buy, 2 Hold, and 1 Sell ratings.\", \"Analyst price targets range from $180.00 to $500.00.\", \"Analyst consensus price target of $248.26, indicating a 40% upside from current price.\", \"Analyst consensus rating of 'Strong Buy' based on 39 analyst ratings.\", \"Analyst price targets range from $205.00 to $352.00.\", \"Analyst consensus price target of $258.30, indicating a 46% upside from current price.\", \"Analyst consensus rating of 'Buy' based on 54 analyst ratings.\", \"Analyst price targets range from $176.70 to $352.00.\"], \"source_urls\": [\"https://www.investing.com/equities/nvidia-corp-consensus-estimates\", \"https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/\", \"https://stockanalysis.com/stocks/nvda/forecast/\"]}"
+}
