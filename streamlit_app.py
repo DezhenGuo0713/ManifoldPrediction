@@ -54,6 +54,34 @@ def pct(value: object) -> str:
     return f"{round(parse_float(value) * 100)}%"
 
 
+def first_present(row: dict[str, str], *keys: str) -> str:
+    for key in keys:
+        value = row.get(key, "")
+        if str(value).strip():
+            return str(value)
+    return ""
+
+
+def predicted_yes_value(row: dict[str, str]) -> str:
+    return first_present(
+        row,
+        "finalPredictedYesProbability",
+        "newsPredictedYesProbability",
+    )
+
+
+def predicted_no_value(row: dict[str, str]) -> str:
+    return first_present(
+        row,
+        "finalPredictedNoProbability",
+        "newsPredictedNoProbability",
+    )
+
+
+def prediction_reason_value(row: dict[str, str]) -> str:
+    return first_present(row, "finalShortReason", "newsShortReason")
+
+
 def format_edt_timestamp(value: str, fallback: str = "") -> str:
     text = (value or "").strip()
     if not text:
@@ -121,7 +149,7 @@ def is_market_closed(row: dict[str, str]) -> bool:
 
 def is_displayable_row(row: dict[str, str]) -> bool:
     return bool(row.get("id")) and (
-        bool(row.get("newsPredictedYesProbability")) or is_market_closed(row)
+        bool(predicted_yes_value(row)) or is_market_closed(row)
     )
 
 
@@ -190,8 +218,8 @@ def compact_source_html(row: dict[str, str]) -> str:
 
 def card_html(row: dict[str, str], embed: bool = False) -> str:
     is_closed = is_market_closed(row)
-    yes = parse_float(row.get("newsPredictedYesProbability"))
-    no = parse_float(row.get("newsPredictedNoProbability"), 1 - yes)
+    yes = parse_float(predicted_yes_value(row))
+    no = parse_float(predicted_no_value(row), 1 - yes)
     yes_score_class = "higher-score" if yes >= no else "lower-score"
     no_score_class = "higher-score" if no > yes else "lower-score"
     band = "closed" if is_closed else probability_band(yes)
@@ -207,7 +235,7 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
             row.get("forecastCurrentDate", "").strip(),
         )
         time_label = f"updated: {forecast_date}"
-        reason = direct_reason(row.get("newsShortReason", "").strip())
+        reason = direct_reason(prediction_reason_value(row).strip())
     market_url = row.get("url", "").strip()
     mode_class = "embed-view" if embed else "full-view"
     odds_html = (
@@ -829,15 +857,15 @@ def render_directory(rows: list[dict[str, str]]) -> None:
             row.get("forecastTimestamp", ""),
             row.get("forecastCurrentDate", ""),
         )
-        reason = direct_reason(row.get("newsShortReason", ""))
+        reason = direct_reason(prediction_reason_value(row))
         if is_market_closed(row):
             status_class = "closed"
             prob_html = '<div class="closed-note">Market closed</div>'
             reason = "Market closed. No prediction generated."
         else:
             status_class = ""
-            yes = parse_float(row.get("newsPredictedYesProbability"))
-            no = parse_float(row.get("newsPredictedNoProbability"), 1 - yes)
+            yes = parse_float(predicted_yes_value(row))
+            no = parse_float(predicted_no_value(row), 1 - yes)
             yes_high = " high" if yes >= no else ""
             no_high = " high" if no > yes else ""
             prob_html = (

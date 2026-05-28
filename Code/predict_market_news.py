@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
-"""Forecast Manifold binary markets from question, description, and web news.
+"""Forecast Manifold binary markets from three explicit signals.
 
-This script intentionally does not send Manifold market probability, volume,
-creator, bettor count, or randomization fields to the model. The forecast input
-is limited to:
+The final YES probability is a calibrated logit blend of:
 
-    question + description + current_date
-
-The model is expected to use web search for current evidence and return a final
-YES probability plus a short reason.
+    1. web-search forecast from question + description + current_date
+    2. current Manifold market probability
+    3. no-search model prior from question + description + current_date
 
 Setup:
 
@@ -30,6 +27,9 @@ Environment overrides:
 
     MARKET_NEWS_MODEL      model name, default gpt-4.1-mini
     MARKET_NEWS_WEB_TOOL   web search tool, default web_search
+    MARKET_SEARCH_WEIGHT   web-search signal weight, default 0.40
+    MARKET_MARKET_WEIGHT   market-probability signal weight, default 0.40
+    MARKET_PRIOR_WEIGHT    no-search prior signal weight, default 0.20
     OPENAI_BASE_URL        API base URL, default https://api.openai.com
 """
 
@@ -38,6 +38,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import os
 import re
 import sys
@@ -62,6 +63,9 @@ DEFAULT_OPENAI_BASE_URL = "https://api.openai.com"
 DEFAULT_MODEL = "gpt-4.1-mini"
 DEFAULT_WEB_TOOL = "web_search"
 DEFAULT_MAX_SOURCE_URLS = 8
+DEFAULT_SEARCH_WEIGHT = 0.40
+DEFAULT_MARKET_WEIGHT = 0.40
+DEFAULT_PRIOR_WEIGHT = 0.20
 DEFAULT_BLOCKED_DOMAINS = [
     "manifold.markets",
     "polymarket.com",
@@ -81,6 +85,23 @@ OUTPUT_COLUMNS = [
     "forecastInputPolicy",
     "forecastStatus",
     "forecastClosedAt",
+    "finalPredictedYesProbability",
+    "finalPredictedNoProbability",
+    "finalShortReason",
+    "marketCurrentProbability",
+    "marketCurrentNoProbability",
+    "searchPredictedYesProbability",
+    "searchPredictedNoProbability",
+    "searchConfidence",
+    "searchShortReason",
+    "priorPredictedYesProbability",
+    "priorPredictedNoProbability",
+    "priorConfidence",
+    "priorShortReason",
+    "ensembleSearchWeight",
+    "ensembleMarketWeight",
+    "ensemblePriorWeight",
+    "ensembleMethod",
     "newsPredictedYesProbability",
     "newsPredictedNoProbability",
     "newsConfidence",
@@ -102,8 +123,68 @@ class Forecast:
     raw_json: dict[str, Any]
 
 
+def format_probability_percent(value: float) -> str:
+    return f"{round(clamp_probability(value) * 100)}%"
+
+
 def clamp_probability(value: float) -> float:
     return max(MIN_PROBABILITY, min(MAX_PROBABILITY, value))
+
+
+def logit_probability(value: float) -> float:
+    probability = clamp_probability(value)
+    return math.log(probability / (1 - probability))
+
+
+def inverse_logit(value: float) -> float:
+    if value >= 0:
+        z = math.exp(-value)
+        return 1 / (1 + z)
+    z = math.exp(value)
+    return z / (1 + z)
+
+
+def blend_probabilities(
+    signals: dict[str, float | None],
+    raw_weights: dict[str, float],
+) -> tuple[float, dict[str, float]]:
+    available = {
+        name: clamp_probability(value)
+        for name, value in signals.items()
+        if value is not None
+    }
+    if not available:
+        return 0.5, {name: 0.0 for name in raw_weights}
+
+    positive_weights = {
+        name: max(0.0, raw_weights.get(name, 0.0))
+        for name in available
+    }
+    total_weight = sum(positive_weights.values())
+    if total_weight <= 0:
+        positive_weights = {name: 1.0 for name in available}
+        total_weight = float(len(available))
+
+    weights = {
+        name: positive_weights.get(name, 0.0) / total_weight
+        for name in raw_weights
+    }
+    blended_logit = sum(
+        weights.get(name, 0.0) * logit_probability(probability)
+        for name, probability in available.items()
+    )
+    return clamp_probability(inverse_logit(blended_logit)), weights
+
+
+def agreement_confidence(probabilities: list[float]) -> str:
+    if len(probabilities) < 2:
+        return "low"
+    spread = max(probabilities) - min(probabilities)
+    if spread <= 0.12:
+        return "high"
+    if spread <= 0.28:
+        return "medium"
+    return "low"
 
 
 def parse_float(value: Any) -> float | None:
@@ -277,10 +358,26 @@ def prediction_history_payload(row: dict[str, str]) -> dict[str, Any]:
         "forecastClosedAt": row.get("forecastClosedAt", ""),
         "model": row.get("forecastModel", ""),
         "inputPolicy": row.get("forecastInputPolicy", ""),
-        "yesProbability": parse_float(row.get("newsPredictedYesProbability")),
-        "noProbability": parse_float(row.get("newsPredictedNoProbability")),
+        "yesProbability": parse_float(
+            row.get("finalPredictedYesProbability")
+            or row.get("newsPredictedYesProbability")
+        ),
+        "noProbability": parse_float(
+            row.get("finalPredictedNoProbability")
+            or row.get("newsPredictedNoProbability")
+        ),
         "confidence": row.get("newsConfidence", ""),
-        "reason": row.get("newsShortReason", ""),
+        "reason": row.get("finalShortReason") or row.get("newsShortReason", ""),
+        "signals": {
+            "market": parse_float(row.get("marketCurrentProbability")),
+            "search": parse_float(row.get("searchPredictedYesProbability")),
+            "prior": parse_float(row.get("priorPredictedYesProbability")),
+        },
+        "weights": {
+            "market": parse_float(row.get("ensembleMarketWeight")),
+            "search": parse_float(row.get("ensembleSearchWeight")),
+            "prior": parse_float(row.get("ensemblePriorWeight")),
+        },
         "evidence": [
             item.strip()
             for item in row.get("newsKeyEvidence", "").split("|")
@@ -397,7 +494,7 @@ def build_prompt(
     blocked_domains: list[str],
 ) -> str:
     blocked_text = ", ".join(blocked_domains) if blocked_domains else "[none]"
-    return f"""Forecast this binary prediction market.
+    return f"""Forecast this binary prediction market as the web-search signal.
 
 You must use web search to find recent, relevant, authoritative evidence. Search
 for news and primary sources when the question depends on current events. Use
@@ -410,6 +507,9 @@ You are only allowed to use the following market inputs:
 
 Do not assume any Manifold market probability, trading volume, creator identity,
 comments, or bettor behavior.
+If prediction-market odds or trading prices appear inside the description, do
+not use them as evidence unless the market explicitly resolves based on those
+odds.
 Do not use prediction-market or forecasting-site pages as evidence. Blocked
 forecasting domains: {blocked_text}.
 
@@ -417,6 +517,38 @@ Return a calibrated probability that the market ultimately resolves YES.
 Make short_reason one direct sentence, 12-24 words, with the main evidence
 first. Avoid filler, hedging phrases, citations, and markdown links in
 short_reason. Put URLs only in source_urls.
+
+Current date: {current_date}
+Question: {question}
+Description: {description or "[empty]"}
+"""
+
+
+def build_prior_prompt(
+    question: str,
+    description: str,
+    current_date: str,
+) -> str:
+    return f"""Forecast this binary prediction market as the no-search prior signal.
+
+Do not use web search, browsing, or external tools. Rely only on your general
+model knowledge, the resolution criteria, and base-rate reasoning available from
+the text below.
+
+You are only allowed to use the following market inputs:
+- question
+- description
+- current_date
+
+Do not assume any Manifold market probability, trading volume, creator identity,
+comments, or bettor behavior. Return source_urls as an empty array.
+If prediction-market odds or trading prices appear inside the description, do
+not use them as evidence unless the market explicitly resolves based on those
+odds.
+
+Return a calibrated probability that the market ultimately resolves YES.
+Make short_reason one direct sentence, 12-24 words, with the main reason first.
+Avoid filler, hedging phrases, citations, and markdown links in short_reason.
 
 Current date: {current_date}
 Question: {question}
@@ -516,6 +648,51 @@ def call_openai_responses(
     )
     try:
         with urlopen(request, timeout=180) as response:
+            return json.load(response)
+    except HTTPError as error:
+        try:
+            body = error.read().decode("utf-8", errors="replace")
+        except Exception:
+            body = ""
+        raise RuntimeError(f"OpenAI HTTP {error.code}: {body[:1000]}") from error
+
+
+def call_openai_model_only(
+    prompt: str,
+    model: str,
+    api_key: str,
+    base_url: str,
+) -> dict[str, Any]:
+    url = normalize_chat_url(base_url)
+    body = {
+        "model": model,
+        "max_output_tokens": 900,
+        "input": [
+            {
+                "role": "system",
+                "content": (
+                    "You are a calibrated superforecaster. Do not browse or use "
+                    "external tools. Apply base rates, resolution criteria, and "
+                    "clear probabilistic reasoning, and always return valid JSON."
+                ),
+            },
+            {"role": "user", "content": prompt},
+        ],
+        "text": {"format": response_schema()},
+    }
+    request = Request(
+        url,
+        data=json.dumps(body).encode("utf-8"),
+        headers={
+            "Accept": "application/json",
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": USER_AGENT,
+        },
+        method="POST",
+    )
+    try:
+        with urlopen(request, timeout=120) as response:
             return json.load(response)
     except HTTPError as error:
         try:
@@ -673,6 +850,56 @@ def forecast_market(
     return parse_forecast(response, max_source_urls), extract_search_queries(response)
 
 
+def forecast_model_prior(
+    row: dict[str, str],
+    current_date: str,
+    model: str,
+    api_key: str,
+    base_url: str,
+    description_max_chars: int,
+    fetch_live_description: bool,
+) -> Forecast:
+    description = row.get("textDescription", "").strip()
+    if fetch_live_description and row.get("id"):
+        live_description = fetch_market_description(row["id"])
+        if live_description:
+            description = live_description
+
+    prompt = build_prior_prompt(
+        question=row.get("question", "").strip(),
+        description=clean_description(description, description_max_chars),
+        current_date=current_date,
+    )
+    response = call_openai_model_only(
+        prompt=prompt,
+        model=model,
+        api_key=api_key,
+        base_url=base_url,
+    )
+    return parse_forecast(response, max_source_urls=0)
+
+
+def make_ensemble_reason(
+    final_probability: float,
+    market_probability: float | None,
+    search_forecast: Forecast,
+    prior_forecast: Forecast,
+) -> str:
+    pieces = [
+        f"search {format_probability_percent(search_forecast.yes_probability)}",
+        f"prior {format_probability_percent(prior_forecast.yes_probability)}",
+    ]
+    if market_probability is not None:
+        pieces.insert(0, f"market {format_probability_percent(market_probability)}")
+    label = "YES" if final_probability >= 0.5 else "NO"
+    evidence = search_forecast.short_reason or prior_forecast.short_reason
+    reason = (
+        f"Blending {', '.join(pieces)} gives "
+        f"{format_probability_percent(final_probability)} {label}; {evidence}"
+    )
+    return make_direct_reason(reason)
+
+
 def predict_row(
     row: dict[str, str],
     current_date: str,
@@ -686,6 +913,9 @@ def predict_row(
     blocked_domains: list[str],
     use_domain_filters: bool,
     max_source_urls: int,
+    search_weight: float,
+    market_weight: float,
+    prior_weight: float,
 ) -> dict[str, str] | None:
     if row.get("outcomeType", "").strip().upper() != "BINARY":
         return None
@@ -694,13 +924,32 @@ def predict_row(
     output["forecastTimestamp"] = now.replace(microsecond=0).isoformat()
     output["forecastCurrentDate"] = current_date
     output["forecastModel"] = model
-    output["forecastInputPolicy"] = "question+description+current_date only"
+    output["forecastInputPolicy"] = (
+        "web_search + market_probability + no_search_model_prior"
+    )
 
     close_time = market_close_datetime(row)
     if is_market_closed(row, now):
         closed_at = close_time.isoformat() if close_time is not None else ""
         output["forecastStatus"] = "closed"
         output["forecastClosedAt"] = closed_at
+        output["finalPredictedYesProbability"] = ""
+        output["finalPredictedNoProbability"] = ""
+        output["finalShortReason"] = "Market closed. No prediction generated."
+        output["marketCurrentProbability"] = ""
+        output["marketCurrentNoProbability"] = ""
+        output["searchPredictedYesProbability"] = ""
+        output["searchPredictedNoProbability"] = ""
+        output["searchConfidence"] = ""
+        output["searchShortReason"] = ""
+        output["priorPredictedYesProbability"] = ""
+        output["priorPredictedNoProbability"] = ""
+        output["priorConfidence"] = ""
+        output["priorShortReason"] = ""
+        output["ensembleSearchWeight"] = ""
+        output["ensembleMarketWeight"] = ""
+        output["ensemblePriorWeight"] = ""
+        output["ensembleMethod"] = "weighted_logit"
         output["newsPredictedYesProbability"] = ""
         output["newsPredictedNoProbability"] = ""
         output["newsConfidence"] = ""
@@ -714,7 +963,7 @@ def predict_row(
         )
         return output
 
-    forecast, queries = forecast_market(
+    search_forecast, queries = forecast_market(
         row=row,
         current_date=current_date,
         model=model,
@@ -727,21 +976,101 @@ def predict_row(
         use_domain_filters=use_domain_filters,
         max_source_urls=max_source_urls,
     )
+    prior_forecast = forecast_model_prior(
+        row=row,
+        current_date=current_date,
+        model=model,
+        api_key=api_key,
+        base_url=base_url,
+        description_max_chars=description_max_chars,
+        fetch_live_description=fetch_live_description,
+    )
+    market_probability = parse_float(row.get("probability"))
+    if market_probability is not None:
+        market_probability = clamp_probability(market_probability)
+    final_probability, used_weights = blend_probabilities(
+        {
+            "market": market_probability,
+            "search": search_forecast.yes_probability,
+            "prior": prior_forecast.yes_probability,
+        },
+        {
+            "market": market_weight,
+            "search": search_weight,
+            "prior": prior_weight,
+        },
+    )
+    final_reason = make_ensemble_reason(
+        final_probability=final_probability,
+        market_probability=market_probability,
+        search_forecast=search_forecast,
+        prior_forecast=prior_forecast,
+    )
+    component_probabilities = [
+        search_forecast.yes_probability,
+        prior_forecast.yes_probability,
+    ]
+    if market_probability is not None:
+        component_probabilities.append(market_probability)
+    final_confidence = agreement_confidence(component_probabilities)
 
     output["forecastStatus"] = "forecast"
     output["forecastClosedAt"] = close_time.isoformat() if close_time else ""
-    output["newsPredictedYesProbability"] = format_probability(
-        forecast.yes_probability,
+    output["finalPredictedYesProbability"] = format_probability(final_probability)
+    output["finalPredictedNoProbability"] = format_probability(1 - final_probability)
+    output["finalShortReason"] = final_reason
+    output["marketCurrentProbability"] = (
+        format_probability(market_probability) if market_probability is not None else ""
     )
-    output["newsPredictedNoProbability"] = format_probability(
-        1 - forecast.yes_probability,
+    output["marketCurrentNoProbability"] = (
+        format_probability(1 - market_probability)
+        if market_probability is not None
+        else ""
     )
-    output["newsConfidence"] = forecast.confidence
-    output["newsShortReason"] = forecast.short_reason
-    output["newsKeyEvidence"] = " | ".join(forecast.key_evidence)
-    output["newsSourceUrls"] = " | ".join(forecast.source_urls)
+    output["searchPredictedYesProbability"] = format_probability(
+        search_forecast.yes_probability,
+    )
+    output["searchPredictedNoProbability"] = format_probability(
+        1 - search_forecast.yes_probability,
+    )
+    output["searchConfidence"] = search_forecast.confidence
+    output["searchShortReason"] = search_forecast.short_reason
+    output["priorPredictedYesProbability"] = format_probability(
+        prior_forecast.yes_probability,
+    )
+    output["priorPredictedNoProbability"] = format_probability(
+        1 - prior_forecast.yes_probability,
+    )
+    output["priorConfidence"] = prior_forecast.confidence
+    output["priorShortReason"] = prior_forecast.short_reason
+    output["ensembleSearchWeight"] = f"{used_weights.get('search', 0):.6f}"
+    output["ensembleMarketWeight"] = f"{used_weights.get('market', 0):.6f}"
+    output["ensemblePriorWeight"] = f"{used_weights.get('prior', 0):.6f}"
+    output["ensembleMethod"] = "weighted_logit"
+    output["newsPredictedYesProbability"] = format_probability(final_probability)
+    output["newsPredictedNoProbability"] = format_probability(1 - final_probability)
+    output["newsConfidence"] = final_confidence
+    output["newsShortReason"] = final_reason
+    output["newsKeyEvidence"] = " | ".join(search_forecast.key_evidence)
+    output["newsSourceUrls"] = " | ".join(search_forecast.source_urls)
     output["newsSearchQueries"] = " | ".join(queries)
-    output["newsRawJson"] = json.dumps(forecast.raw_json, ensure_ascii=False)
+    output["newsRawJson"] = json.dumps(
+        {
+            "final": {
+                "yes_probability": final_probability,
+                "confidence": final_confidence,
+                "short_reason": final_reason,
+            },
+            "signals": {
+                "market": {"yes_probability": market_probability},
+                "search": search_forecast.raw_json,
+                "prior": prior_forecast.raw_json,
+            },
+            "weights": used_weights,
+            "method": "weighted_logit",
+        },
+        ensure_ascii=False,
+    )
     return output
 
 
@@ -817,6 +1146,33 @@ def parse_args() -> argparse.Namespace:
         help=f"Maximum source URLs stored per forecast. Default: {DEFAULT_MAX_SOURCE_URLS}.",
     )
     parser.add_argument(
+        "--search-weight",
+        type=float,
+        default=float(os.environ.get("MARKET_SEARCH_WEIGHT", DEFAULT_SEARCH_WEIGHT)),
+        help=(
+            "Weight for the web-search forecast signal. "
+            f"Default: {DEFAULT_SEARCH_WEIGHT}."
+        ),
+    )
+    parser.add_argument(
+        "--market-weight",
+        type=float,
+        default=float(os.environ.get("MARKET_MARKET_WEIGHT", DEFAULT_MARKET_WEIGHT)),
+        help=(
+            "Weight for the current Manifold probability signal. "
+            f"Default: {DEFAULT_MARKET_WEIGHT}."
+        ),
+    )
+    parser.add_argument(
+        "--prior-weight",
+        type=float,
+        default=float(os.environ.get("MARKET_PRIOR_WEIGHT", DEFAULT_PRIOR_WEIGHT)),
+        help=(
+            "Weight for the no-search model prior signal. "
+            f"Default: {DEFAULT_PRIOR_WEIGHT}."
+        ),
+    )
+    parser.add_argument(
         "--fetch-live-description",
         action="store_true",
         help=(
@@ -879,13 +1235,40 @@ def main() -> int:
             print(f"Market is closed at {close_text}. No prediction would be generated.")
             return 0
         description = row.get("textDescription", "")
-        prompt = build_prompt(
+        search_prompt = build_prompt(
             row.get("question", ""),
             clean_description(description, args.description_max_chars),
             args.current_date,
             blocked_domains,
         )
-        print(prompt)
+        prior_prompt = build_prior_prompt(
+            row.get("question", ""),
+            clean_description(description, args.description_max_chars),
+            args.current_date,
+        )
+        market_probability = parse_float(row.get("probability"))
+        if market_probability is not None:
+            market_probability = clamp_probability(market_probability)
+        _, dry_weights = blend_probabilities(
+            {
+                "market": market_probability,
+                "search": 0.5,
+                "prior": 0.5,
+            },
+            {
+                "market": args.market_weight,
+                "search": args.search_weight,
+                "prior": args.prior_weight,
+            },
+        )
+        print("=== web-search prompt ===")
+        print(search_prompt)
+        print("=== no-search prior prompt ===")
+        print(prior_prompt)
+        print("=== market probability signal ===")
+        print(market_probability if market_probability is not None else "[missing]")
+        print("=== normalized signal weights if all model signals are available ===")
+        print(json.dumps(dry_weights, indent=2, sort_keys=True))
         return 0
 
     if not api_key:
@@ -913,6 +1296,9 @@ def main() -> int:
                 blocked_domains=blocked_domains,
                 use_domain_filters=args.use_domain_filters,
                 max_source_urls=args.max_source_urls,
+                search_weight=args.search_weight,
+                market_weight=args.market_weight,
+                prior_weight=args.prior_weight,
             )
         except Exception as error:
             skipped += 1
@@ -951,8 +1337,13 @@ def main() -> int:
         "closedRows": closed,
         "outputRows": len(outputs),
         "skippedRows": skipped,
-        "inputPolicy": "question+description+current_date only",
+        "inputPolicy": "web_search + market_probability + no_search_model_prior",
         "blockedDomains": blocked_domains,
+        "signalWeights": {
+            "market": args.market_weight,
+            "search": args.search_weight,
+            "prior": args.prior_weight,
+        },
     }
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0

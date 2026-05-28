@@ -12,3 +12,8 @@ Each scheduled prediction run writes CSV snapshots under this folder:
 The same per-market folders also keep `latest.json` and timestamped JSON files
 for structured consumers. Closed markets are stored with `forecastStatus:
 "closed"` and no probability.
+
+Forecast rows store the final probability plus the three component signals:
+current market probability, web-search forecast, and no-search model prior. The
+default blend uses weighted logit averaging with market/search/prior weights
+`0.40 / 0.40 / 0.20`.
