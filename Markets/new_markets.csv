@@ -1,0 +1,42 @@
+id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,monitorDiscoveredAt,monitorExistingSourcesChecked
+555z0Sn22q,Daily Coinflip,https://manifold.markets/Traveel/daily-coinflip-qLhucnnz6C,Traveel,BINARY,1780113540000,2026-05-29T23:59:00-04:00,1779980413464,2026-05-28T11:00:13.464000-04:00,0.5063892963176356,670,956.2747059215786,5,"! Block #DailyCoinflip to stop seeing these !
+
+Yes = heads
+
+No = tails
+
+(Day 505)
+
+Current totals: 260 heads vs 244 tails
+
+Longest streaks: 10 heads (days 12-22); 9 tails (days 479-488)
+
+Yesterday’s flip: Heads
+
+@FairlyRandom will be used to generate the outcome
+
+1 = heads
+
+2 = tails
+
+Resolution can be expected within 24 hours after closing
+
+Noteworthy Gamblers:
+
+Longest win streak: @Skyguy (of 7)
+
+Longest loss streak: @QuestionableQuentin (of 11)
+
+Biggest win: @evan (of Ṁ109,593 profit on day 329)
+
+Biggest loss: @JannesH (of -Ṁ63,765 on day 367)
+
+Most flips:
+
+[Submit a comment or DM to be featured]
+
+Contingencies:
+
+Should @FairlyRandom fail to produce a response 24 hours after the close date, and after additional @FairlyRandom roll requests (one over here > one on the testing market), I will manually resolve it according to a Google coinflip (outcome is final).
+
+Should I fail to generate and/or resolve the outcome within a week after the market’s close, a mod may do so instead.",,Control,1,2026,2026-05-28T11:09:54-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/active_markets_until_end_june_2026_with_descriptions.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv

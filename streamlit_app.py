@@ -7,24 +7,15 @@ import re
 from datetime import datetime
 from urllib.parse import quote
 from urllib.parse import urlsplit
-from urllib.request import urlopen
 from zoneinfo import ZoneInfo
 
 import streamlit as st
 
 
-REMOTE_INPUTS = [
-    os.environ.get("PREDICTION_CSV_URL", ""),
-    (
-        "https://raw.githubusercontent.com/"
-        "DezhenGuo0713/ManifoldPrediction/main/Markets/MarketNewsPredictions.csv"
-    ),
-]
-PREFERRED_INPUTS = [
+PREDICTION_INPUT_CSV = os.environ.get(
+    "PREDICTION_CSV_PATH",
     os.path.join("Markets", "MarketNewsPredictions.csv"),
-    os.path.join("Markets", "MarketNewsPredictions.10_sample.csv"),
-    os.path.join("Markets", "MarketNewsPredictions.sample.csv"),
-]
+)
 DISPLAY_TIMEZONE = ZoneInfo("America/New_York")
 STREAMLIT_DIRECT_PATH = os.environ.get(
     "STREAMLIT_DIRECT_PATH",
@@ -180,24 +171,10 @@ def probability_band(yes_probability: float) -> str:
 
 @st.cache_data(ttl=300)
 def load_rows() -> list[dict[str, str]]:
-    for url in REMOTE_INPUTS:
-        if not url:
-            continue
-        try:
-            with urlopen(url, timeout=15) as response:
-                text = response.read().decode("utf-8")
-            reader = csv.DictReader(text.splitlines())
-            rows = [row for row in reader if is_displayable_row(row)]
-            if rows:
-                return rows
-        except Exception:
-            pass
-
-    for path in PREFERRED_INPUTS:
-        if os.path.exists(path):
-            with open(path, newline="", encoding="utf-8") as input_file:
-                reader = csv.DictReader(input_file)
-                return [row for row in reader if is_displayable_row(row)]
+    if os.path.exists(PREDICTION_INPUT_CSV):
+        with open(PREDICTION_INPUT_CSV, newline="", encoding="utf-8") as input_file:
+            reader = csv.DictReader(input_file)
+            return [row for row in reader if is_displayable_row(row)]
     return []
 
 
