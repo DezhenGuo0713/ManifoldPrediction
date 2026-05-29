@@ -12,6 +12,7 @@ market_randomization:
 
     - BINARY outcomeType
     - non-empty textDescription
+    - unresolved
 
 Markets already present in the existing project market files are excluded by id.
 New eligible markets are appended to Markets/new_markets.csv with randomized
@@ -48,6 +49,7 @@ ACTIVE_FIELDS = [
     "url",
     "creatorUsername",
     "outcomeType",
+    "isResolved",
     "createdTime",
     "createdDate",
     "closeTime",
@@ -246,6 +248,7 @@ def monitor_new_markets(
             "randomizationCriteria": {
                 "outcomeType": randomization.REQUIRED_OUTCOME_TYPE,
                 "requiresDescription": True,
+                "unresolved": True,
             },
             "excludedCsvs": checked_paths,
         },

@@ -5,7 +5,7 @@ This script is the repeatable pipeline for daily/periodic updates:
 
 1. Fetch currently active markets using the project selection criteria.
 2. Refresh Markets/active_markets_until_end_june_2026_with_descriptions.csv.
-3. Find eligible BINARY markets with descriptions that are not already in
+3. Find eligible unresolved BINARY markets with descriptions that are not already in
    Markets/MarketsRandomization.csv or Markets/new_markets.csv.
 4. Randomize only genuinely new eligible markets into Treatment/Control while
    preserving existing assignments.
@@ -143,6 +143,45 @@ def row_created_datetime(row: dict[str, str]) -> datetime | None:
 
 def is_row_closed(row: dict[str, str], now: datetime | None = None) -> bool:
     return predictor.is_market_closed(row, now or datetime.now(RUN_TIMEZONE))
+
+
+def is_row_resolved(row: dict[str, str]) -> bool:
+    value = row.get("isResolved", "").strip().lower()
+    return value in {"true", "1", "yes"}
+
+
+def refresh_market_runtime_status(row: dict[str, str]) -> dict[str, str]:
+    market_id = row.get("id", "").strip()
+    if not market_id:
+        return row
+
+    refreshed = dict(row)
+    try:
+        detail = active.fetch_json(f"/market/{market_id}")
+    except Exception as error:
+        refreshed["liveStatusError"] = f"{type(error).__name__}: {error}"
+        return refreshed
+
+    if not isinstance(detail, dict):
+        refreshed["liveStatusError"] = f"Unexpected response: {type(detail).__name__}"
+        return refreshed
+
+    for field in ("isResolved", "resolution"):
+        if field in detail:
+            value = detail.get(field)
+            refreshed[field] = "" if value is None else str(value)
+
+    close_time = detail.get("closeTime")
+    if isinstance(close_time, int):
+        refreshed["closeTime"] = str(close_time)
+        refreshed["closeDate"] = active.millis_to_datetime(close_time, RUN_TIMEZONE).isoformat()
+
+    refreshed["liveStatusError"] = ""
+    return refreshed
+
+
+def refresh_prediction_runtime_statuses(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    return [refresh_market_runtime_status(row) for row in rows]
 
 
 def close_sort_key(row: dict[str, str]) -> tuple[float, str]:
@@ -435,21 +474,23 @@ def run_predictions(
     market_predictions_csv: str,
     current_date: str | None,
 ) -> dict[str, Any]:
-    if not pending_rows:
-        return {
-            "predictionRowsRequested": 0,
-            "predictionRowsWrittenThisRun": 0,
-            "predictionRunCsv": "",
-            "marketPredictionsCsv": market_predictions_csv,
-            "marketPredictionsRowsTotal": len(read_csv_rows(market_predictions_csv)[0]),
-        }
-
     os.makedirs(predictions_dir, exist_ok=True)
     run_timestamp = datetime.now(RUN_TIMEZONE).strftime("%Y%m%dT%H%M%S%z")
     prediction_run_csv = os.path.join(
         predictions_dir,
         f"{run_timestamp}_renewed_market_predictions.csv",
     )
+
+    if not pending_rows:
+        fieldnames = union_fieldnames(pending_fieldnames, predictor.OUTPUT_COLUMNS)
+        write_csv_rows(prediction_run_csv, [], fieldnames)
+        return {
+            "predictionRowsRequested": 0,
+            "predictionRowsWrittenThisRun": 0,
+            "predictionRunCsv": prediction_run_csv,
+            "marketPredictionsCsv": market_predictions_csv,
+            "marketPredictionsRowsTotal": len(read_csv_rows(market_predictions_csv)[0]),
+        }
 
     with tempfile.NamedTemporaryFile(
         "w",
@@ -604,6 +645,15 @@ def post_treatment_comments(
 
         if market_id in posted_ids:
             status = "skipped_ledger_already_posted"
+            counts[status] = counts.get(status, 0) + 1
+            continue
+
+        row = refresh_market_runtime_status(row)
+        if is_row_resolved(row):
+            status = "skipped_resolved"
+            new_ledger_rows.append(
+                build_post_ledger_row(row, embed_url, status, checked_at)
+            )
             counts[status] = counts.get(status, 0) + 1
             continue
 
@@ -883,6 +933,7 @@ def main() -> int:
             new_market_ids_this_run=set(randomization_result["newMarketIdsThisRun"]),
             earliest_close_limit=args.test_prediction_limit_earliest_close,
         )
+        pending_rows = refresh_prediction_runtime_statuses(pending_rows)
         prediction_result = run_predictions(
             pending_rows=pending_rows,
             pending_fieldnames=pending_fieldnames,
@@ -928,6 +979,7 @@ def main() -> int:
             "randomization": {
                 "outcomeType": randomization.REQUIRED_OUTCOME_TYPE,
                 "requiresDescription": True,
+                "unresolved": True,
                 "seed": args.seed,
                 "incrementalBalance": True,
             },

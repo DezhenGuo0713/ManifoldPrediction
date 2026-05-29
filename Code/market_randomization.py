@@ -72,10 +72,16 @@ def has_description(row: dict[str, str]) -> bool:
     return bool(row.get("textDescription", "").strip())
 
 
+def is_unresolved(row: dict[str, str]) -> bool:
+    value = row.get("isResolved", "").strip().lower()
+    return value in {"", "false", "0", "no"}
+
+
 def is_matching_market(row: dict[str, str]) -> bool:
     return (
         row.get("outcomeType", "").strip().upper() == REQUIRED_OUTCOME_TYPE
         and has_description(row)
+        and is_unresolved(row)
     )
 
 
@@ -397,6 +403,7 @@ def filter_randomize_and_check(
         "criteria": {
             "requiresDescription": True,
             "outcomeType": REQUIRED_OUTCOME_TYPE,
+            "unresolved": True,
         },
     }
     balance_rows = write_randomization_check_tex(check_tex, randomized_rows, summary)
@@ -408,7 +415,7 @@ def filter_randomize_and_check(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Filter markets to BINARY outcomeType and a non-empty "
+            "Filter unresolved markets to BINARY outcomeType and a non-empty "
             "textDescription, then randomize eligible markets into treatment "
             "and control groups."
         )

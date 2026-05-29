@@ -199,7 +199,9 @@ def market_close_label(row: dict[str, str]) -> str:
 
 
 def is_market_closed(row: dict[str, str]) -> bool:
-    if (row.get("forecastStatus") or "").strip().lower() == "closed":
+    forecast_status = (row.get("forecastStatus") or "").strip().lower()
+    resolved_status = (row.get("isResolved") or "").strip().lower()
+    if forecast_status == "closed" or resolved_status in {"true", "1", "yes"}:
         return True
     close_time = market_close_datetime(row)
     return close_time is not None and datetime.now(DISPLAY_TIMEZONE) >= close_time

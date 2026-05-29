@@ -188,6 +188,7 @@ def write_csv(path: str, markets: list[dict[str, Any]], timezone: ZoneInfo) -> N
         "url",
         "creatorUsername",
         "outcomeType",
+        "isResolved",
         "createdTime",
         "createdDate",
         "closeTime",

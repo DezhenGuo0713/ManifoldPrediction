@@ -158,6 +158,11 @@ def is_market_closed(row: dict[str, str], now: datetime) -> bool:
     return close_time is not None and now >= close_time
 
 
+def is_market_resolved(row: dict[str, str]) -> bool:
+    value = row.get("isResolved", "").strip().lower()
+    return value in {"true", "1", "yes"}
+
+
 def market_close_prompt_value(row: dict[str, str]) -> str:
     close_time = market_close_datetime(row)
     if close_time is not None:
@@ -772,8 +777,9 @@ def predict_row(
     output["forecastInputPolicy"] = FORECAST_INPUT_POLICY
 
     close_time = market_close_datetime(row)
-    if is_market_closed(row, now):
+    if is_market_resolved(row) or is_market_closed(row, now):
         closed_at = close_time.isoformat() if close_time is not None else ""
+        raw_status = "resolved" if is_market_resolved(row) else "closed"
         output["forecastStatus"] = "closed"
         output["forecastClosedAt"] = closed_at
         output["newsPredictedYesProbability"] = ""
@@ -783,7 +789,7 @@ def predict_row(
         output["newsSourceUrls"] = ""
         output["newsSearchQueries"] = ""
         output["newsRawJson"] = json.dumps(
-            {"status": "closed", "closed_at": closed_at},
+            {"status": raw_status, "closed_at": closed_at},
             ensure_ascii=False,
         )
         return output
@@ -963,7 +969,7 @@ def main() -> int:
             print("No eligible binary markets matched the inputs.")
             return 1
         row = candidate_rows[0]
-        if is_market_closed(row, now):
+        if is_market_resolved(row) or is_market_closed(row, now):
             close_time = market_close_datetime(row)
             close_text = close_time.isoformat() if close_time else "unknown"
             print(f"Market is closed at {close_text}. No prediction would be generated.")
@@ -980,7 +986,10 @@ def main() -> int:
         print(search_prompt)
         return 0
 
-    needs_api_key = any(not is_market_closed(row, now) for row in candidate_rows)
+    needs_api_key = any(
+        not is_market_resolved(row) and not is_market_closed(row, now)
+        for row in candidate_rows
+    )
     if needs_api_key and not api_key:
         print(
             "OPENAI_API_KEY is required. Use --dry-run to inspect the prompt without calling the API.",
