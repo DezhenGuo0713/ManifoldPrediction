@@ -248,6 +248,14 @@ def load_rows() -> list[dict[str, str]]:
 def compact_source_html(row: dict[str, str]) -> str:
     urls = prediction_source_urls(row, limit=2)
     if not urls:
+        market_url = row.get("url", "").strip()
+        if market_url:
+            return (
+                '<span class="source-title">Source</span>'
+                f'<a class="source-pill" href="{h(market_url)}" target="_blank" '
+                f'rel="noopener noreferrer" title="{h(market_url)}">'
+                "Market criteria</a>"
+            )
         return (
             '<span class="source-title">Sources</span>'
             '<span class="source-empty">No sources available</span>'
@@ -309,9 +317,9 @@ def card_html(row: dict[str, str], embed: bool = False) -> str:
         ""
         if is_closed
         else f"""
-      <div class="source-row" aria-label="Sources">
-        {compact_source_html(row)}
-      </div>"""
+  <section class="source-row" aria-label="Sources">
+    {compact_source_html(row)}
+  </section>"""
     )
 
     market_link = (
@@ -349,7 +357,7 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   min-height: 290px;
   padding: 16px;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr;
   gap: 10px;
   overflow: hidden;
   background: linear-gradient(180deg, #fffefa 0%, #f9faf8 100%);
@@ -616,13 +624,11 @@ body.embed-view .forecast-card {{
     </div>
   </header>
 {odds_html}
+{sources_html}
   <section class="reason-block" aria-label="Forecast reason">
     <span class="reason-label">Reason</span>
     <p>{h(reason)}</p>
   </section>
-  <footer class="card-footer">
-{sources_html}
-  </footer>
 </article>
 </body>
 </html>"""
