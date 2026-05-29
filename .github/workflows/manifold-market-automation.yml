@@ -1,0 +1,159 @@
+name: Manifold market automation
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Automation mode to run.
+        required: true
+        default: refresh
+        type: choice
+        options:
+          - refresh
+          - midnight
+          - initial-test
+      test_limit:
+        description: Number of earliest-closing markets for initial-test mode.
+        required: true
+        default: "10"
+        type: string
+      post_comments:
+        description: Post Manifold comments in initial-test mode.
+        required: true
+        default: false
+        type: boolean
+  schedule:
+    - cron: "0 4,5,16,17 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manifold-market-automation
+  cancel-in-progress: false
+
+jobs:
+  run-market-workflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      MANIFOLD_API_KEY: ${{ secrets.MANIFOLD_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compile workflow scripts
+        run: |
+          python -m py_compile \
+            Code/renew_markets_and_predict.py \
+            Code/predict_market_news.py \
+            Code/monitor_new_markets.py \
+            Code/manifold_active_until_june.py \
+            Code/post_embed_comment.py
+
+      - name: Run market workflow
+        run: |
+          set -euo pipefail
+
+          mode="${{ github.event.inputs.mode || '' }}"
+          test_limit="${{ github.event.inputs.test_limit || '10' }}"
+          post_comments="${{ github.event.inputs.post_comments || 'false' }}"
+
+          if [ -z "$mode" ]; then
+            ny_hour="$(TZ=America/New_York date +%H)"
+            if [ "$ny_hour" = "00" ]; then
+              mode="midnight"
+            elif [ "$ny_hour" = "12" ]; then
+              mode="refresh"
+            else
+              echo "Skipping scheduled run at America/New_York hour $ny_hour."
+              exit 0
+            fi
+          fi
+
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo "::error::OPENAI_API_KEY repository secret is required."
+            exit 2
+          fi
+
+          cmd=(python Code/renew_markets_and_predict.py)
+
+          case "$mode" in
+            refresh)
+              cmd+=(
+                --skip-active-refresh
+                --skip-new-market-intake
+                --prediction-scope all-pool
+                --post-scope none
+              )
+              ;;
+            midnight)
+              if [ -z "${MANIFOLD_API_KEY:-}" ]; then
+                echo "::error::MANIFOLD_API_KEY repository secret is required for midnight posting."
+                exit 2
+              fi
+              cmd+=(
+                --new-markets-created-today
+                --prediction-scope all-pool
+                --post-scope new-treatment
+                --post-comments
+              )
+              ;;
+            initial-test)
+              cmd+=(
+                --skip-active-refresh
+                --skip-new-market-intake
+                --prediction-scope all-pool
+                --test-prediction-limit-earliest-close "$test_limit"
+                --post-scope predicted-treatment
+              )
+              if [ "$post_comments" = "true" ]; then
+                if [ -z "${MANIFOLD_API_KEY:-}" ]; then
+                  echo "::error::MANIFOLD_API_KEY repository secret is required to post comments."
+                  exit 2
+                fi
+                cmd+=(--post-comments)
+              fi
+              ;;
+            *)
+              echo "::error::Unknown mode: $mode"
+              exit 2
+              ;;
+          esac
+
+          echo "Running mode: $mode"
+          printf 'Command:'
+          printf ' %q' "${cmd[@]}"
+          printf '\n'
+          "${cmd[@]}"
+
+      - name: Commit updated market outputs
+        run: |
+          set -euo pipefail
+          git status --short
+          if [ -z "$(git status --porcelain -- Markets Predictions)" ]; then
+            echo "No market output changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A Markets Predictions
+          git commit -m "Update Manifold market outputs [skip ci]"
+          git pull --rebase
+          git push
