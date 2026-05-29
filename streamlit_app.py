@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import html
+import json
 import os
 import re
 from datetime import datetime
@@ -21,6 +22,17 @@ STREAMLIT_DIRECT_PATH = os.environ.get(
     "STREAMLIT_DIRECT_PATH",
     "/~/+/" if os.name != "nt" else "/",
 )
+BLOCKED_SOURCE_DOMAINS = {
+    "manifold.markets",
+    "polymarket.com",
+    "kalshi.com",
+    "predictit.org",
+    "metaculus.com",
+    "merriam-webster.com",
+    "dictionary.com",
+    "collinsdictionary.com",
+    "urbandictionary.com",
+}
 
 
 def h(value: object) -> str:
@@ -56,7 +68,6 @@ def first_present(row: dict[str, str], *keys: str) -> str:
 def predicted_yes_value(row: dict[str, str]) -> str:
     return first_present(
         row,
-        "finalPredictedYesProbability",
         "newsPredictedYesProbability",
     )
 
@@ -64,13 +75,12 @@ def predicted_yes_value(row: dict[str, str]) -> str:
 def predicted_no_value(row: dict[str, str]) -> str:
     return first_present(
         row,
-        "finalPredictedNoProbability",
         "newsPredictedNoProbability",
     )
 
 
 def prediction_reason_value(row: dict[str, str]) -> str:
-    return first_present(row, "finalShortReason", "newsShortReason")
+    return first_present(row, "newsShortReason")
 
 
 def format_edt_timestamp(value: str, fallback: str = "") -> str:
@@ -104,6 +114,63 @@ def direct_reason(value: str, max_chars: int = 190) -> str:
 def source_label(url: str) -> str:
     host = urlsplit(url).netloc.lower()
     return host[4:] if host.startswith("www.") else host or url
+
+
+def source_url_allowed(url: str) -> bool:
+    host = urlsplit(url).netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return bool(host) and not any(
+        host == domain or host.endswith(f".{domain}")
+        for domain in BLOCKED_SOURCE_DOMAINS
+    )
+
+
+def prediction_source_urls(row: dict[str, str], limit: int = 2) -> list[str]:
+    urls: list[str] = []
+
+    def add_url(value: object) -> None:
+        text = str(value or "").strip()
+        if not text:
+            return
+        if text.startswith("[") and "](" in text and text.endswith(")"):
+            text = text.rsplit("](", maxsplit=1)[-1][:-1]
+        parsed = urlsplit(text)
+        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+            return
+        if not source_url_allowed(text):
+            return
+        if text not in urls:
+            urls.append(text)
+
+    for url in split_pipe(row.get("newsSourceUrls", "")):
+        add_url(url)
+
+    if len(urls) < limit:
+        try:
+            raw = json.loads(row.get("newsRawJson", "") or "{}")
+        except json.JSONDecodeError:
+            raw = {}
+        source_url_groups = []
+        if isinstance(raw, dict):
+            source_url_groups.extend(
+                [
+                    raw.get("news", {}).get("source_urls", []),
+                    raw.get("raw_model_json", {}).get("source_urls", []),
+                    raw.get("signals", {}).get("search", {}).get("source_urls", []),
+                ]
+            )
+        for source_urls in source_url_groups:
+            if not isinstance(source_urls, list):
+                continue
+            for url in source_urls:
+                add_url(url)
+                if len(urls) >= limit:
+                    break
+            if len(urls) >= limit:
+                break
+
+    return urls[:limit]
 
 
 def market_close_datetime(row: dict[str, str]) -> datetime | None:
@@ -179,9 +246,12 @@ def load_rows() -> list[dict[str, str]]:
 
 
 def compact_source_html(row: dict[str, str]) -> str:
-    urls = split_pipe(row.get("newsSourceUrls", ""))
+    urls = prediction_source_urls(row, limit=2)
     if not urls:
-        return '<span class="source-pill">No sources</span>'
+        return (
+            '<span class="source-title">Sources</span>'
+            '<span class="source-empty">No sources available</span>'
+        )
 
     links = []
     for index, url in enumerate(urls[:2], start=1):
@@ -190,7 +260,7 @@ def compact_source_html(row: dict[str, str]) -> str:
             f'rel="noopener noreferrer" title="{h(url)}">'
             f"Source {index}: {h(source_label(url))}</a>"
         )
-    return "\n".join(links)
+    return '<span class="source-title">Sources</span>\n' + "\n".join(links)
 
 
 def card_html(row: dict[str, str], embed: bool = False) -> str:
@@ -431,12 +501,27 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   font-size: 10px;
   line-height: 1;
 }}
-.source-row {{ display: flex; gap: 6px; min-width: 0; overflow: hidden; }}
+.source-row {{
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr);
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+  overflow: hidden;
+}}
+.source-title {{
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 760;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}}
 .source-pill {{
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  max-width: calc((100% - 6px) / 2);
+  max-width: 100%;
   min-height: 23px;
   padding: 4px 8px;
   overflow: hidden;
@@ -456,6 +541,16 @@ html, body {{ margin: 0; background: var(--bg); color: var(--ink); }}
   border-color: var(--accent);
   background: #f2f5f8;
   outline: none;
+}}
+.source-empty {{
+  grid-column: span 2;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }}
 body.full-view .forecast-card {{
   min-height: 500px;
@@ -499,6 +594,7 @@ body.embed-view .forecast-card {{
   body.embed-view .reason-label {{ font-size: 9px; }}
   body.embed-view .reason-block p {{ font-size: 10px; line-height: 1.2; -webkit-line-clamp: 2; }}
   body.embed-view .updated-line {{ font-size: 9px; }}
+  body.embed-view .source-title, body.embed-view .source-empty {{ font-size: 9px; }}
   body.embed-view .source-pill {{ min-height: 20px; padding: 3px 6px; font-size: 9px; }}
 }}
 @media (max-width: 900px) {{

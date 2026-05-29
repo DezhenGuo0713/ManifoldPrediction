@@ -40,3 +40,139 @@ Contingencies:
 Should @FairlyRandom fail to produce a response 24 hours after the close date, and after additional @FairlyRandom roll requests (one over here > one on the testing market), I will manually resolve it according to a Google coinflip (outcome is final).
 
 Should I fail to generate and/or resolve the outcome within a week after the market’s close, a mod may do so instead.",,Control,1,2026,2026-05-28T11:09:54-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/active_markets_until_end_june_2026_with_descriptions.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+ZyQ9nhqusE,OpenAI confirm work on a Generative Music tool by end of June 2026?,https://manifold.markets/MingCat/openai-confirm-work-on-a-generative,MingCat,BINARY,1782863940000,2026-06-30T19:59:00-04:00,1780020182131,2026-05-28T22:03:02.131000-04:00,0.105163139951366,4757.021947023003,764.7722774213306,21,"The tool doesn't have to be a distinct model. For example, if it somehow repurposes Sora, but with scaffolding meant specifically as music generation, this would count. The tool must be first-party. Off the cuff comments can count for this, but they must not be hearsay or anonymous. They must also imply a product that is on track to release, not just mention generative music AI as a current area of research. So, ""we're planning to release a music creation service sometime this year"" would count, but not ""we're exploring alternative mediums for generative AI, like music"". 
+
+Market closes at July 1st, 00:00 UTC.
+
+Update 2025-10-26 (PST) (AI summary of creator comment): The tool must have audio modality (i.e., it must create actual audio/sound, not just text descriptions or widgets that interface with external services).",,Treatment,282,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+zuqQhhyZCq,Will Chicago A1 have any tiebreak quals at ARML 2026?,https://manifold.markets/grins/will-chicago-a1-have-any-tiebreak-q,grins,BINARY,1780138740000,2026-05-30T06:59:00-04:00,1780022648089,2026-05-28T22:44:08.089000-04:00,0.6097560975609754,33.66666666666664,33.666666666666636,3,"The 2026 ARML (American Regional Mathematics League) will take place on May 29th and 30th. Resolves yes if a member of the Chicago A1 ARML team qualifies for ARML tiebreakers. Typically, qualifying for tiebreakers means you are tied for top 20 individuals.",,Treatment,283,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+AlEyg6ySgN,Will at least one participant in the 2026 USACO training camp be a cheater?,https://manifold.markets/AnandSwaroop/will-at-least-one-participant-in-th,AnandSwaroop,BINARY,1782863940000,2026-06-30T19:59:00-04:00,1780022545703,2026-05-28T22:42:25.703000-04:00,0.2873340998976576,975.524564566083,15,28,"Resolution Criteria
+
+This market resolves YES if, by the end of May 2026, at least one participant in the 2026 USACO training camp is found to have cheated their way into camp. Resolution requires evidence that a participant cheated in a USACO contest or at camp, or evidence that they are well below the skill level indicated by their performance. This market resolves NO if no such confirmed cases emerge by June 2026.",,Treatment,284,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+EcnsqE626U,Will I comment on this market?,https://manifold.markets/jatloe/will-i-comment-on-this-market,jatloe,BINARY,1780437600000,2026-06-02T18:00:00-04:00,1780001931715,2026-05-28T16:58:51.715000-04:00,0.2836025492553763,156.33333333333331,156.33333333333334,6,"The goal of this market is to see if you all can somehow bait me into commenting. I will bet on this market.
+
+Only comments before the close time count.",,Control,285,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+NpOccgERlQ,"(LIVE MARKET) Oklahoma City Thunder vs San Antonio Spurs, Game 6",https://manifold.markets/prismatic/live-market-oklahoma-city-thunder-v-tLREdSzLPz,prismatic,BINARY,1780095600000,2026-05-29T19:00:00-04:00,1780023292192,2026-05-28T22:54:52.192000-04:00,0.009999999999999997,1977.2865360653475,2038.452037291063,12,"You can trade on this live because @/Mochi/oklahoma-city-thunder-vs-san-antoni-l2chRdESlt closes early 
+
+
+Resolves YES if Thunder wins, NO if Spurs wins
+",,Control,286,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+nQQU9OOlIO,New Iranian Supreme Leader is chosen in March 2026 and killed in March 2026.,https://manifold.markets/AlexanderTheGreater/new-iranian-supreme-leader-is-chose,AlexanderTheGreater,BINARY,1782863940000,2026-06-30T19:59:00-04:00,1779988259943,2026-05-28T13:10:59.943000-04:00,0.048751083257360724,23601.209396184735,68.28883858773537,169,"Update 2026-03-12 (PST) (AI summary of creator comment): Resolution will be based on the date of death, not the date of injury.
+
+Update 2026-03-26 (PST) (AI summary of creator comment): Creator will delay resolution due to uncertainty about whether the subject is currently alive. The market may remain unresolved for an extended period while the situation becomes clearer.",,Treatment,287,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+sZ96nN9EPE,Will I get an A on English this year,https://manifold.markets/Tetrahydrofuran/will-i-get-an-a-on-english-this-yea,Tetrahydrofuran,BINARY,1780613940000,2026-06-04T18:59:00-04:00,1780023613081,2026-05-28T23:00:13.081000-04:00,0.7538461538461536,78.33333333333329,78.33333333333329,4,"there are three test grades for english now left, which is a film (already done but not graded), an artistic statement of the film and a reflection of the film as final project. As my first semester is 91.95, the second semester grade needs to be 93.05 to average 92.5 and round up to an A. These three assignments are all worth 100 points. I need a total of 260/300 to get 93.09 total this semester. The last two assignments are due next wed.
+
+This market is created to encourage myself, so I reserve the right to bet YES on this market. ",,Treatment,288,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+9ppn5cCLld,Will we see a destroyed tanker in the Straight of Hormuz by mid 2026?,https://manifold.markets/Ernie/will-an-oil-tankerbe-destroyed-in-t,Ernie,BINARY,1782863940000,2026-06-30T19:59:00-04:00,1780014706117,2026-05-28T20:31:46.117000-04:00,0.3432167032128896,1788.5564265666164,50,22,"For any reason. The tanker must have been on the water. 
+
+Full or empty, doesn't matter.
+
+Intentional demolition or scuttling counts but it can't have been planned ahead and intentional.
+
+Sinking counts as destroyed.
+
+Accidentally crashing and being abandoned and sinking counts even if it's pilot error
+
+Intentional planned launch, evac, then sinking wouldn't.
+
+Piracy followed by the pirates planning to sink it and then doing so would count.
+
+Update 2026-05-14 (PST) (AI summary of creator comment): Destroyed means the ship is no longer usable for its purpose as a ship. Specifically:
+
+If a ship sinks but is quickly restored and rebuilt to function as a ship again, it does not count as destroyed
+
+If a ship sinks and is left down or salvaged only for parts/metal, it does count as destroyed",,Control,289,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+ZC8s6nORqN,Will the New York Knicks win the 2026 NBA Finals?,https://manifold.markets/Terminator2/will-the-new-york-knicks-win-the-20,Terminator2,BINARY,1782216000000,2026-06-23T08:00:00-04:00,1780024806415,2026-05-28T23:20:06.415000-04:00,0.2248263093146051,11,11,2,"The New York Knicks reached the 2026 NBA Finals for the first time since 1999, completing a sweep of the Cleveland Cavaliers in the Eastern Conference Finals. They face the Western Conference champion (Oklahoma City Thunder or San Antonio Spurs). Game 1 is scheduled for June 3, 2026. Resolves YES if the New York Knicks win the 2026 NBA Finals and are crowned NBA champions, per the official result reported on NBA.com. Resolves NO if the Western Conference champion wins the series. Resolves at the conclusion of the Finals (no later than Game 7, on or around June 21, 2026).",,Treatment,290,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+R89ZZ9NtAN,"Will Sm2O3 Western (CIF Rotterdam) spot price exceed 17 USD/kg on June 30, 2026?",https://manifold.markets/MikhailTal/will-sm2o3-western-cif-rotterdam-sp-gyQh6pA9QQ,MikhailTal,BINARY,1782792000000,2026-06-30T00:00:00-04:00,1780019877847,2026-05-28T21:57:57.847000-04:00,0.5383571662067395,43.417554012614154,9,3,"This market resolves YES if Sm2O3 Western (CIF Rotterdam) spot price exceeds 17 USD/kg on June 30, 2026.
+
+What is being measured: Samarium oxide (Sm2O3, 3N) spot price in the Western market (CIF Rotterdam or equivalent ex-China Western assessment), USD/kg, on or nearest to June 30, 2026.
+
+YES if: Western Sm2O3 spot price >= 17 USD/kg on June 30, 2026 NO if: Western Sm2O3 spot price < 17 USD/kg on June 30, 2026
+
+Resolution sources (priority order):
+
+Argus REE samarium oxide — CIF Rotterdam or Western assessment
+
+Fastmarkets (ex-Metal Pages) Sm2O3 Western spot assessment
+
+Asian Metal — samarium oxide Western or ex-China prices
+
+SMM samarium oxide Western premium data",,Control,291,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+LpL6hSO5I9,The Boys Finale IMDB score ≤ 7.0 at end of May?,https://manifold.markets/ShankarSivarajan/the-boys-finale-imdb-score-70-at-en,ShankarSivarajan,BINARY,1780271940000,2026-05-31T19:59:00-04:00,1780000172337,2026-05-28T16:29:32.337000-04:00,0.9500000000000001,337.3309640861721,51.22753096046437,9,"This market will resolve to ""YES"" if the IMDb rating for The Boys series finale is 7.0 or lower as of 11:59 PM Eastern on May 31, 2026. 
+
+Looking at https://www.imdb.com/title/tt1190634/ratings/, the lowest rating at the time of writing is 7.1. ",,Control,292,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+pLNn80n9Ap,"Oklahoma City Thunder vs San Antonio Spurs, game 7 May 30th",https://manifold.markets/Mochi/oklahoma-city-thunder-vs-san-antoni-UNuSOElgdZ,Mochi,BINARY,1780185540000,2026-05-30T19:59:00-04:00,1780025013260,2026-05-28T23:23:33.260000-04:00,0.5942351870357923,104,104,2,"Resolves YES if Thunder wins, NO if Spurs wins",,Treatment,293,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+ERyUOhRlN0,Will a Chinese airline announce a purchase of at least 25 Boeing aircraft before June?,https://manifold.markets/JoshuaWilkes/will-a-chinese-airline-announce-a-p-NR26dt5ZpE,JoshuaWilkes,BINARY,1780271940000,2026-05-31T19:59:00-04:00,1780023258379,2026-05-28T22:54:18.379000-04:00,0.5499999999999999,665.0673006724096,18.679347116801793,12,"Resolution Criteria
+
+This market resolves YES if any Chinese airline announces a firm order for at least 25 Boeing aircraft before Jume 1, 2026. The announcement must be made by the airline itself or officially confirmed by Boeing. Chinese airlines rarely publicly disclose their orders and often remain unidentified as customers until the delivery of the aircraft, so announcements may come from Boeing's official press releases or SEC filings. Resolution sources include Boeing's investor relations website (https://investors.boeing.com/investors/news/press-releases/) and major aviation news outlets covering official announcements.
+
+Background
+
+The US manufacturer has not been able to secure any orders with Chinese airlines since 2017. In April 2025, Chinese airlines were told not to place new orders with Boeing and directed to halt new Boeing orders amid rising U.S.-China trade tensions. However, Boeing is close to securing a deal to sell as many as 500 aircraft to China. Deliveries of Boeing aircraft to China had been suspended since April, but Boeing announced in late May that deliveries would resume in June following a temporary 90-day easing of tariffs agreed by both governments.
+
+Considerations
+
+The question hinges on whether Chinese airlines will formally announce new orders despite the government directive to halt purchases. In China, the National Development and Reform Commission (NDRC) controls airlines' ability to take delivery of new aircraft, meaning any large order would require government approval. The reported 500-aircraft deal remains unannounced as of early 2026, and any announcement before May would need to clear both commercial and political hurdles.
+
+This description was generated by AI.",,Control,294,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+ddgSqRyOCA,Will Apple mention OpenAI or ChatGPT in its WWDC 2026 keynote?,https://manifold.markets/CalibratedGhosts/will-apple-mention-openai-or-chatgp,CalibratedGhosts,BINARY,1780934400000,2026-06-08T12:00:00-04:00,1780000291968,2026-05-28T16:31:31.968000-04:00,0.26284143405759264,187.85705394906577,13,4,"This market resolves YES if Apple's WWDC 2026 keynote includes a spoken or on-screen mention of either ""OpenAI"" or ""ChatGPT"". Use Apple's official keynote video, transcript, event page, or Newsroom recap. If Apple publishes no transcript, a clearly audible spoken mention in the official keynote video is sufficient. Mentions outside the main WWDC 2026 keynote, such as developer-session pages, interviews, or post-keynote press coverage, do not count unless Apple also included the mention in the keynote itself. Resolve NO if neither term appears in the official keynote material by 2026-06-15 23:59 UTC. Sources / resolver surfaces: - Apple WWDC: https://developer.apple.com/wwdc26/ - Apple Events: https://www.apple.com/apple-events/",,Treatment,295,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+2QIEugnp5S,"Will susvent reach Candidate Master on Codeforces by his birthday (June 19, 2026)?",https://manifold.markets/JonathanJi/will-susvent-reach-candidate-master,JonathanJi,BINARY,1781913540000,2026-06-19T19:59:00-04:00,1780024259723,2026-05-28T23:10:59.723000-04:00,0.09009677809177215,3883.4828028629267,100,18,"HS class of 2026
+
+USACO Plat, Open Contest Qualifier (2026)
+
+CF Profile: https://codeforces.com/profile/susvent
+
+max. rating 1899, current rating 1618 (trolled a lot in school and got lazy)
+
+has no school after 1pm every day (but is addicted to Geometry Dash a lot)
+
+is in a race to CM with sukon (CF user, 1800 rated)
+
+can only do contests on weekends, or sometimes on weekdays after daylight savings in school (on Mondays and Wednesdays at 10:35)
+
+will most likely wake up to take every saturday 10:35 contest",,Treatment,296,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+2qZplnRd02,Will the 2026 California governor runoff be two Republicans?,https://manifold.markets/Ibozz91/will-the-california-governor-runoff,Ibozz91,BINARY,1780444800000,2026-06-02T20:00:00-04:00,1780001317384,2026-05-28T16:48:37.384000-04:00,0.06057873481448008,945.4310286993274,104.72287165482123,18,If there is no runoff this resolves NO,,Control,297,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+jGdlezOiR3OCuRiImQir,Will Zelenskyy be re-elected as president of Ukraine in the next election?,https://manifold.markets/StanPinsent/will-zelenskyy-be-reelected-as-pres,StanPinsent,BINARY,1780275540000,2026-05-31T20:59:00-04:00,1780006849803,2026-05-28T18:20:49.803000-04:00,0.3026439506445431,3819.2688847716963,30,61,"The next election is scheduled to be 2024. This bet applies to the next election (even if is a ""snap"" election or a postponed one).
+
+If Zelenskyy wins after running unopposed I will resolve YES
+
+I will resolve NO if
+
+he runs and is not elected
+
+he does not run for re-election
+
+In the case of a disputed election, I will go with whoever the EU declares as having won (unfair, perhaps, but whatever.)",,Control,298,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv
+IcOsyOy6c9,Free Lottery (Ton 618),https://manifold.markets/ttoe/free-lottery-ton-618,ttoe,BINARY,1780110000000,2026-05-29T23:00:00-04:00,1780024759533,2026-05-28T23:19:19.533000-04:00,0.09999999999999998,5.999999999978378,5.999999999978378,3,"How it works
+
+After this market closes, I will ask @FairlyRandom to generate a random number M among 1 to 100 in the comments. The Mth unique trader of this market wins 300 mana from the lottery prize pool, if such a trader exists. Otherwise, the lottery falls through till next time.
+
+For free play, make a trade with 1 mana and sell it. Your trade will be recorded and you will become a unique trader.
+
+This market will resolve to x%. Ton 618 is one of the largest known black holes, weighing about 6.6*10^x times of the Sun.
+
+Previous winners
+
+@PaperBoy 100Ṁ
+
+@hogshedges 100Ṁ
+
+@Pancarre 300Ṁ
+
+@wolf 400Ṁ
+
+@Chumchulum 200Ṁ
+
+@KarlWang 4000Ṁ
+
+@WobertqUIQz 300Ṁ
+
+@2ndPairofBoots 300Ṁ
+
+@jbm 300Ṁ
+
+@AritificialJudgement 300Ṁ
+
+@Primer 300Ṁ
+
+@Brierbr 300Ṁ",,Treatment,299,2026,2026-05-28T23:52:13-04:00,/Users/dezhenguo/Desktop/ManifoldPersuation/Markets/MarketsRandomization.csv | /Users/dezhenguo/Desktop/ManifoldPersuation/Markets/new_markets.csv

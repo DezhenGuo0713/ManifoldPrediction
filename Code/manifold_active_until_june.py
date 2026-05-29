@@ -188,6 +188,8 @@ def write_csv(path: str, markets: list[dict[str, Any]], timezone: ZoneInfo) -> N
         "url",
         "creatorUsername",
         "outcomeType",
+        "createdTime",
+        "createdDate",
         "closeTime",
         "closeDate",
         "lastBetTime",
@@ -207,6 +209,12 @@ def write_csv(path: str, markets: list[dict[str, Any]], timezone: ZoneInfo) -> N
             close_time = market["closeTime"]
             row = {field: market.get(field) for field in fields}
             row["closeDate"] = millis_to_datetime(close_time, timezone).isoformat()
+            created_time = market.get("createdTime")
+            if isinstance(created_time, int):
+                row["createdDate"] = millis_to_datetime(
+                    created_time,
+                    timezone,
+                ).isoformat()
             last_bet_time = market.get("lastBetTime")
             if isinstance(last_bet_time, int):
                 row["lastBetDate"] = millis_to_datetime(

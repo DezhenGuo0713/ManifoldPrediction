@@ -64,6 +64,16 @@ DEFAULT_BLOCKED_DOMAINS = [
     "predictit.org",
     "metaculus.com",
 ]
+DEFAULT_BLOCKED_SOURCE_DOMAINS = [
+    *DEFAULT_BLOCKED_DOMAINS,
+    "merriam-webster.com",
+    "dictionary.com",
+    "collinsdictionary.com",
+    "urbandictionary.com",
+]
+FORECAST_INPUT_POLICY = (
+    "question + description + current_datetime + market_closing_date + web_search"
+)
 TIMEZONE = "America/New_York"
 USER_AGENT = "manifold-news-forecaster/1.0"
 MIN_PROBABILITY = 0.01
@@ -76,6 +86,15 @@ OUTPUT_COLUMNS = [
     "forecastInputPolicy",
     "forecastStatus",
     "forecastClosedAt",
+    "newsPredictedYesProbability",
+    "newsPredictedNoProbability",
+    "newsShortReason",
+    "newsKeyEvidence",
+    "newsSourceUrls",
+    "newsSearchQueries",
+    "newsRawJson",
+]
+DEPRECATED_OUTPUT_COLUMNS = [
     "finalPredictedYesProbability",
     "finalPredictedNoProbability",
     "finalShortReason",
@@ -85,29 +104,17 @@ OUTPUT_COLUMNS = [
     "searchShortReason",
     "ensembleSearchWeight",
     "ensembleMethod",
-    "newsPredictedYesProbability",
-    "newsPredictedNoProbability",
     "newsConfidence",
-    "newsShortReason",
-    "newsKeyEvidence",
-    "newsSourceUrls",
-    "newsSearchQueries",
-    "newsRawJson",
 ]
 
 
 @dataclass(frozen=True)
 class Forecast:
     yes_probability: float
-    confidence: str
     short_reason: str
     key_evidence: list[str]
     source_urls: list[str]
     raw_json: dict[str, Any]
-
-
-def format_probability_percent(value: float) -> str:
-    return f"{round(clamp_probability(value) * 100)}%"
 
 
 def clamp_probability(value: float) -> float:
@@ -170,7 +177,24 @@ def make_direct_reason(value: str, max_chars: int = 190) -> str:
     text = re.sub(r"\s+", " ", value or "").strip()
     if not text:
         return ""
-    first_sentence = re.split(r"(?<=[.!?])\s+", text, maxsplit=1)[0].strip()
+    text = re.sub(
+        r"^search evidence (?:gives|suggests|indicates)\s+\d+%\s+(?:yes|no)\s*;?\s*",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    ).strip()
+    abbreviations = {
+        "U.S.": "US_ABBR",
+        "U.K.": "UK_ABBR",
+        "E.U.": "EU_ABBR",
+        "U.N.": "UN_ABBR",
+    }
+    protected = text
+    for abbreviation, placeholder in abbreviations.items():
+        protected = protected.replace(abbreviation, placeholder)
+    first_sentence = re.split(r"(?<=[.!?])\s+", protected, maxsplit=1)[0].strip()
+    for abbreviation, placeholder in abbreviations.items():
+        first_sentence = first_sentence.replace(placeholder, abbreviation)
     text = first_sentence or text
     if len(text) <= max_chars:
         return text
@@ -193,6 +217,16 @@ def clean_source_url(url: str) -> str:
             urlencode(filtered_query),
             "",
         )
+    )
+
+
+def source_domain_is_blocked(url: str, blocked_domains: list[str]) -> bool:
+    host = urlsplit(url).netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    return any(
+        host == domain or host.endswith(f".{domain}")
+        for domain in blocked_domains
     )
 
 
@@ -256,16 +290,28 @@ def load_rows(path: str) -> tuple[list[dict[str, str]], list[str]]:
 
 
 def write_rows(path: str, rows: list[dict[str, str]], input_fieldnames: list[str]) -> None:
-    fieldnames = list(input_fieldnames)
+    fieldnames = [
+        column
+        for column in input_fieldnames
+        if column not in DEPRECATED_OUTPUT_COLUMNS
+    ]
     for column in OUTPUT_COLUMNS:
         if column not in fieldnames:
             fieldnames.append(column)
+    cleaned_rows = [
+        {
+            key: value
+            for key, value in row.items()
+            if key not in DEPRECATED_OUTPUT_COLUMNS
+        }
+        for row in rows
+    ]
 
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as output_file:
         writer = csv.DictWriter(output_file, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows(cleaned_rows)
 
 
 def safe_path_part(value: str) -> str:
@@ -296,22 +342,9 @@ def prediction_history_payload(row: dict[str, str]) -> dict[str, Any]:
         "forecastClosedAt": row.get("forecastClosedAt", ""),
         "model": row.get("forecastModel", ""),
         "inputPolicy": row.get("forecastInputPolicy", ""),
-        "yesProbability": parse_float(
-            row.get("finalPredictedYesProbability")
-            or row.get("newsPredictedYesProbability")
-        ),
-        "noProbability": parse_float(
-            row.get("finalPredictedNoProbability")
-            or row.get("newsPredictedNoProbability")
-        ),
-        "confidence": row.get("newsConfidence", ""),
-        "reason": row.get("finalShortReason") or row.get("newsShortReason", ""),
-        "signals": {
-            "search": parse_float(row.get("searchPredictedYesProbability")),
-        },
-        "weights": {
-            "search": parse_float(row.get("ensembleSearchWeight")),
-        },
+        "yesProbability": parse_float(row.get("newsPredictedYesProbability")),
+        "noProbability": parse_float(row.get("newsPredictedNoProbability")),
+        "reason": row.get("newsShortReason", ""),
         "evidence": [
             item.strip()
             for item in row.get("newsKeyEvidence", "").split("|")
@@ -335,7 +368,7 @@ def prediction_csv_fieldnames(rows: list[dict[str, str]]) -> list[str]:
     fieldnames: list[str] = []
     for row in rows:
         for key in row:
-            if key not in fieldnames:
+            if key not in DEPRECATED_OUTPUT_COLUMNS and key not in fieldnames:
                 fieldnames.append(key)
     return fieldnames
 
@@ -379,39 +412,11 @@ def write_prediction_history(history_dir: str, rows: list[dict[str, str]]) -> No
     csv_fieldnames = prediction_csv_fieldnames(rows)
     run_timestamp = safe_timestamp(rows[0].get("forecastTimestamp", "")) if rows else ""
     if rows and csv_fieldnames:
-        write_csv_file(os.path.join(history_dir, "latest.csv"), rows, csv_fieldnames)
         write_csv_file(
-            os.path.join(history_dir, f"{run_timestamp}.csv"),
+            os.path.join(history_dir, f"{run_timestamp}_all.csv"),
             rows,
             csv_fieldnames,
         )
-        write_csv_file(
-            os.path.join(history_dir, "runs", f"{run_timestamp}.csv"),
-            rows,
-            csv_fieldnames,
-        )
-    for row in rows:
-        market_id = safe_path_part(row.get("id", ""))
-        timestamp = safe_timestamp(row.get("forecastTimestamp", ""))
-        market_dir = os.path.join(history_dir, market_id)
-        os.makedirs(market_dir, exist_ok=True)
-        write_csv_file(
-            os.path.join(market_dir, f"{timestamp}.csv"),
-            [row],
-            csv_fieldnames,
-        )
-        write_csv_file(os.path.join(market_dir, "latest.csv"), [row], csv_fieldnames)
-        append_history_csv(
-            os.path.join(market_dir, "history.csv"),
-            row,
-            csv_fieldnames,
-        )
-        payload = prediction_history_payload(row)
-        for filename in (f"{timestamp}.json", "latest.json"):
-            path = os.path.join(market_dir, filename)
-            with open(path, "w", encoding="utf-8", newline="\n") as output_file:
-                json.dump(payload, output_file, indent=2, ensure_ascii=False)
-                output_file.write("\n")
 
 
 def clean_description(description: str, max_chars: int) -> str:
@@ -450,9 +455,32 @@ Do not use prediction-market or forecasting-site pages as evidence. Blocked
 forecasting domains: {blocked_text}.
 
 Return a calibrated probability that the market ultimately resolves YES.
-Make short_reason one direct sentence, 12-24 words, with the main evidence
-first. Avoid filler, hedging phrases, citations, and markdown links in
-short_reason. Put URLs only in source_urls.
+
+Make short_reason one concise, convincing sentence, 14-24 words. Use an
+evidence-first sentence structure: start with the strongest concrete
+source-backed fact, current status, absence or presence of credible reports, or
+direct resolution criterion, then connect it to the likely resolution. Avoid
+filler, citations, and markdown links in short_reason. Put URLs only in
+source_urls.
+
+For unexpected incident questions, say whether credible reports exist so far
+rather than claiming an event is planned or unplanned unless a source says that.
+If the market concerns a future event that has not happened yet, say the current
+status and the main base-rate or schedule fact; do not phrase future
+non-occurrence as if it is already known.
+
+For personal, private, or platform-internal markets that public web sources
+cannot verify, say that public sources cannot verify the event and return an
+empty source_urls array rather than unrelated sources.
+
+Return two distinct source_urls when two relevant non-forecasting sources exist.
+Prefer primary sources, official statistics, reputable news, or the direct
+resolution source. Use specific article/data pages, not generic homepages, and
+do not duplicate the same URL or use blocked forecasting domains. Every source
+URL must directly support a fact in short_reason or key_evidence. Do not use
+dictionary pages, generic homepages, unrelated pages, or weak filler sources to
+reach two URLs; return fewer than two source_urls if fewer than two relevant
+sources exist.
 
 Current date and time: {current_date}
 Market closing date: {close_date or "[unknown]"}
@@ -474,13 +502,9 @@ def response_schema() -> dict[str, Any]:
                     "type": "number",
                     "description": "Probability the market resolves YES, from 0 to 1.",
                 },
-                "confidence": {
-                    "type": "string",
-                    "enum": ["low", "medium", "high"],
-                },
                 "short_reason": {
                     "type": "string",
-                    "description": "One direct sentence, 12-24 words, explaining the main evidence for the forecast.",
+                    "description": "One concise evidence-first sentence, 14-24 words, directly connecting the strongest source-backed fact or current status to the likely resolution.",
                 },
                 "key_evidence": {
                     "type": "array",
@@ -490,12 +514,11 @@ def response_schema() -> dict[str, Any]:
                 "source_urls": {
                     "type": "array",
                     "items": {"type": "string"},
-                    "description": "URLs for the sources used, if available.",
+                    "description": "Direct URLs for the sources used; include at least two when two relevant sources exist.",
                 },
             },
             "required": [
                 "yes_probability",
-                "confidence",
                 "short_reason",
                 "key_evidence",
                 "source_urls",
@@ -637,10 +660,6 @@ def parse_forecast(response: dict[str, Any], max_source_urls: int) -> Forecast:
     if probability is None:
         raise ValueError(f"Forecast missing yes_probability: {text[:300]}")
 
-    confidence = str(payload.get("confidence") or "low").strip().lower()
-    if confidence not in {"low", "medium", "high"}:
-        confidence = "low"
-
     key_evidence = payload.get("key_evidence")
     if not isinstance(key_evidence, list):
         key_evidence = []
@@ -654,18 +673,10 @@ def parse_forecast(response: dict[str, Any], max_source_urls: int) -> Forecast:
         cleaned = clean_source_url(str(url))
         if cleaned and cleaned not in cleaned_urls:
             cleaned_urls.append(cleaned)
-    source_urls = cleaned_urls
-    for url in extract_response_sources(response):
-        cleaned = clean_source_url(url)
-        if cleaned and cleaned not in source_urls:
-            source_urls.append(cleaned)
-        if len(source_urls) >= max_source_urls:
-            break
-    source_urls = source_urls[:max_source_urls]
+    source_urls = cleaned_urls[:max_source_urls]
 
     return Forecast(
         yes_probability=clamp_probability(probability),
-        confidence=confidence,
         short_reason=make_direct_reason(str(payload.get("short_reason") or "")),
         key_evidence=key_evidence,
         source_urls=source_urls,
@@ -708,20 +719,31 @@ def forecast_market(
         blocked_domains=blocked_domains,
         use_domain_filters=use_domain_filters,
     )
-    return parse_forecast(response, max_source_urls), extract_search_queries(response)
+    forecast = parse_forecast(response, max_source_urls)
+    blocked_source_domains = list(
+        dict.fromkeys([*blocked_domains, *DEFAULT_BLOCKED_SOURCE_DOMAINS])
+    )
+    if blocked_source_domains:
+        source_urls = [
+            url
+            for url in forecast.source_urls
+            if not source_domain_is_blocked(url, blocked_source_domains)
+        ]
+        forecast = Forecast(
+            yes_probability=forecast.yes_probability,
+            short_reason=forecast.short_reason,
+            key_evidence=forecast.key_evidence,
+            source_urls=source_urls,
+            raw_json=forecast.raw_json,
+        )
+    return forecast, extract_search_queries(response)
 
 
 def make_search_reason(
     final_probability: float,
     search_forecast: Forecast,
 ) -> str:
-    label = "YES" if final_probability >= 0.5 else "NO"
-    evidence = search_forecast.short_reason
-    reason = (
-        f"Search evidence gives {format_probability_percent(final_probability)} "
-        f"{label}; {evidence}"
-    )
-    return make_direct_reason(reason)
+    return make_direct_reason(search_forecast.short_reason)
 
 
 def predict_row(
@@ -742,28 +764,20 @@ def predict_row(
         return None
 
     output = dict(row)
+    for column in DEPRECATED_OUTPUT_COLUMNS:
+        output.pop(column, None)
     output["forecastTimestamp"] = now.replace(microsecond=0).isoformat()
     output["forecastCurrentDate"] = current_date
     output["forecastModel"] = model
-    output["forecastInputPolicy"] = "web_search + market_closing_date"
+    output["forecastInputPolicy"] = FORECAST_INPUT_POLICY
 
     close_time = market_close_datetime(row)
     if is_market_closed(row, now):
         closed_at = close_time.isoformat() if close_time is not None else ""
         output["forecastStatus"] = "closed"
         output["forecastClosedAt"] = closed_at
-        output["finalPredictedYesProbability"] = ""
-        output["finalPredictedNoProbability"] = ""
-        output["finalShortReason"] = "Market closed. No prediction generated."
-        output["searchPredictedYesProbability"] = ""
-        output["searchPredictedNoProbability"] = ""
-        output["searchConfidence"] = ""
-        output["searchShortReason"] = ""
-        output["ensembleSearchWeight"] = ""
-        output["ensembleMethod"] = "direct_web_search_forecast"
         output["newsPredictedYesProbability"] = ""
         output["newsPredictedNoProbability"] = ""
-        output["newsConfidence"] = ""
         output["newsShortReason"] = "Market closed. No prediction generated."
         output["newsKeyEvidence"] = ""
         output["newsSourceUrls"] = ""
@@ -792,42 +806,26 @@ def predict_row(
         final_probability=final_probability,
         search_forecast=search_forecast,
     )
-    final_confidence = search_forecast.confidence
 
     output["forecastStatus"] = "forecast"
     output["forecastClosedAt"] = close_time.isoformat() if close_time else ""
-    output["finalPredictedYesProbability"] = format_probability(final_probability)
-    output["finalPredictedNoProbability"] = format_probability(1 - final_probability)
-    output["finalShortReason"] = final_reason
-    output["searchPredictedYesProbability"] = format_probability(
-        search_forecast.yes_probability,
-    )
-    output["searchPredictedNoProbability"] = format_probability(
-        1 - search_forecast.yes_probability,
-    )
-    output["searchConfidence"] = search_forecast.confidence
-    output["searchShortReason"] = search_forecast.short_reason
-    output["ensembleSearchWeight"] = "1.000000"
-    output["ensembleMethod"] = "direct_web_search_forecast"
     output["newsPredictedYesProbability"] = format_probability(final_probability)
     output["newsPredictedNoProbability"] = format_probability(1 - final_probability)
-    output["newsConfidence"] = final_confidence
     output["newsShortReason"] = final_reason
     output["newsKeyEvidence"] = " | ".join(search_forecast.key_evidence)
     output["newsSourceUrls"] = " | ".join(search_forecast.source_urls)
     output["newsSearchQueries"] = " | ".join(queries)
     output["newsRawJson"] = json.dumps(
         {
-            "final": {
+            "news": {
                 "yes_probability": final_probability,
-                "confidence": final_confidence,
+                "no_probability": 1 - final_probability,
                 "short_reason": final_reason,
+                "key_evidence": search_forecast.key_evidence,
+                "source_urls": search_forecast.source_urls,
+                "search_queries": queries,
             },
-            "signals": {
-                "search": search_forecast.raw_json,
-            },
-            "weights": {"search": 1.0},
-            "method": "direct_web_search_forecast",
+            "raw_model_json": search_forecast.raw_json,
         },
         ensure_ascii=False,
     )
@@ -982,7 +980,8 @@ def main() -> int:
         print(search_prompt)
         return 0
 
-    if not api_key:
+    needs_api_key = any(not is_market_closed(row, now) for row in candidate_rows)
+    if needs_api_key and not api_key:
         print(
             "OPENAI_API_KEY is required. Use --dry-run to inspect the prompt without calling the API.",
             file=sys.stderr,
@@ -1000,7 +999,7 @@ def main() -> int:
                 now=now,
                 model=args.model,
                 web_tool=args.web_tool,
-                api_key=api_key,
+                api_key=api_key or "",
                 base_url=args.base_url,
                 description_max_chars=args.description_max_chars,
                 fetch_live_description=args.fetch_live_description,
@@ -1045,9 +1044,8 @@ def main() -> int:
         "closedRows": closed,
         "outputRows": len(outputs),
         "skippedRows": skipped,
-        "inputPolicy": "web_search + market_closing_date",
+        "inputPolicy": FORECAST_INPUT_POLICY,
         "blockedDomains": blocked_domains,
-        "signalWeights": {"search": 1.0},
     }
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0

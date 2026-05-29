@@ -48,6 +48,8 @@ ACTIVE_FIELDS = [
     "url",
     "creatorUsername",
     "outcomeType",
+    "createdTime",
+    "createdDate",
     "closeTime",
     "closeDate",
     "lastBetTime",
@@ -99,6 +101,13 @@ def market_to_row(market: dict[str, Any], timezone: ZoneInfo) -> dict[str, str]:
     close_time = market.get("closeTime")
     if isinstance(close_time, int):
         row["closeDate"] = active.millis_to_datetime(close_time, timezone).isoformat()
+
+    created_time = market.get("createdTime")
+    if isinstance(created_time, int):
+        row["createdDate"] = active.millis_to_datetime(
+            created_time,
+            timezone,
+        ).isoformat()
 
     last_bet_time = market.get("lastBetTime")
     if isinstance(last_bet_time, int):
