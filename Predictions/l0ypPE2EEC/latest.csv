@@ -1,6 +1,0 @@
-id,question,url,creatorUsername,outcomeType,closeTime,closeDate,lastBetTime,lastBetDate,probability,volume,volume24Hours,uniqueBettorCount,textDescription,descriptionError,randomizationGroup,randomizationOrder,randomizationSeed,forecastTimestamp,forecastCurrentDate,forecastModel,forecastInputPolicy,forecastStatus,forecastClosedAt,newsPredictedYesProbability,newsPredictedNoProbability,newsConfidence,newsShortReason,newsKeyEvidence,newsSourceUrls,newsSearchQueries,newsRawJson
-l0ypPE2EEC,Over 1 million votes in Texas Senate Republican Primary Runoff?,https://manifold.markets/Jack1/over-1-million-votes-in-texas-senat,Jack1,BINARY,1779871080000,2026-05-27T04:38:00-04:00,1779699615549,2026-05-25T05:00:15.549000-04:00,0.9022280698772049,2060,2059.9999999999995,3,"Resolves YES
-
-If the total valid votes is 1,000,000 or more in the Republican primary runoff for senate in Texas 2026
-
-(https://manifold.markets/embed/Jack1/how-many-votes-in-the-republican-pr)",,Control,30,20260525,2026-05-27T12:13:55-04:00,2026-05-27,gpt-4.1-mini,question+description+current_date only,closed,2026-05-27T04:38:00-04:00,,,,Market closed. No prediction generated.,,,,"{""status"": ""closed"", ""closed_at"": ""2026-05-27T04:38:00-04:00""}"
