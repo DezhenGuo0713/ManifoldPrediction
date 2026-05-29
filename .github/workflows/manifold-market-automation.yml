@@ -22,8 +22,6 @@ on:
         required: true
         default: false
         type: boolean
-  schedule:
-    - cron: "0 4,5,16,17 * * *"
 
 permissions:
   contents: write
@@ -70,21 +68,9 @@ jobs:
         run: |
           set -euo pipefail
 
-          mode="${{ github.event.inputs.mode || '' }}"
+          mode="${{ github.event.inputs.mode || 'refresh' }}"
           test_limit="${{ github.event.inputs.test_limit || '10' }}"
           post_comments="${{ github.event.inputs.post_comments || 'false' }}"
-
-          if [ -z "$mode" ]; then
-            ny_hour="$(TZ=America/New_York date +%H)"
-            if [ "$ny_hour" = "00" ]; then
-              mode="midnight"
-            elif [ "$ny_hour" = "12" ]; then
-              mode="refresh"
-            else
-              echo "Skipping scheduled run at America/New_York hour $ny_hour."
-              exit 0
-            fi
-          fi
 
           if [ -z "${OPENAI_API_KEY:-}" ]; then
             echo "::error::OPENAI_API_KEY repository secret is required."
